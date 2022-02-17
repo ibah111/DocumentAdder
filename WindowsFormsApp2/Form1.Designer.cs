@@ -1,8 +1,14 @@
-﻿
-namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2
 {
     partial class Form1
     {
+        private class User
+        {
+            public int ID { get; set; }
+            public string NAME { get; set; }
+        }
+        
+
         /// <summary>
         /// Обязательная переменная конструктора.
         /// </summary>
@@ -37,6 +43,7 @@ namespace WindowsFormsApp2
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.Users = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -93,8 +100,6 @@ namespace WindowsFormsApp2
             this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,32 +136,47 @@ namespace WindowsFormsApp2
             this.button5 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button9 = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
             this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
-            this.button6 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable2BindingSource)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -210,14 +230,12 @@ namespace WindowsFormsApp2
             this.tableLayoutPanel1.Controls.Add(this.maskedTextBox9, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.maskedTextBox10, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.maskedTextBox11, 2, 10);
-            this.tableLayoutPanel1.Controls.Add(this.label28, 0, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label29, 2, 14);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 4, 15);
-            this.tableLayoutPanel1.Controls.Add(this.textBox11, 0, 15);
-            this.tableLayoutPanel1.Controls.Add(this.textBox12, 0, 16);
+            this.tableLayoutPanel1.Controls.Add(this.textBox11, 0, 17);
+            this.tableLayoutPanel1.Controls.Add(this.textBox12, 0, 19);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 2, 15);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 3, 19);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 19);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 3, 20);
+            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 20);
             this.tableLayoutPanel1.Controls.Add(this.label31, 7, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox6, 6, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 5, 4);
@@ -227,33 +245,41 @@ namespace WindowsFormsApp2
             this.tableLayoutPanel1.Controls.Add(this.textBox10, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.maskedTextBox1, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.textBox9, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 16);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 3, 17);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 3, 18);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 15);
+            this.tableLayoutPanel1.Controls.Add(this.button4, 3, 16);
+            this.tableLayoutPanel1.Controls.Add(this.button5, 3, 17);
             this.tableLayoutPanel1.Controls.Add(this.label27, 3, 9);
             this.tableLayoutPanel1.Controls.Add(this.comboBox3, 3, 10);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 7, 13);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox5, 1, 12);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox6, 2, 12);
             this.tableLayoutPanel1.Controls.Add(this.comboBox7, 3, 12);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 3, 13);
-            this.tableLayoutPanel1.Controls.Add(this.label30, 4, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label33, 2, 11);
             this.tableLayoutPanel1.Controls.Add(this.label34, 3, 11);
-            this.tableLayoutPanel1.Controls.Add(this.label32, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.label26, 0, 11);
-            this.tableLayoutPanel1.Controls.Add(this.maskedTextBox12, 0, 12);
-            this.tableLayoutPanel1.Controls.Add(this.textBox13, 6, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label35, 6, 13);
-            this.tableLayoutPanel1.Controls.Add(this.textBox14, 5, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label36, 5, 13);
-            this.tableLayoutPanel1.Controls.Add(this.textBox15, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label37, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button6, 1, 13);
+            this.tableLayoutPanel1.Controls.Add(this.label28, 0, 16);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox8, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.label35, 0, 13);
+            this.tableLayoutPanel1.Controls.Add(this.button7, 0, 15);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox6, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox5, 2, 12);
+            this.tableLayoutPanel1.Controls.Add(this.label32, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.label33, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox9, 1, 14);
+            this.tableLayoutPanel1.Controls.Add(this.button8, 1, 15);
+            this.tableLayoutPanel1.Controls.Add(this.label36, 1, 13);
+            this.tableLayoutPanel1.Controls.Add(this.button6, 2, 13);
+            this.tableLayoutPanel1.Controls.Add(this.textBox14, 5, 13);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 6, 13);
+            this.tableLayoutPanel1.Controls.Add(this.textBox15, 7, 13);
+            this.tableLayoutPanel1.Controls.Add(this.label30, 4, 14);
+            this.tableLayoutPanel1.Controls.Add(this.label29, 2, 14);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.button9, 3, 18);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 3, 19);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 3, 14);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 4, 13);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 3, 13);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 20;
+            this.tableLayoutPanel1.RowCount = 21;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -266,15 +292,17 @@ namespace WindowsFormsApp2
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1195, 710);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1251, 749);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -283,14 +311,14 @@ namespace WindowsFormsApp2
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 13);
+            this.label1.Size = new System.Drawing.Size(150, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Добавление";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(599, 0);
+            this.label2.Location = new System.Drawing.Point(627, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 1;
@@ -307,19 +335,21 @@ namespace WindowsFormsApp2
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox1, 4);
             this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(3, 42);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(590, 21);
+            this.comboBox1.Size = new System.Drawing.Size(618, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(599, 13);
+            this.label4.Location = new System.Drawing.Point(627, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 26);
             this.label4.TabIndex = 4;
@@ -328,7 +358,7 @@ namespace WindowsFormsApp2
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(748, 13);
+            this.label5.Location = new System.Drawing.Point(783, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 26);
             this.label5.TabIndex = 5;
@@ -337,7 +367,7 @@ namespace WindowsFormsApp2
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(897, 13);
+            this.label6.Location = new System.Drawing.Point(939, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 26);
             this.label6.TabIndex = 6;
@@ -346,27 +376,27 @@ namespace WindowsFormsApp2
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(599, 42);
+            this.textBox1.Location = new System.Drawing.Point(627, 42);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
+            this.textBox1.Size = new System.Drawing.Size(150, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox2
             // 
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(748, 42);
+            this.textBox2.Location = new System.Drawing.Point(783, 42);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
+            this.textBox2.Size = new System.Drawing.Size(150, 20);
             this.textBox2.TabIndex = 2;
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox3
             // 
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(897, 42);
+            this.textBox3.Location = new System.Drawing.Point(939, 42);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 20);
+            this.textBox3.Size = new System.Drawing.Size(150, 20);
             this.textBox3.TabIndex = 3;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -382,7 +412,7 @@ namespace WindowsFormsApp2
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(152, 66);
+            this.label8.Location = new System.Drawing.Point(159, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 26);
             this.label8.TabIndex = 11;
@@ -391,7 +421,7 @@ namespace WindowsFormsApp2
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(301, 66);
+            this.label9.Location = new System.Drawing.Point(315, 66);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 26);
             this.label9.TabIndex = 12;
@@ -400,7 +430,7 @@ namespace WindowsFormsApp2
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(450, 66);
+            this.label10.Location = new System.Drawing.Point(471, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 26);
             this.label10.TabIndex = 13;
@@ -409,7 +439,7 @@ namespace WindowsFormsApp2
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(599, 66);
+            this.label11.Location = new System.Drawing.Point(627, 66);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 26);
             this.label11.TabIndex = 14;
@@ -418,7 +448,7 @@ namespace WindowsFormsApp2
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(748, 66);
+            this.label12.Location = new System.Drawing.Point(783, 66);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 26);
             this.label12.TabIndex = 15;
@@ -427,7 +457,7 @@ namespace WindowsFormsApp2
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(897, 66);
+            this.label13.Location = new System.Drawing.Point(939, 66);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(48, 26);
             this.label13.TabIndex = 16;
@@ -436,7 +466,7 @@ namespace WindowsFormsApp2
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 118);
+            this.label14.Location = new System.Drawing.Point(3, 120);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(139, 26);
             this.label14.TabIndex = 24;
@@ -445,7 +475,7 @@ namespace WindowsFormsApp2
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(152, 118);
+            this.label15.Location = new System.Drawing.Point(159, 120);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(129, 26);
             this.label15.TabIndex = 25;
@@ -454,7 +484,7 @@ namespace WindowsFormsApp2
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(301, 118);
+            this.label16.Location = new System.Drawing.Point(315, 120);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 26);
             this.label16.TabIndex = 26;
@@ -463,9 +493,9 @@ namespace WindowsFormsApp2
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(450, 118);
+            this.label17.Location = new System.Drawing.Point(471, 120);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(133, 39);
+            this.label17.Size = new System.Drawing.Size(149, 26);
             this.label17.TabIndex = 27;
             this.label17.Text = "\r\nДата пост об окончании ИП";
             // 
@@ -473,7 +503,7 @@ namespace WindowsFormsApp2
             // 
             this.label18.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label18, 2);
-            this.label18.Location = new System.Drawing.Point(599, 118);
+            this.label18.Location = new System.Drawing.Point(627, 120);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(230, 13);
             this.label18.TabIndex = 28;
@@ -482,10 +512,10 @@ namespace WindowsFormsApp2
             // maskedTextBox2
             // 
             this.maskedTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox2.Location = new System.Drawing.Point(152, 160);
+            this.maskedTextBox2.Location = new System.Drawing.Point(159, 149);
             this.maskedTextBox2.Mask = "00/00/0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox2.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox2.TabIndex = 12;
             this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox2.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -494,10 +524,10 @@ namespace WindowsFormsApp2
             // maskedTextBox3
             // 
             this.maskedTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox3.Location = new System.Drawing.Point(301, 160);
+            this.maskedTextBox3.Location = new System.Drawing.Point(315, 149);
             this.maskedTextBox3.Mask = "00/00/0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox3.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox3.TabIndex = 13;
             this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox3.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -506,10 +536,10 @@ namespace WindowsFormsApp2
             // maskedTextBox4
             // 
             this.maskedTextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox4.Location = new System.Drawing.Point(450, 160);
+            this.maskedTextBox4.Location = new System.Drawing.Point(471, 149);
             this.maskedTextBox4.Mask = "00/00/0000";
             this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox4.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox4.TabIndex = 14;
             this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox4.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -558,7 +588,7 @@ namespace WindowsFormsApp2
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView1.Location = new System.Drawing.Point(599, 160);
+            this.dataGridView1.Location = new System.Drawing.Point(627, 149);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -571,7 +601,7 @@ namespace WindowsFormsApp2
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 7);
-            this.dataGridView1.Size = new System.Drawing.Size(593, 208);
+            this.dataGridView1.Size = new System.Drawing.Size(621, 208);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -685,16 +715,16 @@ namespace WindowsFormsApp2
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 183);
+            this.label19.Location = new System.Drawing.Point(3, 172);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(91, 39);
+            this.label19.Size = new System.Drawing.Size(150, 26);
             this.label19.TabIndex = 34;
             this.label19.Text = "\r\nДата получения агентством";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(152, 183);
+            this.label20.Location = new System.Drawing.Point(159, 172);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(83, 26);
             this.label20.TabIndex = 35;
@@ -703,7 +733,7 @@ namespace WindowsFormsApp2
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(301, 183);
+            this.label21.Location = new System.Drawing.Point(315, 172);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(141, 26);
             this.label21.TabIndex = 36;
@@ -712,19 +742,19 @@ namespace WindowsFormsApp2
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(450, 183);
+            this.label22.Location = new System.Drawing.Point(471, 172);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 39);
+            this.label22.Size = new System.Drawing.Size(150, 26);
             this.label22.TabIndex = 37;
             this.label22.Text = "\r\nДата отказа в возбуждении";
             // 
             // maskedTextBox5
             // 
             this.maskedTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox5.Location = new System.Drawing.Point(3, 225);
+            this.maskedTextBox5.Location = new System.Drawing.Point(3, 201);
             this.maskedTextBox5.Mask = "00/00/0000";
             this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox5.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox5.TabIndex = 15;
             this.maskedTextBox5.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox5.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -733,10 +763,10 @@ namespace WindowsFormsApp2
             // maskedTextBox6
             // 
             this.maskedTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox6.Location = new System.Drawing.Point(152, 225);
+            this.maskedTextBox6.Location = new System.Drawing.Point(159, 201);
             this.maskedTextBox6.Mask = "00/00/0000";
             this.maskedTextBox6.Name = "maskedTextBox6";
-            this.maskedTextBox6.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox6.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox6.TabIndex = 16;
             this.maskedTextBox6.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox6.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -745,10 +775,10 @@ namespace WindowsFormsApp2
             // maskedTextBox7
             // 
             this.maskedTextBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox7.Location = new System.Drawing.Point(301, 225);
+            this.maskedTextBox7.Location = new System.Drawing.Point(315, 201);
             this.maskedTextBox7.Mask = "00/00/0000";
             this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox7.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox7.TabIndex = 17;
             this.maskedTextBox7.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox7.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -757,10 +787,10 @@ namespace WindowsFormsApp2
             // maskedTextBox8
             // 
             this.maskedTextBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox8.Location = new System.Drawing.Point(450, 225);
+            this.maskedTextBox8.Location = new System.Drawing.Point(471, 201);
             this.maskedTextBox8.Mask = "00/00/0000";
             this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox8.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox8.TabIndex = 18;
             this.maskedTextBox8.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox8.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -769,7 +799,7 @@ namespace WindowsFormsApp2
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 248);
+            this.label23.Location = new System.Drawing.Point(3, 224);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(93, 26);
             this.label23.TabIndex = 42;
@@ -778,7 +808,7 @@ namespace WindowsFormsApp2
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(152, 248);
+            this.label24.Location = new System.Drawing.Point(159, 224);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(99, 39);
             this.label24.TabIndex = 43;
@@ -787,7 +817,7 @@ namespace WindowsFormsApp2
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(301, 248);
+            this.label25.Location = new System.Drawing.Point(315, 224);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(94, 26);
             this.label25.TabIndex = 44;
@@ -796,10 +826,10 @@ namespace WindowsFormsApp2
             // maskedTextBox9
             // 
             this.maskedTextBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox9.Location = new System.Drawing.Point(3, 290);
+            this.maskedTextBox9.Location = new System.Drawing.Point(3, 266);
             this.maskedTextBox9.Mask = "00/00/0000";
             this.maskedTextBox9.Name = "maskedTextBox9";
-            this.maskedTextBox9.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox9.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox9.TabIndex = 19;
             this.maskedTextBox9.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox9.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -808,10 +838,10 @@ namespace WindowsFormsApp2
             // maskedTextBox10
             // 
             this.maskedTextBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox10.Location = new System.Drawing.Point(152, 290);
+            this.maskedTextBox10.Location = new System.Drawing.Point(159, 266);
             this.maskedTextBox10.Mask = "00/00/0000";
             this.maskedTextBox10.Name = "maskedTextBox10";
-            this.maskedTextBox10.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox10.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox10.TabIndex = 20;
             this.maskedTextBox10.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox10.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -820,32 +850,14 @@ namespace WindowsFormsApp2
             // maskedTextBox11
             // 
             this.maskedTextBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox11.Location = new System.Drawing.Point(301, 290);
+            this.maskedTextBox11.Location = new System.Drawing.Point(315, 266);
             this.maskedTextBox11.Mask = "00/00/0000 90:00";
             this.maskedTextBox11.Name = "maskedTextBox11";
-            this.maskedTextBox11.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox11.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox11.TabIndex = 21;
             this.maskedTextBox11.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox11.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
             this.maskedTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(3, 400);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(129, 26);
-            this.label28.TabIndex = 52;
-            this.label28.Text = "\r\nДобавить комментарий";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(301, 400);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(86, 26);
-            this.label29.TabIndex = 53;
-            this.label29.Text = "\r\nДобавить файл";
             // 
             // dataGridView2
             // 
@@ -890,7 +902,7 @@ namespace WindowsFormsApp2
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(599, 433);
+            this.dataGridView2.Location = new System.Drawing.Point(627, 428);
             this.dataGridView2.Name = "dataGridView2";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -901,8 +913,8 @@ namespace WindowsFormsApp2
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.RowHeadersVisible = false;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridView2, 5);
-            this.dataGridView2.Size = new System.Drawing.Size(593, 276);
+            this.tableLayoutPanel1.SetRowSpan(this.dataGridView2, 6);
+            this.dataGridView2.Size = new System.Drawing.Size(621, 318);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
@@ -1026,22 +1038,26 @@ namespace WindowsFormsApp2
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox11, 2);
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Location = new System.Drawing.Point(3, 433);
+            this.textBox11.Location = new System.Drawing.Point(3, 488);
+            this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(292, 20);
+            this.tableLayoutPanel1.SetRowSpan(this.textBox11, 2);
+            this.textBox11.Size = new System.Drawing.Size(306, 54);
             this.textBox11.TabIndex = 22;
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox12
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox12, 2);
             this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Location = new System.Drawing.Point(3, 463);
+            this.textBox12.Location = new System.Drawing.Point(3, 548);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
-            this.tableLayoutPanel1.SetRowSpan(this.textBox12, 4);
-            this.textBox12.Size = new System.Drawing.Size(292, 246);
+            this.tableLayoutPanel1.SetRowSpan(this.textBox12, 2);
+            this.textBox12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox12.Size = new System.Drawing.Size(306, 198);
             this.textBox12.TabIndex = 57;
             // 
             // panel1
@@ -1051,10 +1067,10 @@ namespace WindowsFormsApp2
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(301, 433);
+            this.panel1.Location = new System.Drawing.Point(315, 428);
             this.panel1.Name = "panel1";
-            this.tableLayoutPanel1.SetRowSpan(this.panel1, 4);
-            this.panel1.Size = new System.Drawing.Size(143, 114);
+            this.tableLayoutPanel1.SetRowSpan(this.panel1, 5);
+            this.panel1.Size = new System.Drawing.Size(150, 144);
             this.panel1.TabIndex = 58;
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
@@ -1065,9 +1081,9 @@ namespace WindowsFormsApp2
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(450, 553);
+            this.button2.Location = new System.Drawing.Point(471, 578);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 156);
+            this.button2.Size = new System.Drawing.Size(150, 168);
             this.button2.TabIndex = 60;
             this.button2.Text = "Готово!";
             this.button2.UseVisualStyleBackColor = false;
@@ -1077,9 +1093,9 @@ namespace WindowsFormsApp2
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(301, 553);
+            this.button3.Location = new System.Drawing.Point(315, 578);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 156);
+            this.button3.Size = new System.Drawing.Size(150, 168);
             this.button3.TabIndex = 61;
             this.button3.Text = "Посмотреть вложения";
             this.button3.UseVisualStyleBackColor = true;
@@ -1088,38 +1104,39 @@ namespace WindowsFormsApp2
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1046, 13);
+            this.label31.Location = new System.Drawing.Point(1095, 13);
             this.label31.Name = "label31";
             this.tableLayoutPanel1.SetRowSpan(this.label31, 5);
-            this.label31.Size = new System.Drawing.Size(143, 104);
+            this.label31.Size = new System.Drawing.Size(143, 130);
             this.label31.TabIndex = 62;
             this.label31.Text = "\r\nГорячие клавиши:\r\n\r\nEnter -> Поиск\r\nCtrl + D -> Очистить панель\r\nCtrl + Q -> Уд" +
-    "алить файлы\r\nCtrl + Shift + D -> Очистить все";
+    "алить файлы\r\nCtrl + Shift + D -> Очистить все\r\nPageDown -> Перенести в конец стр" +
+    "оки";
             // 
             // textBox6
             // 
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(897, 95);
+            this.textBox6.Location = new System.Drawing.Point(939, 95);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(143, 20);
+            this.textBox6.Size = new System.Drawing.Size(150, 20);
             this.textBox6.TabIndex = 6;
             this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox5
             // 
             this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(748, 95);
+            this.textBox5.Location = new System.Drawing.Point(783, 95);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(143, 20);
+            this.textBox5.Size = new System.Drawing.Size(150, 20);
             this.textBox5.TabIndex = 5;
             this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox4
             // 
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(599, 95);
+            this.textBox4.Location = new System.Drawing.Point(627, 95);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 20);
+            this.textBox4.Size = new System.Drawing.Size(150, 20);
             this.textBox4.TabIndex = 4;
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -1128,7 +1145,7 @@ namespace WindowsFormsApp2
             this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox7.Location = new System.Drawing.Point(3, 95);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(143, 20);
+            this.textBox7.Size = new System.Drawing.Size(150, 20);
             this.textBox7.TabIndex = 7;
             this.textBox7.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
             this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -1136,9 +1153,10 @@ namespace WindowsFormsApp2
             // textBox8
             // 
             this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(152, 95);
+            this.textBox8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox8.Location = new System.Drawing.Point(159, 95);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(143, 20);
+            this.textBox8.Size = new System.Drawing.Size(150, 22);
             this.textBox8.TabIndex = 8;
             this.textBox8.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
             this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -1147,9 +1165,9 @@ namespace WindowsFormsApp2
             // 
             this.textBox10.BackColor = System.Drawing.SystemColors.Window;
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Location = new System.Drawing.Point(450, 95);
+            this.textBox10.Location = new System.Drawing.Point(471, 95);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(143, 20);
+            this.textBox10.Size = new System.Drawing.Size(150, 20);
             this.textBox10.TabIndex = 10;
             this.textBox10.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
             this.textBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -1157,10 +1175,10 @@ namespace WindowsFormsApp2
             // maskedTextBox1
             // 
             this.maskedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox1.Location = new System.Drawing.Point(3, 160);
+            this.maskedTextBox1.Location = new System.Drawing.Point(3, 149);
             this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(143, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(150, 20);
             this.maskedTextBox1.TabIndex = 11;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox1.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
@@ -1169,9 +1187,9 @@ namespace WindowsFormsApp2
             // textBox9
             // 
             this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(301, 95);
+            this.textBox9.Location = new System.Drawing.Point(315, 95);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(143, 20);
+            this.textBox9.Size = new System.Drawing.Size(150, 20);
             this.textBox9.TabIndex = 9;
             this.textBox9.EnabledChanged += new System.EventHandler(this.maskedTextBox8_EnabledChanged);
             this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -1180,9 +1198,9 @@ namespace WindowsFormsApp2
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(450, 463);
+            this.button1.Location = new System.Drawing.Point(471, 428);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 23);
+            this.button1.Size = new System.Drawing.Size(150, 23);
             this.button1.TabIndex = 59;
             this.button1.Text = "Платежи";
             this.button1.UseVisualStyleBackColor = true;
@@ -1192,9 +1210,9 @@ namespace WindowsFormsApp2
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(450, 493);
+            this.button4.Location = new System.Drawing.Point(471, 458);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(143, 23);
+            this.button4.Size = new System.Drawing.Size(150, 23);
             this.button4.TabIndex = 63;
             this.button4.Text = "Протокол";
             this.button4.UseVisualStyleBackColor = true;
@@ -1204,9 +1222,9 @@ namespace WindowsFormsApp2
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(450, 523);
+            this.button5.Location = new System.Drawing.Point(471, 488);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(143, 24);
+            this.button5.Size = new System.Drawing.Size(150, 24);
             this.button5.TabIndex = 64;
             this.button5.Text = "Создать банкротство";
             this.button5.UseVisualStyleBackColor = true;
@@ -1215,7 +1233,7 @@ namespace WindowsFormsApp2
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(450, 248);
+            this.label27.Location = new System.Drawing.Point(471, 224);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(41, 26);
             this.label27.TabIndex = 49;
@@ -1225,44 +1243,90 @@ namespace WindowsFormsApp2
             // 
             this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(450, 290);
+            this.comboBox3.Location = new System.Drawing.Point(471, 266);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(143, 21);
+            this.comboBox3.Size = new System.Drawing.Size(150, 21);
             this.comboBox3.TabIndex = 0;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
-            // comboBox2
+            // comboBox7
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Приказ",
-            "Иск",
-            "Правопреемство",
-            "Банкротство",
-            "Испол. пр-во"});
-            this.comboBox2.Location = new System.Drawing.Point(1046, 374);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(146, 21);
-            this.comboBox2.TabIndex = 0;
-            this.comboBox2.Visible = false;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox7.DataSource = this.Users;
+            this.comboBox7.DisplayMember = "NAME";
+            this.comboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox7.Location = new System.Drawing.Point(471, 333);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(150, 21);
+            this.comboBox7.TabIndex = 69;
+            this.comboBox7.ValueMember = "ID";
             // 
-            // comboBox5
+            // label34
             // 
-            this.comboBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "213123212"});
-            this.comboBox5.Location = new System.Drawing.Point(152, 347);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(143, 21);
-            this.comboBox5.TabIndex = 67;
+            this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label34.Location = new System.Drawing.Point(471, 317);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(150, 13);
+            this.label34.TabIndex = 74;
+            this.label34.Text = "Исполнитель задачи";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label26.Location = new System.Drawing.Point(3, 317);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(150, 13);
+            this.label26.TabIndex = 71;
+            this.label26.Text = "Дата поступления";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(3, 455);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(129, 26);
+            this.label28.TabIndex = 52;
+            this.label28.Text = "\r\nДобавить комментарий";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(3, 398);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(150, 21);
+            this.comboBox8.TabIndex = 84;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label35.Location = new System.Drawing.Point(3, 382);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(150, 13);
+            this.label35.TabIndex = 86;
+            this.label35.Text = "Адрес отправителя";
+            // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Location = new System.Drawing.Point(3, 428);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(150, 24);
+            this.button7.TabIndex = 88;
+            this.button7.Text = "Добавить в список";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // comboBox6
             // 
+            this.comboBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
@@ -1277,278 +1341,246 @@ namespace WindowsFormsApp2
             "П.1,СТ.45",
             "П.5,СТ.46",
             "П.2,СТ.46"});
-            this.comboBox6.Location = new System.Drawing.Point(301, 347);
+            this.comboBox6.Location = new System.Drawing.Point(159, 333);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(143, 21);
+            this.comboBox6.Size = new System.Drawing.Size(150, 21);
             this.comboBox6.TabIndex = 68;
             // 
-            // comboBox7
+            // comboBox5
             // 
-            this.comboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "АНИКИНА",
-            "БЕЗДЕНЕЖНЫХ",
-            "БЕРЕЗКИНА",
-            "БРЯНЦЕВ",
-            "БУКАЧ",
-            "БУХГАЛТЕРИЯ",
-            "ВЕЛЬКОВА",
-            "ГАВРИЛЬ",
-            "ГУСЕВА",
-            "ДЕМИН",
-            "ДЖГАРКАВА",
-            "НЕ НАШЕ",
-            "ЕКИМОВ",
-            "ЕРШОВА",
-            "ИЛЬИЧЕВА",
-            "КАРДАКОВА",
-            "КЛЕФАС",
-            "КЛЮЧНИКОВА",
-            "КОЖУШКО",
-            "ПЕТРОВ",
-            "КОЗЛОВСКИХ",
-            "КОНОВА",
-            "КОНОВАЛОВА",
-            "КОРОБЕЙНИКОВ",
-            "КОРОЛЕВА",
-            "КОРЧУН",
-            "КУЗНЕЦОВ",
-            "КУЗНЕЦОВ ",
-            "КУПЦОВ",
-            "ЛОСКУТОВА",
-            "МАКСИМОВА",
-            "МАРАКУЛИНА",
-            "МАРТЫНОВА",
-            "НАУМКИНА",
-            "НЕ ОПОЗНАНО",
-            "ДРУЖЕНЬКОВ",
-            "НОСОВА",
-            "ПАТРУШЕВА",
-            "РЫКАЛОВА",
-            "СКРИГАЛОВСКАЯ",
-            "СМЕРДОВА",
-            "СМИРНОВА",
-            "СОБЯНИНА",
-            "ТКАЧЕВА",
-            "ФИЛЬКИН",
-            "ЧЕРМНЫХ",
-            "ШЕВЧЕНКО",
-            "ШУБИН",
-            "ШУЛЕПОВА",
-            "ЩЕРБАКОВА",
-            "ЭВРЮКОВ",
-            "ЯШИНА",
-            "ОЧЕРЕДНАЯ",
-            "КУЛИКОВА",
-            "ПУТЯЙКИН",
-            "ГАРЕЕВ",
-            "ТЕСЛЕНКО",
-            "ПЛЕХОВА",
-            "РОДЫГИН",
-            "ПЛЮСНИНА",
-            "ПЕТРОВА",
-            "ЗУБАРЕВ",
-            "КОНОПЛИНА",
-            "СЕМУШКИН",
-            "БОЛОВ",
-            "ДУМОВ",
-            "АНДРЕЕВА",
-            "КОНОПЛИНА ",
-            "СЕМЕНОВА",
-            "ГОСТРАЯ",
-            "РЫЖКОВ",
-            "ДУМОВ ",
-            "СЁМУШКИН",
-            "ШАМИНА",
-            "ФАДЕЕВ",
-            "ВЕРШИНИН",
-            "КАМАЛ",
-            "ХИЛИНИЧЕНКО",
-            "ЭЛИФХАНОВ",
-            "БОБРОВСКАЯ ",
-            "АБДРАХМАНОВА",
-            "ВЕСНИНА",
-            "КИСЛИЦКАЯ",
-            "САННИКОВА",
-            "КУЛИКОВ",
-            "ЩУЛЕПОВА",
-            "ЗАРИПОВА",
-            "БОГДАНОВИЧ",
-            "КАРИМОВ",
-            "ПОТАПОВА",
-            "ШУЛЬГА",
-            " ШАМИНА",
-            "КУХАРЕВ",
-            "ЕРШОВА ",
-            "КАМЕНЕВ ",
-            "КУШКОВА",
-            "МАРАКУЛИНА ",
-            "СРАБИОНОВА",
-            "ТЫРТЫШНИКОВА",
-            "ДАНИЛИН",
-            "ГАГАРИНОВА",
-            "КАМЕНЕВ",
-            "АУТСОРСИНГ",
-            "СОБОЛЕВА",
-            "КУЛТАЕВА",
-            "ГРИГОРЬЕВА",
-            "БЕЛЫХ",
-            "ПУШКАРЕВА",
-            "СОЛОВЦОВА",
-            "БОТЕЗАТУ",
-            "НУЖДОВ",
-            "КОРОТАЕВА",
-            "ИВАНОВА",
-            "ТОЛСТОБРОВ",
-            "ШАЙХУТДИНОВА",
-            "ГУЛИНА",
-            "ХОХЛОВА",
-            "ПОВЕСТКА",
-            "ТУТАТЧИКОВА",
-            "НЕ ОПРО",
-            "КУКАРЕВА",
-            "КИРЯКОВ",
-            "ГАГРИНОВА",
-            "КИРЯКОВ ",
-            "ЮСОВА",
-            "АНАДЕЕВА",
-            "АНАДЕЕВА ",
-            "КОБОЗЕВ",
-            "КОСТИНА",
-            "ВАСЬКО",
-            "КАТКОВ",
-            "ЕГОРОВА",
-            "КУШКОВ",
-            "УДАЛОВА",
-            "КОЗЛОА",
-            "СУХОВЕЕВА",
-            "ЕЛОВСКИХ",
-            "ДУБРОВСКАЯ",
-            "ЧУФИСТОВ",
-            "ГАГАРИНОВ",
-            "КОЗЛОВА"});
-            this.comboBox7.Location = new System.Drawing.Point(450, 347);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(143, 21);
-            this.comboBox7.TabIndex = 69;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(450, 374);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(106, 17);
-            this.checkBox1.TabIndex = 70;
-            this.checkBox1.Text = "Учёт конвертов\r\n";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(599, 400);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(116, 26);
-            this.label30.TabIndex = 54;
-            this.label30.Text = "\r\nИспол. производство";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label33.Location = new System.Drawing.Point(301, 331);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(143, 13);
-            this.label33.TabIndex = 73;
-            this.label33.Text = "Статья и пункт";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label34.Location = new System.Drawing.Point(450, 331);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(143, 13);
-            this.label34.TabIndex = 74;
-            this.label34.Text = "Исполнитель задачи";
+            this.comboBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "213123212"});
+            this.comboBox5.Location = new System.Drawing.Point(315, 333);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(150, 21);
+            this.comboBox5.TabIndex = 67;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label32.Location = new System.Drawing.Point(152, 331);
+            this.label32.Location = new System.Drawing.Point(315, 317);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(143, 13);
+            this.label32.Size = new System.Drawing.Size(150, 13);
             this.label32.TabIndex = 72;
             this.label32.Text = "Название документа";
             // 
-            // label26
+            // label33
             // 
-            this.label26.AutoSize = true;
-            this.label26.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label26.Location = new System.Drawing.Point(3, 331);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(143, 13);
-            this.label26.TabIndex = 71;
-            this.label26.Text = "Дата поступления";
+            this.label33.AutoSize = true;
+            this.label33.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label33.Location = new System.Drawing.Point(159, 317);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(150, 13);
+            this.label33.TabIndex = 73;
+            this.label33.Text = "Статья и пункт";
             // 
-            // maskedTextBox12
+            // comboBox9
             // 
-            this.maskedTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox12.Location = new System.Drawing.Point(3, 347);
-            this.maskedTextBox12.Mask = "00/00/0000";
-            this.maskedTextBox12.Name = "maskedTextBox12";
-            this.maskedTextBox12.Size = new System.Drawing.Size(143, 20);
-            this.maskedTextBox12.TabIndex = 75;
-            this.maskedTextBox12.ValidatingType = typeof(System.DateTime);
+            this.comboBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(159, 398);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(150, 21);
+            this.comboBox9.TabIndex = 85;
             // 
-            // textBox13
+            // button8
             // 
-            this.textBox13.Location = new System.Drawing.Point(897, 403);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(143, 20);
-            this.textBox13.TabIndex = 76;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(897, 371);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(25, 13);
-            this.label35.TabIndex = 77;
-            this.label35.Text = "Суд";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(748, 403);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(143, 20);
-            this.textBox14.TabIndex = 78;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.Location = new System.Drawing.Point(159, 428);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(150, 24);
+            this.button8.TabIndex = 89;
+            this.button8.Text = "Добавить в список";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(748, 371);
+            this.label36.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label36.Location = new System.Drawing.Point(159, 382);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(69, 13);
-            this.label36.TabIndex = 79;
-            this.label36.Text = "Взыскатель";
+            this.label36.Size = new System.Drawing.Size(150, 13);
+            this.label36.TabIndex = 87;
+            this.label36.Text = "Отправитель";
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Location = new System.Drawing.Point(315, 363);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(150, 29);
+            this.button6.TabIndex = 82;
+            this.button6.Text = "Добавить в список";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(783, 363);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(143, 20);
+            this.textBox14.TabIndex = 78;
+            this.textBox14.Visible = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Приказ",
+            "Иск",
+            "Правопреемство",
+            "Банкротство",
+            "Испол. пр-во"});
+            this.comboBox2.Location = new System.Drawing.Point(939, 363);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(146, 21);
+            this.comboBox2.TabIndex = 0;
+            this.comboBox2.Visible = false;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(301, 16);
+            this.textBox15.Location = new System.Drawing.Point(1095, 363);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(143, 20);
             this.textBox15.TabIndex = 80;
+            this.textBox15.Visible = false;
             // 
-            // label37
+            // label30
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(301, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(43, 13);
-            this.label37.TabIndex = 81;
-            this.label37.Text = "Реестр";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(627, 395);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(116, 26);
+            this.label30.TabIndex = 54;
+            this.label30.Text = "\r\nИспол. производство";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(315, 395);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(86, 26);
+            this.label29.TabIndex = 53;
+            this.label29.Text = "\r\nДобавить файл";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 333);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
+            this.dateTimePicker1.TabIndex = 90;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 1, 10, 9, 2, 41, 0);
+            // 
+            // button9
+            // 
+            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(471, 518);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(150, 24);
+            this.button9.TabIndex = 92;
+            this.button9.Text = "Другие документы";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(471, 548);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(125, 17);
+            this.checkBox3.TabIndex = 94;
+            this.checkBox3.Text = "Постановка задачи";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.checkBox1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox4, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(471, 398);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(150, 24);
+            this.tableLayoutPanel2.TabIndex = 96;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(69, 17);
+            this.checkBox1.TabIndex = 70;
+            this.checkBox1.Text = "Учёт конвертов\r\n";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(78, 3);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(69, 17);
+            this.checkBox4.TabIndex = 95;
+            this.checkBox4.Text = "Приставы";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(627, 363);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(59, 17);
+            this.checkBox2.TabIndex = 91;
+            this.checkBox2.Text = "Сканы";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.comboBox4, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button10, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(471, 363);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(150, 29);
+            this.tableLayoutPanel3.TabIndex = 97;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(3, 3);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(69, 21);
+            this.comboBox4.TabIndex = 92;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(78, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(69, 23);
+            this.button10.TabIndex = 93;
+            this.button10.Text = "Открыть";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // dataTable1TableAdapter
             // 
@@ -1558,22 +1590,11 @@ namespace WindowsFormsApp2
             // 
             this.dataTable2TableAdapter.ClearBeforeFill = true;
             // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(152, 374);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(143, 23);
-            this.button6.TabIndex = 82;
-            this.button6.Text = "Добавить в список";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 710);
+            this.ClientSize = new System.Drawing.Size(1251, 749);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(643, 630);
@@ -1581,6 +1602,7 @@ namespace WindowsFormsApp2
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Users)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1588,6 +1610,9 @@ namespace WindowsFormsApp2
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable2BindingSource)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1700,14 +1725,25 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.BindingSource Users;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button button10;
     }
 }
 

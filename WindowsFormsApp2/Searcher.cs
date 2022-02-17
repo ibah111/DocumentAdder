@@ -34,26 +34,25 @@ namespace WindowsFormsApp2
             if (dataGridView2.Rows.Count != 0)
                 dataGridView2.Rows.Clear();
             string where = GetSQL("la.");
-            string conn = $"Driver={{ODBC Driver 17 for SQL Server}};Server=newct;Database={Settings.dbs};Uid=contact;Pwd=contact;";
 
             Settings.command = "select TOP(100) la.id,case la.typ when 0 then 'Неопределен' when 1 then 'Приказ' when 2 then 'Иск' when 3 then 'Правопреемство' when 4 then 'Банкротство' end typ," +
                 "case la.typ when 2 then (select name from dict where parent_id = 25 and code = la.act_status) else (select name from dict where parent_id = 18 and code = la.status) end status," +
                 " u.f+' '+u.i+' '+u.o fio_vz, la.name,pr.name,p.f+' '+p.i+' '+p.o,p.birth_date,la.contract, la.exec_number,	lc.name," +
-                "convert(varchar,la.total_sum) + ' Руб', la.dsc from law_act la left join law_exec le on le.r_act_id=la.id 	left join person p on p.id = la.r_person_id " +
+                "convert(varchar,la.total_sum) + ' Руб', la.dsc from law_act la left join person p on p.id = la.r_person_id " +
                 "left join law_court lc on lc.id=la.r_court_id 	left join portfolio pr on pr.id = la.r_portfolio_id left join work_task wt on wt.r_debt_id = la.r_debt_id left join users u on u.id = wt.r_user_id" +
                 $" where {where}";
-            using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(Settings.command, conn))
+            using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(Settings.command, Program.Conn))
             {
                 dataAdapter.Fill(dataSet1.DataTable1);
             }
             string where1 = GetSQL("le.");
-            var str = "select TOP(100) le.id,(select name from dict where parent_id = 77 and code = le.state) Status,(select name from dict where parent_id = 6 and code=d.status) Debt_status," +
+            Settings.command1 = "select TOP(100) le.id,(select name from dict where parent_id = 77 and code = le.state) Status,(select name from dict where parent_id = 6 and code=d.status) Debt_status," +
                 "u.f+' '+u.i+' '+u.o fio_vz,pr.name,p.f+' '+p.i+' '+p.o,p.birth_date,le.contract,le.fssp_doc_num , le.court_doc_num,lc.name,convert(varchar,la.total_sum) + ' Руб',lc1.name,la.exec_number," +
                 " le.dsc from law_exec le left join person p on p.id = le.r_person_id left join portfolio pr on pr.id = le.r_portfolio_id left join law_act la on la.id=le.r_act_id " +
                 "left join debt d on d.id = le.r_debt_id left join law_court lc on lc.id=le.r_court_id left join law_court lc1 on lc1.id = la.r_court_id left join work_task wt on wt.r_debt_id = la.r_debt_id" +
                 " left join users u on u.id = wt.r_user_id " +
                 $" where {where1} and le.state != 5 and le.state != 6";
-            using (OdbcDataAdapter dataAd = new OdbcDataAdapter(str, conn))
+            using (OdbcDataAdapter dataAd = new OdbcDataAdapter(Settings.command1, Program.Conn))
             {
                 dataAd.Fill(dataSet1.DataTable2);
             }

@@ -2,8 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
 using System.IO;
@@ -11,18 +9,99 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Ports;
+
 
 namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+        private static string path_to_list = Environment.CurrentDirectory + "\\Список_Для_Документов.txt";
+        private static string path_to_list_adr = Environment.CurrentDirectory + "\\Список_Для_Адреса.txt";
+        private static string path_to_list_otprav = Environment.CurrentDirectory + "\\Список_Для_Отправителя.txt";
+        private static SerialPort currentPort = new SerialPort();
+        private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string indata = sp.ReadExisting();
+            Action action = () =>
+            {
+                    ClearTextBox();
+                string given = indata;
+                    textBox4.Text = given.Replace("\r", string.Empty);
+                    //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
+                    Searcher searcher = new Searcher("", "", "", textBox4.Text, "", "");
+                    searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
+                    comboBox1.SelectedIndex = 12;
+                    if (dataGridView1.RowCount == 1)
+                    {
+                        textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
+                        textBox1.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[0]; //Фамилия
+                        textBox2.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[1]; //Имя
+                        textBox3.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[2]; //Отчество
+                        textBox7.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
+                        textBox8.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
+                        textBox5.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
+                        textBox6.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
+                        textBox12.Text = dataGridView1.Rows[0].Cells[12].Value.ToString(); //Коммент
+                        textBox15.Text = dataGridView1.Rows[0].Cells[5].Value.ToString(); //реестр
+                        textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
+                        string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //ID Дела
+                        string int_vkl = GetIntKvl(vkl);
+                        JObject o = JObject.Parse(Settings.json);
+                        string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
+                        comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
+                        int status_get = GetStatusBible(status_text);
+                        if (status_get == 99999)
+                            comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
+                        else
+                            comboBox3.SelectedIndex = status_get - 1;
+                        maskedTextBox5.Text = DateTime.Now.ToShortDateString();
+                    }
+                indata = String.Empty;
+
+
+            };
+            if (InvokeRequired)
+                Invoke(action);
+            else
+                action();
+        }
+        
         public Form1()
         {
             InitializeComponent();
-            List<string> spis = File.ReadLines(Environment.CurrentDirectory + "\\Список.txt").ToList();
-            comboBox5.DataSource = spis;
+            LoadList();
+            currentPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+            comboBox4.DataSource = SerialPort.GetPortNames();
+
+            if (File.Exists(path_to_list))
+            {
+                List<string> spis = File.ReadLines(path_to_list).ToList();
+                comboBox5.DataSource = spis;
+            } else
+            {
+                File.CreateText(path_to_list);
+            }
+            if (File.Exists(path_to_list_adr))
+            {
+                List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
+                comboBox8.DataSource = spis1;
+            }
+            else
+            {
+                File.CreateText(path_to_list_adr);
+            }
+            if (File.Exists(path_to_list_otprav))
+            {
+                List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
+                comboBox9.DataSource = spis2;
+            }
+            else
+            {
+                File.CreateText(path_to_list_otprav);
+            }
             Settings.json = File.ReadAllText(Environment.CurrentDirectory + "\\Data\\config.json");
             panel1.AllowDrop = true;
         }
@@ -34,6 +113,7 @@ namespace WindowsFormsApp2
                 comboBox1.Items.Add(o[(string)a.ToString()]["тип_документа"]);
             this.Text = FromStart.DownloadInfo();
             comboBox1.SelectedIndex = 0;
+            //LoadPeople();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +136,7 @@ namespace WindowsFormsApp2
             maskedTextBox9.Enabled = (bool)o[a]["дата_отмены_сп"];
             maskedTextBox10.Enabled = (bool)o[a]["дата_исполнения_недостатков"];
             maskedTextBox11.Enabled = (bool)o[a]["дата_и_время_сз"];
+            Data.int_color = (int)o[a]["цвет_карточки"];
         }
 
         private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
@@ -96,6 +177,8 @@ namespace WindowsFormsApp2
                 Adder.file.Clear();
                 MessageBox.Show("Все файлы удалены, Поля очищены!", "Удачно!");
             }
+            if (e.KeyCode == Keys.PageDown)
+                textBox11.SelectionStart = textBox11.Text.Length;
         }
 
         private void ClearTextBox()
@@ -123,7 +206,6 @@ namespace WindowsFormsApp2
                 textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString(); // № КД
                 textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString(); //№ Дела
                 textBox12.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString(); //Коммент
-                textBox13.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString(); //Суд
                 textBox15.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString(); //реестр
                 textBox14.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
                 string vkl = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); //ID Дела
@@ -214,7 +296,8 @@ namespace WindowsFormsApp2
         private void button1_Click(object sender, EventArgs e)
         {
             Settings.debt_id = textBox4.Text;
-            if(!string.IsNullOrWhiteSpace(Settings.debt_id))
+            Settings.vkl = comboBox2.SelectedIndex;
+            if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
                 Form2 testDialog = new Form2();
                 testDialog.Show();
@@ -258,7 +341,7 @@ namespace WindowsFormsApp2
             ls.Clear();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void  button2_Click(object sender, EventArgs e)
         {
             if(CheckMasked() == false)
             {
@@ -312,25 +395,55 @@ namespace WindowsFormsApp2
                     command.ExecuteReader();
             }
             Adder.file.Clear();
-            if (errors == 0)
+
+
+            if (checkBox3.Checked == true)
             {
-                MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                /*try
+                Form5 f = new Form5(ref errors, this);
+                f.Show();
+                f.FormClosed += F_FormClosed;
+            } else
+            {
+                    try
+                    {
+                        WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
+                        var vm = getRequest("without_task");
+                        var dataString = JsonConvert.SerializeObject(vm);
+                        client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                        var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                    }
+                    catch (Exception ee)
+                    {
+                        errors += 1;
+                        MessageBox.Show($"Ошибка:{ee}\r\nДанные в таблицу не занесены!");
+                    }
+                    if (errors == 0)
                 {
-                    WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
-                    var vm = new { token = "123", date_post = textBox1.Text, Convert = textBox2.Text, adres_otprav = textBox3.Text, otprav = textBox4.Text };
-                    var dataString = JsonConvert.SerializeObject(vm);
-                    client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    var response = client.UploadString(new Uri("http://192.168.0.20:1228/123"), "POST", dataString);
+                    MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTextBox();
                 }
-                catch
-                {
-                    MessageBox.Show("Данные в таблицу не занесены!");
-                }*/
+                else
+                    MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+                errors = 0;
             }
-                
-            else
-                MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+        }
+
+        private void F_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ClearTextBox();
+        }
+
+        public object getRequest(string typ, string id_task="0") {
+            bool pristavi = false;
+            if (checkBox4.Checked == true)
+                pristavi = true;
+            bool convert = false;
+            if (checkBox1.Checked == true)
+                convert = true;
+            bool nal_skan = false;
+            if (checkBox2.Checked == true)
+                nal_skan = true;
+            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}" };
         }
 
         private bool CheckMasked()
@@ -338,7 +451,7 @@ namespace WindowsFormsApp2
             foreach (Control control in tableLayoutPanel1.Controls)
             {
                 if (control is MaskedTextBox)
-                    if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false)
+                    if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != "maskedTextBox12")
                         return false;
             }
             return true;
@@ -402,7 +515,6 @@ namespace WindowsFormsApp2
             textBox10.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
             textBox8.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
             textBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
-            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString(); //Суд
             textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString(); //реестр
             textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
                 JObject o = JObject.Parse(Settings.json);
@@ -449,7 +561,117 @@ namespace WindowsFormsApp2
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if ((comboBox5.Text == " ") || (comboBox5.Text == ""))
+                MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
+            else
+            {
+                StreamWriter sw = new StreamWriter(path_to_list, true);
+                sw.WriteLine($"{comboBox5.Text}");
+                sw.Close();
+                List<string> spis = File.ReadLines(path_to_list).ToList();
+                comboBox5.DataSource = spis;
+            }
+        }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if ((comboBox8.Text == " ") || (comboBox8.Text == ""))
+                MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
+            else
+            {
+                StreamWriter sw = new StreamWriter(path_to_list_adr, true);
+                sw.WriteLine($"{comboBox8.Text}");
+                sw.Close();
+                List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
+                comboBox8.DataSource = spis1;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if ((comboBox9.Text == " ") || (comboBox9.Text == ""))
+                MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
+            else
+            {
+                File.AppendAllText(path_to_list_otprav, comboBox9.Text+"\n");
+                List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
+                comboBox9.DataSource = spis2;
+            }
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = textBox11.Text.Replace("\t", " ").Replace("\r\n", " ");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            bool convert = false;
+            if (checkBox1.Checked == true)
+                convert = true;
+            bool nal_skan = false;
+            if (checkBox2.Checked == true)
+                nal_skan = true;
+            Settings.conv = convert;
+            Settings.nal_skan = nal_skan;
+            Settings.adr_otp = comboBox8.Text;
+            Settings.otprav = comboBox9.Text;
+            Settings.doc_name = comboBox5.Text;
+            Settings.date_post = dateTimePicker1.Value.ToShortDateString();
+            Form4 f = new Form4();
+            f.Show();
+        }
+
+        private void LoadList()
+        {
+
+            try
+            {
+                WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
+                var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "users" };
+                string old_text = comboBox7.Text;
+                var dataString = JsonConvert.SerializeObject(vm);
+                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                List<User> responseString = JsonConvert.DeserializeObject<List<User>>(response);
+                if (responseString.Count > 0)
+                {
+                    Users.DataSource = responseString;
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show($"Ошибка при получении данных:{ee}");
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            switch (button10.Text)
+            {
+                case "Открыть":
+                    if (currentPort.IsOpen)
+                        currentPort.Close();
+                    currentPort.PortName = comboBox4.Text;
+                    try
+                    {
+                        currentPort.Open();
+                        button10.Text = "Закрыть";
+                        comboBox4.Enabled = false;
+                    }
+                    catch
+                    {
+                        currentPort.Close();
+                        MessageBox.Show("Сканер не обнаружен");
+                    }
+                    break;
+                case "Закрыть":
+                    comboBox4.Enabled = true;
+                    currentPort.Close();
+                    button10.Text = "Открыть";
+                    break;
+
+            }
         }
     }
 }

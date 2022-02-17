@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ namespace WindowsFormsApp2
         private static int _vkl_int;
         private static string _id;
         private static string _status_text;
+        public static int int_color;
 
         public static string vkl_string { get{ return vkl_string; } set { _vkl_string = value; } }
         public static int status { get { return _status; } set { _status = value; } }
@@ -126,6 +129,11 @@ namespace WindowsFormsApp2
 
             if (Data.vkl_int != 4)
                 sql.Add($"update law_act set court_order_delivery = 2 where id = {id}");
+
+
+            if(Data.vkl_int != 4 && Data.int_color != -1)
+                sql.Add($"update law_act set int_color = {int_color} where id = {id}");
+
 
 
             switch (vkl_int)

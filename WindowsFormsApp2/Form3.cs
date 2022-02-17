@@ -28,8 +28,7 @@ namespace WindowsFormsApp2
             if (Settings.vkl != 4)
             {
                 string command = $"select u.f+' '+u.i+' '+u.o,da.REL_SERVER_PATH,da.FILE_SERVER_NAME, da.name, lap.dt,d.name,lap.dsc from law_act_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ left join doc_attach da on da.id = lap.r_doc_attach_id where d.parent_id = 26 and lap.parent_id = {Settings.debt_id}";
-                string connect = $"Driver={{ODBC Driver 17 for SQL Server}};Server=newct;Database=i_collect;Uid=contact;Pwd=contact;";
-                using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, connect))
+                using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, Program.Conn))
                 {
                     dataAdapter.Fill(dataSet1.DataTable3);
                 }
@@ -38,8 +37,7 @@ namespace WindowsFormsApp2
             else
             {
                 string command = $"select u.f+' '+u.i+' '+u.o,da.REL_SERVER_PATH,da.FILE_SERVER_NAME, da.name, lap.dt,d.name,lap.dsc from law_exec_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ left join doc_attach da on da.id = lap.r_doc_attach_id where d.parent_id = 26 and lap.parent_id = {Settings.debt_id}";
-                string connect = $"Driver={{ODBC Driver 17 for SQL Server}};Server=newct;Database=i_collect;Uid=contact;Pwd=contact;";
-                using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, connect))
+                using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, Program.Conn))
                 {
                     dataAdapter.Fill(dataSet1.DataTable3);
                 }

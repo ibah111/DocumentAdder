@@ -20,9 +20,12 @@ namespace WindowsFormsApp2
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string command = $"select dc.sum,dc.calc_date,dc.dt,dc.report_date,dc.is_confirmed,dc.dsc from law_act la left join debt_calc dc on dc.parent_id = la.r_debt_id where la.id = {Settings.debt_id}";
-            string connect = $"Driver={{ODBC Driver 17 for SQL Server}};Server=newct;Database=i_collect;Uid=contact;Pwd=contact;";
-            using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, connect))
+            string command;
+            if (Settings.vkl != 4)
+                command = $"select dc.sum,dc.calc_date,dc.dt,dc.report_date,dc.is_confirmed,dc.dsc from law_act la left join debt_calc dc on dc.parent_id = la.r_debt_id where la.id = {Settings.debt_id}";
+            else
+                command = $"select dc.sum,dc.calc_date,dc.dt,dc.report_date,dc.is_confirmed,dc.dsc from law_exec la left join debt_calc dc on dc.parent_id = la.r_debt_id where la.id = {Settings.debt_id}";
+            using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, Program.Conn))
             {
                 dataAdapter.Fill(dataSet1.debt_calc);
             }
