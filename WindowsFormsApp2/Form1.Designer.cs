@@ -155,7 +155,6 @@
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
@@ -197,6 +196,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
             this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
@@ -1459,15 +1459,6 @@
             this.label26.TabIndex = 71;
             this.label26.Text = "Дата поступления";
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(3, 505);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(129, 26);
-            this.label28.TabIndex = 52;
-            this.label28.Text = "\r\nДобавить комментарий";
-            // 
             // comboBox8
             // 
             this.comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -1886,6 +1877,15 @@
             this.checkBox2.TabIndex = 91;
             this.checkBox2.Text = "Сканы";
             this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(3, 505);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(129, 26);
+            this.label28.TabIndex = 52;
+            this.label28.Text = "\r\nДобавить комментарий";
             // 
             // dataTable1TableAdapter
             // 

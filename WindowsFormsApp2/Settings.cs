@@ -37,6 +37,7 @@ namespace WindowsFormsApp2
         private static string _template_id_task;
         private static string _action;
         private static int _vkl;
+        private static bool _dateId;
 
         public static string json { get { return _json; } set { _json = value; } }
         public static int user_id { get { return _user_id; } set { _user_id = value; } }
@@ -56,6 +57,7 @@ namespace WindowsFormsApp2
         public static string dsc { get { return _dsc; } set { _dsc = value; } }
         public static string template_id_task { get { return _template_id_task; } set { _template_id_task = value; } }
         public static string action { get { return _action; } set { _action = value; } }
+        public static bool dateId { get; set; } = false;
 
 
 

@@ -155,6 +155,13 @@ namespace WindowsFormsApp2
                 textBox19.Enabled = false;
                 textBox20.Enabled = false;
             }
+
+            if (comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                || comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу"))
+            {
+                Settings.dateId = true;
+            }
         }
 
         private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
@@ -398,8 +405,8 @@ namespace WindowsFormsApp2
             ls.Add("\r\n\r\n");
             File.AppendAllText(Environment.CurrentDirectory + "\\SQL.txt", string.Join("\r\n", ls));
             int errors = 0;
-            
-            foreach(string str in ls)
+
+            foreach (string str in ls)
             {
                 try
                 {

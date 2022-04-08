@@ -134,6 +134,13 @@ namespace WindowsFormsApp2
             if(Data.vkl_int != 4 && Data.int_color != -1)
                 sql.Add($"update law_act set int_color = {int_color} where id = {id}");
 
+            if (Settings.dateId) { 
+                if (Data.vkl_int != 4)
+                    sql.Add($"update law_exec set receipt_act_dt = \'{DateTime.Now}\' where r_act_id = {id}");
+                else
+                    sql.Add($"update law_exec set receipt_act_dt = \'{DateTime.Now}\' where id = {id}");
+            }
+
 
 
             switch (vkl_int)
