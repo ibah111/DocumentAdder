@@ -162,6 +162,8 @@ namespace WindowsFormsApp2
             {
                 Settings.dateId = true;
             }
+            else
+                Settings.dateId = false;
         }
 
         private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
