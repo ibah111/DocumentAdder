@@ -147,6 +147,8 @@ namespace WindowsFormsApp2
                 textBox23.Enabled = true;
                 textBox19.Enabled = true;
                 textBox20.Enabled = true;
+                maskedTextBox12.Enabled = true;
+                textBox16.Enabled = true;
             }
             else
             {
@@ -154,6 +156,8 @@ namespace WindowsFormsApp2
                 textBox23.Enabled = false;
                 textBox19.Enabled = false;
                 textBox20.Enabled = false;
+                maskedTextBox12.Enabled = false;
+                textBox16.Enabled = false;
             }
 
             if (comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
@@ -214,7 +218,7 @@ namespace WindowsFormsApp2
             {
                 if (control is TextBox)
                     (control as TextBox).Text = "";
-                if ((control is MaskedTextBox) && (control.Name != "maskedTextBox12"))
+                if ((control is MaskedTextBox)/* && (control.Name != "maskedTextBox12")*/)
                     (control as MaskedTextBox).Clear();
             }
         }
@@ -247,10 +251,9 @@ namespace WindowsFormsApp2
                     comboBox3.SelectedIndex = status_get - 1;
                 maskedTextBox5.Text = DateTime.Now.ToShortDateString();
 
-                textBox24.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
-                textBox13.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
-                textBox17.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
-                textBox25.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
+                maskedTextBox12.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
+                //textBox17.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+                //textBox25.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
                 textBox23.Text = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
                 textBox19.Text = dataGridView1.Rows[e.RowIndex].Cells[18].Value.ToString();
                 textBox20.Text = dataGridView1.Rows[e.RowIndex].Cells[19].Value.ToString();
@@ -382,8 +385,18 @@ namespace WindowsFormsApp2
 
         private void  button2_Click(object sender, EventArgs e)
         {
-
-            if (CheckMasked() == false)
+            if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+            {
+                if (String.IsNullOrEmpty(textBox21.Text) || String.IsNullOrEmpty(textBox23.Text) || String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || String.IsNullOrEmpty(comboBox9.Text) || String.IsNullOrEmpty(comboBox8.Text))
+                {
+                    MessageBox.Show("Поля для сбера не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+                if (CheckMasked() == false)
             {
                 MessageBox.Show("ДАТЫ не заполнены или заполнены некорректно!","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
@@ -578,17 +591,16 @@ namespace WindowsFormsApp2
                 comboBox3.SelectedIndex = status_get - 1;
             maskedTextBox5.Text = DateTime.Now.ToShortDateString();
 
-                textBox24.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-                textBox13.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
-                textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
-                textBox17.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
-                textBox25.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
-                textBox23.Text = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
-                textBox18.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString().Split(' ')[0];
-                textBox19.Text = dataGridView1.Rows[e.RowIndex].Cells[18].Value.ToString();
-                textBox20.Text = dataGridView1.Rows[e.RowIndex].Cells[19].Value.ToString();
-                textBox21.Text = dataGridView1.Rows[e.RowIndex].Cells[20].Value.ToString();
-                textBox22.Text = dataGridView1.Rows[e.RowIndex].Cells[21].Value.ToString();
+                maskedTextBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[15].Value.ToString();
+                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
+                //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
+                //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
+                textBox23.Text = dataGridView2.Rows[e.RowIndex].Cells[17].Value.ToString();
+                textBox18.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString().Split(' ')[0];
+                textBox19.Text = dataGridView2.Rows[e.RowIndex].Cells[18].Value.ToString();
+                textBox20.Text = dataGridView2.Rows[e.RowIndex].Cells[19].Value.ToString();
+                textBox21.Text = dataGridView2.Rows[e.RowIndex].Cells[20].Value.ToString();
+                textBox22.Text = dataGridView2.Rows[e.RowIndex].Cells[21].Value.ToString();
             }
         }
 
@@ -741,23 +753,23 @@ namespace WindowsFormsApp2
         {
             try
             {
-                if (!String.IsNullOrEmpty(textBox21.Text) && !String.IsNullOrEmpty(textBox23.Text) && !String.IsNullOrEmpty(textBox19.Text) && !String.IsNullOrEmpty(textBox20.Text)) { 
+                if (!String.IsNullOrEmpty(textBox21.Text) && !String.IsNullOrEmpty(textBox23.Text) && !String.IsNullOrEmpty(textBox19.Text) && !String.IsNullOrEmpty(textBox20.Text) && !String.IsNullOrEmpty(textBox8.Text) && !String.IsNullOrEmpty(maskedTextBox12.Text) && !String.IsNullOrEmpty(textBox16.Text) && !String.IsNullOrEmpty(comboBox9.Text) && !String.IsNullOrEmpty(comboBox8.Text)) {
                 string fl = FilePath();
                 List<string> stringer = File.ReadAllLines(fl).ToList();
                 string r = "[ \t]+";
-                string f1 = $"|id = 1 |osblist = 9042 |actype = 2 |ispnum = {textBox24.Text.Replace("№", string.Empty)} |ISPdate = {textBox13.Text} |ExecNum = {textBox16.Text} " +
+                string f1 = $"|id = 1 |osblist = 9042 |actype = 2 |ispnum = {textBox8.Text.Replace("№", string.Empty)} |ISPdate = {maskedTextBox12.Text} |ExecNum = {textBox16.Text} " +
                             $"|Debtorlastname = {textBox1.Text} |DebtorFirstName= {textBox2.Text} |DebtorSecondName= {textBox3.Text} |debtorbirth = {textBox18.Text} " +
                             $"|PassportSeries = {textBox19.Text} |PassportNum = {textBox20.Text} |debtorBirthAddres = {textBox21.Text} " +
                             $"|debtorAddres = {textBox22.Text.Replace("\r\n", string.Empty).Replace(";", string.Empty).Replace("\n", string.Empty)} |bailiff= Купцов Андрей Владимирович/8 (912) 82-81-87 " +
-                            $"|summ = {textBox23.Text} |orgName= {textBox17.Text} |OrgAddress= {textBox25.Text.Replace("\r\n", string.Empty)} " +
+                            $"|summ = {textBox23.Text} |orgName= {comboBox9.Text} |OrgAddress= {comboBox8.Text.Replace("\r\n", string.Empty)} " +
                             $"|receivTitle = ООО «НБК» |receivAddres = 610001, г Киров, ул. Красина д.5 к.4 |inn = 4345197098 |kpp = 434501001 " +
                             $"|account = 40702810700130009755 |ls = null |bik = 043304711 |korrAcc = 30101810100000000711 |bankname = ОАО КБ «ХЛЫНОВ» " +
                             $"|kbk = null |oktmo = null |uin = null |debtorinn = |accountCurrency= rub" + "\r\n";
-                string f2 = $"|id = {stringer.Count + 1} |osblist = 9042 |actype = 2 |ispnum = {textBox24.Text.Replace("№", string.Empty)} |ISPdate = {textBox13.Text} |ExecNum = {textBox16.Text} " +
+                string f2 = $"|id = {stringer.Count + 1} |osblist = 9042 |actype = 2 |ispnum = {textBox8.Text.Replace("№", string.Empty)} |ISPdate = {maskedTextBox12.Text} |ExecNum = {textBox16.Text} " +
                             $"|Debtorlastname = {textBox1.Text} |DebtorFirstName= {textBox2.Text} |DebtorSecondName= {textBox3.Text} |debtorbirth = {textBox18.Text} " +
                             $"|PassportSeries = {textBox19.Text} |PassportNum = {textBox20.Text} |debtorBirthAddres = {textBox21.Text} " +
                             $"|debtorAddres = {textBox22.Text.Replace("\r\n", string.Empty).Replace(";", string.Empty).Replace("\n", string.Empty)} |bailiff= Купцов Андрей Владимирович/8 (912) 82-81-87 " +
-                            $"|summ = {textBox23.Text} |orgName= {textBox17.Text} |OrgAddress= {textBox25.Text.Replace("\r\n", string.Empty)} " +
+                            $"|summ = {textBox23.Text} |orgName= {comboBox9.Text} |OrgAddress= {comboBox8.Text.Replace("\r\n", string.Empty)} " +
                             $"|receivTitle = ООО «НБК» |receivAddres = 610001, г Киров, ул. Красина д.5 к.4 |inn = 4345197098 |kpp = 434501001 " +
                             $"|account = 40702810700130009755 |ls = null |bik = 043304711 |korrAcc = 30101810100000000711 |bankname = ОАО КБ «ХЛЫНОВ» " +
                             $"|kbk = null |oktmo = null |uin = null |debtorinn = |accountCurrency= rub" + "\r\n";

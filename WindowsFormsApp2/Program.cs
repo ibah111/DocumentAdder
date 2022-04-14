@@ -28,12 +28,12 @@ namespace WindowsFormsApp2
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
             AutoUpdater.ShowSkipButton = false;
-            AutoUpdater.InstalledVersion = new Version("2.0.0.6");
+            AutoUpdater.InstalledVersion = new Version("2.0.0.9");
             AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.ParseUpdateInfoEvent += AutoUpdaterOnParseUpdateInfoEvent;
             AutoUpdater.Synchronous = true;
             AutoUpdater.RunUpdateAsAdmin = false;
-            AutoUpdater.Start("https://chat.nbkfinance.ru/do/mail/standelone.json");
+            AutoUpdater.Start("https://chat.nbkfinance.ru/apps/mail/standelone.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 #if DEBUG
