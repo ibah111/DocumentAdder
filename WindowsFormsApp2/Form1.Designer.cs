@@ -93,6 +93,8 @@
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birth_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.full_adr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new WindowsFormsApp2.DataSet1();
             this.label19 = new System.Windows.Forms.Label();
@@ -132,6 +134,8 @@
             this.number1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birth_place1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.full_adr1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exec_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -196,12 +200,12 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
-            this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
-            this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
             this.innMb = new System.Windows.Forms.MaskedTextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.execDateMb = new System.Windows.Forms.MaskedTextBox();
             this.label44 = new System.Windows.Forms.Label();
+            this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
+            this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -641,7 +645,9 @@
             this.series,
             this.number,
             this.birth_place,
-            this.full_adr});
+            this.full_adr,
+            this.exec_date,
+            this.inn});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 4);
             this.dataGridView1.DataSource = this.dataTable1BindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -830,6 +836,20 @@
             this.full_adr.HeaderText = "Фактический адрес";
             this.full_adr.Name = "full_adr";
             this.full_adr.ReadOnly = true;
+            // 
+            // exec_date
+            // 
+            this.exec_date.DataPropertyName = "exec_date";
+            this.exec_date.HeaderText = "Дата дела";
+            this.exec_date.Name = "exec_date";
+            this.exec_date.ReadOnly = true;
+            // 
+            // inn
+            // 
+            this.inn.DataPropertyName = "inn";
+            this.inn.HeaderText = "ИНН";
+            this.inn.Name = "inn";
+            this.inn.ReadOnly = true;
             // 
             // dataTable1BindingSource
             // 
@@ -1026,7 +1046,9 @@
             this.series1,
             this.number1,
             this.birth_place1,
-            this.full_adr1});
+            this.full_adr1,
+            this.exec_date1,
+            this.inn1});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView2, 4);
             this.dataGridView2.DataSource = this.dataTable2BindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1213,6 +1235,20 @@
             this.full_adr1.HeaderText = "Фактический адрес";
             this.full_adr1.Name = "full_adr1";
             this.full_adr1.ReadOnly = true;
+            // 
+            // exec_date1
+            // 
+            this.exec_date1.DataPropertyName = "exec_date1";
+            this.exec_date1.HeaderText = "Дата дела";
+            this.exec_date1.Name = "exec_date1";
+            this.exec_date1.ReadOnly = true;
+            // 
+            // inn1
+            // 
+            this.inn1.DataPropertyName = "inn1";
+            this.inn1.HeaderText = "ИНН";
+            this.inn1.Name = "inn1";
+            this.inn1.ReadOnly = true;
             // 
             // dataTable2BindingSource
             // 
@@ -1893,14 +1929,6 @@
             this.label43.TabIndex = 115;
             this.label43.Text = "№ ИД";
             // 
-            // dataTable1TableAdapter
-            // 
-            this.dataTable1TableAdapter.ClearBeforeFill = true;
-            // 
-            // dataTable2TableAdapter
-            // 
-            this.dataTable2TableAdapter.ClearBeforeFill = true;
-            // 
             // innMb
             // 
             this.innMb.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1938,6 +1966,14 @@
             this.label44.Size = new System.Drawing.Size(150, 13);
             this.label44.TabIndex = 120;
             this.label44.Text = "Дата дела";
+            // 
+            // dataTable1TableAdapter
+            // 
+            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // dataTable2TableAdapter
+            // 
+            this.dataTable2TableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -2065,6 +2101,24 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox12;
+        private System.Windows.Forms.MaskedTextBox innMb;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.MaskedTextBox execDateMb;
+        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
@@ -2087,6 +2141,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn birth_place;
         private System.Windows.Forms.DataGridViewTextBoxColumn full_adr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exec_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn debtstatusDataGridViewTextBoxColumn;
@@ -2109,24 +2165,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn number1;
         private System.Windows.Forms.DataGridViewTextBoxColumn birth_place1;
         private System.Windows.Forms.DataGridViewTextBoxColumn full_adr1;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox12;
-        private System.Windows.Forms.MaskedTextBox innMb;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.MaskedTextBox execDateMb;
-        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exec_date1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inn1;
     }
 }
 

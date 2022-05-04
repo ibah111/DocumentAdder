@@ -16,13 +16,15 @@ namespace WindowsFormsApp2
     {
         private int errors;
         private Form1 Forms;
+        private PersonInfo _personInfo;
 
-        public Form5(ref int errors, Form1 form)
+        public Form5(ref int errors, Form1 form, PersonInfo personInfo)
         {
             InitializeComponent();
             Templates();
             this.errors = errors;
             this.Forms = form;
+            this._personInfo = personInfo;
         }
 
         private void Templates()
@@ -45,8 +47,19 @@ namespace WindowsFormsApp2
             }
         }
 
-        public void Send(ref int errors)
+        public void Send(ref int errors, PersonInfo personInfo)
         {
+            if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                       || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                       || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+                       || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+            {
+                var (error, message) = VTBAdder.CreateExcel();
+                if (error)
+                    MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    VTBAdder.Add(personInfo);
+            }
             //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
             //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
             //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
@@ -83,8 +96,7 @@ namespace WindowsFormsApp2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Send(ref errors);
-            
+            Send(ref errors, _personInfo);
         }
     }
 }

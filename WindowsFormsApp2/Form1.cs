@@ -149,6 +149,8 @@ namespace WindowsFormsApp2
                 textBox20.Enabled = true;
                 maskedTextBox12.Enabled = true;
                 textBox16.Enabled = true;
+                innMb.Enabled = true;
+                execDateMb.Enabled = true;
             }
             else
             {
@@ -158,6 +160,8 @@ namespace WindowsFormsApp2
                 textBox20.Enabled = false;
                 maskedTextBox12.Enabled = false;
                 textBox16.Enabled = false;
+                innMb.Enabled = false;
+                execDateMb.Enabled = false;
             }
 
             if (comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
@@ -261,6 +265,8 @@ namespace WindowsFormsApp2
                 textBox22.Text = dataGridView1.Rows[e.RowIndex].Cells[21].Value.ToString();
                 textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
                 textBox18.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString().Split(' ')[0];
+                execDateMb.Text = dataGridView1.Rows[e.RowIndex].Cells[22].Value.ToString();
+                innMb.Text = dataGridView1.Rows[e.RowIndex].Cells[23].Value.ToString();
             }
         }
 
@@ -390,9 +396,9 @@ namespace WindowsFormsApp2
                         || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
                         || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
             {
-                if (String.IsNullOrEmpty(textBox21.Text) || String.IsNullOrEmpty(textBox23.Text) || String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || String.IsNullOrEmpty(comboBox9.Text) || String.IsNullOrEmpty(comboBox8.Text))
+                if (String.IsNullOrEmpty(textBox21.Text) || String.IsNullOrEmpty(textBox23.Text) || String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || String.IsNullOrEmpty(comboBox9.Text) || String.IsNullOrEmpty(comboBox8.Text) || innMb.Text.Length != 12 || execDateMb.Text.StartsWith(" ") || execDateMb.Text.Replace(" ", string.Empty).Length != 10 || innMb.Text.StartsWith(" "))
                 {
-                    MessageBox.Show("Поля для сбера не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Поля для ВТБ не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -452,23 +458,64 @@ namespace WindowsFormsApp2
 
             if (checkBox3.Checked == true)
             {
-                Form5 f = new Form5(ref errors, this);
+                PersonInfo personInfo = new PersonInfo()
+                {
+                    court_doc_num = textBox16.Text,
+                    court_date = maskedTextBox12.Text,
+                    exec_number = textBox8.Text,
+                    fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
+                    birth_date = textBox18.Text,
+                    birth_place = textBox21.Text,
+                    series = textBox19.Text,
+                    number = textBox20.Text,
+                    inn = innMb.Text,
+                    sum = textBox23.Text,
+                    exec_date = execDateMb.Text,
+                    name = comboBox9.Text
+                };
+                Form5 f = new Form5(ref errors, this, personInfo);
                 f.Show();
                 f.FormClosed += F_FormClosed;
             } else
             {
-                //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                //        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
-                //{
-                //    bool r = SberAdder();
-                //    if (!r)
-                //    {
-                //        errors += 1;
-                //    }
-                //}
-                try
+                if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                       || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                       || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+                       || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+                {
+                    PersonInfo personInfo = new PersonInfo()
+                    {
+                        court_doc_num = textBox16.Text,
+                        court_date = maskedTextBox12.Text,
+                        exec_number = textBox8.Text,
+                        fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
+                        birth_date = textBox18.Text,
+                        birth_place = textBox21.Text,
+                        series = textBox19.Text,
+                        number = textBox20.Text,
+                        inn = innMb.Text,
+                        sum = textBox23.Text,
+                        exec_date = execDateMb.Text,
+                        name = comboBox9.Text
+                    };
+                    var (error, message) = VTBAdder.CreateExcel();
+                    if (error)
+                        MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        VTBAdder.Add(personInfo);
+                }
+                    //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                    //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                    //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+                    //        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+                    //{
+                    //    bool r = SberAdder();
+                    //    if (!r)
+                    //    {
+                    //        errors += 1;
+                    //    }
+                    //}
+                    try
                     {
                         WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                         var vm = getRequest("without_task");
@@ -601,6 +648,8 @@ namespace WindowsFormsApp2
                 textBox20.Text = dataGridView2.Rows[e.RowIndex].Cells[19].Value.ToString();
                 textBox21.Text = dataGridView2.Rows[e.RowIndex].Cells[20].Value.ToString();
                 textBox22.Text = dataGridView2.Rows[e.RowIndex].Cells[21].Value.ToString();
+                innMb.Text = dataGridView2.Rows[e.RowIndex].Cells[23].Value.ToString();
+                execDateMb.Text = dataGridView2.Rows[e.RowIndex].Cells[22].Value.ToString();
             }
         }
 
@@ -748,6 +797,7 @@ namespace WindowsFormsApp2
 
             }
         }
+
 
         //public bool SberAdder()
         //{
