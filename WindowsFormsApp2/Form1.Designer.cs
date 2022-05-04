@@ -198,6 +198,10 @@
             this.label43 = new System.Windows.Forms.Label();
             this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
             this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
+            this.innMb = new System.Windows.Forms.MaskedTextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.execDateMb = new System.Windows.Forms.MaskedTextBox();
+            this.label44 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -320,6 +324,10 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox16, 1, 19);
             this.tableLayoutPanel1.Controls.Add(this.label42, 0, 18);
             this.tableLayoutPanel1.Controls.Add(this.label43, 1, 18);
+            this.tableLayoutPanel1.Controls.Add(this.innMb, 2, 19);
+            this.tableLayoutPanel1.Controls.Add(this.label41, 2, 18);
+            this.tableLayoutPanel1.Controls.Add(this.execDateMb, 3, 19);
+            this.tableLayoutPanel1.Controls.Add(this.label44, 3, 18);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1893,6 +1901,44 @@
             // 
             this.dataTable2TableAdapter.ClearBeforeFill = true;
             // 
+            // innMb
+            // 
+            this.innMb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.innMb.Location = new System.Drawing.Point(315, 539);
+            this.innMb.Mask = "000000000000";
+            this.innMb.Name = "innMb";
+            this.innMb.Size = new System.Drawing.Size(150, 20);
+            this.innMb.TabIndex = 117;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label41.Location = new System.Drawing.Point(315, 523);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(150, 13);
+            this.label41.TabIndex = 118;
+            this.label41.Text = "ИНН";
+            // 
+            // execDateMb
+            // 
+            this.execDateMb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.execDateMb.Location = new System.Drawing.Point(471, 539);
+            this.execDateMb.Mask = "00/00/0000";
+            this.execDateMb.Name = "execDateMb";
+            this.execDateMb.Size = new System.Drawing.Size(150, 20);
+            this.execDateMb.TabIndex = 119;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label44.Location = new System.Drawing.Point(471, 523);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(150, 13);
+            this.label44.TabIndex = 120;
+            this.label44.Text = "Дата дела";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2077,6 +2123,10 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.MaskedTextBox maskedTextBox12;
+        private System.Windows.Forms.MaskedTextBox innMb;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.MaskedTextBox execDateMb;
+        private System.Windows.Forms.Label label44;
     }
 }
 

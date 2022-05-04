@@ -457,17 +457,17 @@ namespace WindowsFormsApp2
                 f.FormClosed += F_FormClosed;
             } else
             {
-                if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
-                {
-                    bool r = SberAdder();
-                    if (!r)
-                    {
-                        errors += 1;
-                    }
-                }
+                //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+                //        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+                //{
+                //    bool r = SberAdder();
+                //    if (!r)
+                //    {
+                //        errors += 1;
+                //    }
+                //}
                 try
                     {
                         WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
@@ -749,64 +749,64 @@ namespace WindowsFormsApp2
             }
         }
 
-        public bool SberAdder()
-        {
-            try
-            {
-                if (!String.IsNullOrEmpty(textBox21.Text) && !String.IsNullOrEmpty(textBox23.Text) && !String.IsNullOrEmpty(textBox19.Text) && !String.IsNullOrEmpty(textBox20.Text) && !String.IsNullOrEmpty(textBox8.Text) && !String.IsNullOrEmpty(maskedTextBox12.Text) && !String.IsNullOrEmpty(textBox16.Text) && !String.IsNullOrEmpty(comboBox9.Text) && !String.IsNullOrEmpty(comboBox8.Text)) {
-                string fl = FilePath();
-                List<string> stringer = File.ReadAllLines(fl).ToList();
-                string r = "[ \t]+";
-                string f1 = $"|id = 1 |osblist = 9042 |actype = 2 |ispnum = {textBox8.Text.Replace("№", string.Empty)} |ISPdate = {maskedTextBox12.Text} |ExecNum = {textBox16.Text} " +
-                            $"|Debtorlastname = {textBox1.Text} |DebtorFirstName= {textBox2.Text} |DebtorSecondName= {textBox3.Text} |debtorbirth = {textBox18.Text} " +
-                            $"|PassportSeries = {textBox19.Text} |PassportNum = {textBox20.Text} |debtorBirthAddres = {textBox21.Text} " +
-                            $"|debtorAddres = {textBox22.Text.Replace("\r\n", string.Empty).Replace(";", string.Empty).Replace("\n", string.Empty)} |bailiff= Купцов Андрей Владимирович/8 (912) 82-81-87 " +
-                            $"|summ = {textBox23.Text} |orgName= {comboBox9.Text} |OrgAddress= {comboBox8.Text.Replace("\r\n", string.Empty)} " +
-                            $"|receivTitle = ООО «НБК» |receivAddres = 610001, г Киров, ул. Красина д.5 к.4 |inn = 4345197098 |kpp = 434501001 " +
-                            $"|account = 40702810700130009755 |ls = null |bik = 043304711 |korrAcc = 30101810100000000711 |bankname = ОАО КБ «ХЛЫНОВ» " +
-                            $"|kbk = null |oktmo = null |uin = null |debtorinn = |accountCurrency= rub" + "\r\n";
-                string f2 = $"|id = {stringer.Count + 1} |osblist = 9042 |actype = 2 |ispnum = {textBox8.Text.Replace("№", string.Empty)} |ISPdate = {maskedTextBox12.Text} |ExecNum = {textBox16.Text} " +
-                            $"|Debtorlastname = {textBox1.Text} |DebtorFirstName= {textBox2.Text} |DebtorSecondName= {textBox3.Text} |debtorbirth = {textBox18.Text} " +
-                            $"|PassportSeries = {textBox19.Text} |PassportNum = {textBox20.Text} |debtorBirthAddres = {textBox21.Text} " +
-                            $"|debtorAddres = {textBox22.Text.Replace("\r\n", string.Empty).Replace(";", string.Empty).Replace("\n", string.Empty)} |bailiff= Купцов Андрей Владимирович/8 (912) 82-81-87 " +
-                            $"|summ = {textBox23.Text} |orgName= {comboBox9.Text} |OrgAddress= {comboBox8.Text.Replace("\r\n", string.Empty)} " +
-                            $"|receivTitle = ООО «НБК» |receivAddres = 610001, г Киров, ул. Красина д.5 к.4 |inn = 4345197098 |kpp = 434501001 " +
-                            $"|account = 40702810700130009755 |ls = null |bik = 043304711 |korrAcc = 30101810100000000711 |bankname = ОАО КБ «ХЛЫНОВ» " +
-                            $"|kbk = null |oktmo = null |uin = null |debtorinn = |accountCurrency= rub" + "\r\n";
-                f1 = Regex.Replace(f1, r, " ").Replace(";", string.Empty);
-                f2 = Regex.Replace(f2, r, " ").Replace(";", string.Empty);
-                if (stringer.Count == 0)
-                {
-                    File.AppendAllText(fl, f1);
-                }
-                else
-                {
-                    File.AppendAllText(fl, f2);
-                }
-                return true;
-                }
-                else
-                {
-                    MessageBox.Show("Заполнены не все поля для создания файла для Сбербанка");
-                    return false;
-                }
-            }
-            catch
-            {
-                return false;
-            }
+        //public bool SberAdder()
+        //{
+        //    try
+        //    {
+        //        if (!String.IsNullOrEmpty(textBox21.Text) && !String.IsNullOrEmpty(textBox23.Text) && !String.IsNullOrEmpty(textBox19.Text) && !String.IsNullOrEmpty(textBox20.Text) && !String.IsNullOrEmpty(textBox8.Text) && !String.IsNullOrEmpty(maskedTextBox12.Text) && !String.IsNullOrEmpty(textBox16.Text) && !String.IsNullOrEmpty(comboBox9.Text) && !String.IsNullOrEmpty(comboBox8.Text)) {
+        //        string fl = FilePath();
+        //        List<string> stringer = File.ReadAllLines(fl).ToList();
+        //        string r = "[ \t]+";
+        //        string f1 = $"|id = 1 |osblist = 9042 |actype = 2 |ispnum = {textBox8.Text.Replace("№", string.Empty)} |ISPdate = {maskedTextBox12.Text} |ExecNum = {textBox16.Text} " +
+        //                    $"|Debtorlastname = {textBox1.Text} |DebtorFirstName= {textBox2.Text} |DebtorSecondName= {textBox3.Text} |debtorbirth = {textBox18.Text} " +
+        //                    $"|PassportSeries = {textBox19.Text} |PassportNum = {textBox20.Text} |debtorBirthAddres = {textBox21.Text} " +
+        //                    $"|debtorAddres = {textBox22.Text.Replace("\r\n", string.Empty).Replace(";", string.Empty).Replace("\n", string.Empty)} |bailiff= Купцов Андрей Владимирович/8 (912) 82-81-87 " +
+        //                    $"|summ = {textBox23.Text} |orgName= {comboBox9.Text} |OrgAddress= {comboBox8.Text.Replace("\r\n", string.Empty)} " +
+        //                    $"|receivTitle = ООО «НБК» |receivAddres = 610001, г Киров, ул. Красина д.5 к.4 |inn = 4345197098 |kpp = 434501001 " +
+        //                    $"|account = 40702810700130009755 |ls = null |bik = 043304711 |korrAcc = 30101810100000000711 |bankname = ОАО КБ «ХЛЫНОВ» " +
+        //                    $"|kbk = null |oktmo = null |uin = null |debtorinn = |accountCurrency= rub" + "\r\n";
+        //        string f2 = $"|id = {stringer.Count + 1} |osblist = 9042 |actype = 2 |ispnum = {textBox8.Text.Replace("№", string.Empty)} |ISPdate = {maskedTextBox12.Text} |ExecNum = {textBox16.Text} " +
+        //                    $"|Debtorlastname = {textBox1.Text} |DebtorFirstName= {textBox2.Text} |DebtorSecondName= {textBox3.Text} |debtorbirth = {textBox18.Text} " +
+        //                    $"|PassportSeries = {textBox19.Text} |PassportNum = {textBox20.Text} |debtorBirthAddres = {textBox21.Text} " +
+        //                    $"|debtorAddres = {textBox22.Text.Replace("\r\n", string.Empty).Replace(";", string.Empty).Replace("\n", string.Empty)} |bailiff= Купцов Андрей Владимирович/8 (912) 82-81-87 " +
+        //                    $"|summ = {textBox23.Text} |orgName= {comboBox9.Text} |OrgAddress= {comboBox8.Text.Replace("\r\n", string.Empty)} " +
+        //                    $"|receivTitle = ООО «НБК» |receivAddres = 610001, г Киров, ул. Красина д.5 к.4 |inn = 4345197098 |kpp = 434501001 " +
+        //                    $"|account = 40702810700130009755 |ls = null |bik = 043304711 |korrAcc = 30101810100000000711 |bankname = ОАО КБ «ХЛЫНОВ» " +
+        //                    $"|kbk = null |oktmo = null |uin = null |debtorinn = |accountCurrency= rub" + "\r\n";
+        //        f1 = Regex.Replace(f1, r, " ").Replace(";", string.Empty);
+        //        f2 = Regex.Replace(f2, r, " ").Replace(";", string.Empty);
+        //        if (stringer.Count == 0)
+        //        {
+        //            File.AppendAllText(fl, f1);
+        //        }
+        //        else
+        //        {
+        //            File.AppendAllText(fl, f2);
+        //        }
+        //        return true;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Заполнены не все поля для создания файла для Сбербанка");
+        //            return false;
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
 
-        }
+        //}
 
-        private string FilePath()
-        {
-            string currentDate = DateTime.Now.Date.ToString().Split(' ')[0];
-            string fl = $"\\\\192.168.0.162\\source\\Сбер_запрос" + $"\\{currentDate}" + $"\\Result {Settings.username}.txt";
-            if (!Directory.Exists($"\\\\192.168.0.162\\source\\Сбер_запрос" + $"\\{currentDate}"))
-                Directory.CreateDirectory($"\\\\192.168.0.162\\source\\Сбер_запрос" + $"\\{currentDate}");
-            if (!File.Exists(fl))
-                File.Create(fl).Close();
-            return fl;
-        }
+        //private string FilePath()
+        //{
+        //    string currentDate = DateTime.Now.Date.ToString().Split(' ')[0];
+        //    string fl = $"\\\\192.168.0.162\\source\\Сбер_запрос" + $"\\{currentDate}" + $"\\Result {Settings.username}.txt";
+        //    if (!Directory.Exists($"\\\\192.168.0.162\\source\\Сбер_запрос" + $"\\{currentDate}"))
+        //        Directory.CreateDirectory($"\\\\192.168.0.162\\source\\Сбер_запрос" + $"\\{currentDate}");
+        //    if (!File.Exists(fl))
+        //        File.Create(fl).Close();
+        //    return fl;
+        //}
     }
 }

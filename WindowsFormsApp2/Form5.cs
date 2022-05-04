@@ -47,18 +47,18 @@ namespace WindowsFormsApp2
 
         public void Send(ref int errors)
         {
-            if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                    || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                    || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                    || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
-            {
-                bool r = Forms.SberAdder();
-                if (!r)
-                {
-                    errors += 1;
-                    MessageBox.Show("Файл для Сбербанка не создан");
-                }
-            }
+            //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+            //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+            //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+            //        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+            //{
+            //    bool r = Forms.SberAdder();
+            //    if (!r)
+            //    {
+            //        errors += 1;
+            //        MessageBox.Show("Файл для Сбербанка не создан");
+            //    }
+            //}
             try
             {
                 WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
