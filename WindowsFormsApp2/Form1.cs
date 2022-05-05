@@ -413,6 +413,44 @@ namespace WindowsFormsApp2
                 return;
             }
 
+            if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                       || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                       || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
+                       || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+            {
+                PersonInfo personInfo = new PersonInfo()
+                {
+                    court_doc_num = textBox16.Text,
+                    court_date = maskedTextBox12.Text,
+                    exec_number = textBox8.Text,
+                    fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
+                    birth_date = textBox18.Text,
+                    birth_place = textBox21.Text,
+                    series = textBox19.Text,
+                    number = textBox20.Text,
+                    inn = innMb.Text,
+                    sum = textBox23.Text,
+                    exec_date = execDateMb.Text,
+                    name = comboBox9.Text
+                };
+                try
+                {
+                    var (error, message) = VTBAdder.CreateExcel();
+                    if (error)
+                    {
+                        MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                        VTBAdder.Add(personInfo);
+                }
+                catch
+                {
+                    MessageBox.Show(this, "Строчка не добавлена, скорее всего открыт Excel файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             if (comboBox2.SelectedIndex == 4)
                 Data.vkl_string = "law_exec";
             else
@@ -478,32 +516,7 @@ namespace WindowsFormsApp2
                 f.FormClosed += F_FormClosed;
             } else
             {
-                if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                       || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                       || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                       || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
-                {
-                    PersonInfo personInfo = new PersonInfo()
-                    {
-                        court_doc_num = textBox16.Text,
-                        court_date = maskedTextBox12.Text,
-                        exec_number = textBox8.Text,
-                        fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
-                        birth_date = textBox18.Text,
-                        birth_place = textBox21.Text,
-                        series = textBox19.Text,
-                        number = textBox20.Text,
-                        inn = innMb.Text,
-                        sum = textBox23.Text,
-                        exec_date = execDateMb.Text,
-                        name = comboBox9.Text
-                    };
-                    var (error, message) = VTBAdder.CreateExcel();
-                    if (error)
-                        MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                        VTBAdder.Add(personInfo);
-                }
+                
                     //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                     //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
                     //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")

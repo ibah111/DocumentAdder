@@ -54,11 +54,22 @@ namespace WindowsFormsApp2
                        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
             {
-                var (error, message) = VTBAdder.CreateExcel();
-                if (error)
-                    MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                    VTBAdder.Add(personInfo);
+                try
+                {
+                    var (error, message) = VTBAdder.CreateExcel();
+                    if (error)
+                    {
+                        MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                        VTBAdder.Add(personInfo);
+                }
+                catch
+                {
+                    MessageBox.Show(this, "Строчка не добавлена, скорее всего открыт Excel файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
             //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")

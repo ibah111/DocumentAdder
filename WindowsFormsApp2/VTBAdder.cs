@@ -29,7 +29,7 @@ namespace WindowsFormsApp2
     }
     class VTBAdder
     {
-        private static string path = Environment.CurrentDirectory + $"\\{DateTime.Now.Date.ToString().Split(' ')[0]} Result {UserPrincipal.Current.DisplayName}.xlsx";
+        private static string path = $"\\\\192.168.0.162\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}\\Result {UserPrincipal.Current.DisplayName}.xlsx";
         public static void Add(PersonInfo personInfo)
         {
             Excel excel = new Excel();
@@ -56,7 +56,7 @@ namespace WindowsFormsApp2
             sheet.Cells[targetRow, 12] = personInfo.inn;
             sheet.Cells[targetRow, 15] = personInfo.exec_number;
             sheet.Cells[targetRow, 16] = personInfo.exec_date;
-            sheet.Cells[targetRow, 17] = personInfo.birth_place;
+            //sheet.Cells[targetRow, 17] = personInfo.birth_place;
             Range range = sheet.Range[sheet.Cells[targetRow, 1], sheet.Cells[targetRow, 16]];
             range.Font.Name = "Arial";
             range.Font.Size = 8;
@@ -68,6 +68,7 @@ namespace WindowsFormsApp2
             range.Borders.Item[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
             range.Borders.Item[XlBordersIndex.xlInsideHorizontal].LineStyle = XlLineStyle.xlContinuous;
             range.Borders.Item[XlBordersIndex.xlInsideVertical].LineStyle = XlLineStyle.xlContinuous;
+            range.NumberFormat = "@";
             //range.EntireColumn.AutoFit();
             Range range2 = sheet.Range[sheet.Cells[targetRow, 1], sheet.Cells[targetRow, 2]];
             range2.Borders.Item[XlBordersIndex.xlEdgeRight].Weight = 3;
@@ -81,7 +82,10 @@ namespace WindowsFormsApp2
 
         public static (bool error, string message) CreateExcel()
         {
-            string patternPath = Environment.CurrentDirectory + "\\Data\\Шаблон.xlsx";
+            string patternPath = $"\\\\192.168.0.162\\source\\Сбер_запрос\\Шаблон\\Шаблон.xlsx";
+            if (!Directory.Exists($"\\\\192.168.0.162\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}"))
+                Directory.CreateDirectory($"\\\\192.168.0.162\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}");
+
             if (File.Exists(path))
                 return (error: false, message: "");
             else
