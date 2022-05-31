@@ -71,7 +71,14 @@ namespace WindowsFormsApp2
         
         public Form1()
         {
+            List<CBMember> cBMembers = new List<CBMember>();
+            cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
+            cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
+            cBMembers.Add(new CBMember() { name = "Мейл(Суд+ФССП)", value = 3 });
+            cBMembers.Add(new CBMember() { name = "Мейл(INFO)", value = 4 });
             InitializeComponent();
+            bindingSource1.DataSource = cBMembers;
+            //ModeCB.DataSource = bindingSource1;
             LoadList();
             currentPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
             comboBox4.DataSource = SerialPort.GetPortNames();
@@ -396,7 +403,7 @@ namespace WindowsFormsApp2
                         || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
                         || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
             {
-                if (String.IsNullOrEmpty(textBox21.Text) || String.IsNullOrEmpty(textBox23.Text) || String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || String.IsNullOrEmpty(comboBox9.Text) || String.IsNullOrEmpty(comboBox8.Text) || innMb.Text.Length != 12 || execDateMb.Text.StartsWith(" ") || execDateMb.Text.Replace(" ", string.Empty).Length != 10 || innMb.Text.StartsWith(" "))
+                if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(textBox23.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(comboBox8.Text))
                 {
                     MessageBox.Show("Поля для ВТБ не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -430,8 +437,8 @@ namespace WindowsFormsApp2
                     number = textBox20.Text,
                     inn = innMb.Text,
                     sum = textBox23.Text,
-                    exec_date = execDateMb.Text,
-                    name = comboBox9.Text
+                    /*exec_date = execDateMb.Text,
+                    name = comboBox9.Text*/
                 };
                 try
                 {
@@ -567,7 +574,9 @@ namespace WindowsFormsApp2
             bool nal_skan = false;
             if (checkBox2.Checked == true)
                 nal_skan = true;
-            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}" };
+            if (Settings.mode < 1)
+                Settings.mode = 1;
+            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", mode = Settings.mode };
         }
 
         private bool CheckMasked()
@@ -575,7 +584,7 @@ namespace WindowsFormsApp2
             foreach (Control control in tableLayoutPanel1.Controls)
             {
                 if (control is MaskedTextBox)
-                    if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != "maskedTextBox12")
+                    if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != "maskedTextBox12" && control.Name != "execDateMb" && control.Name != "innMb")
                         return false;
             }
             return true;
@@ -809,6 +818,13 @@ namespace WindowsFormsApp2
                     break;
 
             }
+        }
+
+        private void SelectModeEvent(object sender, EventArgs e)
+        {
+            var m = sender as ComboBox;
+            if (m.SelectedValue != null)
+                Settings.mode = (int)m.SelectedValue;
         }
 
 

@@ -204,6 +204,9 @@
             this.label41 = new System.Windows.Forms.Label();
             this.execDateMb = new System.Windows.Forms.MaskedTextBox();
             this.label44 = new System.Windows.Forms.Label();
+            this.ModeCB = new System.Windows.Forms.ComboBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label45 = new System.Windows.Forms.Label();
             this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
             this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
@@ -215,10 +218,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTable2BindingSource)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -332,6 +337,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label41, 2, 18);
             this.tableLayoutPanel1.Controls.Add(this.execDateMb, 3, 19);
             this.tableLayoutPanel1.Controls.Add(this.label44, 3, 18);
+            this.tableLayoutPanel1.Controls.Add(this.ModeCB, 4, 19);
+            this.tableLayoutPanel1.Controls.Add(this.label45, 4, 18);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1937,6 +1944,7 @@
             this.innMb.Name = "innMb";
             this.innMb.Size = new System.Drawing.Size(150, 20);
             this.innMb.TabIndex = 117;
+            this.innMb.Visible = false;
             // 
             // label41
             // 
@@ -1947,6 +1955,7 @@
             this.label41.Size = new System.Drawing.Size(150, 13);
             this.label41.TabIndex = 118;
             this.label41.Text = "ИНН";
+            this.label41.Visible = false;
             // 
             // execDateMb
             // 
@@ -1956,6 +1965,7 @@
             this.execDateMb.Name = "execDateMb";
             this.execDateMb.Size = new System.Drawing.Size(150, 20);
             this.execDateMb.TabIndex = 119;
+            this.execDateMb.Visible = false;
             // 
             // label44
             // 
@@ -1966,6 +1976,35 @@
             this.label44.Size = new System.Drawing.Size(150, 13);
             this.label44.TabIndex = 120;
             this.label44.Text = "Дата дела";
+            this.label44.Visible = false;
+            // 
+            // ModeCB
+            // 
+            this.ModeCB.DataSource = this.bindingSource1;
+            this.ModeCB.DisplayMember = "name";
+            this.ModeCB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ModeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ModeCB.FormattingEnabled = true;
+            this.ModeCB.Location = new System.Drawing.Point(627, 539);
+            this.ModeCB.Name = "ModeCB";
+            this.ModeCB.Size = new System.Drawing.Size(150, 21);
+            this.ModeCB.TabIndex = 121;
+            this.ModeCB.ValueMember = "value";
+            this.ModeCB.SelectedIndexChanged += new System.EventHandler(this.SelectModeEvent);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(WindowsFormsApp2.CBMember);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label45.Location = new System.Drawing.Point(627, 523);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(150, 13);
+            this.label45.TabIndex = 122;
+            this.label45.Text = "Режим";
             // 
             // dataTable1TableAdapter
             // 
@@ -1979,6 +2018,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1251, 798);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1998,6 +2038,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2167,6 +2208,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn full_adr1;
         private System.Windows.Forms.DataGridViewTextBoxColumn exec_date1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inn1;
+        private System.Windows.Forms.ComboBox ModeCB;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 

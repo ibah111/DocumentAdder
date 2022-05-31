@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adder.cs" />
+    <Compile Include="CBMember.cs" />
     <Compile Include="VTBAdder.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataSet1.cs">
@@ -184,6 +185,7 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CBMember.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
