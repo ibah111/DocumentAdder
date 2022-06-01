@@ -75,7 +75,6 @@ namespace WindowsFormsApp2
             cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
             cBMembers.Add(new CBMember() { name = "Мейл(Суд+ФССП)", value = 3 });
-            cBMembers.Add(new CBMember() { name = "Мейл(INFO)", value = 4 });
             InitializeComponent();
             bindingSource1.DataSource = cBMembers;
             //ModeCB.DataSource = bindingSource1;
@@ -148,7 +147,11 @@ namespace WindowsFormsApp2
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                        || comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                        || comboBox1.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
+                        || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
+                        )
             {
                 textBox21.Enabled = true;
                 textBox23.Enabled = true;
@@ -401,7 +404,11 @@ namespace WindowsFormsApp2
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+                        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                        || comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                        || comboBox1.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
+                        || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
+                        )
             {
                 if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(textBox23.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(comboBox8.Text))
                 {
@@ -423,7 +430,11 @@ namespace WindowsFormsApp2
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
                        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                       || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
+                       || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                        || comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                        || comboBox1.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
+                        || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
+                        )
             {
                 PersonInfo personInfo = new PersonInfo()
                 {
