@@ -37,8 +37,13 @@ namespace WindowsFormsApp2
         private static string _template_id_task;
         private static string _action;
         private static int _vkl;
-        private static bool _dateId;
+        //private static bool _dateId;
         private static int _mode;
+        private static string _ist;
+        private static string _dateDoc;
+        private static string _ecp;
+        private static string _adres;
+        private static string _mail;
 
         public static string json { get { return _json; } set { _json = value; } }
         public static int user_id { get { return _user_id; } set { _user_id = value; } }
@@ -60,6 +65,11 @@ namespace WindowsFormsApp2
         public static string action { get { return _action; } set { _action = value; } }
         public static bool dateId { get; set; } = false;
         public static int mode { get { return _mode; } set { _mode = value; } }
+        public static string ist { get { return _ist; } set { _ist = value; } }
+        public static string dateDoc { get { return _dateDoc; } set { _dateDoc = value; } }
+        public static string ecp { get { return _ecp; } set { _ecp = value; } }
+        public static string adres { get { return _adres; } set { _adres = value; } }
+        public static string mail { get { return _mail; } set { _mail = value; } }
 
 
 

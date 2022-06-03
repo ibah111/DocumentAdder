@@ -72,9 +72,10 @@ namespace WindowsFormsApp2
         public Form1()
         {
             List<CBMember> cBMembers = new List<CBMember>();
-            cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
+            cBMembers.Add(new CBMember() { name = "Входящая почта", value = 4 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
-            cBMembers.Add(new CBMember() { name = "Мейл(Суд+ФССП)", value = 3 });
+            cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
+            cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 1 });
             InitializeComponent();
             bindingSource1.DataSource = cBMembers;
             //ModeCB.DataSource = bindingSource1;
@@ -511,6 +512,12 @@ namespace WindowsFormsApp2
             }
             Adder.file.Clear();
 
+            if ((int)ModeCB.SelectedValue != 1)
+            {
+                Form6 f = new Form6((int)ModeCB.SelectedValue, this, ref errors);
+                f.Show(this);
+                //f.FormClosed += F_FormClosed;
+            } else { 
 
             if (checkBox3.Checked == true)
             {
@@ -568,6 +575,7 @@ namespace WindowsFormsApp2
                     MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
                 errors = 0;
             }
+            }
         }
 
         private void F_FormClosed(object sender, FormClosedEventArgs e)
@@ -587,7 +595,7 @@ namespace WindowsFormsApp2
                 nal_skan = true;
             if (Settings.mode < 1)
                 Settings.mode = 1;
-            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", mode = Settings.mode };
+            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", Settings.mode, Settings.ist, /*dateDoc = DateTime.Parse(*/Settings.dateDoc/*)*/, Settings.ecp, Settings.adres, Settings.mail };
         }
 
         private bool CheckMasked()

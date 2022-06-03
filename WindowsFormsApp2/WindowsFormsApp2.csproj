@@ -102,6 +102,13 @@
   <ItemGroup>
     <Compile Include="Adder.cs" />
     <Compile Include="CBMember.cs" />
+    <Compile Include="Form6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form6.Designer.cs">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModeClassProps.cs" />
     <Compile Include="VTBAdder.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataSet1.cs">
@@ -161,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form6.resx">
+      <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
