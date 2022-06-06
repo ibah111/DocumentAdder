@@ -511,8 +511,10 @@ namespace WindowsFormsApp2
                     command.ExecuteReader();
             }
             Adder.file.Clear();
+            int[] ints = { 1,2,3 };
 
-            if ((int)ModeCB.SelectedValue == 1)
+            if (ints.Contains(
+            (int)ModeCB.SelectedValue))
             {
                 Form6 f = new Form6((int)ModeCB.SelectedValue, this, ref errors);
                 f.Show(this);
