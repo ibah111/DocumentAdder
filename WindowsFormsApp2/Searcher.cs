@@ -51,8 +51,8 @@ namespace WindowsFormsApp2
                 "left join portfolio pr on pr.id = la.r_portfolio_id " +
                 "left join work_task wt on wt.r_debt_id = la.r_debt_id " +
                 "left join users u on u.id = wt.r_user_id " +
-                "left join law_exec le on le.r_act_id = la.id " +
-                "left join debt d on d.id = le.r_debt_id " +
+                "left join (select r_act_id, max(court_doc_num) court_doc_num,max(court_date) court_date from law_exec GROUP BY r_act_id) le on le.r_act_id = la.id " +
+                "left join debt d on d.id = la.r_debt_id " +
                 "left join passport pass on pass.id=p.r_passport_id " +
                 "left join address a on a.parent_id = p.id and a.typ=1 " +
                 $"where {where}";

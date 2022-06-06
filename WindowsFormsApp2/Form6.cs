@@ -22,6 +22,8 @@ namespace WindowsFormsApp2
                     {
                         AdrTB.Enabled = false;
                         MailTB.Enabled = false;
+                        IstCB.Text = Settings.ist;
+                        ECPCB.Text = Settings.ecp;
                         break;
                     }
                 case 3:
@@ -38,11 +40,6 @@ namespace WindowsFormsApp2
                         break;
                     }
             }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void DoneBtn_Click(object sender, EventArgs e)

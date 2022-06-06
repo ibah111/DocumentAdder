@@ -846,6 +846,7 @@ namespace WindowsFormsApp2
             var m = sender as ComboBox;
             if (m.SelectedValue != null)
                 Settings.mode = (int)m.SelectedValue;
+            if (m.SelectedValue !=null)
             if ((int)m.SelectedValue == 2)
             {
                 comboBox8.Enabled = false;

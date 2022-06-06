@@ -65,7 +65,6 @@ namespace WindowsFormsApp2
             this.IstCB.Name = "IstCB";
             this.IstCB.Size = new System.Drawing.Size(166, 21);
             this.IstCB.TabIndex = 1;
-            this.IstCB.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ECPCB
             // 
