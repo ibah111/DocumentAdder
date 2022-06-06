@@ -512,7 +512,7 @@ namespace WindowsFormsApp2
             }
             Adder.file.Clear();
 
-            if ((int)ModeCB.SelectedValue != 1)
+            if ((int)ModeCB.SelectedValue == 1)
             {
                 Form6 f = new Form6((int)ModeCB.SelectedValue, this, ref errors);
                 f.Show(this);
@@ -844,6 +844,13 @@ namespace WindowsFormsApp2
             var m = sender as ComboBox;
             if (m.SelectedValue != null)
                 Settings.mode = (int)m.SelectedValue;
+            if ((int)m.SelectedValue == 2)
+            {
+                comboBox8.Enabled = false;
+            }
+            else {
+                comboBox8.Enabled = true;
+            }
         }
 
 
