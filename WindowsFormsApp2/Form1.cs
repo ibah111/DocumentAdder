@@ -72,10 +72,10 @@ namespace WindowsFormsApp2
         public Form1()
         {
             List<CBMember> cBMembers = new List<CBMember>();
-            cBMembers.Add(new CBMember() { name = "Входящая почта", value = 4 });
+            cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
             cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
-            cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 1 });
+            cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 4 });
             InitializeComponent();
             bindingSource1.DataSource = cBMembers;
             //ModeCB.DataSource = bindingSource1;
@@ -511,7 +511,7 @@ namespace WindowsFormsApp2
                     command.ExecuteReader();
             }
             Adder.file.Clear();
-            int[] ints = { 1,2,3 };
+            int[] ints = { 2,3,4 };
 
             if (ints.Contains(
             (int)ModeCB.SelectedValue))
