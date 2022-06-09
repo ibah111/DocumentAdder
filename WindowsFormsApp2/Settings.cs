@@ -11,7 +11,7 @@ namespace WindowsFormsApp2
 #if DEBUG
         public static string dbs = "i_collect_test";
         public static string main = "\\\\newct\\Luxbase\\Docattach2";
-        public static string domain = "192.168.0.20";
+        public static string domain = "apps.usb.ru";
 #else
         public static string dbs = "i_collect";
         public static string main = "\\\\newct\\Luxbase\\Docattach";

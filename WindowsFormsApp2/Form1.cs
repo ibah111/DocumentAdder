@@ -71,12 +71,17 @@ namespace WindowsFormsApp2
         
         public Form1()
         {
+            InitializeComponent();
+        }
+
+        public void Loader()
+        {
+
             List<CBMember> cBMembers = new List<CBMember>();
             cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
             cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
             cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 4 });
-            InitializeComponent();
             bindingSource1.DataSource = cBMembers;
             //ModeCB.DataSource = bindingSource1;
             LoadList();
@@ -87,7 +92,8 @@ namespace WindowsFormsApp2
             {
                 List<string> spis = File.ReadLines(path_to_list).ToList();
                 comboBox5.DataSource = spis;
-            } else
+            }
+            else
             {
                 File.CreateText(path_to_list);
             }
@@ -111,10 +117,6 @@ namespace WindowsFormsApp2
             }
             Settings.json = File.ReadAllText(Environment.CurrentDirectory + "\\Data\\config.json");
             panel1.AllowDrop = true;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
             JObject o = JObject.Parse(Settings.json);
             for (int a = 0; a < o.Count; a++)
                 comboBox1.Items.Add(o[(string)a.ToString()]["тип_документа"]);

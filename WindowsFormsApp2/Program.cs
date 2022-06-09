@@ -42,7 +42,7 @@ namespace WindowsFormsApp2
                 (sender, cert, chain, sslPolicyErrors) => { return true; };
 #endif
             Conn.Open();
-            Application.Run(new Form1());
+            Application.Run(new App());
             
         }
     }

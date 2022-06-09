@@ -36,6 +36,7 @@ namespace WindowsFormsApp2
                 OdbcCommand command = new OdbcCommand($"select code,name from dict where parent_id={a}");
                     command.Connection = Program.Conn;
                     command.ExecuteNonQuery();
+                    Settings.status = new Dictionary<int, Dictionary<int, string>>();
                     using (OdbcDataReader reader = command.ExecuteReader())
                     {
                         Settings.status.Add(count, new Dictionary<int, string>());
@@ -54,6 +55,7 @@ namespace WindowsFormsApp2
             OdbcCommand command = new OdbcCommand(queryString);
                 command.Connection = Program.Conn;
                 command.ExecuteNonQuery();
+                Settings.users = new Dictionary<int, string>();
                 using (OdbcDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
