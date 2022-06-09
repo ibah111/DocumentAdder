@@ -14,6 +14,7 @@ namespace WindowsFormsApp2
     {
         public SocketDisabled()
         {
+            TopMost = true;
             InitializeComponent();
         }
 
