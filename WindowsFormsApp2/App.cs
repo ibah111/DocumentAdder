@@ -1,5 +1,6 @@
 ﻿using SocketIOClient;
 using SocketIOClient.Transport;
+using SocketIOClient.Windows7;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,8 +33,7 @@ namespace WindowsFormsApp2
             this.ExitThread();
         }
         private void handler() {
-#if DEBUG
-#endif
+            client.ClientWebSocketProvider = () => new ClientWebSocketManaged();
             client.OnConnected += (sender, e) =>
             {
                 Action hide = () => {
