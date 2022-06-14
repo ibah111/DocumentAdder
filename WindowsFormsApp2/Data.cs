@@ -177,6 +177,7 @@ namespace WindowsFormsApp2
 
         private static void Getcomm(string prefix,string id, List<string> sql,string text)
         {
+            if (!String.IsNullOrEmpty(id)) { 
             OdbcCommand command = new OdbcCommand($"select dsc from {prefix} where id = {id}");
                 command.Connection = Program.Conn;
                 command.ExecuteNonQuery();
@@ -190,6 +191,10 @@ namespace WindowsFormsApp2
                             sql.Add($"update {prefix} set dsc = dsc + CHAR(13) + \'{DateTime.Now.ToShortDateString()} {text}\' where id = {id}");
                     }
                 }
+            } else
+            {
+                MessageBox.Show("Должник не выбран!");
+            }
         }
 
         private static void GetStatus(List<string> sql)

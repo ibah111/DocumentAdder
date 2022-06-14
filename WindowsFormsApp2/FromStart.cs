@@ -31,12 +31,12 @@ namespace WindowsFormsApp2
         {
             int count = 0;
             int[] li = new int[] { 18, 25, 77 }; // Приказ Иск/Правопреемство Испол
+            Settings.status = new Dictionary<int, Dictionary<int, string>>();
             foreach (int a in li)
             {
                 OdbcCommand command = new OdbcCommand($"select code,name from dict where parent_id={a}");
                     command.Connection = Program.Conn;
                     command.ExecuteNonQuery();
-                    Settings.status = new Dictionary<int, Dictionary<int, string>>();
                     using (OdbcDataReader reader = command.ExecuteReader())
                     {
                         Settings.status.Add(count, new Dictionary<int, string>());

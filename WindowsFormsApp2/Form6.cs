@@ -10,12 +10,14 @@ namespace WindowsFormsApp2
     {
         private Form1 _form;
         private int errors;
+        private bool _task;
 
-        public Form6(int mode, Form1 form, ref int errors)
+        public Form6(int mode, Form1 form, ref int errors, bool task)
         {
             InitializeComponent();
             this.errors = errors;
             this._form = form;
+            this._task = task;
             switch (mode)
             {
                 case 2:
@@ -49,26 +51,35 @@ namespace WindowsFormsApp2
             Settings.ecp = ECPCB.Text;
             Settings.adres = AdrTB.Text;
             Settings.mail = MailTB.Text;
-            try
+            if (_task)
             {
-                WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
-                var vm = _form.getRequest("without_task");
-                var dataString = JsonConvert.SerializeObject(vm);
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
-            }
-            catch (Exception ee)
-            {
-                errors += 1;
-                MessageBox.Show($"Ошибка: {ee}\r\nДанные в таблицу не занесены!");
-            }
-            if (errors == 0)
-            {
-                MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _form.newTask(errors);
             }
             else
-                MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
-            errors = 0;
+            {
+                try
+                {
+                    WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
+                    var vm = _form.getRequest("without_task");
+                    var dataString = JsonConvert.SerializeObject(vm);
+                    client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                    client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                }
+                catch (Exception ee)
+                {
+                    errors += 1;
+                    MessageBox.Show($"Ошибка: {ee}\r\nДанные в таблицу не занесены!");
+                }
+                if (errors == 0)
+                {
+                    MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+                errors = 0;
+                _form.ClearTextBox();
+            }
+            Close();
         }
     }
 }

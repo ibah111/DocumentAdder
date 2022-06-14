@@ -37,7 +37,6 @@ namespace WindowsFormsApp2
         private static string _template_id_task;
         private static string _action;
         private static int _vkl;
-        //private static bool _dateId;
         private static int _mode;
         private static string _ist;
         private static string _dateDoc;

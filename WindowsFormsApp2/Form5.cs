@@ -97,7 +97,9 @@ namespace WindowsFormsApp2
             }
             else
                 MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+            Forms.ClearTextBox();
             errors = 0;
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

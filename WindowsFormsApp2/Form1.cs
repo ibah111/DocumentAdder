@@ -229,7 +229,7 @@ namespace WindowsFormsApp2
                 textBox11.SelectionStart = textBox11.Text.Length;
         }
 
-        private void ClearTextBox()
+        public void ClearTextBox()
         {
             foreach(Control control in tableLayoutPanel1.Controls)
             {
@@ -518,32 +518,15 @@ namespace WindowsFormsApp2
             if (ints.Contains(
             (int)ModeCB.SelectedValue))
             {
-                Form6 f = new Form6((int)ModeCB.SelectedValue, this, ref errors);
+                Form6 f = new Form6((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked);
                 f.Show(this);
-                //f.FormClosed += F_FormClosed;
             } else { 
 
             if (checkBox3.Checked == true)
-            {
-                PersonInfo personInfo = new PersonInfo()
                 {
-                    court_doc_num = textBox16.Text,
-                    court_date = maskedTextBox12.Text,
-                    exec_number = textBox8.Text,
-                    fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
-                    birth_date = textBox18.Text,
-                    birth_place = textBox21.Text,
-                    series = textBox19.Text,
-                    number = textBox20.Text,
-                    inn = innMb.Text,
-                    sum = textBox23.Text,
-                    exec_date = execDateMb.Text,
-                    name = comboBox9.Text
-                };
-                Form5 f = new Form5(ref errors, this, personInfo);
-                f.Show();
-                f.FormClosed += F_FormClosed;
-            } else
+                    newTask(errors);
+                }
+                else
             {
                 
                     //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
@@ -582,6 +565,28 @@ namespace WindowsFormsApp2
             }
         }
 
+        public void newTask(int errors)
+        {
+            PersonInfo personInfo = new PersonInfo()
+            {
+                court_doc_num = textBox16.Text,
+                court_date = maskedTextBox12.Text,
+                exec_number = textBox8.Text,
+                fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
+                birth_date = textBox18.Text,
+                birth_place = textBox21.Text,
+                series = textBox19.Text,
+                number = textBox20.Text,
+                inn = innMb.Text,
+                sum = textBox23.Text,
+                exec_date = execDateMb.Text,
+                name = comboBox9.Text
+            };
+            Form5 f = new Form5(ref errors, this, personInfo);
+            f.Show();
+            f.FormClosed += F_FormClosed;
+        }
+
         private void F_FormClosed(object sender, FormClosedEventArgs e)
         {
             ClearTextBox();
@@ -599,7 +604,7 @@ namespace WindowsFormsApp2
                 nal_skan = true;
             if (Settings.mode < 1)
                 Settings.mode = 1;
-            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", Settings.mode, Settings.ist, /*dateDoc = DateTime.Parse(*/Settings.dateDoc/*)*/, Settings.ecp, Settings.adres, Settings.mail };
+            return new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", Settings.mode, Settings.ist, dateDoc = DateTime.Parse(Settings.dateDoc), Settings.ecp, Settings.adres, Settings.mail };
         }
 
         private bool CheckMasked()
