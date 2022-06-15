@@ -9,7 +9,7 @@ namespace WindowsFormsApp2
 {
     static class Program
     {
-        public static OdbcConnection Conn = new OdbcConnection($"Driver={{ODBC Driver 17 for SQL Server}};Server=newct;Database={Settings.dbs};Uid=docmail;Pwd=docmail;");
+        public static OdbcConnection Conn = new OdbcConnection($"Driver={{SQL Server}};Server=newct.usb.ru;Database={Settings.dbs};Uid=docmail;Pwd=docmail;");
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
             dynamic json = JsonConvert.DeserializeObject(args.RemoteData);
