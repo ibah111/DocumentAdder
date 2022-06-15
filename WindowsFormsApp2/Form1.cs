@@ -859,7 +859,7 @@ namespace WindowsFormsApp2
             if (m.SelectedValue != null)
                 Settings.mode = (int)m.SelectedValue;
             if (m.SelectedValue !=null)
-            if ((int)m.SelectedValue == 2)
+            if ((int)m.SelectedValue == 2 || (int)m.SelectedValue == 3)
             {
                 comboBox8.Enabled = false;
             }
