@@ -32,7 +32,6 @@ namespace WindowsFormsApp2
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
             AutoUpdater.ShowSkipButton = false;
-            AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.ParseUpdateInfoEvent += AutoUpdaterOnParseUpdateInfoEvent;
             AutoUpdater.Synchronous = true;
             AutoUpdater.RunUpdateAsAdmin = false;
