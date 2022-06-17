@@ -122,7 +122,7 @@ namespace DocumentAdder
                 }
                 if (!File.Exists(Environment.CurrentDirectory + "\\Data\\config.json"))
                 {
-                    if (Directory.Exists(Environment.CurrentDirectory + "\\Data"))
+                    if (!Directory.Exists(Environment.CurrentDirectory + "\\Data"))
                         Directory.CreateDirectory(Environment.CurrentDirectory + "\\Data");
                     File.WriteAllText(Environment.CurrentDirectory + "\\Data\\config.json", Resources.config);
                 }

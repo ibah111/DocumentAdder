@@ -73,21 +73,36 @@ namespace DocumentAdder.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на {
         ///  &quot;0&quot;: {
-        ///    &quot;С‚РёРї_РґРѕРєСѓРјРµРЅС‚Р°&quot;: &quot;РЎСѓРґРµР±РЅС‹Р№ РїСЂРёРєР°Р· (РЎРџ) РІ РќРђРЁРЈ РїРѕР»СЊР·Сѓ&quot;,
-        ///    &quot;С†РІРµС‚_РєР°СЂС‚РѕС‡РєРё&quot;: -1,
-        ///	&quot;РЅРѕРјРµСЂ_РєРґ&quot;: false,
-        ///    &quot;РЅРѕРјРµСЂ_РґРµР»Р°&quot;: true,
-        ///    &quot;РЅРѕРјРµСЂ_РёРї&quot;: false,
-        ///    &quot;РЅРѕРјРµСЂ_РёСЃРїРѕР»&quot;: false,
-        ///    &quot;РґР°С‚Р°_РІС‹РЅРµСЃРµРЅРёСЏ_СЂРµС€РµРЅРёСЏ&quot;: true,
-        ///    &quot;РґР°С‚Р°_РІСЃС‚СѓРїР»РµРЅРёСЏ_РІ_СЃРёР»Сѓ&quot;: true,
-        ///    &quot;РґР°С‚Р°_РІРѕР·Р±СѓР¶РґРµРЅРёСЏ&quot;: false,
-        ///    &quot;РґР°С‚Р°_РїРѕСЃС‚_РѕР±_РѕРєРѕРЅС‡Р°РЅРёРё_РёРї&quot;: false,
-        ///    &quot;РґР°С‚ [остаток строки не уместился]&quot;;.
+        ///    &quot;тип_документа&quot;: &quot;Судебный приказ (СП) в НАШУ пользу&quot;,
+        ///    &quot;цвет_карточки&quot;: -1,
+        ///    &quot;номер_кд&quot;: false,
+        ///    &quot;номер_дела&quot;: true,
+        ///    &quot;номер_ип&quot;: false,
+        ///    &quot;номер_испол&quot;: false,
+        ///    &quot;дата_вынесения_решения&quot;: true,
+        ///    &quot;дата_вступления_в_силу&quot;: true,
+        ///    &quot;дата_возбуждения&quot;: false,
+        ///    &quot;дата_пост_об_окончании_ип&quot;: false,
+        ///    &quot;дата_получения_агентством&quot;: true,
+        ///    &quot;дата_возврата&quot;: false,
+        ///    &quot;дата_ограничения_выезда&quot;: false,
+        ///    &quot;дата_отказа_в_возбуждении&quot;: false,
+        ///    &quot;дата_отмены_сп&quot;: false,
+        ///     [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string config {
             get {
                 return ResourceManager.GetString("config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon document {
+            get {
+                object obj = ResourceManager.GetObject("document", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }
