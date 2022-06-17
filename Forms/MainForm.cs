@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using DocumentAdder.Models;
 using DocumentAdder.Utils;
+using DocumentAdder.Properties;
 
 namespace DocumentAdder
 {
@@ -118,6 +119,12 @@ namespace DocumentAdder
                 else
                 {
                     File.CreateText(path_to_list_otprav);
+                }
+                if (!File.Exists(Environment.CurrentDirectory + "\\Data\\config.json"))
+                {
+                    if (Directory.Exists(Environment.CurrentDirectory + "\\Data"))
+                        Directory.CreateDirectory(Environment.CurrentDirectory + "\\Data");
+                    File.WriteAllText(Environment.CurrentDirectory + "\\Data\\config.json", Resources.config);
                 }
                 Settings.json = File.ReadAllText(Environment.CurrentDirectory + "\\Data\\config.json");
                 panel1.AllowDrop = true;

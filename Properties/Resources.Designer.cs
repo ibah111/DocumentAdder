@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DocumentAdder.Properties
-{
+namespace DocumentAdder.Properties {
     using System;
-
-
+    
+    
     /// <summary>
     ///   Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
     /// </summary>
@@ -20,64 +19,75 @@ namespace DocumentAdder.Properties
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DocumentAdder.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Перезаписывает свойство CurrentUICulture текущего потока для всех
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_file
-        {
-            get
-            {
+        internal static System.Drawing.Bitmap add_file {
+            get {
                 object obj = ResourceManager.GetObject("add_file", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {
+        ///  &quot;0&quot;: {
+        ///    &quot;С‚РёРї_РґРѕРєСѓРјРµРЅС‚Р°&quot;: &quot;РЎСѓРґРµР±РЅС‹Р№ РїСЂРёРєР°Р· (РЎРџ) РІ РќРђРЁРЈ РїРѕР»СЊР·Сѓ&quot;,
+        ///    &quot;С†РІРµС‚_РєР°СЂС‚РѕС‡РєРё&quot;: -1,
+        ///	&quot;РЅРѕРјРµСЂ_РєРґ&quot;: false,
+        ///    &quot;РЅРѕРјРµСЂ_РґРµР»Р°&quot;: true,
+        ///    &quot;РЅРѕРјРµСЂ_РёРї&quot;: false,
+        ///    &quot;РЅРѕРјРµСЂ_РёСЃРїРѕР»&quot;: false,
+        ///    &quot;РґР°С‚Р°_РІС‹РЅРµСЃРµРЅРёСЏ_СЂРµС€РµРЅРёСЏ&quot;: true,
+        ///    &quot;РґР°С‚Р°_РІСЃС‚СѓРїР»РµРЅРёСЏ_РІ_СЃРёР»Сѓ&quot;: true,
+        ///    &quot;РґР°С‚Р°_РІРѕР·Р±СѓР¶РґРµРЅРёСЏ&quot;: false,
+        ///    &quot;РґР°С‚Р°_РїРѕСЃС‚_РѕР±_РѕРєРѕРЅС‡Р°РЅРёРё_РёРї&quot;: false,
+        ///    &quot;РґР°С‚ [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string config {
+            get {
+                return ResourceManager.GetString("config", resourceCulture);
             }
         }
     }

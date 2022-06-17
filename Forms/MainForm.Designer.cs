@@ -1996,7 +1996,7 @@ namespace DocumentAdder
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataSource = typeof(CBMember);
+            this.bindingSource1.DataSource = typeof(DocumentAdder.Models.CBMember);
             // 
             // label45
             // 
@@ -2016,7 +2016,7 @@ namespace DocumentAdder
             // 
             this.dataTable2TableAdapter.ClearBeforeFill = true;
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2024,7 +2024,7 @@ namespace DocumentAdder
             this.ClientSize = new System.Drawing.Size(1251, 798);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(643, 630);
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Входящая почта. Документооборот.";
             ((System.ComponentModel.ISupportInitialize)(this.Users)).EndInit();
