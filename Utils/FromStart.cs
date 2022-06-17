@@ -15,7 +15,7 @@ namespace WindowsFormsApp2.Utils
 
         public static string GetUser()
         {
-            return $"DocumentHelper. Пользователь: {Settings.username} [{Settings.user_id}]";
+            return $"Входящая почта. Документооборот. Пользователь: {Settings.username} [{Settings.user_id}]";
         }
 
         internal static void GetStatus()
