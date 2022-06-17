@@ -7,11 +7,11 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <StartupObject>DocumentAdder.Program</StartupObject>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <ApplicationIcon>document.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\document.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="document.ico" />
+    <Content Include="Resources\document.ico" />
   </ItemGroup>
 
   <ItemGroup>
