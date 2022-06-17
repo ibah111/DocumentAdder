@@ -1,9 +1,10 @@
-﻿using System;
+﻿using DocumentAdder.Main;
+using System;
 using System.Data.Odbc;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace DocumentAdder
+namespace DocumentAdder.Dialogs
 {
     public partial class DocAttach : Form
     {

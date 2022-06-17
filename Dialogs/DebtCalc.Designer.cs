@@ -1,5 +1,5 @@
 ﻿
-namespace DocumentAdder
+namespace DocumentAdder.Dialogs
 {
     partial class DebtCalc
     {

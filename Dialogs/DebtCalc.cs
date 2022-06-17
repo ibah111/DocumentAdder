@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DocumentAdder.Main;
+using System;
 using System.Data.Odbc;
 using System.Windows.Forms;
 
-namespace DocumentAdder
+namespace DocumentAdder.Dialogs
 {
     public partial class DebtCalc : Form
     {

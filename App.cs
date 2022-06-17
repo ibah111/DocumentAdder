@@ -1,4 +1,5 @@
-﻿using SocketIOClient;
+﻿using DocumentAdder.Forms;
+using SocketIOClient;
 using SocketIOClient.Transport;
 using SocketIOClient.Windows7;
 using System;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DocumentAdder
+namespace DocumentAdder.Main
 {
     public class App : ApplicationContext
     {

@@ -5,8 +5,9 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using DocumentAdder.Utils;
+using DocumentAdder.Forms;
 
-namespace DocumentAdder
+namespace DocumentAdder.Dialogs
 {
     public partial class Tasks : Form
     {

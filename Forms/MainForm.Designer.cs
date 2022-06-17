@@ -1,6 +1,6 @@
 ﻿using DocumentAdder.Models;
 
-namespace DocumentAdder
+namespace DocumentAdder.Forms
 {
     partial class MainForm
     {

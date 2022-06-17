@@ -14,8 +14,10 @@ using System.IO.Ports;
 using DocumentAdder.Models;
 using DocumentAdder.Utils;
 using DocumentAdder.Properties;
+using DocumentAdder.Dialogs;
+using DocumentAdder.Main;
 
-namespace DocumentAdder
+namespace DocumentAdder.Forms
 {
     public partial class MainForm : Form
     {

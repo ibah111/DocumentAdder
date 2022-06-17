@@ -5,8 +5,9 @@ using System.Data.Odbc;
 using System.IO;
 using System.Windows.Forms;
 using DocumentAdder.Utils;
+using DocumentAdder.Main;
 
-namespace DocumentAdder
+namespace DocumentAdder.Forms
 {
     public partial class LoginForm : Form
     {

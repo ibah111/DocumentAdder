@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
 
-namespace DocumentAdder
+namespace DocumentAdder.Main
 {
     static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace DocumentAdder
+﻿namespace DocumentAdder.Forms
 {
     partial class SocketForm
     {

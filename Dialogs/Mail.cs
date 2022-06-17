@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using DocumentAdder.Forms;
+using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DocumentAdder
+namespace DocumentAdder.Dialogs
 {
     public partial class Mail : Form
     {
