@@ -48,7 +48,6 @@
             // 
             this.ClientSize = new System.Drawing.Size(821, 237);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SocketDisabled";
             this.Text = "Соединение.....";
             this.ResumeLayout(false);

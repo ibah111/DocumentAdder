@@ -162,7 +162,6 @@ namespace DocumentAdder
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OtherDocs";
             this.Text = "Другие документы";
             this.ResumeLayout(false);

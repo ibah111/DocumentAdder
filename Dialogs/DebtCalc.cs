@@ -11,7 +11,7 @@ namespace DocumentAdder
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void DebtCalc_Load(object sender, EventArgs e)
         {
             string command;
             if (Settings.vkl != 4)

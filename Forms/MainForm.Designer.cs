@@ -2023,7 +2023,6 @@ namespace DocumentAdder
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1251, 798);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(643, 630);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
