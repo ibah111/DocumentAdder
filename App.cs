@@ -14,14 +14,14 @@ namespace WindowsFormsApp2
 {
     public class App : ApplicationContext
     {
-        private Form1 startForm;
+        private MainForm startForm;
         private LoginForm loginForm;
-        private SocketDisabled socketForm;
+        private SocketForm socketForm;
         private SocketIO client = new SocketIO($"{Settings.server_ws}/");
 
         public App()
         {
-            startForm = new Form1();
+            startForm = new MainForm();
             loginForm = new LoginForm();
             startForm.Show();
             startForm.Hide();
@@ -29,7 +29,7 @@ namespace WindowsFormsApp2
             loginForm.Show();
             loginForm.Hide();
             loginForm.FormClosed += close;
-            socketForm = new SocketDisabled();
+            socketForm = new SocketForm();
             socketForm.Show();
             //socketForm.Hide();
             socketForm.FormClosed += close;
