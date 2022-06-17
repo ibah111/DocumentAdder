@@ -21,6 +21,7 @@ namespace WindowsFormsApp2
         private static string path_to_list_adr = Environment.CurrentDirectory + "\\Список_Для_Адреса.txt";
         private static string path_to_list_otprav = Environment.CurrentDirectory + "\\Список_Для_Отправителя.txt";
         private static SerialPort currentPort = new SerialPort();
+        private bool runed = false;
         private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
@@ -76,52 +77,57 @@ namespace WindowsFormsApp2
 
         public void Loader()
         {
-            List<CBMember> cBMembers = new List<CBMember>();
-            cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
-            cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
-            cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
-            cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 4 });
-            bindingSource1.DataSource = cBMembers;
-            //ModeCB.DataSource = bindingSource1;
-            LoadList();
-            currentPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
-            comboBox4.DataSource = SerialPort.GetPortNames();
+            if (!runed)
+            {
+                List<CBMember> cBMembers = new List<CBMember>();
+                cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
+                cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
+                cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
+                cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 4 });
+                bindingSource1.DataSource = cBMembers;
+                //ModeCB.DataSource = bindingSource1;
 
-            if (File.Exists(path_to_list))
-            {
-                List<string> spis = File.ReadLines(path_to_list).ToList();
-                comboBox5.DataSource = spis;
+                LoadList();
+                currentPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+                comboBox4.DataSource = SerialPort.GetPortNames();
+
+                if (File.Exists(path_to_list))
+                {
+                    List<string> spis = File.ReadLines(path_to_list).ToList();
+                    comboBox5.DataSource = spis;
+                }
+                else
+                {
+                    File.CreateText(path_to_list);
+                }
+                if (File.Exists(path_to_list_adr))
+                {
+                    List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
+                    comboBox8.DataSource = spis1;
+                }
+                else
+                {
+                    File.CreateText(path_to_list_adr);
+                }
+                if (File.Exists(path_to_list_otprav))
+                {
+                    List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
+                    comboBox9.DataSource = spis2;
+                }
+                else
+                {
+                    File.CreateText(path_to_list_otprav);
+                }
+                Settings.json = File.ReadAllText(Environment.CurrentDirectory + "\\Data\\config.json");
+                panel1.AllowDrop = true;
+                JObject o = JObject.Parse(Settings.json);
+                for (int a = 0; a < o.Count; a++)
+                    comboBox1.Items.Add(o[(string)a.ToString()]["тип_документа"]);
+                this.Text = FromStart.DownloadInfo();
+                comboBox1.SelectedIndex = 0;
+                //LoadPeople();
+                runed = true;
             }
-            else
-            {
-                File.CreateText(path_to_list);
-            }
-            if (File.Exists(path_to_list_adr))
-            {
-                List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
-                comboBox8.DataSource = spis1;
-            }
-            else
-            {
-                File.CreateText(path_to_list_adr);
-            }
-            if (File.Exists(path_to_list_otprav))
-            {
-                List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
-                comboBox9.DataSource = spis2;
-            }
-            else
-            {
-                File.CreateText(path_to_list_otprav);
-            }
-            Settings.json = File.ReadAllText(Environment.CurrentDirectory + "\\Data\\config.json");
-            panel1.AllowDrop = true;
-            JObject o = JObject.Parse(Settings.json);
-            for (int a = 0; a < o.Count; a++)
-                comboBox1.Items.Add(o[(string)a.ToString()]["тип_документа"]);
-            this.Text = FromStart.DownloadInfo();
-            comboBox1.SelectedIndex = 0;
-            //LoadPeople();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

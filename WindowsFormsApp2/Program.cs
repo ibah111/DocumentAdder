@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Odbc;
+using System.Net;
 using System.Windows.Forms;
 using AutoUpdaterDotNET;
 using Newtonsoft.Json;
@@ -31,7 +32,6 @@ namespace WindowsFormsApp2
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
             AutoUpdater.ShowSkipButton = false;
-            AutoUpdater.InstalledVersion = new Version("2.0.0.24");
             AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.ParseUpdateInfoEvent += AutoUpdaterOnParseUpdateInfoEvent;
             AutoUpdater.Synchronous = true;
