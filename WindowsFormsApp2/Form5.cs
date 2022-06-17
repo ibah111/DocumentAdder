@@ -30,7 +30,7 @@ namespace WindowsFormsApp2
                 var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "templates" };
                 var dataString = JsonConvert.SerializeObject(vm);
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
                 List<Template> responseString = JsonConvert.DeserializeObject<List<Template>>(response);
                 if (responseString != null)
                     if (responseString.Count > 0)
@@ -84,7 +84,7 @@ namespace WindowsFormsApp2
                 var vm = Forms.getRequest("with_task", comboBox1.SelectedValue.ToString());
                 var dataString = JsonConvert.SerializeObject(vm);
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
             }
             catch (Exception ee)
             {

@@ -76,7 +76,6 @@ namespace WindowsFormsApp2
 
         public void Loader()
         {
-
             List<CBMember> cBMembers = new List<CBMember>();
             cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
@@ -546,7 +545,7 @@ namespace WindowsFormsApp2
                         var vm = getRequest("without_task");
                         var dataString = JsonConvert.SerializeObject(vm);
                         client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                        var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                        var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
                     }
                     catch (Exception ee)
                     {
@@ -811,7 +810,7 @@ namespace WindowsFormsApp2
                 string old_text = comboBox7.Text;
                 var dataString = JsonConvert.SerializeObject(vm);
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
                 List<User> responseString = JsonConvert.DeserializeObject<List<User>>(response);
                 if (responseString.Count > 0)
                 {

@@ -15,16 +15,23 @@ namespace WindowsFormsApp2
     public class App : ApplicationContext
     {
         private Form1 startForm;
+        private LoginForm loginForm;
         private SocketDisabled socketForm;
-        private SocketIO client = new SocketIO($"https://{Settings.domain}:3001/");
+        private SocketIO client = new SocketIO($"{Settings.server_ws}/");
 
         public App()
         {
             startForm = new Form1();
+            loginForm = new LoginForm();
             startForm.Show();
+            startForm.Hide();
             startForm.FormClosed += close;
+            loginForm.Show();
+            loginForm.Hide();
+            loginForm.FormClosed += close;
             socketForm = new SocketDisabled();
             socketForm.Show();
+            //socketForm.Hide();
             socketForm.FormClosed += close;
             handler();
             start();
@@ -36,34 +43,46 @@ namespace WindowsFormsApp2
             client.ClientWebSocketProvider = () => new ClientWebSocketManaged();
             client.OnConnected += (sender, e) =>
             {
-                Action hide = () => {
-                    socketForm.Hide();
-                };
-
-                socketForm.Invoke(hide);
-                Action show = () =>
-                {
-                    startForm.Show();
-                    startForm.Loader();
-                };
-                startForm.Invoke(show);
-            };
-            client.OnDisconnected += (sender, e) =>
-            {
-                Action hide = () =>
+                Action hideStartForm = () =>
                 {
                     startForm.Hide();
                 };
-                startForm.Invoke(hide);
-                Action show = () =>
+                Action hideSocketForm = () => {
+                    socketForm.Hide();
+                };
+
+                socketForm.Invoke(hideSocketForm);
+                Action showStartForm = () =>
+                {
+                    startForm.Show();
+                    startForm.WindowState = FormWindowState.Normal;
+                    startForm.Activate();
+                    startForm.Loader();
+                };
+                Action showLoginForm = () =>
+                {
+                    loginForm.OnLoged += () => startForm.Invoke(showStartForm);
+                    loginForm.OnNotLoged += () => startForm.Invoke(hideStartForm);
+                    loginForm.CheckLogin();
+                };
+                loginForm.Invoke(showLoginForm);
+            };
+            client.OnDisconnected += (sender, e) =>
+            {
+                Action hideStartForm = () =>
+                {
+                    startForm.Hide();
+                };
+                startForm.Invoke(hideStartForm);
+                Action showSocketForm = () =>
                 {
                     socketForm.Show();
                 };
-                socketForm.Invoke(show);
+                socketForm.Invoke(hideStartForm);
             };
         }
         private void start() {
-            startForm.Hide();
+
             client.ConnectAsync();
         }
     }

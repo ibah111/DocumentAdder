@@ -11,11 +11,15 @@ namespace WindowsFormsApp2
 #if DEBUG
         public static string dbs = "i_collect_test";
         public static string main = "\\\\newct\\Luxbase\\Docattach2";
-        public static string domain = "apps.usb.ru";
+        public static string server = "https://localhost:3001";
+        public static string server_ws = "https://apps.usb.ru:3001";
+        public static string server_login = "https://chat.nbkfinance.ru";
 #else
         public static string dbs = "i_collect";
         public static string main = "\\\\newct\\Luxbase\\Docattach";
-        public static string domain = "apps.usb.ru";
+        public static string server = "https://apps.usb.ru:3001";
+        public static string server_ws = "https://apps.usb.ru:3001";
+        public static string server_login = "https://chat.nbkfinance.ru";
 #endif
         private static string _json;
         private static int _user_id;

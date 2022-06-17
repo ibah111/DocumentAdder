@@ -63,7 +63,7 @@ namespace WindowsFormsApp2
                     var vm = _form.getRequest("without_task");
                     var dataString = JsonConvert.SerializeObject(vm);
                     client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                    client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
                 }
                 catch (Exception ee)
                 {

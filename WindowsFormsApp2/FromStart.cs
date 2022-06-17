@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
-using System.DirectoryServices.AccountManagement;
-using System.Windows.Forms;
-
 namespace WindowsFormsApp2
 {
     internal class FromStart
@@ -17,13 +14,6 @@ namespace WindowsFormsApp2
 
         public static string GetUser()
         {
-            Settings.username = UserPrincipal.Current.DisplayName;
-            string queryString = $"select id from users where i + \' \' + f = \'{Settings.username}\'";
-            OdbcCommand command = new OdbcCommand(queryString);
-                command.Connection = Program.Conn;
-                using (OdbcDataReader reader = command.ExecuteReader())
-                    while (reader.Read())
-                        Settings.user_id = reader.GetInt32(0);
             return $"DocumentHelper. Пользователь: {Settings.username} [{Settings.user_id}]";
         }
 

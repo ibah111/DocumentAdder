@@ -68,7 +68,7 @@ namespace WindowsFormsApp2
                 var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "without_task", date_post = DateTime.Parse(Settings.date_post), Convert = Settings.conv, adr_otp = Settings.adr_otp, otprav = Settings.otprav, reestr = textBox1.Text, doc_name = Settings.doc_name, gd = textBox2.Text, fio_dol = comboBox2.Text, ispol_zadach = comboBox1.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = Settings.nal_skan };
                 var dataString = JsonConvert.SerializeObject(vm);
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"https://{Settings.domain}:3001/123"), "POST", dataString);
+                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
                 MessageBox.Show("Данные в таблицу занесены");
             }
             catch (Exception ee)

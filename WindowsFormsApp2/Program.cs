@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Data.Odbc;
-using System.Net;
 using System.Windows.Forms;
 using AutoUpdaterDotNET;
 using Newtonsoft.Json;
+using RestSharp;
+using RestSharp.Serializers.NewtonsoftJson;
 
 namespace WindowsFormsApp2
 {
     static class Program
     {
+        public static readonly RestClient client = new RestClient(Settings.server);
         public static OdbcConnection Conn = new OdbcConnection($"Driver={{SQL Server}};Server=newct.usb.ru;Database={Settings.dbs};Uid=docmail;Pwd=docmail;");
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
@@ -25,10 +27,11 @@ namespace WindowsFormsApp2
         [STAThread]
         static void Main()
         {
+            client.UseNewtonsoftJson();
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
             AutoUpdater.ShowSkipButton = false;
-            AutoUpdater.InstalledVersion = new Version("2.0.0.23");
+            AutoUpdater.InstalledVersion = new Version("2.0.0.24");
             AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.ParseUpdateInfoEvent += AutoUpdaterOnParseUpdateInfoEvent;
             AutoUpdater.Synchronous = true;
