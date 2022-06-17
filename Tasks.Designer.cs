@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     partial class Tasks
     {

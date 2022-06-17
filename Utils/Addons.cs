@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WindowsFormsApp2.Utils
+namespace DocumentAdder.Utils
 {
     static class Addons
     {

@@ -3,7 +3,7 @@ using System.Data.Odbc;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public partial class DocAttach : Form
     {
@@ -43,7 +43,7 @@ namespace WindowsFormsApp2
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 3 && !string.IsNullOrWhiteSpace(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()))
+            if (e.ColumnIndex == 3 && !string.IsNullOrWhiteSpace(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()))
                 try
                 {
                     Process.Start($"{Settings.main}{dataGridView1.Rows[e.RowIndex].Cells[1].Value}{dataGridView1.Rows[e.RowIndex].Cells[2].Value}");

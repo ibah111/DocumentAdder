@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     partial class DebtCalc
     {
@@ -39,8 +39,8 @@ namespace WindowsFormsApp2
             this.isconfirmedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtcalcBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new WindowsFormsApp2.DataSet1();
-            this.debt_calcTableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.debt_calcTableAdapter();
+            this.dataSet1 = new DocumentAdder.DataSet1();
+            this.debt_calcTableAdapter = new DocumentAdder.DataSet1TableAdapters.debt_calcTableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();

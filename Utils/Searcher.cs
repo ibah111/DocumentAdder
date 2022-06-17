@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2.Utils
+namespace DocumentAdder.Utils
 {
     public class Searcher
     {

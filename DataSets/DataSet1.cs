@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace DocumentAdder
 {
 
 
@@ -14,12 +14,13 @@
     }
 }
 
-namespace WindowsFormsApp2.DataSet1TableAdapters
+namespace DocumentAdder.DataSet1TableAdapters
 {
     partial class DataTable3TableAdapter
     {
     }
 
-    public partial class DataTable1TableAdapter {
+    public partial class DataTable1TableAdapter
+    {
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.DirectoryServices.AccountManagement;
 
-namespace WindowsFormsApp2.Utils
+namespace DocumentAdder.Utils
 {
     public class PersonInfo
     {

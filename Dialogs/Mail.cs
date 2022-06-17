@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public partial class Mail : Form
     {

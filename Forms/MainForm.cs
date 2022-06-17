@@ -11,10 +11,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO.Ports;
-using WindowsFormsApp2.Models;
-using WindowsFormsApp2.Utils;
+using DocumentAdder.Models;
+using DocumentAdder.Utils;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public partial class MainForm : Form
     {
@@ -29,38 +29,38 @@ namespace WindowsFormsApp2
             string indata = sp.ReadExisting();
             Action action = () =>
             {
-                    ClearTextBox();
+                ClearTextBox();
                 string given = indata;
-                    textBox4.Text = given.Replace("\r", string.Empty);
-                    //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
-                    Searcher searcher = new Searcher("", "", "", textBox4.Text, "", "");
-                    searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
-                    comboBox1.SelectedIndex = 12;
-                    if (dataGridView1.RowCount == 1)
-                    {
-                        textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
-                        textBox1.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[0]; //Фамилия
-                        textBox2.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[1]; //Имя
-                        textBox3.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[2]; //Отчество
-                        textBox7.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
-                        textBox8.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
-                        textBox5.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
-                        textBox6.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
-                        textBox12.Text = dataGridView1.Rows[0].Cells[12].Value.ToString(); //Коммент
-                        textBox15.Text = dataGridView1.Rows[0].Cells[5].Value.ToString(); //реестр
-                        textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
-                        string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //ID Дела
-                        string int_vkl = GetIntKvl(vkl);
-                        JObject o = JObject.Parse(Settings.json);
-                        string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
-                        comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
-                        int status_get = GetStatusBible(status_text);
-                        if (status_get == 99999)
-                            comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
-                        else
-                            comboBox3.SelectedIndex = status_get - 1;
-                        maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-                    }
+                textBox4.Text = given.Replace("\r", string.Empty);
+                //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
+                Searcher searcher = new Searcher("", "", "", textBox4.Text, "", "");
+                searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
+                comboBox1.SelectedIndex = 12;
+                if (dataGridView1.RowCount == 1)
+                {
+                    textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
+                    textBox1.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[0]; //Фамилия
+                    textBox2.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[1]; //Имя
+                    textBox3.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[2]; //Отчество
+                    textBox7.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
+                    textBox8.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
+                    textBox5.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
+                    textBox6.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
+                    textBox12.Text = dataGridView1.Rows[0].Cells[12].Value.ToString(); //Коммент
+                    textBox15.Text = dataGridView1.Rows[0].Cells[5].Value.ToString(); //реестр
+                    textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
+                    string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //ID Дела
+                    string int_vkl = GetIntKvl(vkl);
+                    JObject o = JObject.Parse(Settings.json);
+                    string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
+                    comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
+                    int status_get = GetStatusBible(status_text);
+                    if (status_get == 99999)
+                        comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
+                    else
+                        comboBox3.SelectedIndex = status_get - 1;
+                    maskedTextBox5.Text = DateTime.Now.ToShortDateString();
+                }
                 indata = String.Empty;
 
 
@@ -70,7 +70,7 @@ namespace WindowsFormsApp2
             else
                 action();
         }
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -195,7 +195,7 @@ namespace WindowsFormsApp2
 
         private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
         {
-            if(sender is TextBox)
+            if (sender is TextBox)
             {
                 if (((TextBox)sender).Enabled == true)
                     ((TextBox)sender).BackColor = Color.White;
@@ -209,13 +209,13 @@ namespace WindowsFormsApp2
                 else
                     ((MaskedTextBox)sender).BackColor = Color.Red;
             }
-            
+
         }
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
-                Searcher searcher = new Searcher(textBox1.Text,textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
                 searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
             }
             if (e.Control && e.KeyCode == Keys.D)
@@ -225,7 +225,7 @@ namespace WindowsFormsApp2
                 Adder.file.Clear();
                 MessageBox.Show("Все файлы удалены!", "Удачно!");
             }
-            if(e.Control && e.Shift && e.KeyCode == Keys.D)
+            if (e.Control && e.Shift && e.KeyCode == Keys.D)
             {
                 ClearTextBox();
                 Adder.file.Clear();
@@ -237,7 +237,7 @@ namespace WindowsFormsApp2
 
         public void ClearTextBox()
         {
-            foreach(Control control in tableLayoutPanel1.Controls)
+            foreach (Control control in tableLayoutPanel1.Controls)
             {
                 if (control is TextBox)
                     (control as TextBox).Text = "";
@@ -332,7 +332,7 @@ namespace WindowsFormsApp2
                 {
                     case 0:
                         foreach (KeyValuePair<int, string> key in Settings.status[0])
-                             comboBox3.Items.Add(key.Value);
+                            comboBox3.Items.Add(key.Value);
                         comboBox3.Items.Add("Без статуса");
                         break;
                     case 1:
@@ -393,7 +393,7 @@ namespace WindowsFormsApp2
                 e.Effect = DragDropEffects.All;
             }
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            if(files.Length != 0)
+            if (files.Length != 0)
             {
                 panel1.BackgroundImageLayout = ImageLayout.Stretch;
             }
@@ -408,7 +408,7 @@ namespace WindowsFormsApp2
             ls.Clear();
         }
 
-        private void  button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
@@ -425,12 +425,12 @@ namespace WindowsFormsApp2
                     return;
                 }
             }
-                if (CheckMasked() == false)
+            if (CheckMasked() == false)
             {
-                MessageBox.Show("ДАТЫ не заполнены или заполнены некорректно!","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("ДАТЫ не заполнены или заполнены некорректно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
-            if(comboBox1.Text.Contains("ПОВИП") && string.IsNullOrWhiteSpace(textBox9.Text))
+            }
+            if (comboBox1.Text.Contains("ПОВИП") && string.IsNullOrWhiteSpace(textBox9.Text))
             {
                 MessageBox.Show("Поле № ИП не заполнено!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -485,9 +485,9 @@ namespace WindowsFormsApp2
             Data.vkl_int = comboBox2.SelectedIndex;
             Data.id = textBox4.Text;
 
-            List<string> ls= Data.Update(textBox7, textBox8, textBox9, textBox10,textBox11,
+            List<string> ls = Data.Update(textBox7, textBox8, textBox9, textBox10, textBox11,
                 maskedTextBox1, maskedTextBox2, maskedTextBox3, maskedTextBox4, maskedTextBox5,
-                maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11,comboBox3.Text);
+                maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, comboBox3.Text);
             ls.Add("\r\n\r\n");
             File.AppendAllText(Environment.CurrentDirectory + "\\SQL.txt", string.Join("\r\n", ls));
             int errors = 0;
@@ -497,12 +497,12 @@ namespace WindowsFormsApp2
                 try
                 {
                     OdbcCommand command = new OdbcCommand(str);
-                        command.Connection = Program.Conn;
-                        command.ExecuteReader();
+                    command.Connection = Program.Conn;
+                    command.ExecuteReader();
                 }
-                catch (Exception ex){ errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
+                catch (Exception ex) { errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
             }
-            
+
             foreach (KeyValuePair<string, string> key in Adder.file)
             {
                 string file = key.Value; //Название файла.pdf
@@ -515,26 +515,28 @@ namespace WindowsFormsApp2
                 File.Copy(file_dir, free_dir + $"\\{uuid}.{type}");
                 string sql_file = GetSqlFile(new_file, free_dir.Split('\\').Last(), file);
                 OdbcCommand command = new OdbcCommand(sql_file);
-                    command.Connection = Program.Conn;
-                    command.ExecuteReader();
+                command.Connection = Program.Conn;
+                command.ExecuteReader();
             }
             Adder.file.Clear();
-            int[] ints = { 2,3,4 };
+            int[] ints = { 2, 3, 4 };
 
             if (ints.Contains(
             (int)ModeCB.SelectedValue))
             {
                 Mail f = new Mail((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked);
                 f.Show(this);
-            } else { 
+            }
+            else
+            {
 
-            if (checkBox3.Checked == true)
+                if (checkBox3.Checked == true)
                 {
                     newTask(errors);
                 }
                 else
-            {
-                
+                {
+
                     //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                     //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
                     //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
@@ -560,14 +562,14 @@ namespace WindowsFormsApp2
                         MessageBox.Show($"Ошибка:{ee}\r\nДанные в таблицу не занесены!");
                     }
                     if (errors == 0)
-                {
-                    MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearTextBox();
+                    {
+                        MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearTextBox();
+                    }
+                    else
+                        MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+                    errors = 0;
                 }
-                else
-                    MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
-                errors = 0;
-            }
             }
         }
 
@@ -598,7 +600,8 @@ namespace WindowsFormsApp2
             ClearTextBox();
         }
 
-        public object getRequest(string typ, string id_task="0") {
+        public object getRequest(string typ, string id_task = "0")
+        {
             bool pristavi = false;
             if (checkBox4.Checked == true)
                 pristavi = true;
@@ -676,28 +679,28 @@ namespace WindowsFormsApp2
             ClearTextBox();
             if (e.RowIndex >= 0)
             {
-            textBox4.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox1.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[0];
-            textBox2.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[1];
-            textBox3.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[2];
-            textBox7.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
-            textBox9.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
-            textBox5.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
-            textBox6.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
-            textBox10.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
-            textBox8.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
-            textBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
-            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString(); //реестр
-            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
+                textBox4.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox1.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[0];
+                textBox2.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[1];
+                textBox3.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[2];
+                textBox7.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
+                textBox9.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
+                textBox5.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
+                textBox6.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
+                textBox10.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
+                textBox8.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
+                textBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
+                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString(); //реестр
+                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
                 JObject o = JObject.Parse(Settings.json);
-            string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"]["4"];
-            comboBox2.SelectedIndex = 4;
-            int status_get = GetStatusBible(status_text);
-            if (status_get == 99999)
-                comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
-            else
-                comboBox3.SelectedIndex = status_get - 1;
-            maskedTextBox5.Text = DateTime.Now.ToShortDateString();
+                string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"]["4"];
+                comboBox2.SelectedIndex = 4;
+                int status_get = GetStatusBible(status_text);
+                if (status_get == 99999)
+                    comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
+                else
+                    comboBox3.SelectedIndex = status_get - 1;
+                maskedTextBox5.Text = DateTime.Now.ToShortDateString();
 
                 maskedTextBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[15].Value.ToString();
                 textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
@@ -729,7 +732,7 @@ namespace WindowsFormsApp2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(textBox4.Text))
+            if (string.IsNullOrWhiteSpace(textBox4.Text))
             {
                 MessageBox.Show("Невозможно создать банкротство без ID Дела\r\nаналогичного должника");
                 return;
@@ -737,8 +740,8 @@ namespace WindowsFormsApp2
             string sql = $"insert into law_act (r_person_id,typ,fd,delivery_typ,court_order_delivery,status,full_strength,act_status,deadline,currency,load_dt,PRE_ACT_STATUS) values ((select r_person_id from law_act where id = {textBox4.Text}),4,getdate(),0,0,1,1,1,getdate(),1,getdate(),1);" +
                 $"SELECT SCOPE_IDENTITY();";
             OdbcCommand command = new OdbcCommand(sql);
-                command.Connection = Program.Conn;
-                int id = Convert.ToInt32(command.ExecuteScalar());
+            command.Connection = Program.Conn;
+            int id = Convert.ToInt32(command.ExecuteScalar());
             command.CommandText = $"insert into law_act_person_link (R_LAW_ACT_ID, LINK_TYPE, PERSON_ROLE, PERSON_ID) values ({id},1,1,(select r_person_id from law_act where id = {id}));";
             command.ExecuteNonQuery();
             MessageBox.Show("Банкротство успешно создано!");
@@ -778,7 +781,7 @@ namespace WindowsFormsApp2
                 MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
             else
             {
-                File.AppendAllText(path_to_list_otprav, comboBox9.Text+"\n");
+                File.AppendAllText(path_to_list_otprav, comboBox9.Text + "\n");
                 List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
                 comboBox9.DataSource = spis2;
             }
@@ -864,14 +867,15 @@ namespace WindowsFormsApp2
             var m = sender as ComboBox;
             if (m.SelectedValue != null)
                 Settings.mode = (int)m.SelectedValue;
-            if (m.SelectedValue !=null)
-            if ((int)m.SelectedValue == 2 || (int)m.SelectedValue == 3)
-            {
-                comboBox8.Enabled = false;
-            }
-            else {
-                comboBox8.Enabled = true;
-            }
+            if (m.SelectedValue != null)
+                if ((int)m.SelectedValue == 2 || (int)m.SelectedValue == 3)
+                {
+                    comboBox8.Enabled = false;
+                }
+                else
+                {
+                    comboBox8.Enabled = true;
+                }
         }
 
 

@@ -4,9 +4,9 @@ using System;
 using System.Data.Odbc;
 using System.IO;
 using System.Windows.Forms;
-using WindowsFormsApp2.Utils;
+using DocumentAdder.Utils;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public partial class LoginForm : Form
     {
@@ -37,22 +37,26 @@ namespace WindowsFormsApp2
                     if (!timer.Enabled) timer.Start();
                     OnLoged?.Invoke();
                 }
-                else {
+                else
+                {
                     OnNotLoged?.Invoke();
                     if (timer.Enabled) timer.Stop();
                     MessageBox.Show("Вы не найдены в контакте");
                 }
             }
-            else {
+            else
+            {
                 OnNotLoged?.Invoke();
                 if (timer.Enabled) timer.Stop();
-                if (Visible) {
+                if (Visible)
+                {
                     MessageBox.Show("Произошла ошибка при авторизации, попробуйте еще раз");
                 }
                 Show();
             }
         }
-        public bool GetLoginContact() {
+        public bool GetLoginContact()
+        {
             string queryString = $"select id from users where email = \'{LoginForm.logedData.login}\'";
             OdbcCommand command = new OdbcCommand(queryString);
             command.Connection = Program.Conn;
@@ -65,7 +69,8 @@ namespace WindowsFormsApp2
                 return false;
             return true;
         }
-        private bool CheckToken() {
+        private bool CheckToken()
+        {
             var request = new RestRequest("/login");
             request.AddJsonBody(loginData);
             try
@@ -75,7 +80,8 @@ namespace WindowsFormsApp2
                     logedData = response;
                 return response.login_result;
             }
-            catch {
+            catch
+            {
                 return false;
             }
 

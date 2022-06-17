@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
-using WindowsFormsApp2.Utils;
+using DocumentAdder.Utils;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public partial class Tasks : Form
     {

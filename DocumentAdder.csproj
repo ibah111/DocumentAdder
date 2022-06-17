@@ -5,7 +5,7 @@
     <TargetFramework>net48</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <StartupObject>WindowsFormsApp2.Program</StartupObject>
+    <StartupObject>DocumentAdder.Program</StartupObject>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <ApplicationIcon>document.ico</ApplicationIcon>
   </PropertyGroup>

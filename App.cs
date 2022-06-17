@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public class App : ApplicationContext
     {
@@ -36,10 +36,12 @@ namespace WindowsFormsApp2
             handler();
             start();
         }
-        private void close(object sender, EventArgs e) {
+        private void close(object sender, EventArgs e)
+        {
             this.ExitThread();
         }
-        private void handler() {
+        private void handler()
+        {
             client.ClientWebSocketProvider = () => new ClientWebSocketManaged();
             client.OnConnected += (sender, e) =>
             {
@@ -47,7 +49,8 @@ namespace WindowsFormsApp2
                 {
                     startForm.Hide();
                 };
-                Action hideSocketForm = () => {
+                Action hideSocketForm = () =>
+                {
                     socketForm.Hide();
                 };
 
@@ -81,7 +84,8 @@ namespace WindowsFormsApp2
                 socketForm.Invoke(hideStartForm);
             };
         }
-        private void start() {
+        private void start()
+        {
 
             client.ConnectAsync();
         }

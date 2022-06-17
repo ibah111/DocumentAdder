@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     static class Program
     {
@@ -45,7 +45,7 @@ namespace WindowsFormsApp2
 #endif
             Conn.Open();
             Application.Run(new App());
-            
+
         }
     }
 }

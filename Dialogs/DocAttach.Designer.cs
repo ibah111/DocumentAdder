@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     partial class DocAttach
     {
@@ -42,8 +42,8 @@ namespace WindowsFormsApp2
             this.name1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new WindowsFormsApp2.DataSet1();
-            this.dataTable3TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable3TableAdapter();
+            this.dataSet1 = new DocumentAdder.DataSet1();
+            this.dataTable3TableAdapter = new DocumentAdder.DataSet1TableAdapters.DataTable3TableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).BeginInit();

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Windows;
 
-namespace WindowsFormsApp2.Utils
+namespace DocumentAdder.Utils
 {
     public class Server
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Odbc;
 
-namespace WindowsFormsApp2.Utils
+namespace DocumentAdder.Utils
 {
     internal class FromStart
     {

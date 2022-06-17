@@ -2,7 +2,7 @@
 using System.Data.Odbc;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     public partial class DebtCalc : Form
     {

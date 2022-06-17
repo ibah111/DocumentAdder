@@ -1,6 +1,6 @@
-﻿using WindowsFormsApp2.Models;
+﻿using DocumentAdder.Models;
 
-namespace WindowsFormsApp2
+namespace DocumentAdder
 {
     partial class MainForm
     {
@@ -9,7 +9,7 @@ namespace WindowsFormsApp2
             public int ID { get; set; }
             public string NAME { get; set; }
         }
-        
+
 
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -98,7 +98,7 @@ namespace WindowsFormsApp2
             this.exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new WindowsFormsApp2.DataSet1();
+            this.dataSet1 = new DocumentAdder.DataSet1();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -209,8 +209,8 @@ namespace WindowsFormsApp2
             this.ModeCB = new System.Windows.Forms.ComboBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label45 = new System.Windows.Forms.Label();
-            this.dataTable1TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable1TableAdapter();
-            this.dataTable2TableAdapter = new WindowsFormsApp2.DataSet1TableAdapters.DataTable2TableAdapter();
+            this.dataTable1TableAdapter = new DocumentAdder.DataSet1TableAdapters.DataTable1TableAdapter();
+            this.dataTable2TableAdapter = new DocumentAdder.DataSet1TableAdapters.DataTable2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -1293,7 +1293,7 @@ namespace WindowsFormsApp2
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.add_file;
+            this.panel1.BackgroundImage = global::DocumentAdder.Properties.Resources.add_file;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
