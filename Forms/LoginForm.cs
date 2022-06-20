@@ -42,7 +42,8 @@ namespace DocumentAdder.Forms
                 {
                     OnNotLoged?.Invoke();
                     if (timer.Enabled) timer.Stop();
-                    MessageBox.Show("Вы не найдены в контакте");
+
+                    MessageBox.Show("Вы не найдены в контакте. Обратитесь в IT-Отдел.");
                 }
             }
             else
