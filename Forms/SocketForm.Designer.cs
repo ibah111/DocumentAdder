@@ -44,11 +44,12 @@
     "Как только сервер будет запущен, программа сама\r\nпродолжит работу\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SocketDisabled
+            // SocketForm
             // 
             this.ClientSize = new System.Drawing.Size(821, 237);
             this.Controls.Add(this.label1);
-            this.Name = "SocketDisabled";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "SocketForm";
             this.Text = "Соединение.....";
             this.ResumeLayout(false);
             this.PerformLayout();
