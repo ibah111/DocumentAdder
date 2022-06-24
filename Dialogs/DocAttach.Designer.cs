@@ -179,7 +179,7 @@ namespace DocumentAdder.Dialogs
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DocAttach";
-            this.Text = "Вложения";
+            this.Text = "Информация";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
