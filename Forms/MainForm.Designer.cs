@@ -86,6 +86,17 @@ namespace DocumentAdder.Forms
             this.name2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.court_doc_numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.court_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.court_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.court_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birth_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.full_adr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new DocumentAdder.DataSet1();
             this.label19 = new System.Windows.Forms.Label();
@@ -118,6 +129,15 @@ namespace DocumentAdder.Forms
             this.name2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.execnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dscDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.court_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.court_adress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_sum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.series1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birth_place1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.full_adr1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exec_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -625,7 +645,18 @@ namespace DocumentAdder.Forms
             this.execnumberDataGridViewTextBoxColumn,
             this.name2DataGridViewTextBoxColumn,
             this.column2DataGridViewTextBoxColumn,
-            this.dscDataGridViewTextBoxColumn});
+            this.dscDataGridViewTextBoxColumn,
+            this.court_doc_numDataGridViewTextBoxColumn,
+            this.court_date,
+            this.court_name,
+            this.court_adress,
+            this.start_sum,
+            this.series,
+            this.number,
+            this.birth_place,
+            this.full_adr,
+            this.exec_date,
+            this.inn});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 4);
             this.dataGridView1.DataSource = this.dataTable1BindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -751,6 +782,83 @@ namespace DocumentAdder.Forms
             this.dscDataGridViewTextBoxColumn.HeaderText = "Комментарий";
             this.dscDataGridViewTextBoxColumn.Name = "dscDataGridViewTextBoxColumn";
             this.dscDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // court_doc_numDataGridViewTextBoxColumn
+            // 
+            this.court_doc_numDataGridViewTextBoxColumn.DataPropertyName = "court_doc_num";
+            this.court_doc_numDataGridViewTextBoxColumn.HeaderText = "Номер ИП";
+            this.court_doc_numDataGridViewTextBoxColumn.Name = "court_doc_numDataGridViewTextBoxColumn";
+            this.court_doc_numDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // court_date
+            // 
+            this.court_date.DataPropertyName = "court_date";
+            this.court_date.HeaderText = "Дата ИЛ";
+            this.court_date.Name = "court_date";
+            this.court_date.ReadOnly = true;
+            // 
+            // court_name
+            // 
+            this.court_name.DataPropertyName = "court_name";
+            this.court_name.HeaderText = "Название суда";
+            this.court_name.Name = "court_name";
+            this.court_name.ReadOnly = true;
+            // 
+            // court_adress
+            // 
+            this.court_adress.DataPropertyName = "court_adress";
+            this.court_adress.HeaderText = "Адрес суда";
+            this.court_adress.Name = "court_adress";
+            this.court_adress.ReadOnly = true;
+            // 
+            // start_sum
+            // 
+            this.start_sum.DataPropertyName = "start_sum";
+            this.start_sum.HeaderText = "Сумма задолженности";
+            this.start_sum.Name = "start_sum";
+            this.start_sum.ReadOnly = true;
+            // 
+            // series
+            // 
+            this.series.DataPropertyName = "series";
+            this.series.HeaderText = "Серия(паспорт)";
+            this.series.Name = "series";
+            this.series.ReadOnly = true;
+            // 
+            // number
+            // 
+            this.number.DataPropertyName = "number";
+            this.number.HeaderText = "Номер(паспорт)";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            // 
+            // birth_place
+            // 
+            this.birth_place.DataPropertyName = "birth_place";
+            this.birth_place.HeaderText = "Место рождения";
+            this.birth_place.Name = "birth_place";
+            this.birth_place.ReadOnly = true;
+            // 
+            // full_adr
+            // 
+            this.full_adr.DataPropertyName = "full_adr";
+            this.full_adr.HeaderText = "Фактический адрес";
+            this.full_adr.Name = "full_adr";
+            this.full_adr.ReadOnly = true;
+            // 
+            // exec_date
+            // 
+            this.exec_date.DataPropertyName = "exec_date";
+            this.exec_date.HeaderText = "Дата дела";
+            this.exec_date.Name = "exec_date";
+            this.exec_date.ReadOnly = true;
+            // 
+            // inn
+            // 
+            this.inn.DataPropertyName = "inn";
+            this.inn.HeaderText = "ИНН";
+            this.inn.Name = "inn";
+            this.inn.ReadOnly = true;
             // 
             // dataTable1BindingSource
             // 
@@ -940,7 +1048,16 @@ namespace DocumentAdder.Forms
             this.column2DataGridViewTextBoxColumn1,
             this.name2DataGridViewTextBoxColumn1,
             this.execnumberDataGridViewTextBoxColumn1,
-            this.dscDataGridViewTextBoxColumn1});
+            this.dscDataGridViewTextBoxColumn1,
+            this.court_date1,
+            this.court_adress1,
+            this.start_sum1,
+            this.series1,
+            this.number1,
+            this.birth_place1,
+            this.full_adr1,
+            this.exec_date1,
+            this.inn1});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView2, 4);
             this.dataGridView2.DataSource = this.dataTable2BindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1078,6 +1195,69 @@ namespace DocumentAdder.Forms
             this.dscDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
             this.dscDataGridViewTextBoxColumn1.Name = "dscDataGridViewTextBoxColumn1";
             this.dscDataGridViewTextBoxColumn1.Width = 102;
+            // 
+            // court_date1
+            // 
+            this.court_date1.DataPropertyName = "court_date1";
+            this.court_date1.HeaderText = "Дата ИЛ";
+            this.court_date1.Name = "court_date1";
+            this.court_date1.ReadOnly = true;
+            // 
+            // court_adress1
+            // 
+            this.court_adress1.DataPropertyName = "court_adress1";
+            this.court_adress1.HeaderText = "Адрес суда";
+            this.court_adress1.Name = "court_adress1";
+            this.court_adress1.ReadOnly = true;
+            // 
+            // start_sum1
+            // 
+            this.start_sum1.DataPropertyName = "start_sum1";
+            this.start_sum1.HeaderText = "Сумма задолженности";
+            this.start_sum1.Name = "start_sum1";
+            this.start_sum1.ReadOnly = true;
+            // 
+            // series1
+            // 
+            this.series1.DataPropertyName = "series1";
+            this.series1.HeaderText = "Серия(паспорт)";
+            this.series1.Name = "series1";
+            this.series1.ReadOnly = true;
+            // 
+            // number1
+            // 
+            this.number1.DataPropertyName = "number1";
+            this.number1.HeaderText = "Номер(паспорт)";
+            this.number1.Name = "number1";
+            this.number1.ReadOnly = true;
+            // 
+            // birth_place1
+            // 
+            this.birth_place1.DataPropertyName = "birth_place1";
+            this.birth_place1.HeaderText = "Место рождения";
+            this.birth_place1.Name = "birth_place1";
+            this.birth_place1.ReadOnly = true;
+            // 
+            // full_adr1
+            // 
+            this.full_adr1.DataPropertyName = "full_adr1";
+            this.full_adr1.HeaderText = "Фактический адрес";
+            this.full_adr1.Name = "full_adr1";
+            this.full_adr1.ReadOnly = true;
+            // 
+            // exec_date1
+            // 
+            this.exec_date1.DataPropertyName = "exec_date1";
+            this.exec_date1.HeaderText = "Дата дела";
+            this.exec_date1.Name = "exec_date1";
+            this.exec_date1.ReadOnly = true;
+            // 
+            // inn1
+            // 
+            this.inn1.DataPropertyName = "inn1";
+            this.inn1.HeaderText = "ИНН";
+            this.inn1.Name = "inn1";
+            this.inn1.ReadOnly = true;
             // 
             // dataTable2BindingSource
             // 

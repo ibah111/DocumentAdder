@@ -11,7 +11,7 @@ namespace DocumentAdder
 #if DEBUG
         public static string dbs = "i_collect_test";
         public static string main = "\\\\newct\\Luxbase\\Docattach2";
-        public static string server = "https://localhost:3001";
+        public static string server = "https://apps.usb.ru:3001";
         public static string server_ws = "https://apps.usb.ru:3001";
         public static string server_login = "https://chat.nbkfinance.ru";
 #else
