@@ -514,6 +514,8 @@ namespace DocumentAdder.Forms
 
             foreach (KeyValuePair<string, string> key in Adder.file)
             {
+                string segmentation = @"\\usb\all\shara\Сегментация обучение\";
+
                 string file = key.Value; //Название файла.pdf
                 string file_dir = key.Key; //Расположение файла
                 string type = file.Split('.').Last(); //расширение файла
@@ -522,6 +524,16 @@ namespace DocumentAdder.Forms
                 string uuid = guid.ToString(); //НОВЫЙ GUID
                 string new_file = uuid + $".{type}"; //guid.pdf
                 File.Copy(file_dir, free_dir + $"\\{uuid}.{type}");
+
+                try
+                {
+                    File.Copy(file_dir, segmentation + $"{((string)comboBox1.SelectedItem).Replace("/", "")}" + $"\\Test{file}");
+                }
+                catch (Exception exeption)
+                {
+                    File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"Файл: {file} не был сохранен. {exeption.Message}");
+                }
+
                 string sql_file = GetSqlFile(new_file, free_dir.Split('\\').Last(), file);
                 OdbcCommand command = new OdbcCommand(sql_file);
                 command.Connection = Program.Conn;
