@@ -419,6 +419,9 @@ namespace DocumentAdder.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string vvvv = comboBox1.SelectedItem.ToString();
+
+
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
@@ -527,7 +530,7 @@ namespace DocumentAdder.Forms
 
                 try
                 {
-                    File.Copy(file_dir, segmentation + $"{((string)comboBox1.SelectedItem).Replace("/", "")}" + $"\\Test{file}");
+                    File.Copy(file_dir, segmentation + $"{comboBox1.SelectedItem.ToString().Replace("/", "")}" + $"\\Test{file}");
                 }
                 catch (Exception exeption)
                 {
