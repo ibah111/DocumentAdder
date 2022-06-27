@@ -508,9 +508,17 @@ namespace DocumentAdder.Forms
             {
                 try
                 {
-                    OdbcCommand command = new OdbcCommand(str);
-                    command.Connection = Program.Conn;
-                    command.ExecuteReader();
+                    using (OdbcCommand command = new OdbcCommand(str))
+                    {
+                        command.Connection = Program.Conn;
+
+                        if (command.Connection.State == System.Data.ConnectionState.Closed)
+                        {
+                            command.Connection.Open();
+                        }
+
+                        command.ExecuteReader();
+                    }
                 }
                 catch (Exception ex) { errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
             }
@@ -538,9 +546,17 @@ namespace DocumentAdder.Forms
                 }
 
                 string sql_file = GetSqlFile(new_file, free_dir.Split('\\').Last(), file);
-                OdbcCommand command = new OdbcCommand(sql_file);
-                command.Connection = Program.Conn;
-                command.ExecuteReader();
+                using (OdbcCommand command = new OdbcCommand(sql_file))
+                {
+                    command.Connection = Program.Conn;
+
+                    if (command.Connection.State == System.Data.ConnectionState.Closed)
+                    {
+                        command.Connection.Open();
+                    }
+
+                    command.ExecuteReader();
+                }
             }
             Adder.file.Clear();
             int[] ints = { 2, 3, 4 };
@@ -763,11 +779,19 @@ namespace DocumentAdder.Forms
             }
             string sql = $"insert into law_act (r_person_id,typ,fd,delivery_typ,court_order_delivery,status,full_strength,act_status,deadline,currency,load_dt,PRE_ACT_STATUS) values ((select r_person_id from law_act where id = {textBox4.Text}),4,getdate(),0,0,1,1,1,getdate(),1,getdate(),1);" +
                 $"SELECT SCOPE_IDENTITY();";
-            OdbcCommand command = new OdbcCommand(sql);
-            command.Connection = Program.Conn;
-            int id = Convert.ToInt32(command.ExecuteScalar());
-            command.CommandText = $"insert into law_act_person_link (R_LAW_ACT_ID, LINK_TYPE, PERSON_ROLE, PERSON_ID) values ({id},1,1,(select r_person_id from law_act where id = {id}));";
-            command.ExecuteNonQuery();
+            using (OdbcCommand command = new OdbcCommand(sql))
+            {
+                command.Connection = Program.Conn;
+
+                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                {
+                    command.Connection.Open();
+                }
+
+                int id = Convert.ToInt32(command.ExecuteScalar());
+                command.CommandText = $"insert into law_act_person_link (R_LAW_ACT_ID, LINK_TYPE, PERSON_ROLE, PERSON_ID) values ({id},1,1,(select r_person_id from law_act where id = {id}));";
+                command.ExecuteNonQuery();
+            }
             MessageBox.Show("Банкротство успешно создано!");
         }
 
