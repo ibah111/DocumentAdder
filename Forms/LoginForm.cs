@@ -12,6 +12,7 @@ namespace DocumentAdder.Forms
     public partial class LoginForm : Form
     {
         static string LoginPath = "/login.json";
+        static string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/DocumentAdder";
         static public LogedData logedData;
         Timer timer = new Timer();
         LoginData loginData;
@@ -99,9 +100,13 @@ namespace DocumentAdder.Forms
 
         private void InitData()
         {
-            if (File.Exists(Environment.CurrentDirectory + LoginPath))
+            if (!Directory.Exists(appdata))
             {
-                loginData = JsonConvert.DeserializeObject<LoginData>(File.ReadAllText(Environment.CurrentDirectory + LoginPath));
+                Directory.CreateDirectory(appdata);
+            }
+            if (File.Exists(appdata + LoginPath))
+            {
+                loginData = JsonConvert.DeserializeObject<LoginData>(File.ReadAllText(appdata + LoginPath));
             }
             else
             {
@@ -111,7 +116,7 @@ namespace DocumentAdder.Forms
             server.OnGetToken += (string token) =>
             {
                 loginData.token = token;
-                File.WriteAllText(Environment.CurrentDirectory + LoginPath, JsonConvert.SerializeObject(loginData));
+                File.WriteAllText(appdata + LoginPath, JsonConvert.SerializeObject(loginData));
                 CheckLogin();
             };
         }
