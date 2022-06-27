@@ -181,17 +181,25 @@ namespace DocumentAdder.Utils
         {
             if (!string.IsNullOrEmpty(id))
             {
-                OdbcCommand command = new OdbcCommand($"select dsc from {prefix} where id = {id}");
-                command.Connection = Program.Conn;
-                command.ExecuteNonQuery();
-                using (OdbcDataReader reader = command.ExecuteReader())
+                using (OdbcCommand command = new OdbcCommand($"select dsc from {prefix} where id = {id}"))
                 {
-                    if (reader.HasRows)
+                    command.Connection = Program.Conn;
+
+                    if (command.Connection.State == System.Data.ConnectionState.Closed)
                     {
-                        if (reader[0] == DBNull.Value)
-                            sql.Add($"update {prefix} set dsc = \'{DateTime.Now.ToShortDateString()} {text}\' where id = {id}");
-                        else
-                            sql.Add($"update {prefix} set dsc = dsc + CHAR(13) + \'{DateTime.Now.ToShortDateString()} {text}\' where id = {id}");
+                        command.Connection.Open();
+                    }
+
+                    command.ExecuteNonQuery();
+                    using (OdbcDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader[0] == DBNull.Value)
+                                sql.Add($"update {prefix} set dsc = \'{DateTime.Now.ToShortDateString()} {text}\' where id = {id}");
+                            else
+                                sql.Add($"update {prefix} set dsc = dsc + CHAR(13) + \'{DateTime.Now.ToShortDateString()} {text}\' where id = {id}");
+                        }
                     }
                 }
             }

@@ -26,18 +26,26 @@ namespace DocumentAdder.Utils
             Settings.status = new Dictionary<int, Dictionary<int, string>>();
             foreach (int a in li)
             {
-                OdbcCommand command = new OdbcCommand($"select code,name from dict where parent_id={a}");
-                command.Connection = Program.Conn;
-                command.ExecuteNonQuery();
-                using (OdbcDataReader reader = command.ExecuteReader())
+                using (OdbcCommand command = new OdbcCommand($"select code,name from dict where parent_id={a}"))
                 {
-                    Settings.status.Add(count, new Dictionary<int, string>());
-                    while (reader.Read())
+                    command.Connection = Program.Conn;
+
+                    if (command.Connection.State == System.Data.ConnectionState.Closed)
                     {
-                        Settings.status[count].Add(reader.GetInt32(0), reader.GetString(1));
+                        command.Connection.Open();
                     }
+
+                    command.ExecuteNonQuery();
+                    using (OdbcDataReader reader = command.ExecuteReader())
+                    {
+                        Settings.status.Add(count, new Dictionary<int, string>());
+                        while (reader.Read())
+                        {
+                            Settings.status[count].Add(reader.GetInt32(0), reader.GetString(1));
+                        }
+                    }
+                    count++;
                 }
-                count++;
             }
         }
 

@@ -60,11 +60,19 @@ namespace DocumentAdder.Forms
         public bool GetLoginContact()
         {
             string queryString = $"select id from users where email = \'{LoginForm.logedData.login}\'";
-            OdbcCommand command = new OdbcCommand(queryString);
-            command.Connection = Program.Conn;
-            using (OdbcDataReader reader = command.ExecuteReader())
-                while (reader.Read())
-                    Settings.user_id = reader.GetInt32(0);
+            using (OdbcCommand command = new OdbcCommand(queryString))
+            {
+                command.Connection = Program.Conn;
+
+                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                {
+                    command.Connection.Open();
+                }
+
+                using (OdbcDataReader reader = command.ExecuteReader())
+                    while (reader.Read())
+                        Settings.user_id = reader.GetInt32(0);
+            }
             string[] names = { logedData.firstname, logedData.secondname, logedData.thirdname };
             Settings.username = Addons.GetName(names);
             if (Settings.user_id == 0)
