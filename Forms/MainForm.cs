@@ -854,7 +854,10 @@ namespace DocumentAdder.Forms
             Settings.otprav = comboBox9.Text;
             Settings.doc_name = comboBox5.Text;
             Settings.date_post = dateTimePicker1.Value.ToShortDateString();
-            OtherDocs f = new OtherDocs();
+            OtherDocs f = new OtherDocs(Settings.mode);
+            if (Settings.mode < 1)
+                Settings.mode = 1;
+            f.mode= Settings.mode;
             f.Show();
         }
 

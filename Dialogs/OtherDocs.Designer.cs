@@ -41,6 +41,10 @@ namespace DocumentAdder.Dialogs
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.to_mail = new System.Windows.Forms.TextBox();
+            this.who_mail = new System.Windows.Forms.TextBox();
+            this.ToMail = new System.Windows.Forms.Label();
+            this.WhoMaol = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -138,7 +142,7 @@ namespace DocumentAdder.Dialogs
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(12, 83);
+            this.button3.Location = new System.Drawing.Point(12, 178);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(460, 80);
             this.button3.TabIndex = 61;
@@ -146,11 +150,49 @@ namespace DocumentAdder.Dialogs
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // to_mail
+            // 
+            this.to_mail.Location = new System.Drawing.Point(12, 112);
+            this.to_mail.Name = "to_mail";
+            this.to_mail.Size = new System.Drawing.Size(206, 20);
+            this.to_mail.TabIndex = 62;
+            this.to_mail.TextChanged += new System.EventHandler(this.to_mail_TextChanged);
+            // 
+            // who_mail
+            // 
+            this.who_mail.Location = new System.Drawing.Point(224, 112);
+            this.who_mail.Name = "who_mail";
+            this.who_mail.Size = new System.Drawing.Size(248, 20);
+            this.who_mail.TabIndex = 63;
+            this.who_mail.TextChanged += new System.EventHandler(this.who_mail_TextChanged);
+            // 
+            // ToMail
+            // 
+            this.ToMail.AutoSize = true;
+            this.ToMail.Location = new System.Drawing.Point(13, 93);
+            this.ToMail.Name = "ToMail";
+            this.ToMail.Size = new System.Drawing.Size(65, 13);
+            this.ToMail.TabIndex = 64;
+            this.ToMail.Text = "Адрес email";
+            // 
+            // WhoMaol
+            // 
+            this.WhoMaol.AutoSize = true;
+            this.WhoMaol.Location = new System.Drawing.Point(221, 96);
+            this.WhoMaol.Name = "WhoMaol";
+            this.WhoMaol.Size = new System.Drawing.Size(86, 13);
+            this.WhoMaol.TabIndex = 65;
+            this.WhoMaol.Text = "Куда поступило";
+            // 
             // OtherDocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 171);
+            this.ClientSize = new System.Drawing.Size(486, 285);
+            this.Controls.Add(this.WhoMaol);
+            this.Controls.Add(this.ToMail);
+            this.Controls.Add(this.who_mail);
+            this.Controls.Add(this.to_mail);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
@@ -165,6 +207,7 @@ namespace DocumentAdder.Dialogs
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OtherDocs";
             this.Text = "Другие документы";
+            this.Load += new System.EventHandler(this.OtherDocs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +226,9 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox to_mail;
+        private System.Windows.Forms.TextBox who_mail;
+        private System.Windows.Forms.Label ToMail;
+        private System.Windows.Forms.Label WhoMaol;
     }
 }

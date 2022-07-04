@@ -18,6 +18,7 @@ namespace DocumentAdder.Forms
         LoginData loginData;
         Server server;
         RestClient client = Program.client;
+        private bool firstStart = true;
         private bool showed = false;
 
         public LoginForm()
@@ -36,8 +37,9 @@ namespace DocumentAdder.Forms
             {
                 if (GetLoginContact())
                 {
-                    if (!showed)
+                    if (!showed |firstStart)
                     {
+                        firstStart = false;
                         Hide();
                         if (!timer.Enabled) timer.Start();
                         OnLoged?.Invoke();
@@ -46,8 +48,9 @@ namespace DocumentAdder.Forms
                 }
                 else
                 {
-                    if (showed)
+                    if (showed| firstStart)
                     {
+                        firstStart = false;
                         OnNotLoged?.Invoke();
                         if (timer.Enabled) timer.Stop();
                         showed=false;

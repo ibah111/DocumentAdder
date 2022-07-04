@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DocumentAdder.Forms;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,8 +14,12 @@ namespace DocumentAdder.Dialogs
     {
         private static string path_to_list_otvet = Environment.CurrentDirectory + "\\Список_Для_Ответственного(Вне_реестра).txt";
         private static string path_to_list_FIO = Environment.CurrentDirectory + "\\Список_Для_ФИО(Должник_Вне_Реестра).txt";
-        public OtherDocs()
+        public int mode = 1;
+        private string to_mail_text = "";
+        private string who_mail_text = "";
+        public OtherDocs(int mode)
         {
+            this.mode = mode;
             InitializeComponent();
             if (File.Exists(path_to_list_otvet))
             {
@@ -65,7 +70,7 @@ namespace DocumentAdder.Dialogs
             try
             {
                 WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
-                var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "without_task", date_post = DateTime.Parse(Settings.date_post), Convert = Settings.conv, adr_otp = Settings.adr_otp, otprav = Settings.otprav, reestr = textBox1.Text, doc_name = Settings.doc_name, gd = textBox2.Text, fio_dol = comboBox2.Text, ispol_zadach = comboBox1.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = Settings.nal_skan };
+                var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "without_task", date_post = DateTime.Parse(Settings.date_post), Convert = Settings.conv, adr_otp = Settings.adr_otp, otprav = Settings.otprav, reestr = textBox1.Text, doc_name = Settings.doc_name, gd = textBox2.Text, fio_dol = comboBox2.Text, ispol_zadach = comboBox1.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = Settings.nal_skan, mode=mode, adres=to_mail_text, mail=who_mail_text };
                 var dataString = JsonConvert.SerializeObject(vm);
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
@@ -75,6 +80,30 @@ namespace DocumentAdder.Dialogs
             {
                 MessageBox.Show($"Ошибка:{ee}\r\nДанные в таблицу не занесены!");
             }
+            Close();
+        }
+
+        private void OtherDocs_Load(object sender, EventArgs e)
+        {
+            if (mode == 3)
+            {
+                to_mail.Enabled = true;
+                who_mail.Enabled = true;
+            }
+            else {
+                to_mail.Enabled = false;
+                who_mail.Enabled = false;
+            }
+        }
+
+        private void to_mail_TextChanged(object sender, EventArgs e)
+        {
+            to_mail_text = to_mail.Text;
+        }
+
+        private void who_mail_TextChanged(object sender, EventArgs e)
+        {
+            who_mail_text = who_mail.Text;
         }
     }
 }
