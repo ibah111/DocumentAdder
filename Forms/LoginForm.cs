@@ -18,6 +18,7 @@ namespace DocumentAdder.Forms
         LoginData loginData;
         Server server;
         RestClient client = Program.client;
+        private bool showed = false;
 
         public LoginForm()
         {
@@ -35,27 +36,38 @@ namespace DocumentAdder.Forms
             {
                 if (GetLoginContact())
                 {
-                    Hide();
-                    if (!timer.Enabled) timer.Start();
-                    OnLoged?.Invoke();
+                    if (!showed)
+                    {
+                        Hide();
+                        if (!timer.Enabled) timer.Start();
+                        OnLoged?.Invoke();
+                        showed = true;
+                    }
                 }
                 else
                 {
-                    OnNotLoged?.Invoke();
-                    if (timer.Enabled) timer.Stop();
-
-                    MessageBox.Show("Вы не найдены в контакте. Обратитесь в IT-Отдел.");
+                    if (showed)
+                    {
+                        OnNotLoged?.Invoke();
+                        if (timer.Enabled) timer.Stop();
+                        showed=false;
+                        MessageBox.Show("Вы не найдены в контакте. Обратитесь в IT-Отдел.");
+                    }
                 }
             }
             else
             {
-                OnNotLoged?.Invoke();
-                if (timer.Enabled) timer.Stop();
-                if (Visible)
+                if (showed)
                 {
-                    MessageBox.Show("Произошла ошибка при авторизации, попробуйте еще раз");
+                    OnNotLoged?.Invoke();
+                    if (timer.Enabled) timer.Stop();
+                    showed=false;
+                    if (Visible)
+                    {
+                        MessageBox.Show("Произошла ошибка при авторизации, попробуйте еще раз");
+                    }
+                    Show();
                 }
-                Show();
             }
         }
         public bool GetLoginContact()
