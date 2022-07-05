@@ -18,8 +18,6 @@ namespace DocumentAdder.Forms
         LoginData loginData;
         Server server;
         RestClient client = Program.client;
-        private bool firstStart = true;
-        private bool showed = false;
 
         public LoginForm()
         {
@@ -37,40 +35,25 @@ namespace DocumentAdder.Forms
             {
                 if (GetLoginContact())
                 {
-                    if (!showed |firstStart)
-                    {
-                        firstStart = false;
                         Hide();
                         if (!timer.Enabled) timer.Start();
                         OnLoged?.Invoke();
-                        showed = true;
-                    }
                 }
                 else
                 {
-                    if (showed| firstStart)
-                    {
-                        firstStart = false;
                         OnNotLoged?.Invoke();
                         if (timer.Enabled) timer.Stop();
-                        showed=false;
                         MessageBox.Show("Вы не найдены в контакте. Обратитесь в IT-Отдел.");
-                    }
                 }
             }
             else
             {
-                if (showed)
-                {
-                    OnNotLoged?.Invoke();
-                    if (timer.Enabled) timer.Stop();
-                    showed=false;
                     if (Visible)
                     {
                         MessageBox.Show("Произошла ошибка при авторизации, попробуйте еще раз");
                     }
                     Show();
-                }
+                
             }
         }
         public bool GetLoginContact()

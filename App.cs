@@ -59,8 +59,6 @@ namespace DocumentAdder.Main
                 Action showStartForm = () =>
                 {
                     startForm.Show();
-                    startForm.WindowState = FormWindowState.Normal;
-                    startForm.Activate();
                     startForm.Loader();
                 };
                 Action showLoginForm = () =>
