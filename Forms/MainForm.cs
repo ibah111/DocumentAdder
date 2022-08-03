@@ -52,7 +52,7 @@ namespace DocumentAdder.Forms
                     textBox12.Text = dataGridView1.Rows[0].Cells[12].Value.ToString(); //Коммент
                     textBox15.Text = dataGridView1.Rows[0].Cells[5].Value.ToString(); //реестр
                     textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
-                    string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //ID Дела
+                    string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //Вкладка
                     string int_vkl = GetIntKvl(vkl);
                     JObject o = JObject.Parse(Settings.json);
                     string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
@@ -122,13 +122,7 @@ namespace DocumentAdder.Forms
                 {
                     File.CreateText(path_to_list_otprav);
                 }
-                if (!File.Exists(Environment.CurrentDirectory + "\\Data\\config.json"))
-                {
-                    if (!Directory.Exists(Environment.CurrentDirectory + "\\Data"))
-                        Directory.CreateDirectory(Environment.CurrentDirectory + "\\Data");
-                    File.WriteAllText(Environment.CurrentDirectory + "\\Data\\config.json", Resources.config);
-                }
-                Settings.json = File.ReadAllText(Environment.CurrentDirectory + "\\Data\\config.json");
+                Settings.json = Resources.config;
                 panel1.AllowDrop = true;
                 JObject o = JObject.Parse(Settings.json);
                 for (int a = 0; a < o.Count; a++)
