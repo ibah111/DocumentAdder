@@ -23,12 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autoupdater.NET.Official" Version="1.7.3" />
+    <PackageReference Include="Autoupdater.NET.Official" Version="1.7.4" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1293.44" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.1" />
     <PackageReference Include="SocketIOClient" Version="3.0.5" />
