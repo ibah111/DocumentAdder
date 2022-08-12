@@ -54,8 +54,8 @@ namespace DocumentAdder.Forms
                     textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
                     string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //Вкладка
                     string int_vkl = GetIntKvl(vkl);
-                    JObject o = JObject.Parse(Settings.json);
-                    string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
+                    Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
+                    string status_text = o[comboBox1.SelectedIndex.ToString()].вкладка_и_статус[int_vkl];
                     comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
                     int status_get = GetStatusBible(status_text);
                     if (status_get == 99999)
@@ -124,9 +124,9 @@ namespace DocumentAdder.Forms
                 }
                 Settings.json = Resources.config;
                 panel1.AllowDrop = true;
-                JObject o = JObject.Parse(Settings.json);
+                Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
                 for (int a = 0; a < o.Count; a++)
-                    comboBox1.Items.Add(o[(string)a.ToString()]["тип_документа"]);
+                    comboBox1.Items.Add(o[(string)a.ToString()].тип_документа);
                 this.Text = FromStart.DownloadInfo();
                 comboBox1.SelectedIndex = 0;
                 //LoadPeople();
@@ -138,23 +138,23 @@ namespace DocumentAdder.Forms
         {
             maskedTextBox5.Text = DateTime.Now.ToShortDateString();
             string a = comboBox1.SelectedIndex.ToString();
-            JObject o = JObject.Parse(Settings.json);
-            textBox7.Enabled = (bool)o[a]["номер_кд"];
-            textBox8.Enabled = (bool)o[a]["номер_дела"];
-            textBox9.Enabled = (bool)o[a]["номер_ип"];
-            textBox10.Enabled = (bool)o[a]["номер_испол"];
-            maskedTextBox1.Enabled = (bool)o[a]["дата_вынесения_решения"];
-            maskedTextBox2.Enabled = (bool)o[a]["дата_вступления_в_силу"];
-            maskedTextBox3.Enabled = (bool)o[a]["дата_возбуждения"];
-            maskedTextBox4.Enabled = (bool)o[a]["дата_пост_об_окончании_ип"];
-            maskedTextBox5.Enabled = (bool)o[a]["дата_получения_агентством"];
-            maskedTextBox6.Enabled = (bool)o[a]["дата_возврата"];
-            maskedTextBox7.Enabled = (bool)o[a]["дата_ограничения_выезда"];
-            maskedTextBox8.Enabled = (bool)o[a]["дата_отказа_в_возбуждении"];
-            maskedTextBox9.Enabled = (bool)o[a]["дата_отмены_сп"];
-            maskedTextBox10.Enabled = (bool)o[a]["дата_исполнения_недостатков"];
-            maskedTextBox11.Enabled = (bool)o[a]["дата_и_время_сз"];
-            Data.int_color = (int)o[a]["цвет_карточки"];
+            Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
+            textBox7.Enabled = o[a].номер_кд;
+            textBox8.Enabled = o[a].номер_дела;
+            textBox9.Enabled = o[a].номер_ип;
+            textBox10.Enabled = o[a].номер_испол;
+            maskedTextBox1.Enabled = o[a].дата_вынесения_решения;
+            maskedTextBox2.Enabled = o[a].дата_вступления_в_силу;
+            maskedTextBox3.Enabled = o[a].дата_возбуждения;
+            maskedTextBox4.Enabled = o[a].дата_пост_об_окончании_ип;
+            maskedTextBox5.Enabled = o[a].дата_получения_агентством;
+            maskedTextBox6.Enabled = o[a].дата_возврата;
+            maskedTextBox7.Enabled = o[a].дата_ограничения_выезда;
+            maskedTextBox8.Enabled = o[a].дата_отказа_в_возбуждении;
+            maskedTextBox9.Enabled = o[a].дата_отмены_сп;
+            maskedTextBox10.Enabled = o[a].дата_исполнения_недостатков;
+            maskedTextBox11.Enabled = o[a].дата_и_время_сз;
+            Data.int_color = (int)o[a].цвет_карточки;
 
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
@@ -267,11 +267,11 @@ namespace DocumentAdder.Forms
                 textBox14.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
                 string vkl = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); //ID Дела
                 string int_vkl = GetIntKvl(vkl);
-                JObject o = JObject.Parse(Settings.json);
-                string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
+                Dictionary<int,SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
+                string status_text = o[comboBox1.SelectedIndex].вкладка_и_статус[int_vkl];
                 comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
                 int status_get = GetStatusBible(status_text);
-                if (o[comboBox1.SelectedIndex.ToString()]["без_смены"].Contains(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString())) {
+                if (o[comboBox1.SelectedIndex].без_смены.Contains(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString())) {
                     status_get = 99999;
                 }
                 if (status_get == 99999)
@@ -729,8 +729,8 @@ namespace DocumentAdder.Forms
                 textBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
                 textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString(); //реестр
                 textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
-                JObject o = JObject.Parse(Settings.json);
-                string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"]["4"];
+                Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
+                string status_text = o[comboBox1.SelectedIndex.ToString()].вкладка_и_статус["4"];
                 comboBox2.SelectedIndex = 4;
                 int status_get = GetStatusBible(status_text);
                 if (status_get == 99999)
