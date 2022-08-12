@@ -271,6 +271,9 @@ namespace DocumentAdder.Forms
                 string status_text = (string)o[comboBox1.SelectedIndex.ToString()]["вкладка_и_статус"][int_vkl];
                 comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
                 int status_get = GetStatusBible(status_text);
+                if (o[comboBox1.SelectedIndex.ToString()]["без_смены"].Contains(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString())) {
+                    status_get = 99999;
+                }
                 if (status_get == 99999)
                     comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
                 else
