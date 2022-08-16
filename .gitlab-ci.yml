@@ -49,8 +49,7 @@ build_job:
   artifacts:
     paths:
       - '$env:EXE_RELEASE_FOLDER\*'
-  only:
-    - tags
+    expire_in: 1 week
 deploy_job:
   stage: deploy
   before_script:
