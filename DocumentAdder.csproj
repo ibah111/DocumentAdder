@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net48</TargetFramework>
@@ -82,8 +81,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <Import Project="./Tasks/CreateJsonStandelone.targets"/>
   <Target Name="ZipOutputPath" AfterTargets="Build" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <MakeDir Directories="$(MSBuildProjectDirectory)/bundle"/>
+    <MakeDir Directories="$(MSBuildProjectDirectory)/bundle" />
+    <CreateJsonStandelone Output="$(MSBuildProjectDirectory)/bundle" Version="$(AssemblyVersion)" />
     <ZipDirectory SourceDirectory="$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)\bundle\standelone$(AssemblyVersion).zip" />
   </Target>
 

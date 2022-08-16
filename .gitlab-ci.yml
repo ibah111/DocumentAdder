@@ -48,7 +48,7 @@ build_job:
     - msbuild /p:Configuration=Release # build the project
   artifacts:
     paths:
-      - '$env:EXE_RELEASE_FOLDER\*.zip'
+      - '$env:EXE_RELEASE_FOLDER\*'
 deploy_job:
   stage: deploy
   before_script:

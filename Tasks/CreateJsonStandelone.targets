@@ -1,0 +1,16 @@
+<Project>
+    <UsingTask TaskName="CreateJsonStandelone" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+        <ParameterGroup>
+            <Version ParameterType="System.String" Required="true" />
+            <Output ParameterType="System.String" Required="true" />
+        </ParameterGroup>
+        <Task>
+            <Using Namespace="System.IO"/>
+            <Code Type="Fragment" Language="cs">
+                <![CDATA[
+                File.WriteAllText(Output+"/standelone.json", "{\"version\":\""+Version+"\", \"url\":\"https://chat.nbkfinance.ru/apps/mail/standelone"+Version+".zip\"}");
+                ]]>
+            </Code>
+        </Task>
+    </UsingTask>
+</Project>
