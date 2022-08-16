@@ -82,5 +82,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <Target Name="ZipOutputPath" AfterTargets="Build" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <MakeDir Directories="$(MSBuildProjectDirectory)/bundle"/>
+    <ZipDirectory SourceDirectory="$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)\bundle\standelone$(AssemblyVersion).zip" />
+  </Target>
 
 </Project>
