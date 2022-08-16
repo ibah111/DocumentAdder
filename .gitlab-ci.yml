@@ -49,6 +49,8 @@ build_job:
   artifacts:
     paths:
       - '$env:EXE_RELEASE_FOLDER\*'
+  only:
+    - tags
 deploy_job:
   stage: deploy
   before_script:
@@ -56,3 +58,5 @@ deploy_job:
   script:
     - export SSHPASS=$HOST_PASSWORD
     - sshpass -e scp -o stricthostkeychecking=no -r bundle/* $HOST_USER@$HOST_NAME:$PATH_UPLOAD
+  only:
+    - tags
