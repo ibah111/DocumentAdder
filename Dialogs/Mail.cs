@@ -1,6 +1,7 @@
 ﻿using DocumentAdder.Forms;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
@@ -9,16 +10,18 @@ namespace DocumentAdder.Dialogs
 {
     public partial class Mail : Form
     {
-        private MainForm _form;
+        private readonly MainForm _form;
         private int errors;
-        private bool _task;
+        private readonly bool _task;
+        private readonly List<int> docs;
 
-        public Mail(int mode, MainForm form, ref int errors, bool task)
+        public Mail(int mode, MainForm form, ref int errors, bool task, List<int> docs)
         {
             InitializeComponent();
             this.errors = errors;
             this._form = form;
             this._task = task;
+            this.docs = docs;
             switch (mode)
             {
                 case 2:
@@ -54,14 +57,14 @@ namespace DocumentAdder.Dialogs
             Settings.mail = MailTB.Text;
             if (_task)
             {
-                _form.newTask(errors);
+                _form.newTask(errors, docs);
             }
             else
             {
                 try
                 {
                     WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
-                    var vm = _form.getRequest("without_task");
+                    var vm = _form.getRequest("without_task",docs:this.docs);
                     var dataString = JsonConvert.SerializeObject(vm);
                     client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                     client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);

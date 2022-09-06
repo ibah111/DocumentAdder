@@ -519,7 +519,7 @@ namespace DocumentAdder.Forms
                 }
                 catch (Exception ex) { errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
             }
-
+            List<int> docs = new List<int>();
             foreach (KeyValuePair<string, string> key in Adder.file)
             {
                 string segmentation = @"\\usb\all\shara\Сегментация обучение\";
@@ -541,7 +541,7 @@ namespace DocumentAdder.Forms
                 {
                     File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"Файл: {file} не был сохранен. {exeption.Message}");
                 }
-
+                int returnValue = -1;
                 string sql_file = GetSqlFile(new_file, free_dir.Split('\\').Last(), file);
                 using (OdbcCommand command = new OdbcCommand(sql_file))
                 {
@@ -552,7 +552,14 @@ namespace DocumentAdder.Forms
                         command.Connection.Open();
                     }
 
-                    command.ExecuteReader();
+                    object result =command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        int.TryParse(result.ToString(), out returnValue);
+                    }
+                    if (returnValue > 0) {
+                        docs.Add(returnValue);
+                    }
                 }
             }
             Adder.file.Clear();
@@ -561,7 +568,7 @@ namespace DocumentAdder.Forms
             if (ints.Contains(
             (int)ModeCB.SelectedValue))
             {
-                Mail f = new Mail((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked);
+                Mail f = new Mail((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked, docs);
                 f.Show(this);
             }
             else
@@ -569,7 +576,7 @@ namespace DocumentAdder.Forms
 
                 if (checkBox3.Checked == true)
                 {
-                    newTask(errors);
+                    newTask(errors, docs);
                 }
                 else
                 {
@@ -588,7 +595,7 @@ namespace DocumentAdder.Forms
                     try
                     {
                         WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
-                        var vm = getRequest("without_task");
+                        var vm = getRequest("without_task",docs:docs);
                         var dataString = JsonConvert.SerializeObject(vm);
                         client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                         var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
@@ -610,7 +617,7 @@ namespace DocumentAdder.Forms
             }
         }
 
-        public void newTask(int errors)
+        public void newTask(int errors, List<int> docs)
         {
             PersonInfo personInfo = new PersonInfo()
             {
@@ -627,7 +634,7 @@ namespace DocumentAdder.Forms
                 exec_date = execDateMb.Text,
                 name = comboBox9.Text
             };
-            Tasks f = new Tasks(ref errors, this, personInfo);
+            Tasks f = new Tasks(ref errors, this, personInfo, docs);
             f.Show();
             f.FormClosed += F_FormClosed;
         }
@@ -637,8 +644,9 @@ namespace DocumentAdder.Forms
             ClearTextBox();
         }
 
-        public object getRequest(string typ, string id_task = "0")
+        public object getRequest(string typ, string id_task = "0", List<int> docs = null)
         {
+            docs = docs ?? new List<int>();
             bool pristavi = false;
             if (checkBox4.Checked == true)
                 pristavi = true;
@@ -653,7 +661,7 @@ namespace DocumentAdder.Forms
             DateTime? dateDoc = null;
             if (!string.IsNullOrEmpty(Settings.dateDoc))
                 dateDoc = DateTime.Parse(Settings.dateDoc);
-            var result = new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", Settings.mode, Settings.ist, dateDoc = dateDoc, Settings.ecp, Settings.adres, Settings.mail };
+            var result = new { token = "f3989a11-801c-458c-be04-9b4437620666", date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc = $"{textBox11.Text}", Settings.mode, Settings.ist, dateDoc = dateDoc, Settings.ecp, Settings.adres, Settings.mail, docs };
             //result.dateDoc = Settings.dateDoc;
             return result;
         }
@@ -696,12 +704,14 @@ namespace DocumentAdder.Forms
             if (Data.vkl_int != 4)
                 return "insert into doc_attach " +
                     "(obj_id,r_id,name,filename,vers1,vers2,is_active,r_user_id,dt,FILE_SERVER_NAME,REL_SERVER_PATH,CHANGE_DT,SAVE_MODE) values " +
-                    $"(46, {Data.id}, \'{old_file}\', \'{old_file}\', 1, 0, 1, {Settings.user_id}, getdate(), \'{new_file}\', \'\\{index}\\\',getdate(),2)\r\n" +
-                    $"insert into law_act_protokol (dt,typ,parent_id,r_user_id,dsc) values (getdate(), 23, {Data.id}, {Settings.user_id}, \'Вложение: {old_file}\')";
+                    $"(46, {Data.id}, \'{old_file}\', \'{old_file}\', 1, 0, 1, {Settings.user_id}, getdate(), \'{new_file}\', \'\\{index}\\\',getdate(),2);" +
+                    $"SELECT SCOPE_IDENTITY();\r\n" +
+                    $"insert into law_act_protokol (dt,typ,parent_id,r_user_id,dsc) values (getdate(), 23, {Data.id}, {Settings.user_id}, \'Вложение: {old_file}\');";
             else
                 return "insert into doc_attach " +
                     "(obj_id,r_id,name,filename,vers1,vers2,is_active,r_user_id,dt,FILE_SERVER_NAME,REL_SERVER_PATH,CHANGE_DT,SAVE_MODE) values " +
-                    $"(47, {Data.id}, \'{old_file}\', \'{old_file}\', 1, 0, 1, {Settings.user_id}, getdate(), \'{new_file}\', \'\\{index}\\\',getdate(),2)" +
+                    $"(47, {Data.id}, \'{old_file}\', \'{old_file}\', 1, 0, 1, {Settings.user_id}, getdate(), \'{new_file}\', \'\\{index}\\\',getdate(),2);" +
+                    $"SELECT SCOPE_IDENTITY();" +
                     $"insert into law_exec_protokol (dt,typ,parent_id,r_user_id,dsc) values (getdate(), 9, {Data.id}, {Settings.user_id}, \'Вложение: {old_file}\')";
         }
 

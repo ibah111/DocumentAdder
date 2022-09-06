@@ -14,14 +14,16 @@ namespace DocumentAdder.Dialogs
         private int errors;
         private MainForm Forms;
         private PersonInfo _personInfo;
+        private List<int> docs;
 
-        public Tasks(ref int errors, MainForm form, PersonInfo personInfo)
+        public Tasks(ref int errors, MainForm form, PersonInfo personInfo, List<int> docs)
         {
             InitializeComponent();
             Templates();
             this.errors = errors;
             this.Forms = form;
             this._personInfo = personInfo;
+            this.docs = docs;
         }
 
         private void Templates()
@@ -83,7 +85,7 @@ namespace DocumentAdder.Dialogs
             try
             {
                 WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
-                var vm = Forms.getRequest("with_task", comboBox1.SelectedValue.ToString());
+                var vm = Forms.getRequest("with_task", comboBox1.SelectedValue.ToString(), this.docs);
                 var dataString = JsonConvert.SerializeObject(vm);
                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                 var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
