@@ -198,7 +198,7 @@ namespace DocumentAdder.Forms
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.innMb = new System.Windows.Forms.MaskedTextBox();
-            this.label41 = new System.Windows.Forms.Label();
+            this.labelInn = new System.Windows.Forms.Label();
             this.execDateMb = new System.Windows.Forms.MaskedTextBox();
             this.label44 = new System.Windows.Forms.Label();
             this.ModeCB = new System.Windows.Forms.ComboBox();
@@ -330,8 +330,8 @@ namespace DocumentAdder.Forms
             this.tableLayoutPanel1.Controls.Add(this.textBox16, 1, 19);
             this.tableLayoutPanel1.Controls.Add(this.label42, 0, 18);
             this.tableLayoutPanel1.Controls.Add(this.label43, 1, 18);
-            this.tableLayoutPanel1.Controls.Add(this.innMb, 2, 19);
-            this.tableLayoutPanel1.Controls.Add(this.label41, 2, 18);
+            this.tableLayoutPanel1.Controls.Add(this.innMb, 7, 19);
+            this.tableLayoutPanel1.Controls.Add(this.labelInn, 7, 18);
             this.tableLayoutPanel1.Controls.Add(this.execDateMb, 3, 19);
             this.tableLayoutPanel1.Controls.Add(this.label44, 3, 18);
             this.tableLayoutPanel1.Controls.Add(this.ModeCB, 4, 19);
@@ -1943,16 +1943,16 @@ namespace DocumentAdder.Forms
             this.innMb.TabIndex = 117;
             this.innMb.Visible = false;
             // 
-            // label41
+            // labelInn
             // 
-            this.label41.AutoSize = true;
-            this.label41.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label41.Location = new System.Drawing.Point(315, 523);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(150, 13);
-            this.label41.TabIndex = 118;
-            this.label41.Text = "ИНН";
-            this.label41.Visible = false;
+            this.labelInn.AutoSize = true;
+            this.labelInn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelInn.Location = new System.Drawing.Point(315, 523);
+            this.labelInn.Name = "labelInn";
+            this.labelInn.Size = new System.Drawing.Size(150, 13);
+            this.labelInn.TabIndex = 118;
+            this.labelInn.Text = "ИНН";
+            this.labelInn.Visible = false;
             // 
             // execDateMb
             // 
@@ -2153,7 +2153,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.MaskedTextBox maskedTextBox12;
         private System.Windows.Forms.MaskedTextBox innMb;
-        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label labelInn;
         private System.Windows.Forms.MaskedTextBox execDateMb;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
