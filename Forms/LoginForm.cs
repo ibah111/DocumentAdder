@@ -74,6 +74,7 @@ namespace DocumentAdder.Forms
             }
             string[] names = { logedData.firstname, logedData.secondname, logedData.thirdname };
             Settings.username = Addons.GetName(names);
+            Settings.token = this.loginData.token;
             if (Settings.user_id == 0)
                 return false;
             return true;

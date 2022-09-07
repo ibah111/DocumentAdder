@@ -51,6 +51,7 @@ namespace DocumentAdder
         public static string json { get { return _json; } set { _json = value; } }
         public static int user_id { get { return _user_id; } set { _user_id = value; } }
         public static string username { get { return _username; } set { _username = value; } }
+        public static string token { get; set; }
         public static string debt_id { get { return _debt_id; } set { _debt_id = value; } }
         public static int vkl { get { return _vkl; } set { _vkl = value; } }
         public static bool conv { get { return _conv; } set { _conv = value; } }
