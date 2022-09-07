@@ -17,9 +17,9 @@ namespace DocumentAdder.Dialogs
         private int errors;
         private MainForm Forms;
         private PersonInfo _personInfo;
-        private List<int> docs;
+        private List<ClientDoc> docs;
 
-        public Tasks(ref int errors, MainForm form, PersonInfo personInfo, List<int> docs)
+        public Tasks(ref int errors, MainForm form, PersonInfo personInfo, List<ClientDoc> docs)
         {
             InitializeComponent();
             Templates();

@@ -4,6 +4,11 @@ using System.Text;
 
 namespace DocumentAdder.Models
 {
+    public class ClientDoc
+    {
+        public int doc { get; set; }
+        public bool barcode { get; set; }
+    }
     public class ServerResults
     {
         public int id { get; set; }

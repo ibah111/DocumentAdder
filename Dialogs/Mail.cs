@@ -16,9 +16,9 @@ namespace DocumentAdder.Dialogs
         private readonly MainForm _form;
         private int errors;
         private readonly bool _task;
-        private readonly List<int> docs;
+        private readonly List<ClientDoc> docs;
 
-        public Mail(int mode, MainForm form, ref int errors, bool task, List<int> docs)
+        public Mail(int mode, MainForm form, ref int errors, bool task, List<ClientDoc> docs)
         {
             InitializeComponent();
             this.errors = errors;

@@ -520,7 +520,7 @@ namespace DocumentAdder.Forms
                 }
                 catch (Exception ex) { errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
             }
-            List<int> docs = new List<int>();
+            List<ClientDoc> docs = new List<ClientDoc>();
             foreach (KeyValuePair<string, string> key in Adder.file)
             {
                 string segmentation = @"\\usb\all\shara\Сегментация обучение\";
@@ -559,7 +559,7 @@ namespace DocumentAdder.Forms
                         int.TryParse(result.ToString(), out returnValue);
                     }
                     if (returnValue > 0) {
-                        docs.Add(returnValue);
+                        docs.Add(new ClientDoc() { doc=returnValue, barcode=false });
                     }
                 }
             }
@@ -616,7 +616,7 @@ namespace DocumentAdder.Forms
             }
         }
 
-        public void newTask(int errors, List<int> docs)
+        public void newTask(int errors, List<ClientDoc> docs)
         {
             PersonInfo personInfo = new PersonInfo()
             {
@@ -643,9 +643,9 @@ namespace DocumentAdder.Forms
             ClearTextBox();
         }
 
-        public object getRequest(string typ, string id_task = "0", List<int> docs = null)
+        public object getRequest(string typ, string id_task = "0", List<ClientDoc> docs = null)
         {
-            docs = docs ?? new List<int>();
+            docs = docs ?? new List<ClientDoc>();
             bool pristavi = false;
             if (checkBox4.Checked == true)
                 pristavi = true;
