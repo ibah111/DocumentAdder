@@ -17,6 +17,7 @@ using DocumentAdder.Properties;
 using DocumentAdder.Dialogs;
 using DocumentAdder.Main;
 using RestSharp;
+using static DocumentAdder.Models.Adder;
 
 namespace DocumentAdder.Forms
 {
@@ -226,13 +227,13 @@ namespace DocumentAdder.Forms
                 ClearTextBox();
             if (e.Control && e.KeyCode == Keys.Q)
             {
-                Adder.file.Clear();
+                Adder.files.Clear();
                 MessageBox.Show("Все файлы удалены!", "Удачно!");
             }
             if (e.Control && e.Shift && e.KeyCode == Keys.D)
             {
                 ClearTextBox();
-                Adder.file.Clear();
+                Adder.files.Clear();
                 MessageBox.Show("Все файлы удалены, Поля очищены!", "Удачно!");
             }
             if (e.KeyCode == Keys.PageDown)
@@ -388,8 +389,8 @@ namespace DocumentAdder.Forms
             {
                 string file = files[0];
                 string file_name = files[0].Split('\\').Last();
-                Adder.file.Add(file, file_name); //Путь до файла | Название файла
-                MessageBox.Show($"Добавлен новый файл!\r\n\r\nНазвание файла: {file_name}\r\n\r\nПуть до файла: {file}\r\n\r\nВсего файлов: {Adder.file.Count}", "Добавлен файл!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Adder.files.Add(new FileItem() { path = file, name = file_name }); //Путь до файла | Название файла
+                MessageBox.Show($"Добавлен новый файл!\r\n\r\nНазвание файла: {file_name}\r\n\r\nПуть до файла: {file}\r\n\r\nВсего файлов: {Adder.files.Count}", "Добавлен файл!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 panel1.BackgroundImageLayout = ImageLayout.Zoom;
             }
         }
@@ -410,9 +411,9 @@ namespace DocumentAdder.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             List<string> ls = new List<string>();
-            foreach (KeyValuePair<string, string> key in Adder.file)
-                ls.Add($"Название файла: {key.Value}\r\nПуть: {key.Key}\r\n");
-            MessageBox.Show($"Всего добавлено {Adder.file.Count} файлов\r\n\r\n" + string.Join("\r\n", ls));
+            foreach (var value in Adder.files)
+                ls.Add($"Название файла: {value.name}\r\nПуть: {value.path}\r\n");
+            MessageBox.Show($"Всего добавлено {Adder.files.Count} файлов\r\n\r\n" + string.Join("\r\n", ls));
             ls.Clear();
         }
 
@@ -522,12 +523,12 @@ namespace DocumentAdder.Forms
                 catch (Exception ex) { errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
             }
             List<ClientDoc> docs = new List<ClientDoc>();
-            foreach (KeyValuePair<string, string> key in Adder.file)
+            foreach (var value in Adder.files)
             {
                 string segmentation = @"\\usb\all\shara\Сегментация обучение\";
 
-                string file = key.Value; //Название файла.pdf
-                string file_dir = key.Key; //Расположение файла
+                string file = value.name; //Название файла.pdf
+                string file_dir = value.path; //Расположение файла
                 string type = file.Split('.').Last(); //расширение файла
                 string free_dir = GetFreeDir(); //свободная папка для залива
                 Guid guid = Guid.NewGuid();
@@ -565,7 +566,7 @@ namespace DocumentAdder.Forms
                     }
                 }
             }
-            Adder.file.Clear();
+            Adder.files.Clear();
             int[] ints = { 2, 3, 4 };
 
             if (ints.Contains(

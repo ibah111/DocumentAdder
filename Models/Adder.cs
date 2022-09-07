@@ -8,6 +8,11 @@ namespace DocumentAdder.Models
 {
     class Adder
     {
-        public static Dictionary<string, string> file = new Dictionary<string, string>(); //Путь до файла | Название файла
+        public class FileItem
+        {
+            public string path { get; set; }
+            public string name { get; set; }
+        }
+        public static List<FileItem> files = new List<FileItem>(); //Путь до файла | Название файла
     }
 }
