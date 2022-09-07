@@ -183,8 +183,8 @@ namespace DocumentAdder.Forms
                 textBox23.Enabled = false;
                 textBox19.Enabled = false;
                 textBox20.Enabled = false;
-                maskedTextBox12.Enabled = false;
-                textBox16.Enabled = false;
+                //maskedTextBox12.Enabled = false;
+                //textBox16.Enabled = false;
                 innMb.Enabled = false;
                 execDateMb.Enabled = false;
             }
