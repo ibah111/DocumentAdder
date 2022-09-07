@@ -86,6 +86,7 @@ namespace DocumentAdder.Forms
             if (!runed)
             {
                 List<CBMember> cBMembers = new List<CBMember>();
+                Documents.DataSource = Adder.files;
                 cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
                 cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
                 cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
@@ -228,12 +229,14 @@ namespace DocumentAdder.Forms
             if (e.Control && e.KeyCode == Keys.Q)
             {
                 Adder.files.Clear();
+                Documents.ResetBindings(true);
                 MessageBox.Show("Все файлы удалены!", "Удачно!");
             }
             if (e.Control && e.Shift && e.KeyCode == Keys.D)
             {
                 ClearTextBox();
                 Adder.files.Clear();
+                Documents.ResetBindings(true);
                 MessageBox.Show("Все файлы удалены, Поля очищены!", "Удачно!");
             }
             if (e.KeyCode == Keys.PageDown)
@@ -390,6 +393,7 @@ namespace DocumentAdder.Forms
                 string file = files[0];
                 string file_name = files[0].Split('\\').Last();
                 Adder.files.Add(new FileItem() { path = file, name = file_name }); //Путь до файла | Название файла
+                Documents.ResetBindings(true);
                 MessageBox.Show($"Добавлен новый файл!\r\n\r\nНазвание файла: {file_name}\r\n\r\nПуть до файла: {file}\r\n\r\nВсего файлов: {Adder.files.Count}", "Добавлен файл!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 panel1.BackgroundImageLayout = ImageLayout.Zoom;
             }
@@ -567,6 +571,7 @@ namespace DocumentAdder.Forms
                 }
             }
             Adder.files.Clear();
+            Documents.ResetBindings(true);
             int[] ints = { 2, 3, 4 };
 
             if (ints.Contains(

@@ -204,6 +204,9 @@ namespace DocumentAdder.Forms
             this.ModeCB = new System.Windows.Forms.ComboBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label45 = new System.Windows.Forms.Label();
+            this.labelSelectDocBarcode = new System.Windows.Forms.Label();
+            this.selectDocBarcode = new System.Windows.Forms.ComboBox();
+            this.Documents = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1TableAdapter = new DocumentAdder.DataSet1TableAdapters.DataTable1TableAdapter();
             this.dataTable2TableAdapter = new DocumentAdder.DataSet1TableAdapters.DataTable2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Users)).BeginInit();
@@ -216,6 +219,7 @@ namespace DocumentAdder.Forms
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Documents)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -336,6 +340,8 @@ namespace DocumentAdder.Forms
             this.tableLayoutPanel1.Controls.Add(this.label44, 3, 18);
             this.tableLayoutPanel1.Controls.Add(this.ModeCB, 4, 19);
             this.tableLayoutPanel1.Controls.Add(this.label45, 4, 18);
+            this.tableLayoutPanel1.Controls.Add(this.labelSelectDocBarcode, 2, 18);
+            this.tableLayoutPanel1.Controls.Add(this.selectDocBarcode, 2, 19);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1936,10 +1942,10 @@ namespace DocumentAdder.Forms
             // innMb
             // 
             this.innMb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.innMb.Location = new System.Drawing.Point(315, 539);
+            this.innMb.Location = new System.Drawing.Point(1095, 539);
             this.innMb.Mask = "000000000000";
             this.innMb.Name = "innMb";
-            this.innMb.Size = new System.Drawing.Size(150, 20);
+            this.innMb.Size = new System.Drawing.Size(153, 20);
             this.innMb.TabIndex = 117;
             this.innMb.Visible = false;
             // 
@@ -1947,9 +1953,9 @@ namespace DocumentAdder.Forms
             // 
             this.labelInn.AutoSize = true;
             this.labelInn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelInn.Location = new System.Drawing.Point(315, 523);
+            this.labelInn.Location = new System.Drawing.Point(1095, 523);
             this.labelInn.Name = "labelInn";
-            this.labelInn.Size = new System.Drawing.Size(150, 13);
+            this.labelInn.Size = new System.Drawing.Size(153, 13);
             this.labelInn.TabIndex = 118;
             this.labelInn.Text = "ИНН";
             this.labelInn.Visible = false;
@@ -2003,6 +2009,33 @@ namespace DocumentAdder.Forms
             this.label45.TabIndex = 122;
             this.label45.Text = "Режим";
             // 
+            // labelSelectDocBarcode
+            // 
+            this.labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelSelectDocBarcode.AutoSize = true;
+            this.labelSelectDocBarcode.Location = new System.Drawing.Point(334, 523);
+            this.labelSelectDocBarcode.Name = "labelSelectDocBarcode";
+            this.labelSelectDocBarcode.Size = new System.Drawing.Size(112, 13);
+            this.labelSelectDocBarcode.TabIndex = 123;
+            this.labelSelectDocBarcode.Text = "Документ штрих-код";
+            // 
+            // selectDocBarcode
+            // 
+            this.selectDocBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectDocBarcode.DataSource = this.Documents;
+            this.selectDocBarcode.DisplayMember = "name";
+            this.selectDocBarcode.FormattingEnabled = true;
+            this.selectDocBarcode.Location = new System.Drawing.Point(315, 539);
+            this.selectDocBarcode.Name = "selectDocBarcode";
+            this.selectDocBarcode.Size = new System.Drawing.Size(150, 21);
+            this.selectDocBarcode.TabIndex = 124;
+            // 
+            // Documents
+            // 
+            this.Documents.DataSource = typeof(DocumentAdder.Models.Adder.FileItem);
+            // 
             // dataTable1TableAdapter
             // 
             this.dataTable1TableAdapter.ClearBeforeFill = true;
@@ -2035,6 +2068,7 @@ namespace DocumentAdder.Forms
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Documents)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2207,6 +2241,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.ComboBox ModeCB;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Label labelSelectDocBarcode;
+        private System.Windows.Forms.ComboBox selectDocBarcode;
+        private System.Windows.Forms.BindingSource Documents;
     }
 }
 
