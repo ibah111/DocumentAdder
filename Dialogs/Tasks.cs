@@ -6,6 +6,9 @@ using System.Text;
 using System.Windows.Forms;
 using DocumentAdder.Utils;
 using DocumentAdder.Forms;
+using RestSharp;
+using DocumentAdder.Main;
+using DocumentAdder.Models;
 
 namespace DocumentAdder.Dialogs
 {
@@ -30,15 +33,12 @@ namespace DocumentAdder.Dialogs
         {
             try
             {
-                WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                 var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "templates" };
-                var dataString = JsonConvert.SerializeObject(vm);
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
-                List<Template> responseString = JsonConvert.DeserializeObject<List<Template>>(response);
-                if (responseString != null)
-                    if (responseString.Count > 0)
-                        comboBox1.DataSource = responseString;
+                var request = new RestRequest("/123").AddJsonBody(vm);
+                var response = Program.client.Post<List<ServerTemplate>>(request);
+                if (response != null)
+                    if (response.Count > 0)
+                        comboBox1.DataSource = response;
             }
             catch (Exception ee)
             {
@@ -84,11 +84,9 @@ namespace DocumentAdder.Dialogs
             //}
             try
             {
-                WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                 var vm = Forms.getRequest("with_task", comboBox1.SelectedValue.ToString(), this.docs);
-                var dataString = JsonConvert.SerializeObject(vm);
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
+                var request = new RestRequest("/123").AddJsonBody(vm);
+                var response = Program.client.Post<ServerResults>(request);
             }
             catch (Exception ee)
             {

@@ -1,5 +1,8 @@
 ﻿using DocumentAdder.Forms;
+using DocumentAdder.Main;
+using DocumentAdder.Models;
 using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -69,11 +72,9 @@ namespace DocumentAdder.Dialogs
         {
             try
             {
-                WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                 var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "without_task", date_post = DateTime.Parse(Settings.date_post), Convert = Settings.conv, adr_otp = Settings.adr_otp, otprav = Settings.otprav, reestr = textBox1.Text, doc_name = Settings.doc_name, gd = textBox2.Text, fio_dol = comboBox2.Text, ispol_zadach = comboBox1.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = Settings.nal_skan, mode=mode, adres=to_mail_text, mail=who_mail_text };
-                var dataString = JsonConvert.SerializeObject(vm);
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
+                var request = new RestRequest("/123").AddJsonBody(vm);
+                var response = Program.client.Post<ServerResults>(request);
                 MessageBox.Show("Данные в таблицу занесены");
             }
             catch (Exception ee)

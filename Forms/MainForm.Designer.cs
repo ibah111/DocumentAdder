@@ -4,11 +4,6 @@ namespace DocumentAdder.Forms
 {
     partial class MainForm
     {
-        private class User
-        {
-            public int ID { get; set; }
-            public string NAME { get; set; }
-        }
 
 
         /// <summary>

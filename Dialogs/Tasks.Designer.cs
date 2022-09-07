@@ -3,11 +3,6 @@ namespace DocumentAdder.Dialogs
 {
     partial class Tasks
     {
-        public class Template
-        {
-            public int ID { get; set; }
-            public string NAME { get; set; }
-        }
         /// <summary>
         /// Required designer variable.
         /// </summary>

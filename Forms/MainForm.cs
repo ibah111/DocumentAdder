@@ -16,6 +16,7 @@ using DocumentAdder.Utils;
 using DocumentAdder.Properties;
 using DocumentAdder.Dialogs;
 using DocumentAdder.Main;
+using RestSharp;
 
 namespace DocumentAdder.Forms
 {
@@ -594,11 +595,9 @@ namespace DocumentAdder.Forms
                     //}
                     try
                     {
-                        WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                         var vm = getRequest("without_task",docs:docs);
-                        var dataString = JsonConvert.SerializeObject(vm);
-                        client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                        var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
+                        var request = new RestRequest("/123").AddJsonBody(vm);
+                        var response = Program.client.Post<ServerResults>(request);
                     }
                     catch (Exception ee)
                     {
@@ -873,16 +872,13 @@ namespace DocumentAdder.Forms
 
             try
             {
-                WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                 var vm = new { token = "f3989a11-801c-458c-be04-9b4437620666", action = "users" };
                 string old_text = comboBox7.Text;
-                var dataString = JsonConvert.SerializeObject(vm);
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                var response = client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
-                List<User> responseString = JsonConvert.DeserializeObject<List<User>>(response);
-                if (responseString.Count > 0)
+                var request = new RestRequest("/123").AddJsonBody(vm);
+                var response = Program.client.Post<List<ServerUser>>(request);
+                if (response.Count > 0)
                 {
-                    Users.DataSource = responseString;
+                    Users.DataSource = response;
                 }
             }
             catch (Exception ee)

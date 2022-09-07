@@ -1,5 +1,8 @@
 ﻿using DocumentAdder.Forms;
+using DocumentAdder.Main;
+using DocumentAdder.Models;
 using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -63,11 +66,9 @@ namespace DocumentAdder.Dialogs
             {
                 try
                 {
-                    WebClient client = new WebClient() { Encoding = Encoding.UTF8 };
                     var vm = _form.getRequest("without_task",docs:this.docs);
-                    var dataString = JsonConvert.SerializeObject(vm);
-                    client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    client.UploadString(new Uri($"{Settings.server}/123"), "POST", dataString);
+                    var request = new RestRequest("/123").AddJsonBody(vm);
+                    var response = Program.client.Post<ServerResults>(request);
                 }
                 catch (Exception ee)
                 {
