@@ -66,7 +66,6 @@ namespace DocumentAdder.Main
         }
         private void start()
         {
-
             client.ConnectAsync();
         }
     }
