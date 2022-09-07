@@ -53,6 +53,17 @@ namespace DocumentAdder.Models
         public string mail;
         public List<ServerDoc> Docs;
         public List<ServerBarcode> Barcodes;
+
+    }
+    public class ServerUser
+    {
+        public int ID;
+        public int NAME;
+    }
+    public class ServerTemplate
+    {
+        public int ID;
+        public int NAME;
     }
     public class ServerDoc
     {
