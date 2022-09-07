@@ -27,5 +27,6 @@ namespace DocumentAdder.Models
         public bool дата_и_время_сз;
         public Dictionary<string, string> вкладка_и_статус;
         public List<string> без_смены;
+        public bool штрих_код;
     }
 }

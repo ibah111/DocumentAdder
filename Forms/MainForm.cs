@@ -157,7 +157,16 @@ namespace DocumentAdder.Forms
             maskedTextBox9.Enabled = o[a].дата_отмены_сп;
             maskedTextBox10.Enabled = o[a].дата_исполнения_недостатков;
             maskedTextBox11.Enabled = o[a].дата_и_время_сз;
-            Data.int_color = (int)o[a].цвет_карточки;
+            Data.int_color = o[a].цвет_карточки;
+            Settings.barcode = o[a].штрих_код;
+            if (Settings.barcode == true)
+            {
+                selectDocBarcode.Enabled = true;
+            }
+            else
+            {
+                selectDocBarcode.Enabled = false;
+            }
 
             if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                         || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
@@ -568,7 +577,7 @@ namespace DocumentAdder.Forms
                     {
                         if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
                         {
-                            var doc = new ClientDoc() { doc = returnValue, barcode = true, title = textBox16.Text, date=maskedTextBox12.Text };
+                            var doc = new ClientDoc() { doc = returnValue, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
                             if (Data.vkl_int == 4)
                             {
                                 doc.type = 2;

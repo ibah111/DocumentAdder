@@ -73,7 +73,7 @@ namespace DocumentAdder
         public static string ecp { get { return _ecp; } set { _ecp = value; } }
         public static string adres { get { return _adres; } set { _adres = value; } }
         public static string mail { get { return _mail; } set { _mail = value; } }
-
+        public static bool barcode { get; set; }
 
 
         public static Dictionary<int, string> users = new Dictionary<int, string>();
