@@ -268,11 +268,12 @@ namespace DocumentAdder.Forms
                 textBox14.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
                 string vkl = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); //ID Дела
                 string int_vkl = GetIntKvl(vkl);
-                Dictionary<int,SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
+                Dictionary<int, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
                 string status_text = o[comboBox1.SelectedIndex].вкладка_и_статус[int_vkl];
                 comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
                 int status_get = GetStatusBible(status_text);
-                if (o[comboBox1.SelectedIndex].без_смены.Contains(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString())) {
+                if (o[comboBox1.SelectedIndex].без_смены.Contains(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()))
+                {
                     status_get = 99999;
                 }
                 if (status_get == 99999)
@@ -553,13 +554,14 @@ namespace DocumentAdder.Forms
                         command.Connection.Open();
                     }
 
-                    object result =command.ExecuteScalar();
+                    object result = command.ExecuteScalar();
                     if (result != null)
                     {
                         int.TryParse(result.ToString(), out returnValue);
                     }
-                    if (returnValue > 0) {
-                        docs.Add(new ClientDoc() { doc=returnValue, barcode=false });
+                    if (returnValue > 0)
+                    {
+                        docs.Add(new ClientDoc() { doc = returnValue, barcode = false });
                     }
                 }
             }
@@ -595,9 +597,12 @@ namespace DocumentAdder.Forms
                     //}
                     try
                     {
-                        var vm = getRequest("without_task",docs:docs);
+                        var vm = getRequest("without_task", docs: docs);
                         var request = new RestRequest("/123").AddJsonBody(vm);
                         var response = Program.client.Post<ServerResults>(request);
+                        if (response.Barcodes != null)
+                            foreach (var barcode in response.Barcodes)
+                                Utils.Printer.PrintBarCode(barcode.barcode);
                     }
                     catch (Exception ee)
                     {
@@ -863,7 +868,7 @@ namespace DocumentAdder.Forms
             OtherDocs f = new OtherDocs(Settings.mode);
             if (Settings.mode < 1)
                 Settings.mode = 1;
-            f.mode= Settings.mode;
+            f.mode = Settings.mode;
             f.Show();
         }
 

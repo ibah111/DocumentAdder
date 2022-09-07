@@ -69,6 +69,9 @@ namespace DocumentAdder.Dialogs
                     var vm = _form.getRequest("without_task",docs:this.docs);
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = Program.client.Post<ServerResults>(request);
+                    if (response.Barcodes != null)
+                        foreach (var barcode in response.Barcodes)
+                            Utils.Printer.PrintBarCode(barcode.barcode);
                 }
                 catch (Exception ee)
                 {
