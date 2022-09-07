@@ -6,78 +6,78 @@ namespace DocumentAdder.Models
 {
     public class ServerResults
     {
-        public int id;
-        public DateTime date_post;
-        public bool convert;
-        public bool pristavi;
-        public string adr_otp;
-        public string otprav;
-        public string reestr;
-        public string doc_name;
-        public string doc_name_arhive;
-        public string doc_name_arhive_id;
-        public int id_doc_name;
-        public int id_dela;
-        public int id_dolga;
-        public int id_dolgnika;
-        public string st_pnkt;
-        public string gd;
-        public string fio_dol;
-        public string kd;
-        public string ispol_zadach;
-        public int id_ispol_zadach;
-        public string vsisk;
-        public int id_vsisk;
-        public DateTime kogda_otdano;
-        public string kto_obrabotal;
-        public int id_kto_obrabotal;
-        public bool nal_skan;
-        public int id_zadach;
-        public bool arhive;
-        public bool arhive_id;
-        public int korob_arhive;
-        public int korob_arhive_id;
-        public DateTime data_obrabotki_arhive;
-        public DateTime data_obrabotki_arhive_id;
-        public string kto_obrabotal_arhive;
-        public string kto_obrabotal_arhive_id;
-        public int id_bitrix_arhive;
-        public int id_bitrix_arhive_id;
-        public bool check_vsisk;
-        public string check_vsisk_name;
-        public int mode;
-        public string ist;
-        public DateTime dateDoc;
-        public string ecp;
-        public string adres;
-        public string mail;
-        public List<ServerDoc> Docs;
-        public List<ServerBarcode> Barcodes;
+        public int id { get; set; }
+        public DateTime date_post { get; set; }
+        public bool convert { get; set; }
+        public bool pristavi { get; set; }
+        public string adr_otp { get; set; }
+        public string otprav { get; set; }
+        public string reestr { get; set; }
+        public string doc_name { get; set; }
+        public string doc_name_arhive { get; set; }
+        public string doc_name_arhive_id { get; set; }
+        public int id_doc_name { get; set; }
+        public int id_dela { get; set; }
+        public int id_dolga { get; set; }
+        public int id_dolgnika { get; set; }
+        public string st_pnkt { get; set; }
+        public string gd { get; set; }
+        public string fio_dol { get; set; }
+        public string kd { get; set; }
+        public string ispol_zadach { get; set; }
+        public int id_ispol_zadach { get; set; }
+        public string vsisk { get; set; }
+        public int id_vsisk { get; set; }
+        public DateTime kogda_otdano { get; set; }
+        public string kto_obrabotal { get; set; }
+        public int id_kto_obrabotal { get; set; }
+        public bool nal_skan { get; set; }
+        public int id_zadach { get; set; }
+        public bool arhive { get; set; }
+        public bool arhive_id { get; set; }
+        public int korob_arhive { get; set; }
+        public int korob_arhive_id { get; set; }
+        public DateTime data_obrabotki_arhive { get; set; }
+        public DateTime data_obrabotki_arhive_id { get; set; }
+        public string kto_obrabotal_arhive { get; set; }
+        public string kto_obrabotal_arhive_id { get; set; }
+        public int id_bitrix_arhive { get; set; }
+        public int id_bitrix_arhive_id { get; set; }
+        public bool check_vsisk { get; set; }
+        public string check_vsisk_name { get; set; }
+        public int mode { get; set; }
+        public string ist { get; set; }
+        public DateTime dateDoc { get; set; }
+        public string ecp { get; set; }
+        public string adres { get; set; }
+        public string mail { get; set; }
+        public List<ServerDoc> Docs { get; set; }
+        public List<ServerBarcode> Barcodes { get; set; }
 
     }
     public class ServerUser
     {
-        public int ID;
-        public int NAME;
+        public int ID { get; set; }
+        public string NAME { get; set; }
     }
     public class ServerTemplate
     {
-        public int ID;
-        public int NAME;
+        public int ID { get; set; }
+        public string NAME { get; set; }
     }
     public class ServerDoc
     {
-        public int id;
-        public int result_id;
-        public string Result;
-        public int doc_id;
-        public bool sender;
-        public bool sended;
-        public string barcode;
+        public int id { get; set; }
+        public int result_id { get; set; }
+        public string Result { get; set; }
+        public int doc_id { get; set; }
+        public bool sender { get; set; }
+        public bool sended { get; set; }
+        public string barcode { get; set; }
     }
     public class ServerBarcode
     {
-        public int doc;
-        public string barcode;
+        public int doc { get; set; }
+        public string barcode { get; set; }
     }
 }
