@@ -566,7 +566,23 @@ namespace DocumentAdder.Forms
                     }
                     if (returnValue > 0)
                     {
-                        docs.Add(new ClientDoc() { doc = returnValue, barcode = false });
+                        if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
+                        {
+                            var doc = new ClientDoc() { doc = returnValue, barcode = true, title = textBox16.Text, date=maskedTextBox12.Text };
+                            if (Data.vkl_int == 4)
+                            {
+                                doc.type = 2;
+                            }
+                            else
+                            {
+                                doc.type = 1;
+                            }
+                            docs.Add(doc);
+                        }
+                        else
+                        {
+                            docs.Add(new ClientDoc() { doc = returnValue, barcode = false });
+                        }
                     }
                 }
             }

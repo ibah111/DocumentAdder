@@ -8,6 +8,9 @@ namespace DocumentAdder.Models
     {
         public int doc { get; set; }
         public bool barcode { get; set; }
+        public string title { get; set; }
+        public int type { get; set; }
+        public string date { get; set; }
     }
     public class ServerResults
     {
