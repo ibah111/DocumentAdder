@@ -4,7 +4,8 @@ namespace DocumentAdder.Utils
 {
     static public class Printer
     {
-        static public void PrintBarCode(string text) {
+        static public void PrintBarCode(string text)
+        {
             bpac.Document doc = new bpac.Document();
             doc.Open("Resources/barcode.lbx");
             var barcode = doc.GetObject("barcode");
@@ -13,6 +14,18 @@ namespace DocumentAdder.Utils
             doc.PrintOut(1, PrintOptionConstants.bpoDefault);
             doc.EndPrint();
             doc.Close();
+        }
+        static public bool CheckCom()
+        {
+            try
+            {
+                bpac.Document doc = new bpac.Document();
+                doc.Open("Resources/barcode.lbx");
+                var barcode = doc.GetObject("barcode");
+                doc.Close();
+                return true;
+            }
+            catch { return false; }
         }
     }
 }

@@ -161,7 +161,8 @@ namespace DocumentAdder.Forms
             Settings.barcode = o[a].штрих_код;
             if (Settings.barcode == true)
             {
-                selectDocBarcode.Enabled = true;
+                if (Utils.Printer.CheckCom())
+                    selectDocBarcode.Enabled = true;
             }
             else
             {
