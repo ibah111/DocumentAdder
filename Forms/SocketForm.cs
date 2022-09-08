@@ -16,11 +16,12 @@ namespace DocumentAdder.Forms
         {
             TopMost = true;
             InitializeComponent();
+            Reset();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        public void Reset()
         {
-
+            textError.Text = "Соединение с сервером отсутствует\r\nСкорее всего сервер находится на обслужвании\r\n" +
+        "Как только сервер будет запущен, программа сама\r\nпродолжит работу\r\n";
         }
     }
 }

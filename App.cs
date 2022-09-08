@@ -1,4 +1,5 @@
 ﻿using DocumentAdder.Forms;
+using DocumentAdder.Utils;
 using SocketIOClient;
 using SocketIOClient.Transport;
 using SocketIOClient.Windows7;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.WebSockets;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +21,7 @@ namespace DocumentAdder.Main
         private LoginForm loginForm;
         private SocketForm socketForm;
         private SocketIO client = new SocketIO($"{Settings.server_ws}/");
+        private ActionsForms actions;
 
         public App()
         {
@@ -34,6 +37,7 @@ namespace DocumentAdder.Main
             socketForm.Show();
             //socketForm.Hide();
             socketForm.FormClosed += close;
+            actions = new ActionsForms(startForm, loginForm, socketForm);
             handler();
             start();
         }
@@ -46,41 +50,18 @@ namespace DocumentAdder.Main
             client.ClientWebSocketProvider = () => new ClientWebSocketManaged();
             client.OnConnected += (sender, e) =>
             {
-                Action hideStartForm = () =>
-                {
-                    startForm.Hide();
-                };
-                Action hideSocketForm = () =>
-                {
-                    socketForm.Hide();
-                };
-
-                socketForm.Invoke(hideSocketForm);
-                Action showStartForm = () =>
-                {
-                    startForm.Show();
-                    startForm.Loader();
-                };
-                Action showLoginForm = () =>
-                {
-                    loginForm.OnLoged += () => startForm.Invoke(showStartForm);
-                    loginForm.OnNotLoged += () => startForm.Invoke(hideStartForm);
-                    loginForm.CheckLogin();
-                };
-                loginForm.Invoke(showLoginForm);
+                actions.hideSocketForm();
+                actions.showLoginForm();
+                client.EmitAsync("version-windows", Assembly.GetExecutingAssembly().GetName().Version.ToString());
             };
+            client.On("new_version", response=>{
+                actions.hideStartForm();
+                actions.showSocketForm("Требуется обновление");
+            });
             client.OnDisconnected += (sender, e) =>
             {
-                Action hideStartForm = () =>
-                {
-                    startForm.Hide();
-                };
-                startForm.Invoke(hideStartForm);
-                Action showSocketForm = () =>
-                {
-                    socketForm.Show();
-                };
-                socketForm.Invoke(hideStartForm);
+                actions.hideStartForm();
+                actions.showSocketForm();
             };
         }
         private void start()
