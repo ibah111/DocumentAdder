@@ -159,7 +159,10 @@ namespace DocumentAdder.Forms
             if (Settings.barcode == true)
             {
                 if (Utils.Printer.CheckCom())
+                {
                     selectDocBarcode.Enabled = true;
+                }
+                else { selectDocBarcode.Enabled = false; }
             }
             else
             {
