@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using DocumentAdder.Main;
+using DocumentAdder.Utils;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Data.Odbc;
 using System.IO;
 using System.Windows.Forms;
-using DocumentAdder.Utils;
-using DocumentAdder.Main;
 
 namespace DocumentAdder.Forms
 {
@@ -35,25 +35,25 @@ namespace DocumentAdder.Forms
             {
                 if (GetLoginContact())
                 {
-                        Hide();
-                        if (!timer.Enabled) timer.Start();
-                        OnLoged?.Invoke();
+                    Hide();
+                    if (!timer.Enabled) timer.Start();
+                    OnLoged?.Invoke();
                 }
                 else
                 {
-                        OnNotLoged?.Invoke();
-                        if (timer.Enabled) timer.Stop();
-                        MessageBox.Show("Вы не найдены в контакте. Обратитесь в IT-Отдел.");
+                    OnNotLoged?.Invoke();
+                    if (timer.Enabled) timer.Stop();
+                    MessageBox.Show("Вы не найдены в контакте. Обратитесь в IT-Отдел.");
                 }
             }
             else
             {
-                    if (Visible)
-                    {
-                        MessageBox.Show("Произошла ошибка при авторизации, попробуйте еще раз");
-                    }
-                    Show();
-                
+                if (Visible)
+                {
+                    MessageBox.Show("Произошла ошибка при авторизации, попробуйте еще раз");
+                }
+                Show();
+
             }
         }
         public bool GetLoginContact()

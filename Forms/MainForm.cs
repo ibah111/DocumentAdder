@@ -1,22 +1,19 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using DocumentAdder.Dialogs;
+using DocumentAdder.Main;
+using DocumentAdder.Models;
+using DocumentAdder.Properties;
+using DocumentAdder.Utils;
+using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.IO.Ports;
-using DocumentAdder.Models;
-using DocumentAdder.Utils;
-using DocumentAdder.Properties;
-using DocumentAdder.Dialogs;
-using DocumentAdder.Main;
-using RestSharp;
 using static DocumentAdder.Models.Adder;
 
 namespace DocumentAdder.Forms

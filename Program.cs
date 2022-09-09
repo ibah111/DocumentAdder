@@ -1,11 +1,11 @@
-﻿using System;
-using System.Data.Odbc;
-using System.Net;
-using System.Windows.Forms;
-using AutoUpdaterDotNET;
+﻿using AutoUpdaterDotNET;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
+using System;
+using System.Data.Odbc;
+using System.Net;
+using System.Windows.Forms;
 
 namespace DocumentAdder.Main
 {

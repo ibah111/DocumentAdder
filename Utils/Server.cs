@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Windows;
 
 namespace DocumentAdder.Utils
 {

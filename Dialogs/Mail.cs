@@ -1,12 +1,9 @@
 ﻿using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
-using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Dialogs
@@ -66,7 +63,7 @@ namespace DocumentAdder.Dialogs
             {
                 try
                 {
-                    var vm = _form.getRequest("without_task",docs:this.docs);
+                    var vm = _form.getRequest("without_task", docs: this.docs);
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = Program.client.Post<ServerResults>(request);
                     if (response.Barcodes != null)

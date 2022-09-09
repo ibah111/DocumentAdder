@@ -4,16 +4,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using SocketIOClient;
 using SocketIOClient.Newtonsoft.Json;
-using SocketIOClient.Transport;
 using SocketIOClient.Windows7;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.WebSockets;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Main

@@ -1,14 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-using System.Windows.Forms;
-using DocumentAdder.Utils;
-using DocumentAdder.Forms;
-using RestSharp;
+﻿using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
+using DocumentAdder.Utils;
+using RestSharp;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DocumentAdder.Dialogs
 {
@@ -33,7 +30,7 @@ namespace DocumentAdder.Dialogs
         {
             try
             {
-                var vm = new { token =Settings.token, action = "templates" };
+                var vm = new { token = Settings.token, action = "templates" };
                 var request = new RestRequest("/123").AddJsonBody(vm);
                 var response = Program.client.Post<List<ServerTemplate>>(request);
                 if (response != null)
