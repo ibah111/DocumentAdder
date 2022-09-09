@@ -44,16 +44,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autoupdater.NET.Official" Version="1.7.4" />
+    <PackageReference Include="Autoupdater.NET.Official" Version="1.7.5" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1293.44" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1343.22" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.1" />
-    <PackageReference Include="SocketIOClient" Version="3.0.5" />
-    <PackageReference Include="SocketIOClient.Windows7" Version="3.0.3" />
+    <PackageReference Include="SocketIOClient" Version="3.0.6" />
+    <PackageReference Include="SocketIOClient.Newtonsoft.Json" Version="3.0.0" />
+    <PackageReference Include="SocketIOClient.Windows7" Version="3.0.6" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
   </ItemGroup>
 

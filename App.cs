@@ -1,6 +1,9 @@
 ﻿using DocumentAdder.Forms;
 using DocumentAdder.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using SocketIOClient;
+using SocketIOClient.Newtonsoft.Json;
 using SocketIOClient.Transport;
 using SocketIOClient.Windows7;
 using System;
@@ -47,7 +50,16 @@ namespace DocumentAdder.Main
         }
         private void handler()
         {
-            client.ClientWebSocketProvider = () => new ClientWebSocketManaged();
+            var jsonSerializer = new NewtonsoftJsonSerializer();
+            jsonSerializer.OptionsProvider = () => new JsonSerializerSettings
+            {
+                ContractResolver = new DefaultContractResolver
+                {
+                    NamingStrategy = new CamelCaseNamingStrategy()
+                }
+            };
+            client.JsonSerializer = jsonSerializer;
+            client.ClientWebSocketProvider = () => new ClientWebSocketManaged(4);
             client.OnConnected += (sender, e) =>
             {
                 actions.hideSocketForm();
