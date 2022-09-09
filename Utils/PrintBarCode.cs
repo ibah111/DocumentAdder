@@ -25,6 +25,7 @@ namespace DocumentAdder.Utils
                 bpac.Document doc = new bpac.Document();
                 var printerName = doc.GetPrinterName();
                 var printer = doc.Printer;
+                if (printerName != "Brother QL-800") return false;
                 var is_online = printer.IsPrinterOnline(printerName);
                 return is_online;
             }
