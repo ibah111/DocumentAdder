@@ -48,7 +48,7 @@ build_job:
     - msbuild /p:Configuration=Release # build the project
   artifacts:
     paths:
-      - '$env:EXE_RELEASE_FOLDER\*'
+      - '$EXE_RELEASE_FOLDER\*'
     expire_in: 1 week
 deploy_job:
   stage: deploy
