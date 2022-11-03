@@ -39,7 +39,7 @@ namespace DocumentAdder.Utils
                 "left join law_court lc on lc.id=la.r_court_id 	left join portfolio pr on pr.id = la.r_portfolio_id left join work_task wt on wt.r_debt_id = la.r_debt_id left join users u on u.id = wt.r_user_id" +
                 $" where {where}";*/
             Settings.command = "select TOP(100) la.id,case la.typ when 0 then 'Неопределен' when 1 then 'Приказ' when 2 then 'Иск' when 3 then 'Правопреемство' when 4 then 'Банкротство' end typ, " +
-                "case la.typ when 2 then (select name from dict where parent_id = 25 and code = la.act_status) else (select name from dict where parent_id = 18 and code = la.status) end status, " +
+                "case when la.typ > 2 then (select name from dict where parent_id = 25 and code = la.act_status) else (select name from dict where parent_id = 18 and code = la.status) end status, " +
                 "u.f+' '+u.i+' '+u.o fio_vz, la.name, pr.name,p.f+' '+p.i+' '+p.o,p.birth_date,la.contract, la.exec_number, lc.name, " +
                 "convert(varchar,la.total_sum) + ' Руб', la.dsc, le.court_doc_num,CONVERT(varchar, le.court_date, 104) court_date,lc.name court_name, lc.address court_adress,cast(d.start_sum as decimal(16,2)) start_sum, " +
                 "pass.number,pass.series,p.birth_place, a.full_adr, la.court_order_date exec_date, p.inn from law_act la " +
