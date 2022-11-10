@@ -513,7 +513,7 @@ namespace DocumentAdder.Forms
 
             List<string> ls = Data.Update(textBox7, textBox8, textBox9, textBox10, textBox11,
                 maskedTextBox1, maskedTextBox2, maskedTextBox3, maskedTextBox4, maskedTextBox5,
-                maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, comboBox3.Text);
+                maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, textBox23, comboBox3.Text);
             ls.Add("\r\n\r\n");
             File.AppendAllText(Environment.CurrentDirectory + "\\SQL.txt", string.Join("\r\n", ls));
             int errors = 0;

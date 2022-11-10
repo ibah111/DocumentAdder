@@ -22,7 +22,7 @@ namespace DocumentAdder.Utils
         public static string status_text { get { return _status_text; } set { _status_text = value; } }
 
 
-        public static List<string> Update(TextBox textBox7, TextBox textBox8, TextBox textBox9, TextBox textBox10, TextBox textBox11, MaskedTextBox maskedTextBox1, MaskedTextBox maskedTextBox2, MaskedTextBox maskedTextBox3, MaskedTextBox maskedTextBox4, MaskedTextBox maskedTextBox5, MaskedTextBox maskedTextBox6, MaskedTextBox maskedTextBox7, MaskedTextBox maskedTextBox8, MaskedTextBox maskedTextBox9, MaskedTextBox maskedTextBox10, MaskedTextBox maskedTextBox11, string text)
+        public static List<string> Update(TextBox textBox7, TextBox textBox8, TextBox textBox9, TextBox textBox10, TextBox textBox11, MaskedTextBox maskedTextBox1, MaskedTextBox maskedTextBox2, MaskedTextBox maskedTextBox3, MaskedTextBox maskedTextBox4, MaskedTextBox maskedTextBox5, MaskedTextBox maskedTextBox6, MaskedTextBox maskedTextBox7, MaskedTextBox maskedTextBox8, MaskedTextBox maskedTextBox9, MaskedTextBox maskedTextBox10, MaskedTextBox maskedTextBox11, TextBox textBox23, string text)
         {
             List<string> sql = new List<string>();
             sql.Clear();
@@ -41,6 +41,11 @@ namespace DocumentAdder.Utils
 
             if (textBox10.Enabled == true)
                 sql.Add($"update law_exec set court_doc_num = \'{textBox10.Text}\' where id = {id}");
+            if (textBox23.Enabled == true)
+            {
+                if (vkl_int < 4)
+                    sql.Add($"update law_act set total_sum = {textBox23.Text} where id = {id}");
+            }
 
             if (textBox11.Enabled == true)
             {
