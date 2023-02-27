@@ -2,13 +2,27 @@
 using DocumentAdder.Utils;
 using Newtonsoft.Json;
 using RestSharp;
+using RestSharp.Authenticators;
 using System;
 using System.Data.Odbc;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Forms
 {
+    public class BitrixAuthenticator : IAuthenticator
+    {
+        private string token;
+        public BitrixAuthenticator(string token) {
+            this.token = token;
+        }
+        public ValueTask Authenticate(RestClient client, RestRequest request)
+        {
+            request.AddHeader("token", token);
+            return new ValueTask();
+        }
+    }
     public partial class LoginForm : Form
     {
         static string LoginPath = "/login.json";
@@ -81,7 +95,7 @@ namespace DocumentAdder.Forms
         private bool CheckToken()
         {
             var request = new RestRequest("/login");
-            client.AddDefaultHeader("token", loginData.token);
+            client.Authenticator = new BitrixAuthenticator(loginData.token);
             try
             {
                 var response = client.Post<LogedData>(request);
