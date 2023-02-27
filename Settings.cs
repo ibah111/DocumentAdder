@@ -9,13 +9,13 @@ namespace DocumentAdder
         public static string main = "\\\\newct\\Luxbase\\Docattach2";
         public static string server = "http://localhost:3001";
         public static string server_ws = "http://localhost:3001";
-        public static string server_login = "https://localhost:3000";
+        public static string server_login = "http://localhost:3000/apps/mail";
 #else
         public static string dbs = "i_collect";
         public static string main = "\\\\newct\\Luxbase\\Docattach";
         public static string server = "https://apps.usb.ru:3001";
         public static string server_ws = "https://apps.usb.ru:3001";
-        public static string server_login = "https://chat.nbkfinance.ru";
+        public static string server_login = "https://chat.nbkfinance.ru/apps/mail";
 #endif
         private static string _json;
         private static int _user_id;

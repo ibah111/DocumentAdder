@@ -19,6 +19,7 @@ namespace DocumentAdder.Forms
         }
         public ValueTask Authenticate(RestClient client, RestRequest request)
         {
+            if (token != null)
             request.AddHeader("token", token);
             return new ValueTask();
         }
@@ -135,7 +136,7 @@ namespace DocumentAdder.Forms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start($"{Settings.server_login}/apps/mail/login.php");
+            System.Diagnostics.Process.Start($"{Settings.server_login}/oauth");
             server.Start();
         }
     }
