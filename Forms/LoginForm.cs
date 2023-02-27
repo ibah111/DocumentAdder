@@ -74,7 +74,6 @@ namespace DocumentAdder.Forms
             }
             string[] names = { logedData.firstname, logedData.secondname, logedData.thirdname };
             Settings.username = Addons.GetName(names);
-            Settings.token = this.loginData.token;
             if (Settings.user_id == 0)
                 return false;
             return true;
@@ -82,7 +81,7 @@ namespace DocumentAdder.Forms
         private bool CheckToken()
         {
             var request = new RestRequest("/login");
-            request.AddJsonBody(loginData);
+            client.AddDefaultHeader("token", loginData.token);
             try
             {
                 var response = client.Post<LogedData>(request);

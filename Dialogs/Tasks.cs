@@ -30,7 +30,7 @@ namespace DocumentAdder.Dialogs
         {
             try
             {
-                var vm = new { token = Settings.token, action = "templates" };
+                var vm = new { action = "templates" };
                 var request = new RestRequest("/123").AddJsonBody(vm);
                 var response = Program.client.Post<List<ServerTemplate>>(request);
                 if (response != null)

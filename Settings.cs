@@ -9,7 +9,7 @@ namespace DocumentAdder
         public static string main = "\\\\newct\\Luxbase\\Docattach2";
         public static string server = "http://localhost:3001";
         public static string server_ws = "http://localhost:3001";
-        public static string server_login = "https://chat.nbkfinance.ru";
+        public static string server_login = "https://localhost:3000";
 #else
         public static string dbs = "i_collect";
         public static string main = "\\\\newct\\Luxbase\\Docattach";
