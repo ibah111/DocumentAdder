@@ -88,6 +88,7 @@ namespace DocumentAdder.Forms
                 cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
                 cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
                 cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 4 });
+                cBMembers.Add(new CBMember() { name = "Мейл(ИНТЕРНЕТ-ПРИЕМНАЯ)", value = 5 });
                 bindingSource1.DataSource = cBMembers;
                 //ModeCB.DataSource = bindingSource1;
 
@@ -598,7 +599,7 @@ namespace DocumentAdder.Forms
             }
             Adder.files.Clear();
             Documents.ResetBindings(true);
-            int[] ints = { 2, 3, 4 };
+            int[] ints = { 2, 3, 4, 5 };
 
             if (ints.Contains(
             (int)ModeCB.SelectedValue))

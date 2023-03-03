@@ -38,6 +38,7 @@ namespace DocumentAdder.Dialogs
                         ECPCB.Enabled = false;
                         break;
                     }
+                case 5:
                 case 4:
                     {
                         IstCB.Enabled = false;
