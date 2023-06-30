@@ -40,7 +40,7 @@ namespace DocumentAdder.Utils
                 $" where {where}";*/
             Settings.command = "select TOP(100) la.id,case la.typ when 0 then 'Неопределен' when 1 then 'Приказ' when 2 then 'Иск' when 3 then 'Правопреемство' when 4 then 'Банкротство' end typ, " +
                 "case when la.typ > 2 then (select name from dict where parent_id = 25 and code = la.act_status) else (select name from dict where parent_id = 18 and code = la.status) end status, " +
-                "u.f+' '+u.i+' '+u.o fio_vz, la.name, pr.name,p.f+' '+p.i+' '+p.o,p.birth_date,la.contract, la.exec_number, lc.name, " +
+                "u.f+' '+u.i+' '+u.o fio_vz, la.name, pr.name,p.f+' '+p.i+' '+p.o,p.birth_date,d.contract, la.exec_number, lc.name, " +
                 "convert(varchar,la.total_sum) + ' Руб', la.dsc, le.court_doc_num,CONVERT(varchar, le.court_date, 104) court_date,lc.name court_name, lc.address court_adress,cast(d.start_sum as decimal(16,2)) start_sum, " +
                 "pass.number,pass.series,p.birth_place, a.full_adr, la.court_order_date exec_date, p.inn from law_act la " +
                 "left join person p on p.id = la.r_person_id " +
@@ -99,7 +99,7 @@ namespace DocumentAdder.Utils
             if (_debt_id != "")
                 list.Add($"{prefix}id like \'{_debt_id}%\'");
             if (_kd != "")
-                list.Add($"{prefix}contract like \'{_kd}%\'");
+                list.Add($"d.contract like \'{_kd}%\'");
             if (_exec_num != "")
                 list.Add($"la.exec_number like \'{_exec_num}%\'");
             return string.Join(" and ", list);
