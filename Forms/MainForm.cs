@@ -1,4 +1,4 @@
-using DocumentAdder.Dialogs;
+﻿using DocumentAdder.Dialogs;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using DocumentAdder.Properties;
@@ -37,7 +37,6 @@ namespace DocumentAdder.Forms
                 //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
                 Searcher searcher = new Searcher("", "", "", textBox4.Text, "", "");
                 searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
-                comboBox1.SelectedIndex = 12;
                 if (dataGridView1.RowCount == 1)
                 {
                     textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
