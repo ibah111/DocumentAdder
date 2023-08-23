@@ -1,4 +1,4 @@
-﻿using DocumentAdder.Main;
+using DocumentAdder.Main;
 using DocumentAdder.Utils;
 using Newtonsoft.Json;
 using RestSharp;
@@ -14,7 +14,7 @@ namespace DocumentAdder.Forms
     public class BitrixAuthenticator : IAuthenticator
     {
         private string token;
-        public BitrixAuthenticator(string token) {
+        public BitrixAuthenticator(string token = null) {
             this.token = token;
         }
         public void useToken(string token) {
