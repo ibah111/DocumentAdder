@@ -6,12 +6,14 @@ using System;
 using System.Data.Odbc;
 using System.Net;
 using System.Windows.Forms;
+using DocumentAdder.Forms;
 
 namespace DocumentAdder.Main
 {
     static class Program
     {
-        public static readonly RestClient client = new RestClient(Settings.server);
+        public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator= new BitrixAuthenticator("token") };
+        public static readonly RestClient client = new RestClient(clientOptions,configureSerialization:s=>s.UseNewtonsoftJson());
         public static OdbcConnection Conn = new OdbcConnection($"Driver={{SQL Server}};Server=newct.usb.ru;Database={Settings.dbs};Uid=docmail;Pwd=docmail;");
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
@@ -28,7 +30,6 @@ namespace DocumentAdder.Main
         [STAThread]
         static void Main()
         {
-            client.UseNewtonsoftJson();
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
             AutoUpdater.ShowSkipButton = false;

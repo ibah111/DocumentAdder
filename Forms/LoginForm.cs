@@ -17,7 +17,10 @@ namespace DocumentAdder.Forms
         public BitrixAuthenticator(string token) {
             this.token = token;
         }
-        public ValueTask Authenticate(RestClient client, RestRequest request)
+        public void useToken(string token) {
+            this.token = token;
+        }
+        public ValueTask Authenticate(IRestClient client, RestRequest request)
         {
             if (token != null)
             request.AddHeader("token", token);
@@ -96,7 +99,9 @@ namespace DocumentAdder.Forms
         private bool CheckToken()
         {
             var request = new RestRequest("/login");
-            client.Authenticator = new BitrixAuthenticator(loginData.token);
+            if (client.Options.Authenticator is BitrixAuthenticator auth) {
+                auth.useToken(loginData.token);
+            }
             try
             {
                 var response = client.Post<LogedData>(request);
