@@ -1,4 +1,4 @@
-﻿using DocumentAdder.Dialogs;
+using DocumentAdder.Dialogs;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using DocumentAdder.Properties;
@@ -210,6 +210,8 @@ namespace DocumentAdder.Forms
             }
             else
                 Settings.dateId = false;
+            if (!String.IsNullOrEmpty(o[a].название_документа))
+                comboBox5.Text = o[a].название_документа;
             if (o[a].исполнитель.HasValue)
                 comboBox7.SelectedValue = o[a].исполнитель;
         }

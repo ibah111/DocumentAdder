@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace DocumentAdder.Models
 {
@@ -25,5 +25,6 @@ namespace DocumentAdder.Models
         public List<string> без_смены;
         public bool штрих_код;
         public int? исполнитель;
+        public string название_документа=null;
     }
 }
