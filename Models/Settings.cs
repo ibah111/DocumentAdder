@@ -26,5 +26,6 @@ namespace DocumentAdder.Models
         public bool штрих_код;
         public int? исполнитель;
         public string название_документа=null;
+        public bool связь_суда=false;
     }
 }
