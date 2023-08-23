@@ -56,6 +56,8 @@ namespace DocumentAdder.Forms
                     Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
                     string status_text = o[comboBox1.SelectedIndex.ToString()].вкладка_и_статус[int_vkl];
                     comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
+                    if (o[comboBox1.SelectedIndex.ToString()].исполнитель.HasValue)
+                        comboBox7.SelectedValue = o[comboBox1.SelectedIndex.ToString()].исполнитель;
                     int status_get = GetStatusBible(status_text);
                     if (status_get == 99999)
                         comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
@@ -208,6 +210,8 @@ namespace DocumentAdder.Forms
             }
             else
                 Settings.dateId = false;
+            if (o[a].исполнитель.HasValue)
+                comboBox7.SelectedValue = o[a].исполнитель;
         }
 
         private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)

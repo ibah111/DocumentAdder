@@ -24,5 +24,6 @@ namespace DocumentAdder.Models
         public Dictionary<string, string> вкладка_и_статус;
         public List<string> без_смены;
         public bool штрих_код;
+        public int? исполнитель;
     }
 }
