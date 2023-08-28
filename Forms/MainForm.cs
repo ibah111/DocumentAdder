@@ -52,17 +52,38 @@ namespace DocumentAdder.Forms
                     textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
                     string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //Вкладка
                     string int_vkl = GetIntKvl(vkl);
-                    Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
-                    string status_text = o[comboBox1.SelectedIndex.ToString()].вкладка_и_статус[int_vkl];
+                    Dictionary<int, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
+                    string status_text = o[comboBox1.SelectedIndex].вкладка_и_статус[int_vkl];
                     comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
-                    if (o[comboBox1.SelectedIndex.ToString()].исполнитель.HasValue)
-                        comboBox7.SelectedValue = o[comboBox1.SelectedIndex.ToString()].исполнитель;
+                    if (o[comboBox1.SelectedIndex].исполнитель.HasValue)
+                        comboBox7.SelectedValue = o[comboBox1.SelectedIndex].исполнитель;
                     int status_get = GetStatusBible(status_text);
+                    if (o[comboBox1.SelectedIndex].без_смены.Contains(dataGridView1.Rows[0].Cells[2].Value.ToString()))
+                    {
+                        status_get = 99999;
+                    }
                     if (status_get == 99999)
                         comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
                     else
                         comboBox3.SelectedIndex = status_get - 1;
                     maskedTextBox5.Text = DateTime.Now.ToShortDateString();
+                    maskedTextBox12.Text = dataGridView1.Rows[0].Cells[14].Value.ToString();
+                    //textBox17.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+                    //textBox25.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
+                    textBox23.Text = dataGridView1.Rows[0].Cells[17].Value.ToString();
+                    textBox19.Text = dataGridView1.Rows[0].Cells[18].Value.ToString();
+                    textBox20.Text = dataGridView1.Rows[0].Cells[19].Value.ToString();
+                    textBox21.Text = dataGridView1.Rows[0].Cells[20].Value.ToString();
+                    textBox22.Text = dataGridView1.Rows[0].Cells[21].Value.ToString();
+                    textBox16.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
+                    textBox18.Text = dataGridView1.Rows[0].Cells[7].Value.ToString().Split(' ')[0];
+                    execDateMb.Text = dataGridView1.Rows[0].Cells[22].Value.ToString();
+                    innMb.Text = dataGridView1.Rows[0].Cells[23].Value.ToString();
+                    if (o[comboBox1.SelectedIndex].связь_суда)
+                    {
+                        comboBox9.Text = dataGridView1.Rows[0].Cells[15].Value.ToString();
+                        comboBox8.Text = dataGridView1.Rows[0].Cells[16].Value.ToString();
+                    }
                 }
                 indata = String.Empty;
 
@@ -315,7 +336,7 @@ namespace DocumentAdder.Forms
                 execDateMb.Text = dataGridView1.Rows[e.RowIndex].Cells[22].Value.ToString();
                 innMb.Text = dataGridView1.Rows[e.RowIndex].Cells[23].Value.ToString();
                 if (o[comboBox1.SelectedIndex].связь_суда)
-                { 
+                {
                     comboBox9.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
                     comboBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
                 }
