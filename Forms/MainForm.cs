@@ -1,4 +1,4 @@
-﻿using DocumentAdder.Dialogs;
+using DocumentAdder.Dialogs;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using DocumentAdder.Properties;
@@ -79,11 +79,11 @@ namespace DocumentAdder.Forms
                     textBox18.Text = dataGridView1.Rows[0].Cells[7].Value.ToString().Split(' ')[0];
                     execDateMb.Text = dataGridView1.Rows[0].Cells[22].Value.ToString();
                     innMb.Text = dataGridView1.Rows[0].Cells[23].Value.ToString();
-                    if (o[comboBox1.SelectedIndex].связь_суда)
-                    {
-                        comboBox9.Text = dataGridView1.Rows[0].Cells[15].Value.ToString();
-                        comboBox8.Text = dataGridView1.Rows[0].Cells[16].Value.ToString();
-                    }
+                    //if (o[comboBox1.SelectedIndex].связь_суда)
+                    //{
+                    comboBox9.Text = dataGridView1.Rows[0].Cells[15].Value.ToString();
+                    comboBox8.Text = dataGridView1.Rows[0].Cells[16].Value.ToString();
+                    //}
                 }
                 indata = String.Empty;
 
@@ -335,11 +335,11 @@ namespace DocumentAdder.Forms
                 textBox18.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString().Split(' ')[0];
                 execDateMb.Text = dataGridView1.Rows[e.RowIndex].Cells[22].Value.ToString();
                 innMb.Text = dataGridView1.Rows[e.RowIndex].Cells[23].Value.ToString();
-                if (o[comboBox1.SelectedIndex].связь_суда)
-                {
-                    comboBox9.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
-                    comboBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
-                }
+                // if (o[comboBox1.SelectedIndex].связь_суда)
+                // {
+                comboBox9.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+                comboBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
+                // }
             }
         }
 
