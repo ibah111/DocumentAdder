@@ -1,4 +1,4 @@
-﻿using DocumentAdder.Main;
+using DocumentAdder.Main;
 using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
@@ -133,7 +133,10 @@ namespace DocumentAdder.Utils
 
 
             if (vkl_int != 4 && int_color != -1)
+            {
                 sql.Add($"update law_act set int_color = {int_color} where id = {id}");
+                sql.Add($"insert into law_act_protokol (parent_id,typ,r_user_id,dt,dsc) values ({id},2,{Settings.user_id},getdate(),\'Изменен цвет: {int_color} Пользователем: {Settings.username}\')");
+            }
 
             if (Settings.dateId)
             {
