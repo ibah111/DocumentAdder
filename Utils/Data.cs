@@ -44,7 +44,7 @@ namespace DocumentAdder.Utils
             if (textBox23.Enabled == true)
             {
                 if (vkl_int < 4)
-                    sql.Add($"update law_act set total_sum = {textBox23.Text.Replace(',','.')} where id = {id}");
+                    sql.Add($"update law_act set total_sum = {textBox23.Text.Replace(',', '.')} where id = {id}");
             }
 
             if (textBox11.Enabled == true)

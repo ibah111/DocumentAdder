@@ -12,8 +12,8 @@ namespace DocumentAdder.Main
 {
     static class Program
     {
-        public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator= new BitrixAuthenticator() };
-        public static readonly RestClient client = new RestClient(clientOptions,configureSerialization:s=>s.UseNewtonsoftJson());
+        public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator = new BitrixAuthenticator() };
+        public static readonly RestClient client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
         public static OdbcConnection Conn = new OdbcConnection($"Driver={{SQL Server}};Server=newct.usb.ru;Database={Settings.dbs};Uid=docmail;Pwd=docmail;");
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {

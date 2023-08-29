@@ -14,16 +14,18 @@ namespace DocumentAdder.Forms
     public class BitrixAuthenticator : IAuthenticator
     {
         private string token;
-        public BitrixAuthenticator(string token = null) {
+        public BitrixAuthenticator(string token = null)
+        {
             this.token = token;
         }
-        public void useToken(string token) {
+        public void useToken(string token)
+        {
             this.token = token;
         }
         public ValueTask Authenticate(IRestClient client, RestRequest request)
         {
             if (token != null)
-            request.AddHeader("token", token);
+                request.AddHeader("token", token);
             return new ValueTask();
         }
     }
@@ -99,7 +101,8 @@ namespace DocumentAdder.Forms
         private bool CheckToken()
         {
             var request = new RestRequest("/login");
-            if (client.Options.Authenticator is BitrixAuthenticator auth) {
+            if (client.Options.Authenticator is BitrixAuthenticator auth)
+            {
                 auth.useToken(loginData.token);
             }
             try
@@ -141,7 +144,7 @@ namespace DocumentAdder.Forms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo($"{Settings.server_login}/oauth") {UseShellExecute=true });
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo($"{Settings.server_login}/oauth") { UseShellExecute = true });
             server.Start();
         }
     }

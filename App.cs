@@ -59,7 +59,8 @@ namespace DocumentAdder.Main
                 actions.showLoginForm();
                 client.EmitAsync("version-windows", Assembly.GetExecutingAssembly().GetName().Version.ToString());
             };
-            client.On("new_version", response=>{
+            client.On("new_version", response =>
+            {
                 actions.hideStartForm();
                 actions.showSocketForm("Требуется обновление");
             });

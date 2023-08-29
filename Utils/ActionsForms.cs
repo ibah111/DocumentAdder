@@ -42,7 +42,8 @@ namespace DocumentAdder.Utils
                 {
                     this.socketForm.textError.Text = data;
                 }
-                else {
+                else
+                {
                     this.socketForm.Reset();
                 }
                 this.socketForm.Show();

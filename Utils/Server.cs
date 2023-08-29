@@ -19,8 +19,8 @@ namespace DocumentAdder.Utils
         {
             started = true;
             listener.Start();
-            while(started)
-            handler();
+            while (started)
+                handler();
         }
         public void handler()
         {
@@ -45,7 +45,8 @@ namespace DocumentAdder.Utils
                     OnGetToken(token);
                 }
             }
-            else {
+            else
+            {
                 response.AppendHeader("Access-Control-Allow-Origin", "*");
                 response.Close();
             }
