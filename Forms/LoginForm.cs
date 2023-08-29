@@ -141,7 +141,7 @@ namespace DocumentAdder.Forms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start($"{Settings.server_login}/oauth");
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo($"{Settings.server_login}/oauth") {UseShellExecute=true });
             server.Start();
         }
     }

@@ -74,7 +74,6 @@
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.Loged);
             this.Controls.Add(this.NotLoged);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "Авторизация";
             this.ResumeLayout(false);

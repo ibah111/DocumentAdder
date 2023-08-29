@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text;
 
 namespace DocumentAdder.Utils
 {
@@ -10,6 +11,7 @@ namespace DocumentAdder.Utils
         private bool started;
         public Server()
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             listener = new HttpListener();
             listener.Prefixes.Add("http://localhost:11711/");
         }
@@ -32,7 +34,7 @@ namespace DocumentAdder.Utils
                 {
                     OnGetToken(token);
                     string responseString = $"<HTML><BODY>Вы авторизованы. Вы можете закрыть эту страницу</BODY></HTML>";
-                    byte[] buffer = System.Text.Encoding.GetEncoding("windows-1251").GetBytes(responseString);
+                    byte[] buffer = Encoding.GetEncoding("windows-1251").GetBytes(responseString);
                     response.ContentLength64 = buffer.Length;
                     System.IO.Stream output = response.OutputStream;
                     output.Write(buffer, 0, buffer.Length);

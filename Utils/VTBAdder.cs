@@ -3,6 +3,7 @@ using System;
 using System.DirectoryServices.AccountManagement;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel.Application;
+using Range = Microsoft.Office.Interop.Excel.Range;
 
 namespace DocumentAdder.Utils
 {
