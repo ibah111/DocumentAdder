@@ -459,4 +459,7 @@ public partial class LawAct
 
     [InverseProperty(nameof(LawActDscLog.LawAct))]
     public virtual List<LawActDscLog> LawActDscLogs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExec.LawAct))]
+    public virtual List<LawExec> LawExecs { get; set; } = new();
 }
