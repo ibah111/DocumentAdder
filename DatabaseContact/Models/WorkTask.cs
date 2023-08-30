@@ -25,10 +25,18 @@ public partial class WorkTask
     /// </summary>
     public int? r_debt_id { get; set; }
 
+    [ForeignKey(nameof(r_debt_id))]
+    [InverseProperty(nameof(Models.Debt.WorkTask))]
+    public virtual Debt? Debt { get; set; }
+
     /// <summary>
     /// ссылка на оператора (users.id)
     /// </summary>
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.WorkTasks))]
+    public virtual User? User { get; set; }
 
     /// <summary>
     /// приоритет (чем меньше тем выше

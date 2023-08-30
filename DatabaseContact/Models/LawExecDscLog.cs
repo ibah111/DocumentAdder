@@ -17,6 +17,10 @@ public partial class LawExecDscLog
 
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.LawExec.LawExecDscLogs))]
+    public virtual LawExec? LawExec { get; set; }
+
     [StringLength(4000)]
     [Unicode(false)]
     public string? dsc { get; set; }
@@ -25,4 +29,8 @@ public partial class LawExecDscLog
     public DateTime? dt { get; set; }
 
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.LawExecDscLogs))]
+    public virtual User? User { get; set; }
 }

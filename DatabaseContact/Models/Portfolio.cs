@@ -203,4 +203,12 @@ public partial class Portfolio
     /// </summary>
     [Column(TypeName = "money")]
     public decimal? sale_price { get; set; }
+    [InverseProperty(nameof(Debt.Portfolio))]
+    public virtual List<Debt> Debts { get; set; } = new();
+
+    [InverseProperty(nameof(LawAct.Portfolio))]
+    public virtual List<LawAct> LawActs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExec.Portfolio))]
+    public virtual List<LawExec> LawExecs { get; set; } = new();
 }

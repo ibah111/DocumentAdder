@@ -17,6 +17,10 @@ public partial class LawActDscLog
 
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.LawAct.LawActDscLogs))]
+    public virtual LawAct? LawAct { get; set; }
+
     public int? law_typ { get; set; }
 
     /// <summary>
@@ -30,4 +34,8 @@ public partial class LawActDscLog
     public DateTime? dt { get; set; }
 
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.LawActDscLogs))]
+    public virtual User? User { get; set; }
 }

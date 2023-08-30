@@ -337,4 +337,25 @@ public partial class User
 
     [InverseProperty("r_user_id_lNavigation")]
     public virtual ICollection<WorkTask> work_taskr_user_id_lNavigation { get; set; } = new List<WorkTask>();
+
+    [InverseProperty(nameof(WorkTask.User))]
+    public virtual List<WorkTask> WorkTasks { get; set; } = new();
+
+    [InverseProperty(nameof(LawAct.User))]
+    public virtual List<LawAct> LawActs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExec.User))]
+    public virtual List<LawExec> LawExecs { get; set; } = new();
+
+    [InverseProperty(nameof(LawActProtokol.User))]
+    public virtual List<LawActProtokol> LawActProtokols { get; set; } = new();
+
+    [InverseProperty(nameof(LawExecProkokol.User))]
+    public virtual List<LawExecProkokol> LawExecProkokols { get; set; } = new();
+
+    [InverseProperty(nameof(LawActDscLog.User))]
+    public virtual List<LawActDscLog> LawActDscLogs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExecDscLog.User))]
+    public virtual List<LawExecDscLog> LawExecDscLogs { get; set; } = new();
 }

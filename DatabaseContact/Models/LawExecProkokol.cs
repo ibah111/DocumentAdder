@@ -17,7 +17,15 @@ public partial class LawExecProkokol
 
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.LawExec.LawExecProkokols))]
+    public virtual LawExec? LawExec { get; set; }
+
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.LawExecProkokols))]
+    public virtual User? User { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? dt { get; set; }

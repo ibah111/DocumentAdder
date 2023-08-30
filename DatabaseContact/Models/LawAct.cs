@@ -25,15 +25,27 @@ public partial class LawAct
     /// </summary>
     public int? r_person_id { get; set; }
 
+    [ForeignKey(nameof(r_person_id))]
+    [InverseProperty(nameof(Models.Person.LawActs))]
+    public virtual Person? Person { get; set; }
+
     /// <summary>
     /// ссылка на debt
     /// </summary>
     public int? r_debt_id { get; set; }
 
+    [ForeignKey(nameof(r_debt_id))]
+    [InverseProperty(nameof(Models.Debt.LawActs))]
+    public virtual Debt? Debt { get; set; }
+
     /// <summary>
     /// ссылка на portfolio
     /// </summary>
     public int? r_portfolio_id { get; set; }
+
+    [ForeignKey(nameof(r_portfolio_id))]
+    [InverseProperty(nameof(Models.Portfolio.LawActs))]
+    public virtual Portfolio? Portfolio { get; set; }
 
     /// <summary>
     /// тип суд. работы (0 - неопределенное суд. дело, 1 - приказ, 2 - иск, 3 - правопреемство, 4 - банкротство, 5 – исполнительная надпись)
@@ -194,6 +206,10 @@ public partial class LawAct
     /// ссылка на users
     /// </summary>
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.LawActs))]
+    public virtual User? User { get; set; }
 
     /// <summary>
     /// ссылка на law_court
@@ -437,4 +453,10 @@ public partial class LawAct
     /// Основания отказа суда от полного удовлетворения иска (словарь №406)
     /// </summary>
     public int? REFUSAL_REASON { get; set; }
+
+    [InverseProperty(nameof(LawActProtokol.LawAct))]
+    public virtual List<LawActProtokol> LawActProtokols { get; set; } = new();
+
+    [InverseProperty(nameof(LawActDscLog.LawAct))]
+    public virtual List<LawActDscLog> LawActDscLogs { get; set; } = new();
 }

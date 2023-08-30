@@ -27,15 +27,27 @@ public partial class LawExec
     /// </summary>
     public int? r_person_id { get; set; }
 
+    [ForeignKey(nameof(r_person_id))]
+    [InverseProperty(nameof(Models.Person.LawExecs))]
+    public virtual Person? Person { get; set; }
+
     /// <summary>
     /// ссылка на debt
     /// </summary>
     public int? r_debt_id { get; set; }
 
+    [ForeignKey(nameof(r_debt_id))]
+    [InverseProperty(nameof(Models.Debt.LawExecs))]
+    public virtual Debt? Debt { get; set; }
+
     /// <summary>
     /// ссылка на portfolio
     /// </summary>
     public int? r_portfolio_id { get; set; }
+
+    [ForeignKey(nameof(r_portfolio_id))]
+    [InverseProperty(nameof(Models.Portfolio.LawExecs))]
+    public virtual Portfolio? Portfolio { get; set; }
 
     /// <summary>
     /// общая сумма долга
@@ -47,6 +59,10 @@ public partial class LawExec
     /// ссылка на users
     /// </summary>
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.LawExecs))]
+    public virtual User? User { get; set; }
 
     /// <summary>
     /// номер исполнительного документ
@@ -363,4 +379,10 @@ public partial class LawExec
     /// </summary>
     [Column(TypeName = "datetime")]
     public DateTime? DT_VALUE_1 { get; set; }
+
+    [InverseProperty(nameof(LawExecProkokol.LawExec))]
+    public virtual List<LawExecProkokol> LawExecProkokols { get; set; } = new();
+
+    [InverseProperty(nameof(LawExecDscLog.LawExec))]
+    public virtual List<LawExecDscLog> LawExecDscLogs { get; set; } = new();
 }

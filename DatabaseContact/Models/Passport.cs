@@ -54,4 +54,7 @@ public partial class Passport
     /// Тип документа, удостоверяющего личность (Словарь 335)
     /// </summary>
     public int? DOC_TYPE { get; set; }
+
+    [InverseProperty(nameof(Models.Person.Passport))]
+    public virtual Person? Person { get; set; }
 }

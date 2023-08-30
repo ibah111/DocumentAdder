@@ -29,6 +29,10 @@ public partial class Debt
     /// </summary>
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.Person.Debts))]
+    public virtual Person? Person { get; set; }
+
     /// <summary>
     /// название продукта
     /// </summary>
@@ -216,6 +220,10 @@ public partial class Debt
     /// ссылка на портфель
     /// </summary>
     public int? r_portfolio_id { get; set; }
+
+    [ForeignKey(nameof(r_portfolio_id))]
+    [InverseProperty(nameof(Models.Portfolio.Debts))]
+    public virtual Portfolio? Portfolio { get; set; }
 
     /// <summary>
     /// состояние (словарь №29)
@@ -440,4 +448,14 @@ public partial class Debt
     /// ссылка на правило расчета остатков
     /// </summary>
     public int? R_CALC_RULE_ID { get; set; }
+
+    [InverseProperty(nameof(LawAct.Debt))]
+    public virtual List<LawAct> LawActs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExec.Debt))]
+    public virtual List<LawExec> LawExecs { get; set; } = new();
+
+    [InverseProperty(nameof(Models.WorkTask.Debt))]
+    public virtual WorkTask? WorkTask { get; set; }
+
 }

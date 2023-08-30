@@ -57,6 +57,10 @@ public partial class Person
     /// </summary>
     public int? r_passport_id { get; set; }
 
+    [ForeignKey(nameof(r_passport_id))]
+    [InverseProperty(nameof(Models.Passport.Person))]
+    public virtual Passport? Passport { get; set; }
+
     /// <summary>
     /// название компании
     /// </summary>
@@ -251,4 +255,12 @@ public partial class Person
 
     [Column(TypeName = "datetime")]
     public DateTime? death_date { get; set; }
+    [InverseProperty(nameof(Debt.Person))]
+    public virtual List<Debt> Debts { get; set; } = new List<Debt>();
+
+    [InverseProperty(nameof(LawAct.Person))]
+    public virtual List<LawAct> LawActs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExec.Person))]
+    public virtual List<LawExec> LawExecs { get; set; } = new();
 }

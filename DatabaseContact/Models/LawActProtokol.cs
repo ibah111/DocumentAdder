@@ -17,7 +17,15 @@ public partial class LawActProtokol
 
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.LawAct.LawActProtokols))]
+    public virtual LawAct? LawAct { get; set; }
+
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.LawActProtokols))]
+    public virtual User? User { get; set; }
 
     [Column(TypeName = "datetime")]
     public DateTime? dt { get; set; }
