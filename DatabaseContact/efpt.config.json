@@ -1,0 +1,123 @@
+﻿{
+  "CodeGenerationMode": 3,
+  "ContextClassName": "i_collectContext",
+  "ContextNamespace": null,
+  "DefaultDacpacSchema": null,
+  "FilterSchemas": false,
+  "IncludeConnectionString": false,
+  "ModelNamespace": null,
+  "OutputContextPath": "DatabaseContact",
+  "OutputPath": "Models",
+  "PreserveCasingWithRegex": true,
+  "ProjectRootNamespace": "DatabaseContact",
+  "Schemas": null,
+  "SelectedHandlebarsLanguage": 0,
+  "SelectedToBeGenerated": 0,
+  "T4TemplatePath": null,
+  "Tables": [
+    {
+      "Name": "[dbo].[actions]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[address]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[const_value]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[debt]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[dict]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[dict_name]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[doc_attach]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[doc_links]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[law_act]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[law_act_dsc_log]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[LAW_ACT_PERSON_LINK]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[law_act_protokol]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[law_act]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[law_exec_dsc_log]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[LAW_EXEC_PERSON_LINK]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[law_exec_protokol]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[passport]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[person]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[portfolio]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[users]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[work_task]",
+      "ObjectType": 0
+    }
+  ],
+  "UiHint": "newct.i_collect.dbo",
+  "UncountableWords": null,
+  "UseBoolPropertiesWithoutDefaultSql": false,
+  "UseDatabaseNames": true,
+  "UseDateOnlyTimeOnly": false,
+  "UseDbContextSplitting": true,
+  "UseFluentApiOnly": false,
+  "UseHandleBars": false,
+  "UseHierarchyId": false,
+  "UseInflector": false,
+  "UseLegacyPluralizer": false,
+  "UseManyToManyEntity": false,
+  "UseNoDefaultConstructor": false,
+  "UseNoObjectFilter": false,
+  "UseNodaTime": false,
+  "UseNullableReferences": true,
+  "UseSchemaFolders": false,
+  "UseSchemaNamespaces": false,
+  "UseSpatial": false,
+  "UseT4": false
+}
