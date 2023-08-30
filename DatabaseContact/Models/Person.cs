@@ -263,4 +263,7 @@ public partial class Person
 
     [InverseProperty(nameof(LawExec.Person))]
     public virtual List<LawExec> LawExecs { get; set; } = new();
+
+    [InverseProperty(nameof(Address.Person))]
+    public virtual List<Address> Addresses { get; set; } = new();
 }

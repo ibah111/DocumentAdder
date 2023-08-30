@@ -29,6 +29,11 @@ public partial class Address
     /// </summary>
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.Person.Addresses))]
+    public virtual Person? Person { get; set; }
+
+
     /// <summary>
     /// страна
     /// </summary>
