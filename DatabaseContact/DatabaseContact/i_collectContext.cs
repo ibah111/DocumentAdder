@@ -41,6 +41,8 @@ public partial class i_collectContext : DbContext
 
     public virtual DbSet<LawActProtokol> LawActProtokol { get; set; }
 
+    public virtual DbSet<LawCourt> LawCourt { get; set; }
+
     public virtual DbSet<LawExec> LawExec { get; set; }
 
     public virtual DbSet<LawExecDscLog> LawExecDscLog { get; set; }
@@ -72,6 +74,7 @@ public partial class i_collectContext : DbContext
         modelBuilder.ApplyConfiguration(new Configurations.LawActConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawActDscLogConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawActProtokolConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.LawCourtConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawExecConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawExecDscLogConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawExecProtokolConfiguration());
