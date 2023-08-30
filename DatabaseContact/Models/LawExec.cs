@@ -204,7 +204,7 @@ public partial class LawExec
 
     [ForeignKey(nameof(r_act_id))]
     [InverseProperty(nameof(Models.LawAct.LawExecs))]
-    public List<LawAct>? LawAct { get; set; }
+    public LawAct? LawAct { get; set; }
 
     /// <summary>
     /// статус (словарь №77)
