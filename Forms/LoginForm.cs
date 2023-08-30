@@ -6,6 +6,7 @@ using RestSharp.Authenticators;
 using System;
 using System.Data.Odbc;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -78,20 +79,7 @@ namespace DocumentAdder.Forms
         }
         public bool GetLoginContact()
         {
-            string queryString = $"select id from users where email = \'{LoginForm.logedData.login}\'";
-            using (OdbcCommand command = new OdbcCommand(queryString))
-            {
-                command.Connection = Program.Conn;
-
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
-                {
-                    command.Connection.Open();
-                }
-
-                using (OdbcDataReader reader = command.ExecuteReader())
-                    while (reader.Read())
-                        Settings.user_id = reader.GetInt32(0);
-            }
+            Settings.user_id = Program.db.User.Where(x => x.email == logedData.login).Select(x => x.id).FirstOrDefault();
             string[] names = { logedData.firstname, logedData.secondname, logedData.thirdname };
             Settings.username = Addons.GetName(names);
             if (Settings.user_id == 0)
