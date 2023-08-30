@@ -193,6 +193,10 @@ public partial class LawExec
     /// </summary>
     public int? r_court_id { get; set; }
 
+    [ForeignKey(nameof(r_court_id))]
+    [InverseProperty(nameof(Models.LawCourt.LawExecs))]
+    public virtual LawCourt? LawCourt { get; set; }
+
     /// <summary>
     /// ссылка на law_act
     /// </summary>

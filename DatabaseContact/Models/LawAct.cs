@@ -216,6 +216,10 @@ public partial class LawAct
     /// </summary>
     public int? r_court_id { get; set; }
 
+    [ForeignKey(nameof(r_court_id))]
+    [InverseProperty(nameof(Models.LawCourt.LawActs))]
+    public virtual LawCourt? LawCourt { get; set; }
+
     /// <summary>
     /// утвержденный размер пошлины
     /// </summary>

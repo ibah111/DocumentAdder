@@ -153,6 +153,13 @@ public partial class LawCourt
     /// </summary>
     [StringLength(32)]
     public string? TREASURY_ACCOUNT { get; set; }
+
+    [InverseProperty(nameof(LawAct.LawCourt))]
+    public virtual List<LawAct> LawActs { get; set; } = new();
+
+    [InverseProperty(nameof(LawExec.LawCourt))]
+    public virtual List<LawExec> LawExecs { get; set; } = new();
+
 }
 
 
