@@ -65,6 +65,10 @@ public partial class DocAttach
 
     public int? r_user_id { get; set; }
 
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.DocAttaches))]
+    public virtual User? User { get; set; }
+
     /// <summary>
     /// дата
     /// </summary>

@@ -361,4 +361,7 @@ public partial class User
 
     [InverseProperty(nameof(DebtCalc.User))]
     public virtual List<DebtCalc> DebtCalcs { get; set; } = new();
+
+    [InverseProperty(nameof(DocAttach.User))]
+    public virtual List<DocAttach> DocAttaches { get; set; } = new();
 }
