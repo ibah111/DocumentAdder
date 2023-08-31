@@ -10,7 +10,7 @@ namespace DatabaseContact.Models;
 
 [Index("parent_id", Name = "IX_law_exec_protokol$parent_id")]
 [Table("law_exec_protokol")]
-public partial class LawExecProkokol
+public partial class LawExecProtokol
 {
     [Key]
     public int id { get; set; }
@@ -18,13 +18,13 @@ public partial class LawExecProkokol
     public int? parent_id { get; set; }
 
     [ForeignKey(nameof(parent_id))]
-    [InverseProperty(nameof(Models.LawExec.LawExecProkokols))]
+    [InverseProperty(nameof(Models.LawExec.LawExecProtokols))]
     public virtual LawExec? LawExec { get; set; }
 
     public int? r_user_id { get; set; }
 
     [ForeignKey(nameof(r_user_id))]
-    [InverseProperty(nameof(Models.User.LawExecProkokols))]
+    [InverseProperty(nameof(Models.User.LawExecProtokols))]
     public virtual User? User { get; set; }
 
     [Column(TypeName = "datetime")]

@@ -47,7 +47,7 @@ public partial class i_collectContext : DbContext
 
     public virtual DbSet<LawExecDscLog> LawExecDscLog { get; set; }
 
-    public virtual DbSet<LawExecProkokol> LawExecProkokol { get; set; }
+    public virtual DbSet<LawExecProtokol> LawExecProtokol { get; set; }
 
     public virtual DbSet<Passport> Passport { get; set; }
 

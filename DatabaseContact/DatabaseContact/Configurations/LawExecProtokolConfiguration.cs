@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 namespace DatabaseContact.DatabaseContact.Configurations
 {
-    public partial class LawExecProtokolConfiguration : IEntityTypeConfiguration<LawExecProkokol>
+    public partial class LawExecProtokolConfiguration : IEntityTypeConfiguration<LawExecProtokol>
     {
-        public void Configure(EntityTypeBuilder<LawExecProkokol> entity)
+        public void Configure(EntityTypeBuilder<LawExecProtokol> entity)
         {
 
             entity.HasKey(e => e.id).HasName("law_exec_protokol_PK");
@@ -25,6 +25,6 @@ namespace DatabaseContact.DatabaseContact.Configurations
             OnConfigurePartial(entity);
         }
 
-        partial void OnConfigurePartial(EntityTypeBuilder<LawExecProkokol> entity);
+        partial void OnConfigurePartial(EntityTypeBuilder<LawExecProtokol> entity);
     }
 }

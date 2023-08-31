@@ -350,8 +350,8 @@ public partial class User
     [InverseProperty(nameof(LawActProtokol.User))]
     public virtual List<LawActProtokol> LawActProtokols { get; set; } = new();
 
-    [InverseProperty(nameof(LawExecProkokol.User))]
-    public virtual List<LawExecProkokol> LawExecProkokols { get; set; } = new();
+    [InverseProperty(nameof(LawExecProtokol.User))]
+    public virtual List<LawExecProtokol> LawExecProtokols { get; set; } = new();
 
     [InverseProperty(nameof(LawActDscLog.User))]
     public virtual List<LawActDscLog> LawActDscLogs { get; set; } = new();

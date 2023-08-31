@@ -388,8 +388,8 @@ public partial class LawExec
     [Column(TypeName = "datetime")]
     public DateTime? DT_VALUE_1 { get; set; }
 
-    [InverseProperty(nameof(LawExecProkokol.LawExec))]
-    public virtual List<LawExecProkokol> LawExecProkokols { get; set; } = new();
+    [InverseProperty(nameof(LawExecProtokol.LawExec))]
+    public virtual List<LawExecProtokol> LawExecProtokols { get; set; } = new();
 
     [InverseProperty(nameof(LawExecDscLog.LawExec))]
     public virtual List<LawExecDscLog> LawExecDscLogs { get; set; } = new();
