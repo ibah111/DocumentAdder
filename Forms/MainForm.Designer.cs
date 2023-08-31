@@ -47,11 +47,7 @@ namespace DocumentAdder.Forms
             label3 = new System.Windows.Forms.Label();
             comboBox1 = new System.Windows.Forms.ComboBox();
             label4 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
-            textBox2 = new System.Windows.Forms.TextBox();
-            textBox3 = new System.Windows.Forms.TextBox();
+            textBoxFio = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -239,11 +235,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(comboBox1, 0, 2);
             tableLayoutPanel1.Controls.Add(label4, 4, 1);
-            tableLayoutPanel1.Controls.Add(label5, 5, 1);
-            tableLayoutPanel1.Controls.Add(label6, 6, 1);
-            tableLayoutPanel1.Controls.Add(textBox1, 4, 2);
-            tableLayoutPanel1.Controls.Add(textBox2, 5, 2);
-            tableLayoutPanel1.Controls.Add(textBox3, 6, 2);
+            tableLayoutPanel1.Controls.Add(textBoxFio, 4, 2);
             tableLayoutPanel1.Controls.Add(label7, 0, 3);
             tableLayoutPanel1.Controls.Add(label8, 1, 3);
             tableLayoutPanel1.Controls.Add(label9, 2, 3);
@@ -428,59 +420,19 @@ namespace DocumentAdder.Forms
             label4.Location = new System.Drawing.Point(732, 15);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(58, 30);
+            label4.Size = new System.Drawing.Size(34, 30);
             label4.TabIndex = 4;
-            label4.Text = "\r\nФамилия\r\n";
+            label4.Text = "\r\nФИО";
             // 
-            // label5
+            // textBoxFio
             // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(914, 15);
-            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(31, 30);
-            label5.TabIndex = 5;
-            label5.Text = "\r\nИмя\r\n";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(1096, 15);
-            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(58, 30);
-            label6.TabIndex = 6;
-            label6.Text = "\r\nОтчество\r\n";
-            // 
-            // textBox1
-            // 
-            textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox1.Location = new System.Drawing.Point(732, 48);
-            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(174, 23);
-            textBox1.TabIndex = 1;
-            textBox1.KeyDown += textBox1_KeyDown;
-            // 
-            // textBox2
-            // 
-            textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox2.Location = new System.Drawing.Point(914, 48);
-            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(174, 23);
-            textBox2.TabIndex = 2;
-            textBox2.KeyDown += textBox1_KeyDown;
-            // 
-            // textBox3
-            // 
-            textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox3.Location = new System.Drawing.Point(1096, 48);
-            textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new System.Drawing.Size(174, 23);
-            textBox3.TabIndex = 3;
-            textBox3.KeyDown += textBox1_KeyDown;
+            textBoxFio.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBoxFio.Location = new System.Drawing.Point(732, 48);
+            textBoxFio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBoxFio.Name = "textBoxFio";
+            textBoxFio.Size = new System.Drawing.Size(174, 23);
+            textBoxFio.TabIndex = 1;
+            textBoxFio.KeyDown += textBox1_KeyDown;
             // 
             // label7
             // 
@@ -2126,11 +2078,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxFio;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

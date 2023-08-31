@@ -38,14 +38,12 @@ namespace DocumentAdder.Forms
                 string given = indata;
                 textBox4.Text = given.Replace("\r", string.Empty);
                 //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
-                Searcher searcher = new Searcher("", "", "", textBox4.Text, "", "");
+                Searcher searcher = new Searcher("", textBox4.Text, "", "");
                 searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
                 if (dataGridView1.RowCount == 1)
                 {
                     textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
-                    textBox1.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[0]; //Фамилия
-                    textBox2.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[1]; //Имя
-                    textBox3.Text = dataGridView1.Rows[0].Cells[6].Value.ToString().Split(' ')[2]; //Отчество
+                    textBoxFio.Text = dataGridView1.Rows[0].Cells[6].Value.ToString(); //ФИО
                     textBox7.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
                     textBox8.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
                     textBox5.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
@@ -261,7 +259,7 @@ namespace DocumentAdder.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                Searcher searcher = new Searcher(textBoxFio.Text, textBox4.Text, textBox5.Text, textBox6.Text);
                 searcher.GetTables(dataGridView1, dataGridView2, dataSet1);
             }
             if (e.Control && e.KeyCode == Keys.D)
@@ -300,9 +298,7 @@ namespace DocumentAdder.Forms
             if (e.RowIndex >= 0)
             {
                 textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
-                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString().Split(' ')[0]; //Фамилия
-                textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString().Split(' ')[1]; //Имя
-                textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString().Split(' ')[2]; //Отчество
+                textBoxFio.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString(); //ФИО
                 textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString(); // № КД
                 textBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString(); //№ Дела
                 textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString(); // № КД
@@ -511,7 +507,7 @@ namespace DocumentAdder.Forms
                     court_doc_num = textBox16.Text,
                     court_date = maskedTextBox12.Text,
                     exec_number = textBox8.Text,
-                    fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
+                    fio = $"{textBoxFio.Text}",
                     birth_date = textBox18.Text,
                     birth_place = textBox21.Text,
                     series = textBox19.Text,
@@ -667,7 +663,7 @@ namespace DocumentAdder.Forms
                 court_doc_num = textBox16.Text,
                 court_date = maskedTextBox12.Text,
                 exec_number = textBox8.Text,
-                fio = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}",
+                fio = $"{textBoxFio.Text}",
                 birth_date = textBox18.Text,
                 birth_place = textBox21.Text,
                 series = textBox19.Text,
@@ -707,7 +703,7 @@ namespace DocumentAdder.Forms
             string desc = $"{textBox11.Text}";
             if (maskedTextBox10.Enabled == true)
                 desc += $" {maskedTextBox10.Text}";
-            var result = new { date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBox1.Text} {textBox2.Text} {textBox3.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBox1.Text} {textBox2.Text} {textBox3.Text} {textBox5.Text} {textBox15.Text}", desc, Settings.mode, Settings.ist, dateDoc = dateDoc, Settings.ecp, Settings.adres, Settings.mail, docs };
+            var result = new { date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBoxFio.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBoxFio.Text} {textBox5.Text} {textBox15.Text}", desc, Settings.mode, Settings.ist, dateDoc = dateDoc, Settings.ecp, Settings.adres, Settings.mail, docs };
             //result.dateDoc = Settings.dateDoc;
             return result;
         }
@@ -810,9 +806,7 @@ namespace DocumentAdder.Forms
             if (e.RowIndex >= 0)
             {
                 textBox4.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                textBox1.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[0];
-                textBox2.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[1];
-                textBox3.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Split(' ')[2];
+                textBoxFio.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
                 textBox7.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
                 textBox9.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
                 textBox5.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();

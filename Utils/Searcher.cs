@@ -13,18 +13,14 @@ namespace DocumentAdder.Utils
 {
     public class Searcher
     {
-        private string _last_name; //Фамилия
-        private string _first_name; //имя
-        private string _middle_name; //Отчество
+        private string _fio; //ФИО
         private string _id; //ID Дела
         private string _kd; //№ КД
         private string _exec_num; //№ Дела
 
-        public Searcher(string last_name, string first_name, string middle_name, string debt_id, string kd, string exec_num)
+        public Searcher(string fio, string debt_id, string kd, string exec_num)
         {
-            _last_name = last_name;
-            _first_name = first_name;
-            _middle_name = middle_name;
+            _fio = fio;
             _id = debt_id;
             _kd = kd;
             _exec_num = exec_num;
@@ -39,10 +35,10 @@ namespace DocumentAdder.Utils
                 dataGridView2.Rows.Clear();
 
             var data1 = db.LawAct.Where(
-                x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_last_name}{_first_name}{_middle_name}%")
+                x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_fio}%")
                 );
             var data2 = db.LawExec.Where(
-                x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_last_name}{_first_name}{_middle_name}%")
+                x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_fio}%")
                 );
             if (_kd != "")
             {
