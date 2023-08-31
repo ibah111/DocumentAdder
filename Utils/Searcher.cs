@@ -25,10 +25,9 @@ namespace DocumentAdder.Utils
             _kd = kd;
             _exec_num = exec_num;
         }
-        public void GetTables(DataGridView dataGridView1, DataGridView dataGridView2, DataSet1 dataSet1)
+        public void GetTables(DataGridView dataGridView1, DataGridView dataGridView2)
         {
             using var db = Program.factory_db.CreateDbContext();
-            dataSet1.Clear();
             if (dataGridView1.Rows.Count != 0)
                 dataGridView1.Rows.Clear();
             if (dataGridView2.Rows.Count != 0)

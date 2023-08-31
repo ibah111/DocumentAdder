@@ -64,32 +64,6 @@ namespace DocumentAdder.Forms
             maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
-            idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fiovzDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            name1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            column1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            birthdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            contractDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            execnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            name2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            column2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_doc_numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            start_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            series = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            birth_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            full_adr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dataTable1BindingSource = new System.Windows.Forms.BindingSource(components);
-            dataSet1 = new DataSet1();
             label19 = new System.Windows.Forms.Label();
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
@@ -105,21 +79,6 @@ namespace DocumentAdder.Forms
             maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
             maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
             dataGridView2 = new System.Windows.Forms.DataGridView();
-            idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            debtstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fiovzDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            column1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            birthdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            contractDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fsspdocnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            courtdocnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            name1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            column2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            name2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            execnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dscDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             court_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             court_adress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             start_sum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +88,6 @@ namespace DocumentAdder.Forms
             full_adr1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             exec_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             inn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dataTable2BindingSource = new System.Windows.Forms.BindingSource(components);
             textBox11 = new System.Windows.Forms.TextBox();
             textBox12 = new System.Windows.Forms.TextBox();
             panel1 = new System.Windows.Forms.Panel();
@@ -203,15 +161,10 @@ namespace DocumentAdder.Forms
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             selectDocBarcode = new System.Windows.Forms.ComboBox();
             Documents = new System.Windows.Forms.BindingSource(components);
-            dataTable1TableAdapter = new DataSet1TableAdapters.DataTable1TableAdapter();
-            dataTable2TableAdapter = new DataSet1TableAdapters.DataTable2TableAdapter();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataTable1BindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataSet1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataTable2BindingSource).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -599,7 +552,6 @@ namespace DocumentAdder.Forms
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -611,9 +563,7 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, typDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, fiovzDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, name1DataGridViewTextBoxColumn, column1DataGridViewTextBoxColumn, birthdateDataGridViewTextBoxColumn, contractDataGridViewTextBoxColumn, execnumberDataGridViewTextBoxColumn, name2DataGridViewTextBoxColumn, column2DataGridViewTextBoxColumn, dscDataGridViewTextBoxColumn, court_doc_numDataGridViewTextBoxColumn, court_date, court_name, court_adress, start_sum, series, number, birth_place, full_adr, exec_date, inn });
             tableLayoutPanel1.SetColumnSpan(dataGridView1, 4);
-            dataGridView1.DataSource = dataTable1BindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -641,191 +591,6 @@ namespace DocumentAdder.Forms
             dataGridView1.Size = new System.Drawing.Size(724, 414);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn.HeaderText = "ID Дела";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // typDataGridViewTextBoxColumn
-            // 
-            typDataGridViewTextBoxColumn.DataPropertyName = "typ";
-            typDataGridViewTextBoxColumn.HeaderText = "Вкладка";
-            typDataGridViewTextBoxColumn.Name = "typDataGridViewTextBoxColumn";
-            typDataGridViewTextBoxColumn.ReadOnly = true;
-            typDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Статус";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // fiovzDataGridViewTextBoxColumn
-            // 
-            fiovzDataGridViewTextBoxColumn.DataPropertyName = "fio_vz";
-            fiovzDataGridViewTextBoxColumn.HeaderText = "ФИО взыскателя";
-            fiovzDataGridViewTextBoxColumn.Name = "fiovzDataGridViewTextBoxColumn";
-            fiovzDataGridViewTextBoxColumn.ReadOnly = true;
-            fiovzDataGridViewTextBoxColumn.Width = 113;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Название продукта";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // name1DataGridViewTextBoxColumn
-            // 
-            name1DataGridViewTextBoxColumn.DataPropertyName = "name1";
-            name1DataGridViewTextBoxColumn.HeaderText = "Портфель";
-            name1DataGridViewTextBoxColumn.Name = "name1DataGridViewTextBoxColumn";
-            name1DataGridViewTextBoxColumn.Width = 83;
-            // 
-            // column1DataGridViewTextBoxColumn
-            // 
-            column1DataGridViewTextBoxColumn.DataPropertyName = "Column1";
-            column1DataGridViewTextBoxColumn.HeaderText = "ФИО";
-            column1DataGridViewTextBoxColumn.Name = "column1DataGridViewTextBoxColumn";
-            column1DataGridViewTextBoxColumn.ReadOnly = true;
-            column1DataGridViewTextBoxColumn.Width = 59;
-            // 
-            // birthdateDataGridViewTextBoxColumn
-            // 
-            birthdateDataGridViewTextBoxColumn.DataPropertyName = "birth_date";
-            birthdateDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            birthdateDataGridViewTextBoxColumn.Name = "birthdateDataGridViewTextBoxColumn";
-            birthdateDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // contractDataGridViewTextBoxColumn
-            // 
-            contractDataGridViewTextBoxColumn.DataPropertyName = "contract";
-            contractDataGridViewTextBoxColumn.HeaderText = "№ КД";
-            contractDataGridViewTextBoxColumn.Name = "contractDataGridViewTextBoxColumn";
-            contractDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // execnumberDataGridViewTextBoxColumn
-            // 
-            execnumberDataGridViewTextBoxColumn.DataPropertyName = "exec_number";
-            execnumberDataGridViewTextBoxColumn.HeaderText = "№ Дела";
-            execnumberDataGridViewTextBoxColumn.Name = "execnumberDataGridViewTextBoxColumn";
-            execnumberDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // name2DataGridViewTextBoxColumn
-            // 
-            name2DataGridViewTextBoxColumn.DataPropertyName = "name2";
-            name2DataGridViewTextBoxColumn.HeaderText = "Название суда";
-            name2DataGridViewTextBoxColumn.Name = "name2DataGridViewTextBoxColumn";
-            name2DataGridViewTextBoxColumn.Width = 99;
-            // 
-            // column2DataGridViewTextBoxColumn
-            // 
-            column2DataGridViewTextBoxColumn.DataPropertyName = "Column2";
-            column2DataGridViewTextBoxColumn.HeaderText = "Размер требования";
-            column2DataGridViewTextBoxColumn.Name = "column2DataGridViewTextBoxColumn";
-            column2DataGridViewTextBoxColumn.ReadOnly = true;
-            column2DataGridViewTextBoxColumn.Width = 122;
-            // 
-            // dscDataGridViewTextBoxColumn
-            // 
-            dscDataGridViewTextBoxColumn.DataPropertyName = "dsc";
-            dscDataGridViewTextBoxColumn.HeaderText = "Комментарий";
-            dscDataGridViewTextBoxColumn.Name = "dscDataGridViewTextBoxColumn";
-            dscDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // court_doc_numDataGridViewTextBoxColumn
-            // 
-            court_doc_numDataGridViewTextBoxColumn.DataPropertyName = "court_doc_num";
-            court_doc_numDataGridViewTextBoxColumn.HeaderText = "Номер ИП";
-            court_doc_numDataGridViewTextBoxColumn.Name = "court_doc_numDataGridViewTextBoxColumn";
-            court_doc_numDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // court_date
-            // 
-            court_date.DataPropertyName = "court_date";
-            court_date.HeaderText = "Дата ИЛ";
-            court_date.Name = "court_date";
-            court_date.ReadOnly = true;
-            // 
-            // court_name
-            // 
-            court_name.DataPropertyName = "court_name";
-            court_name.HeaderText = "Название суда";
-            court_name.Name = "court_name";
-            court_name.ReadOnly = true;
-            // 
-            // court_adress
-            // 
-            court_adress.DataPropertyName = "court_adress";
-            court_adress.HeaderText = "Адрес суда";
-            court_adress.Name = "court_adress";
-            court_adress.ReadOnly = true;
-            // 
-            // start_sum
-            // 
-            start_sum.DataPropertyName = "start_sum";
-            start_sum.HeaderText = "Сумма задолженности";
-            start_sum.Name = "start_sum";
-            start_sum.ReadOnly = true;
-            // 
-            // series
-            // 
-            series.DataPropertyName = "series";
-            series.HeaderText = "Серия(паспорт)";
-            series.Name = "series";
-            series.ReadOnly = true;
-            // 
-            // number
-            // 
-            number.DataPropertyName = "number";
-            number.HeaderText = "Номер(паспорт)";
-            number.Name = "number";
-            number.ReadOnly = true;
-            // 
-            // birth_place
-            // 
-            birth_place.DataPropertyName = "birth_place";
-            birth_place.HeaderText = "Место рождения";
-            birth_place.Name = "birth_place";
-            birth_place.ReadOnly = true;
-            // 
-            // full_adr
-            // 
-            full_adr.DataPropertyName = "full_adr";
-            full_adr.HeaderText = "Фактический адрес";
-            full_adr.Name = "full_adr";
-            full_adr.ReadOnly = true;
-            // 
-            // exec_date
-            // 
-            exec_date.DataPropertyName = "exec_date";
-            exec_date.HeaderText = "Дата дела";
-            exec_date.Name = "exec_date";
-            exec_date.ReadOnly = true;
-            // 
-            // inn
-            // 
-            inn.DataPropertyName = "inn";
-            inn.HeaderText = "ИНН";
-            inn.Name = "inn";
-            inn.ReadOnly = true;
-            // 
-            // dataTable1BindingSource
-            // 
-            dataTable1BindingSource.DataMember = "DataTable1";
-            dataTable1BindingSource.DataSource = dataSet1;
-            // 
-            // dataSet1
-            // 
-            dataSet1.DataSetName = "DataSet1";
-            dataSet1.Namespace = "http://tempuri.org/DataSet1.xsd";
-            dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label19
             // 
@@ -993,7 +758,6 @@ namespace DocumentAdder.Forms
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.AllowUserToOrderColumns = true;
-            dataGridView2.AutoGenerateColumns = false;
             dataGridView2.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -1004,9 +768,8 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn1, statusDataGridViewTextBoxColumn1, debtstatusDataGridViewTextBoxColumn, fiovzDataGridViewTextBoxColumn1, nameDataGridViewTextBoxColumn1, column1DataGridViewTextBoxColumn1, birthdateDataGridViewTextBoxColumn1, contractDataGridViewTextBoxColumn1, fsspdocnumDataGridViewTextBoxColumn, courtdocnumDataGridViewTextBoxColumn, name1DataGridViewTextBoxColumn1, column2DataGridViewTextBoxColumn1, name2DataGridViewTextBoxColumn1, execnumberDataGridViewTextBoxColumn1, dscDataGridViewTextBoxColumn1, court_date1, court_adress1, start_sum1, series1, number1, birth_place1, full_adr1, exec_date1, inn1 });
+            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { court_date1, court_adress1, start_sum1, series1, number1, birth_place1, full_adr1, exec_date1, inn1 });
             tableLayoutPanel1.SetColumnSpan(dataGridView2, 4);
-            dataGridView2.DataSource = dataTable2BindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1032,117 +795,6 @@ namespace DocumentAdder.Forms
             dataGridView2.Size = new System.Drawing.Size(724, 225);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn1.HeaderText = "ID Дела";
-            idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            idDataGridViewTextBoxColumn1.ReadOnly = true;
-            idDataGridViewTextBoxColumn1.Width = 68;
-            // 
-            // statusDataGridViewTextBoxColumn1
-            // 
-            statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn1.HeaderText = "Статус";
-            statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
-            statusDataGridViewTextBoxColumn1.ReadOnly = true;
-            statusDataGridViewTextBoxColumn1.Width = 66;
-            // 
-            // debtstatusDataGridViewTextBoxColumn
-            // 
-            debtstatusDataGridViewTextBoxColumn.DataPropertyName = "Debt_status";
-            debtstatusDataGridViewTextBoxColumn.HeaderText = "Статус долга";
-            debtstatusDataGridViewTextBoxColumn.Name = "debtstatusDataGridViewTextBoxColumn";
-            debtstatusDataGridViewTextBoxColumn.ReadOnly = true;
-            debtstatusDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // fiovzDataGridViewTextBoxColumn1
-            // 
-            fiovzDataGridViewTextBoxColumn1.DataPropertyName = "fio_vz";
-            fiovzDataGridViewTextBoxColumn1.HeaderText = "ФИО взыскателя";
-            fiovzDataGridViewTextBoxColumn1.Name = "fiovzDataGridViewTextBoxColumn1";
-            fiovzDataGridViewTextBoxColumn1.ReadOnly = true;
-            fiovzDataGridViewTextBoxColumn1.Width = 113;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            nameDataGridViewTextBoxColumn1.HeaderText = "Портфель";
-            nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            nameDataGridViewTextBoxColumn1.Width = 83;
-            // 
-            // column1DataGridViewTextBoxColumn1
-            // 
-            column1DataGridViewTextBoxColumn1.DataPropertyName = "Column1";
-            column1DataGridViewTextBoxColumn1.HeaderText = "ФИО";
-            column1DataGridViewTextBoxColumn1.Name = "column1DataGridViewTextBoxColumn1";
-            column1DataGridViewTextBoxColumn1.ReadOnly = true;
-            column1DataGridViewTextBoxColumn1.Width = 59;
-            // 
-            // birthdateDataGridViewTextBoxColumn1
-            // 
-            birthdateDataGridViewTextBoxColumn1.DataPropertyName = "birth_date";
-            birthdateDataGridViewTextBoxColumn1.HeaderText = "Дата рождения";
-            birthdateDataGridViewTextBoxColumn1.Name = "birthdateDataGridViewTextBoxColumn1";
-            birthdateDataGridViewTextBoxColumn1.Width = 102;
-            // 
-            // contractDataGridViewTextBoxColumn1
-            // 
-            contractDataGridViewTextBoxColumn1.DataPropertyName = "contract";
-            contractDataGridViewTextBoxColumn1.HeaderText = "№ КД";
-            contractDataGridViewTextBoxColumn1.Name = "contractDataGridViewTextBoxColumn1";
-            contractDataGridViewTextBoxColumn1.Width = 58;
-            // 
-            // fsspdocnumDataGridViewTextBoxColumn
-            // 
-            fsspdocnumDataGridViewTextBoxColumn.DataPropertyName = "fssp_doc_num";
-            fsspdocnumDataGridViewTextBoxColumn.HeaderText = "№ ИП";
-            fsspdocnumDataGridViewTextBoxColumn.Name = "fsspdocnumDataGridViewTextBoxColumn";
-            fsspdocnumDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // courtdocnumDataGridViewTextBoxColumn
-            // 
-            courtdocnumDataGridViewTextBoxColumn.DataPropertyName = "court_doc_num";
-            courtdocnumDataGridViewTextBoxColumn.HeaderText = "№ ИД";
-            courtdocnumDataGridViewTextBoxColumn.Name = "courtdocnumDataGridViewTextBoxColumn";
-            courtdocnumDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // name1DataGridViewTextBoxColumn1
-            // 
-            name1DataGridViewTextBoxColumn1.DataPropertyName = "name1";
-            name1DataGridViewTextBoxColumn1.HeaderText = "ФССП";
-            name1DataGridViewTextBoxColumn1.Name = "name1DataGridViewTextBoxColumn1";
-            name1DataGridViewTextBoxColumn1.Width = 65;
-            // 
-            // column2DataGridViewTextBoxColumn1
-            // 
-            column2DataGridViewTextBoxColumn1.DataPropertyName = "Column2";
-            column2DataGridViewTextBoxColumn1.HeaderText = "Размер требования";
-            column2DataGridViewTextBoxColumn1.Name = "column2DataGridViewTextBoxColumn1";
-            column2DataGridViewTextBoxColumn1.ReadOnly = true;
-            column2DataGridViewTextBoxColumn1.Width = 122;
-            // 
-            // name2DataGridViewTextBoxColumn1
-            // 
-            name2DataGridViewTextBoxColumn1.DataPropertyName = "name2";
-            name2DataGridViewTextBoxColumn1.HeaderText = "Название суда";
-            name2DataGridViewTextBoxColumn1.Name = "name2DataGridViewTextBoxColumn1";
-            name2DataGridViewTextBoxColumn1.Width = 99;
-            // 
-            // execnumberDataGridViewTextBoxColumn1
-            // 
-            execnumberDataGridViewTextBoxColumn1.DataPropertyName = "exec_number";
-            execnumberDataGridViewTextBoxColumn1.HeaderText = "Номер дела в суде";
-            execnumberDataGridViewTextBoxColumn1.Name = "execnumberDataGridViewTextBoxColumn1";
-            execnumberDataGridViewTextBoxColumn1.Width = 96;
-            // 
-            // dscDataGridViewTextBoxColumn1
-            // 
-            dscDataGridViewTextBoxColumn1.DataPropertyName = "dsc";
-            dscDataGridViewTextBoxColumn1.HeaderText = "Комментарий";
-            dscDataGridViewTextBoxColumn1.Name = "dscDataGridViewTextBoxColumn1";
-            dscDataGridViewTextBoxColumn1.Width = 102;
             // 
             // court_date1
             // 
@@ -1206,11 +858,6 @@ namespace DocumentAdder.Forms
             inn1.HeaderText = "ИНН";
             inn1.Name = "inn1";
             inn1.ReadOnly = true;
-            // 
-            // dataTable2BindingSource
-            // 
-            dataTable2BindingSource.DataMember = "DataTable2";
-            dataTable2BindingSource.DataSource = dataSet1;
             // 
             // textBox11
             // 
@@ -2033,14 +1680,6 @@ namespace DocumentAdder.Forms
             // 
             Documents.DataSource = typeof(Adder.FileItem);
             // 
-            // dataTable1TableAdapter
-            // 
-            dataTable1TableAdapter.ClearBeforeFill = true;
-            // 
-            // dataTable2TableAdapter
-            // 
-            dataTable2TableAdapter.ClearBeforeFill = true;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2058,10 +1697,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataTable1BindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataSet1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataTable2BindingSource).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -2131,11 +1767,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox textBox9;
-        private DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource dataTable1BindingSource;
-        private DataSet1TableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
-        private System.Windows.Forms.BindingSource dataTable2BindingSource;
-        private DataSet1TableAdapters.DataTable2TableAdapter dataTable2TableAdapter;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox comboBox5;
@@ -2196,17 +1827,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn name2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dscDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn court_doc_numDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn court_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn court_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn court_adress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn start_sum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn series;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birth_place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn full_adr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn exec_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn debtstatusDataGridViewTextBoxColumn;
