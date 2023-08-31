@@ -22,6 +22,10 @@ public partial class DebtCalc
 
     public int? parent_id { get; set; }
 
+    [ForeignKey(nameof(parent_id))]
+    [InverseProperty(nameof(Models.Debt.DebtCalcs))]
+    public virtual Debt? Debt { get; set; }
+
     [Column(TypeName = "money")]
     public decimal? sum { get; set; }
 
@@ -53,6 +57,10 @@ public partial class DebtCalc
     public int? id_ { get; set; }
 
     public int? r_user_id { get; set; }
+
+    [ForeignKey(nameof(r_user_id))]
+    [InverseProperty(nameof(Models.User.DebtCalcs))]
+    public virtual User? User { get; set; }
 
     public int? req_change { get; set; }
 

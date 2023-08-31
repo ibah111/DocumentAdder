@@ -358,4 +358,7 @@ public partial class User
 
     [InverseProperty(nameof(LawExecDscLog.User))]
     public virtual List<LawExecDscLog> LawExecDscLogs { get; set; } = new();
+
+    [InverseProperty(nameof(DebtCalc.User))]
+    public virtual List<DebtCalc> DebtCalcs { get; set; } = new();
 }

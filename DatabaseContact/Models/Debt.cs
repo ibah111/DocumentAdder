@@ -458,4 +458,7 @@ public partial class Debt
     [InverseProperty(nameof(Models.WorkTask.Debt))]
     public virtual WorkTask? WorkTask { get; set; }
 
+    [InverseProperty(nameof(DebtCalc.Debt))]
+    public virtual List<DebtCalc> DebtCalcs { get; set; } = new();
+
 }
