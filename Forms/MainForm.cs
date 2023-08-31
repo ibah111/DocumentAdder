@@ -1,3 +1,5 @@
+using DatabaseContact.DatabaseContact;
+using DatabaseContact.Models;
 using DocumentAdder.Dialogs;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
@@ -543,31 +545,13 @@ namespace DocumentAdder.Forms
             Data.vkl_int = comboBox2.SelectedIndex;
             Data.id = textBox4.Text;
 
-            List<string> ls = Data.Update(textBox7, textBox8, textBox9, textBox10, textBox11,
+            using var db = Program.factory_db.CreateDbContext();
+            using var transaction = db.Database.BeginTransaction();
+            Data.Update(db, textBox7, textBox8, textBox9, textBox10, textBox11,
                 maskedTextBox1, maskedTextBox2, maskedTextBox3, maskedTextBox4, maskedTextBox5,
                 maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, textBox23, comboBox3.Text);
-            ls.Add("\r\n\r\n");
-            File.AppendAllText(Environment.CurrentDirectory + "\\SQL.txt", string.Join("\r\n", ls));
+            db.SaveChanges();
             int errors = 0;
-
-            foreach (string str in ls)
-            {
-                try
-                {
-                    using (OdbcCommand command = new OdbcCommand(str))
-                    {
-                        command.Connection = Program.Conn;
-
-                        if (command.Connection.State == System.Data.ConnectionState.Closed)
-                        {
-                            command.Connection.Open();
-                        }
-
-                        command.ExecuteReader();
-                    }
-                }
-                catch (Exception ex) { errors++; File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"{str}\r\n{ex.Message}\r\n\r\n"); }
-            }
             List<ClientDoc> docs = new List<ClientDoc>();
             foreach (var value in Adder.files)
             {
@@ -591,43 +575,29 @@ namespace DocumentAdder.Forms
                     File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"Файл: {file} не был сохранен. {exeption.Message}");
                 }
                 int returnValue = -1;
-                string sql_file = GetSqlFile(new_file, free_dir.Split('\\').Last(), file);
-                using (OdbcCommand command = new OdbcCommand(sql_file))
+                int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file);
+                if (returnValue > 0)
                 {
-                    command.Connection = Program.Conn;
-
-                    if (command.Connection.State == System.Data.ConnectionState.Closed)
+                    if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
                     {
-                        command.Connection.Open();
-                    }
-
-                    object result = command.ExecuteScalar();
-                    if (result != null)
-                    {
-                        int.TryParse(result.ToString(), out returnValue);
-                    }
-                    if (returnValue > 0)
-                    {
-                        if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
+                        var doc = new ClientDoc() { doc = returnValue, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
+                        if (Data.vkl_int == 4)
                         {
-                            var doc = new ClientDoc() { doc = returnValue, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
-                            if (Data.vkl_int == 4)
-                            {
-                                doc.type = 2;
-                            }
-                            else
-                            {
-                                doc.type = 1;
-                            }
-                            docs.Add(doc);
+                            doc.type = 2;
                         }
                         else
                         {
-                            docs.Add(new ClientDoc() { doc = returnValue, barcode = false });
+                            doc.type = 1;
                         }
+                        docs.Add(doc);
+                    }
+                    else
+                    {
+                        docs.Add(new ClientDoc() { doc = returnValue, barcode = false });
                     }
                 }
             }
+
             Adder.files.Clear();
             Documents.ResetBindings(true);
             int[] ints = { 2, 3, 4, 5 };
@@ -675,11 +645,16 @@ namespace DocumentAdder.Forms
                     }
                     if (errors == 0)
                     {
+                        transaction.Commit();
                         MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearTextBox();
                     }
                     else
+                    {
+                        transaction.Rollback();
                         MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+                    }
+
                     errors = 0;
                 }
             }
@@ -770,20 +745,57 @@ namespace DocumentAdder.Forms
         }
 
 
-        private string GetSqlFile(string new_file, string index, string old_file)
+        private int GetSqlFile(i_collectContext db, string new_file, string index, string old_file)
         {
+            if (!int.TryParse(Data.id, out var id))
+                throw new Exception("Ошибка получения ID");
             if (Data.vkl_int != 4)
-                return "insert into doc_attach " +
-                    "(obj_id,r_id,name,filename,vers1,vers2,is_active,r_user_id,dt,FILE_SERVER_NAME,REL_SERVER_PATH,CHANGE_DT,SAVE_MODE) values " +
-                    $"(46, {Data.id}, \'{old_file}\', \'{old_file}\', 1, 0, 1, {Settings.user_id}, getdate(), \'{new_file}\', \'\\{index}\\\',getdate(),2);" +
-                    $"SELECT SCOPE_IDENTITY();\r\n" +
-                    $"insert into law_act_protokol (dt,typ,parent_id,r_user_id,dsc) values (getdate(), 23, {Data.id}, {Settings.user_id}, \'Вложение: {old_file}\');";
+            {
+                var docAttach = new DatabaseContact.Models.DocAttach
+                {
+                    obj_id = 46,
+                    r_id = id,
+                    name = old_file,
+                    filename = old_file,
+                    vers1 = 0,
+                    vers2 = 0,
+                    is_active = 1,
+                    r_user_id = Settings.user_id,
+                    dt = DateTime.Now,
+                    FILE_SERVER_NAME = new_file,
+                    REL_SERVER_PATH = index,
+                    CHANGE_DT = DateTime.Now,
+                    SAVE_MODE = 2,
+                };
+                db.DocAttach.Add(docAttach);
+                db.LawActProtokol.Add(new LawActProtokol() { dt = DateTime.Now, typ = 23, parent_id = id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
+                db.SaveChanges();
+                return docAttach.id;
+            }
             else
-                return "insert into doc_attach " +
-                    "(obj_id,r_id,name,filename,vers1,vers2,is_active,r_user_id,dt,FILE_SERVER_NAME,REL_SERVER_PATH,CHANGE_DT,SAVE_MODE) values " +
-                    $"(47, {Data.id}, \'{old_file}\', \'{old_file}\', 1, 0, 1, {Settings.user_id}, getdate(), \'{new_file}\', \'\\{index}\\\',getdate(),2);" +
-                    $"SELECT SCOPE_IDENTITY();" +
-                    $"insert into law_exec_protokol (dt,typ,parent_id,r_user_id,dsc) values (getdate(), 9, {Data.id}, {Settings.user_id}, \'Вложение: {old_file}\')";
+            {
+
+                var docAttach = new DatabaseContact.Models.DocAttach
+                {
+                    obj_id = 47,
+                    r_id = id,
+                    name = old_file,
+                    filename = old_file,
+                    vers1 = 0,
+                    vers2 = 0,
+                    is_active = 1,
+                    r_user_id = Settings.user_id,
+                    dt = DateTime.Now,
+                    FILE_SERVER_NAME = new_file,
+                    REL_SERVER_PATH = index,
+                    CHANGE_DT = DateTime.Now,
+                    SAVE_MODE = 2,
+                };
+                db.DocAttach.Add(docAttach);
+                db.LawExecProtokol.Add(new LawExecProtokol() { dt = DateTime.Now, typ = 9, parent_id = id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
+                db.SaveChanges();
+                return docAttach.id;
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)

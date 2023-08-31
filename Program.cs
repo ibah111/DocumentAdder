@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DocumentAdder.Forms;
 using DatabaseContact.DatabaseContact;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace DocumentAdder.Main
 {
@@ -17,7 +18,7 @@ namespace DocumentAdder.Main
         public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator = new BitrixAuthenticator() };
         public static readonly RestClient client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
         public static OdbcConnection Conn = new OdbcConnection($"Driver={{SQL Server}};Server=newct.usb.ru;Database={Settings.dbs};Uid=docmail;Pwd=docmail;");
-        public static i_collectContext db = new(new DbContextOptionsBuilder<i_collectContext>().UseSqlServer($"Data Source=newct;Initial Catalog={Settings.dbs};Persist Security Info=True;User ID=docmail;Password=docmail;Trust Server Certificate=True").Options);
+        public static PooledDbContextFactory<i_collectContext> factory_db = new(new DbContextOptionsBuilder<i_collectContext>().UseLazyLoadingProxies().UseSqlServer($"Data Source=newct;Initial Catalog={Settings.dbs};Persist Security Info=True;User ID=docmail;Password=docmail;Trust Server Certificate=True").Options);
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
             dynamic json = JsonConvert.DeserializeObject(args.RemoteData);

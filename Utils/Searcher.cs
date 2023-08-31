@@ -31,16 +31,17 @@ namespace DocumentAdder.Utils
         }
         public void GetTables(DataGridView dataGridView1, DataGridView dataGridView2, DataSet1 dataSet1)
         {
+            using var db = Program.factory_db.CreateDbContext();
             dataSet1.Clear();
             if (dataGridView1.Rows.Count != 0)
                 dataGridView1.Rows.Clear();
             if (dataGridView2.Rows.Count != 0)
                 dataGridView2.Rows.Clear();
 
-            var data1 = Program.db.LawAct.Where(
+            var data1 = db.LawAct.Where(
                 x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_last_name}{_first_name}{_middle_name}%")
                 );
-            var data2 = Program.db.LawExec.Where(
+            var data2 = db.LawExec.Where(
                 x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_last_name}{_first_name}{_middle_name}%")
                 );
             if (_kd != "")
@@ -58,7 +59,7 @@ namespace DocumentAdder.Utils
                 data1 = data1.Where(x => EF.Functions.Like(x.exec_number, _exec_num + "%"));
                 data2 = data2.Where(x => EF.Functions.Like(x.LawAct.exec_number, _exec_num + "%"));
             }
-            var subquery1 = data1.Join(Program.db.LawExec.GroupBy(x => x.r_act_id).
+            var subquery1 = data1.Join(db.LawExec.GroupBy(x => x.r_act_id).
                 Select(x => new
                 {
                     r_act_id = x.Key,
@@ -129,24 +130,6 @@ namespace DocumentAdder.Utils
             var result2 = select2.ToList();
             dataGridView1.DataSource = result1;
             dataGridView2.DataSource = result2;
-        }
-
-        private string GetSQL(string prefix)
-        {
-            List<string> list = new List<string>();
-            if (_last_name != "")
-                list.Add($"p.f like \'{_last_name}%\'");
-            if (_first_name != "")
-                list.Add($"p.i like \'{_first_name}%\'");
-            if (_middle_name != "")
-                list.Add($"p.o like \'{_middle_name}%\'");
-            if (_id != "")
-                list.Add($"{prefix}id like \'{_id}%\'");
-            if (_kd != "")
-                list.Add($"d.contract like \'{_kd}%\'");
-            if (_exec_num != "")
-                list.Add($"la.exec_number like \'{_exec_num}%\'");
-            return string.Join(" and ", list);
         }
     }
 }

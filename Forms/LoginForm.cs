@@ -79,7 +79,8 @@ namespace DocumentAdder.Forms
         }
         public bool GetLoginContact()
         {
-            Settings.user_id = Program.db.User.Where(x => x.email == logedData.login).Select(x => x.id).FirstOrDefault();
+            using var db = Program.factory_db.CreateDbContext();
+            Settings.user_id = db.User.Where(x => x.email == logedData.login).Select(x => x.id).FirstOrDefault();
             string[] names = { logedData.firstname, logedData.secondname, logedData.thirdname };
             Settings.username = Addons.GetName(names);
             if (Settings.user_id == 0)
