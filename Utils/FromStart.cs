@@ -1,4 +1,5 @@
 ﻿using DocumentAdder.Main;
+using DocumentAdder.Models;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,29 @@ namespace DocumentAdder.Utils
         {
             GetUserDB();
             GetStatus();
+            Settings.dicts = GetDicts(405);
             return GetUser();
         }
 
         public static string GetUser()
         {
             return $"Входящая почта. Документооборот. Пользователь: {Settings.username} [{Settings.user_id}]";
+        }
+        public static Dictionary<int, List<DictModel>> GetDicts(params int[] list)
+        {
+
+            using var db = Program.factory_db.CreateDbContext();
+            var data = db.Dict.Where(x => list.Contains(x.parent_id)).Select(x => new
+            {
+                x.parent_id,
+                x.code,
+                x.name
+            }).ToList().GroupBy(x => x.parent_id).ToDictionary(x => x.Key, x => x.Select(x => new DictModel
+            {
+                code = x.code,
+                name = x.name
+            }).ToList());
+            return data;
         }
 
         internal static void GetStatus()

@@ -36,14 +36,14 @@ namespace DocumentAdder.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Users = new System.Windows.Forms.BindingSource(components);
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,6 +69,31 @@ namespace DocumentAdder.Forms
             maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
+            id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            typ = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            dictModelBindingSource = new System.Windows.Forms.BindingSource(components);
+            status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            act_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fio_vz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            portfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            birth_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            exec_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            total_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_doc_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            start_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            birth_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            full_adr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lawActResultBindingSource = new System.Windows.Forms.BindingSource(components);
             label19 = new System.Windows.Forms.Label();
             label20 = new System.Windows.Forms.Label();
@@ -182,33 +207,10 @@ namespace DocumentAdder.Forms
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             selectDocBarcode = new System.Windows.Forms.ComboBox();
             Documents = new System.Windows.Forms.BindingSource(components);
-            id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            act_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fio_vz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            portfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            birth_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            exec_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            total_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_doc_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            start_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            series = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            birth_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            full_adr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
@@ -627,6 +629,7 @@ namespace DocumentAdder.Forms
             dataGridView1.Location = new System.Drawing.Point(732, 168);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
@@ -641,6 +644,197 @@ namespace DocumentAdder.Forms
             dataGridView1.Size = new System.Drawing.Size(724, 414);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // typ
+            // 
+            typ.DataPropertyName = "typ";
+            typ.DataSource = dictModelBindingSource;
+            typ.DisplayMember = "name";
+            typ.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            typ.HeaderText = "Вкладка";
+            typ.Name = "typ";
+            typ.ReadOnly = true;
+            typ.ValueMember = "code";
+            // 
+            // dictModelBindingSource
+            // 
+            dictModelBindingSource.DataSource = typeof(DictModel);
+            // 
+            // status
+            // 
+            status.DataPropertyName = "status";
+            status.HeaderText = "Статус приказа";
+            status.Name = "status";
+            status.ReadOnly = true;
+            // 
+            // act_status
+            // 
+            act_status.DataPropertyName = "act_status";
+            act_status.HeaderText = "Статус иска";
+            act_status.Name = "act_status";
+            act_status.ReadOnly = true;
+            // 
+            // fio_vz
+            // 
+            fio_vz.DataPropertyName = "fio_vz";
+            fio_vz.HeaderText = "ФИО взыскателя";
+            fio_vz.Name = "fio_vz";
+            fio_vz.ReadOnly = true;
+            // 
+            // name
+            // 
+            name.DataPropertyName = "name";
+            name.HeaderText = "Название продукта";
+            name.Name = "name";
+            name.ReadOnly = true;
+            // 
+            // portfolio
+            // 
+            portfolio.DataPropertyName = "portfolio";
+            portfolio.HeaderText = "Портфель";
+            portfolio.Name = "portfolio";
+            portfolio.ReadOnly = true;
+            // 
+            // fio
+            // 
+            fio.DataPropertyName = "fio";
+            fio.HeaderText = "ФИО должника";
+            fio.Name = "fio";
+            fio.ReadOnly = true;
+            // 
+            // birth_date
+            // 
+            birth_date.DataPropertyName = "birth_date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            birth_date.DefaultCellStyle = dataGridViewCellStyle2;
+            birth_date.HeaderText = "Дата рождения";
+            birth_date.Name = "birth_date";
+            birth_date.ReadOnly = true;
+            // 
+            // contract
+            // 
+            contract.DataPropertyName = "contract";
+            contract.HeaderText = "Договор";
+            contract.Name = "contract";
+            contract.ReadOnly = true;
+            // 
+            // exec_number
+            // 
+            exec_number.DataPropertyName = "exec_number";
+            exec_number.HeaderText = "Номер приказа";
+            exec_number.Name = "exec_number";
+            exec_number.ReadOnly = true;
+            // 
+            // total_sum
+            // 
+            total_sum.DataPropertyName = "total_sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            total_sum.DefaultCellStyle = dataGridViewCellStyle3;
+            total_sum.HeaderText = "Размер требований";
+            total_sum.Name = "total_sum";
+            total_sum.ReadOnly = true;
+            // 
+            // dsc
+            // 
+            dsc.DataPropertyName = "dsc";
+            dsc.HeaderText = "Комментарий";
+            dsc.Name = "dsc";
+            dsc.ReadOnly = true;
+            // 
+            // court_doc_num
+            // 
+            court_doc_num.DataPropertyName = "court_doc_num";
+            court_doc_num.HeaderText = "ИД";
+            court_doc_num.Name = "court_doc_num";
+            court_doc_num.ReadOnly = true;
+            // 
+            // court_date
+            // 
+            court_date.DataPropertyName = "court_date";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            court_date.DefaultCellStyle = dataGridViewCellStyle4;
+            court_date.HeaderText = "Дата вынесения";
+            court_date.Name = "court_date";
+            court_date.ReadOnly = true;
+            // 
+            // court_name
+            // 
+            court_name.DataPropertyName = "court_name";
+            court_name.HeaderText = "Название суда";
+            court_name.Name = "court_name";
+            court_name.ReadOnly = true;
+            // 
+            // court_adress
+            // 
+            court_adress.DataPropertyName = "court_adress";
+            court_adress.HeaderText = "Адрес суда";
+            court_adress.Name = "court_adress";
+            court_adress.ReadOnly = true;
+            // 
+            // start_sum
+            // 
+            start_sum.DataPropertyName = "start_sum";
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            start_sum.DefaultCellStyle = dataGridViewCellStyle5;
+            start_sum.HeaderText = "Начальная сумма";
+            start_sum.Name = "start_sum";
+            start_sum.ReadOnly = true;
+            // 
+            // number
+            // 
+            number.DataPropertyName = "number";
+            number.HeaderText = "Номер паспорта";
+            number.Name = "number";
+            number.ReadOnly = true;
+            // 
+            // series
+            // 
+            series.DataPropertyName = "series";
+            series.HeaderText = "Серия паспорта";
+            series.Name = "series";
+            series.ReadOnly = true;
+            // 
+            // birth_place
+            // 
+            birth_place.DataPropertyName = "birth_place";
+            birth_place.HeaderText = "Место рождения";
+            birth_place.Name = "birth_place";
+            birth_place.ReadOnly = true;
+            // 
+            // full_adr
+            // 
+            full_adr.DataPropertyName = "full_adr";
+            full_adr.HeaderText = "Адрес регистрации";
+            full_adr.Name = "full_adr";
+            full_adr.ReadOnly = true;
+            // 
+            // exec_date
+            // 
+            exec_date.DataPropertyName = "exec_date";
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            exec_date.DefaultCellStyle = dataGridViewCellStyle6;
+            exec_date.HeaderText = "Дата отправки судебного приказа";
+            exec_date.Name = "exec_date";
+            exec_date.ReadOnly = true;
+            // 
+            // inn
+            // 
+            inn.DataPropertyName = "inn";
+            inn.HeaderText = "ИНН";
+            inn.Name = "inn";
+            inn.ReadOnly = true;
             // 
             // lawActResultBindingSource
             // 
@@ -1815,165 +2009,6 @@ namespace DocumentAdder.Forms
             // 
             Documents.DataSource = typeof(Adder.FileItem);
             // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "ID";
-            id.Name = "id";
-            // 
-            // typ
-            // 
-            typ.DataPropertyName = "typ";
-            typ.HeaderText = "Вкладка";
-            typ.Name = "typ";
-            // 
-            // status
-            // 
-            status.DataPropertyName = "status";
-            status.HeaderText = "Статус приказа";
-            status.Name = "status";
-            // 
-            // act_status
-            // 
-            act_status.DataPropertyName = "act_status";
-            act_status.HeaderText = "Статус иска";
-            act_status.Name = "act_status";
-            // 
-            // fio_vz
-            // 
-            fio_vz.DataPropertyName = "fio_vz";
-            fio_vz.HeaderText = "ФИО взыскателя";
-            fio_vz.Name = "fio_vz";
-            // 
-            // name
-            // 
-            name.DataPropertyName = "name";
-            name.HeaderText = "Название продукта";
-            name.Name = "name";
-            // 
-            // portfolio
-            // 
-            portfolio.DataPropertyName = "portfolio";
-            portfolio.HeaderText = "Портфель";
-            portfolio.Name = "portfolio";
-            // 
-            // fio
-            // 
-            fio.DataPropertyName = "fio";
-            fio.HeaderText = "ФИО должника";
-            fio.Name = "fio";
-            // 
-            // birth_date
-            // 
-            birth_date.DataPropertyName = "birth_date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            birth_date.DefaultCellStyle = dataGridViewCellStyle2;
-            birth_date.HeaderText = "Дата рождения";
-            birth_date.Name = "birth_date";
-            // 
-            // contract
-            // 
-            contract.DataPropertyName = "contract";
-            contract.HeaderText = "Договор";
-            contract.Name = "contract";
-            // 
-            // exec_number
-            // 
-            exec_number.DataPropertyName = "exec_number";
-            exec_number.HeaderText = "Номер приказа";
-            exec_number.Name = "exec_number";
-            // 
-            // total_sum
-            // 
-            total_sum.DataPropertyName = "total_sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            total_sum.DefaultCellStyle = dataGridViewCellStyle3;
-            total_sum.HeaderText = "Размер требований";
-            total_sum.Name = "total_sum";
-            // 
-            // dsc
-            // 
-            dsc.DataPropertyName = "dsc";
-            dsc.HeaderText = "Комментарий";
-            dsc.Name = "dsc";
-            // 
-            // court_doc_num
-            // 
-            court_doc_num.DataPropertyName = "court_doc_num";
-            court_doc_num.HeaderText = "ИД";
-            court_doc_num.Name = "court_doc_num";
-            // 
-            // court_date
-            // 
-            court_date.DataPropertyName = "court_date";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            court_date.DefaultCellStyle = dataGridViewCellStyle4;
-            court_date.HeaderText = "Дата вынесения";
-            court_date.Name = "court_date";
-            // 
-            // court_name
-            // 
-            court_name.DataPropertyName = "court_name";
-            court_name.HeaderText = "Название суда";
-            court_name.Name = "court_name";
-            // 
-            // court_adress
-            // 
-            court_adress.DataPropertyName = "court_adress";
-            court_adress.HeaderText = "Адрес суда";
-            court_adress.Name = "court_adress";
-            // 
-            // start_sum
-            // 
-            start_sum.DataPropertyName = "start_sum";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            start_sum.DefaultCellStyle = dataGridViewCellStyle5;
-            start_sum.HeaderText = "Начальная сумма";
-            start_sum.Name = "start_sum";
-            // 
-            // number
-            // 
-            number.DataPropertyName = "number";
-            number.HeaderText = "Номер паспорта";
-            number.Name = "number";
-            // 
-            // series
-            // 
-            series.DataPropertyName = "series";
-            series.HeaderText = "Серия паспорта";
-            series.Name = "series";
-            // 
-            // birth_place
-            // 
-            birth_place.DataPropertyName = "birth_place";
-            birth_place.HeaderText = "Место рождения";
-            birth_place.Name = "birth_place";
-            // 
-            // full_adr
-            // 
-            full_adr.DataPropertyName = "full_adr";
-            full_adr.HeaderText = "Адрес регистрации";
-            full_adr.Name = "full_adr";
-            // 
-            // exec_date
-            // 
-            exec_date.DataPropertyName = "exec_date";
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            exec_date.DefaultCellStyle = dataGridViewCellStyle6;
-            exec_date.HeaderText = "Дата отправки судебного приказа";
-            exec_date.Name = "exec_date";
-            // 
-            // inn
-            // 
-            inn.DataPropertyName = "inn";
-            inn.HeaderText = "ИНН";
-            inn.Name = "inn";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1991,6 +2026,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
@@ -2150,8 +2186,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn execdateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthplaceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource dictModelBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typ;
+        private System.Windows.Forms.DataGridViewComboBoxColumn typ;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn act_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn fio_vz;

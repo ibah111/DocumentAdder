@@ -105,8 +105,10 @@ namespace DocumentAdder.Forms
         {
             if (!runed)
             {
+                this.Text = FromStart.DownloadInfo();
                 List<CBMember> cBMembers = new List<CBMember>();
                 Documents.DataSource = Adder.files;
+                dictModelBindingSource.DataSource = Settings.dicts[405];
                 cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
                 cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
                 cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
@@ -151,7 +153,6 @@ namespace DocumentAdder.Forms
                 Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
                 for (int a = 0; a < o.Count; a++)
                     comboBox1.Items.Add(o[(string)a.ToString()].тип_документа);
-                this.Text = FromStart.DownloadInfo();
                 comboBox1.SelectedIndex = 0;
                 //LoadPeople();
                 runed = true;
