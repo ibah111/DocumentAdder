@@ -27,6 +27,8 @@ public partial class i_collectContext : DbContext
 
     public virtual DbSet<Debt> Debt { get; set; }
 
+    public virtual DbSet<DebtCalc> DebtCalc { get; set; }
+
     public virtual DbSet<Dict> Dict { get; set; }
 
     public virtual DbSet<DictName> DictName { get; set; }
@@ -67,6 +69,7 @@ public partial class i_collectContext : DbContext
         modelBuilder.ApplyConfiguration(new Configurations.AddressConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ConstValueConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.DebtConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.DebtCalcConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.DictConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.DictNameConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.DocAttachConfiguration());
