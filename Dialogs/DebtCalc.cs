@@ -1,6 +1,8 @@
 ﻿using DocumentAdder.Main;
 using System;
+using System.Collections.Generic;
 using System.Data.Odbc;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Dialogs
@@ -14,16 +16,15 @@ namespace DocumentAdder.Dialogs
 
         private void DebtCalc_Load(object sender, EventArgs e)
         {
-            string command;
+            if (!int.TryParse(Settings.debt_id, out var id))
+                throw new Exception("Ошибка получения платежей");
+            using var db = Program.factory_db.CreateDbContext();
+            List<DatabaseContact.Models.DebtCalc> data;
             if (Settings.vkl != 4)
-                command = $"select dc.sum,dc.calc_date,dc.dt,dc.report_date,dc.is_confirmed,dc.dsc from law_act la left join debt_calc dc on dc.parent_id = la.r_debt_id where la.id = {Settings.debt_id}";
+                data = db.LawAct.Where(x => x.id == id).Select(x => x.Debt.DebtCalcs).First();
             else
-                command = $"select dc.sum,dc.calc_date,dc.dt,dc.report_date,dc.is_confirmed,dc.dsc from law_exec la left join debt_calc dc on dc.parent_id = la.r_debt_id where la.id = {Settings.debt_id}";
-            using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, Program.Conn))
-            {
-                dataAdapter.Fill(dataSet1.debt_calc);
-            }
-            dataGridView1.DataSource = dataSet1.debt_calc;
+                data = db.LawExec.Where(x => x.id == id).Select(x => x.Debt.DebtCalcs).First();
+            dataGridView1.DataSource = data;
         }
 
         private void button1_Click_1(object sender, EventArgs e)

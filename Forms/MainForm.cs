@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static DocumentAdder.Models.Adder;
+using Action = System.Action;
 
 namespace DocumentAdder.Forms
 {
@@ -422,7 +423,7 @@ namespace DocumentAdder.Forms
             Settings.vkl = comboBox2.SelectedIndex;
             if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
-                DebtCalc testDialog = new DebtCalc();
+                var testDialog = new Dialogs.DebtCalc();
                 testDialog.Show();
             }
             else
@@ -574,13 +575,12 @@ namespace DocumentAdder.Forms
                 {
                     File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"Файл: {file} не был сохранен. {exeption.Message}");
                 }
-                int returnValue = -1;
                 int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file);
-                if (returnValue > 0)
+                if (result > 0)
                 {
                     if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
                     {
-                        var doc = new ClientDoc() { doc = returnValue, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
+                        var doc = new ClientDoc() { doc = result, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
                         if (Data.vkl_int == 4)
                         {
                             doc.type = 2;
@@ -593,7 +593,7 @@ namespace DocumentAdder.Forms
                     }
                     else
                     {
-                        docs.Add(new ClientDoc() { doc = returnValue, barcode = false });
+                        docs.Add(new ClientDoc() { doc = result, barcode = false });
                     }
                 }
             }
@@ -853,7 +853,7 @@ namespace DocumentAdder.Forms
             Settings.vkl = comboBox2.SelectedIndex;
             if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
-                DocAttach testDialog = new DocAttach();
+                var testDialog = new Dialogs.DocAttach();
                 testDialog.Show();
             }
             else
@@ -862,26 +862,36 @@ namespace DocumentAdder.Forms
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(textBox4.Text, out var law_id))
+                throw new Exception("ID дела неправильное");
+            using var db = Program.factory_db.CreateDbContext();
+            using var transaction = db.Database.BeginTransaction();
             if (string.IsNullOrWhiteSpace(textBox4.Text))
             {
                 MessageBox.Show("Невозможно создать банкротство без ID Дела\r\nаналогичного должника");
                 return;
             }
-            string sql = $"insert into law_act (r_person_id,typ,fd,delivery_typ,court_order_delivery,status,full_strength,act_status,deadline,currency,load_dt,PRE_ACT_STATUS) values ((select r_person_id from law_act where id = {textBox4.Text}),4,getdate(),0,0,1,1,1,getdate(),1,getdate(),1);" +
-                $"SELECT SCOPE_IDENTITY();";
-            using (OdbcCommand command = new OdbcCommand(sql))
+            var person_id = db.LawAct.Where(x => x.id == law_id).Select(x => x.r_person_id).First();
+            var LawAct = new LawAct()
             {
-                command.Connection = Program.Conn;
-
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
-                {
-                    command.Connection.Open();
-                }
-
-                int id = Convert.ToInt32(command.ExecuteScalar());
-                command.CommandText = $"insert into law_act_person_link (R_LAW_ACT_ID, LINK_TYPE, PERSON_ROLE, PERSON_ID) values ({id},1,1,(select r_person_id from law_act where id = {id}));";
-                command.ExecuteNonQuery();
-            }
+                r_person_id = person_id,
+                typ = 4,
+                fd = DateTime.Now,
+                delivery_typ = 0,
+                court_order_delivery = 0,
+                status = 1,
+                full_strength = 1,
+                act_status = 1,
+                deadline = DateTime.Now,
+                currency = 1,
+                load_dt = DateTime.Now,
+                PRE_ACT_STATUS = 1
+            };
+            db.LawAct.Add(LawAct);
+            db.SaveChanges();
+            db.LawActPersonLink.Add(new LawActPersonLink() { PERSON_ID = person_id, LINK_TYPE = 1, PERSON_ROLE = 1, R_LAW_ACT_ID = LawAct.id });
+            db.SaveChanges();
+            transaction.Commit();
             MessageBox.Show("Банкротство успешно создано!");
         }
 

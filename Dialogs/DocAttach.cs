@@ -1,7 +1,11 @@
-﻿using DocumentAdder.Main;
+﻿using DatabaseContact.Models;
+using DocumentAdder.Main;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Dialogs
@@ -16,26 +20,20 @@ namespace DocumentAdder.Dialogs
         //select u.f+' '+u.i+' '+u.o, lap.dt,d.name,lap.dsc from law_act_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ where d.parent_id = 26
         private void Form3_Load(object sender, EventArgs e)
         {
-            dataSet1.DataTable3.Clear();
-            dataGridView1.DataSource = dataSet1.DataTable3;
+            if (!int.TryParse(Settings.debt_id, out var id)) throw new Exception("Ошибка формы");
+            using var db = Program.factory_db.CreateDbContext();
+            List<DatabaseContact.Models.DocAttach> data;
             if (Settings.vkl != 4)
             {
-                string command = $"select u.f+' '+u.i+' '+u.o,da.REL_SERVER_PATH,da.FILE_SERVER_NAME, da.name, lap.dt,d.name,lap.dsc from law_act_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ left join doc_attach da on da.id = lap.r_doc_attach_id where d.parent_id = 26 and lap.parent_id = {Settings.debt_id}";
-                using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, Program.Conn))
-                {
-                    dataAdapter.Fill(dataSet1.DataTable3);
-                }
-                dataGridView1.DataSource = dataSet1.DataTable3;
+                data = db.DocAttach.Include(x => x.User).Where(x => x.r_id == id && x.obj_id == 46).ToList();
             }
             else
             {
-                string command = $"select u.f+' '+u.i+' '+u.o,da.REL_SERVER_PATH,da.FILE_SERVER_NAME, da.name, lap.dt,d.name,lap.dsc from law_exec_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ left join doc_attach da on da.id = lap.r_doc_attach_id where d.parent_id = 26 and lap.parent_id = {Settings.debt_id}";
-                using (OdbcDataAdapter dataAdapter = new OdbcDataAdapter(command, Program.Conn))
-                {
-                    dataAdapter.Fill(dataSet1.DataTable3);
-                }
-                dataGridView1.DataSource = dataSet1.DataTable3;
+                data = db.DocAttach.Include(x => x.User).Where(x => x.r_id == id && x.obj_id == 47).ToList();
+
             }
+            dataGridView1.DataSource = data;
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
