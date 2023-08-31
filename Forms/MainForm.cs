@@ -100,7 +100,27 @@ namespace DocumentAdder.Forms
         {
             InitializeComponent();
         }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "status")
+            {
+                var data = (List<LawActResult>)lawActResultBindingSource.DataSource;
+                var item = data[e.RowIndex];
+                if (item.typ == 1)
+                {
+                    if (item.status == null)
+                        return;
+                    e.Value = Settings.status[0][item.status.Value];
+                }
+                else if (item.typ > 1)
+                {
+                    if (item.act_status == null)
+                        return;
+                    e.Value = Settings.status[1][item.act_status.Value];
+                }
 
+            }
+        }
         public void Loader()
         {
             if (!runed)
@@ -109,6 +129,7 @@ namespace DocumentAdder.Forms
                 List<CBMember> cBMembers = new List<CBMember>();
                 Documents.DataSource = Adder.files;
                 dictModelBindingSource.DataSource = Settings.dicts[405];
+                dataGridView1.CellFormatting += dataGridView1_CellFormatting;
                 cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
                 cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
                 cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });

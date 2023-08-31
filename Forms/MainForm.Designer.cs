@@ -73,7 +73,6 @@ namespace DocumentAdder.Forms
             typ = new System.Windows.Forms.DataGridViewComboBoxColumn();
             dictModelBindingSource = new System.Windows.Forms.BindingSource(components);
             status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            act_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             fio_vz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             portfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -613,7 +612,7 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { id, typ, status, act_status, fio_vz, name, portfolio, fio, birth_date, contract, exec_number, total_sum, dsc, court_doc_num, court_date, court_name, court_adress, start_sum, number, series, birth_place, full_adr, exec_date, inn });
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { id, typ, status, fio_vz, name, portfolio, fio, birth_date, contract, exec_number, total_sum, dsc, court_doc_num, court_date, court_name, court_adress, start_sum, number, series, birth_place, full_adr, exec_date, inn });
             tableLayoutPanel1.SetColumnSpan(dataGridView1, 4);
             dataGridView1.DataSource = lawActResultBindingSource;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -669,17 +668,9 @@ namespace DocumentAdder.Forms
             // 
             // status
             // 
-            status.DataPropertyName = "status";
-            status.HeaderText = "Статус приказа";
+            status.HeaderText = "Статус";
             status.Name = "status";
             status.ReadOnly = true;
-            // 
-            // act_status
-            // 
-            act_status.DataPropertyName = "act_status";
-            act_status.HeaderText = "Статус иска";
-            act_status.Name = "act_status";
-            act_status.ReadOnly = true;
             // 
             // fio_vz
             // 
@@ -2190,7 +2181,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewComboBoxColumn typ;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn act_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn fio_vz;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn portfolio;
