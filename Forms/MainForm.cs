@@ -39,7 +39,7 @@ namespace DocumentAdder.Forms
                 textBox4.Text = given.Replace("\r", string.Empty);
                 //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
                 Searcher searcher = new Searcher("", textBox4.Text, "", "");
-                searcher.GetTables(dataGridView1, dataGridView2);
+                searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
                 if (dataGridView1.RowCount == 1)
                 {
                     textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
@@ -260,7 +260,7 @@ namespace DocumentAdder.Forms
             if (e.KeyCode == Keys.Enter)
             {
                 Searcher searcher = new Searcher(textBoxFio.Text, textBox4.Text, textBox5.Text, textBox6.Text);
-                searcher.GetTables(dataGridView1, dataGridView2);
+                searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             }
             if (e.Control && e.KeyCode == Keys.D)
                 ClearTextBox();

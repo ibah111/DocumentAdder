@@ -25,13 +25,11 @@ namespace DocumentAdder.Utils
             _kd = kd;
             _exec_num = exec_num;
         }
-        public void GetTables(DataGridView dataGridView1, DataGridView dataGridView2)
+        public void GetTables(BindingSource LawActSource, BindingSource LawExecSource)
         {
             using var db = Program.factory_db.CreateDbContext();
-            if (dataGridView1.Rows.Count != 0)
-                dataGridView1.Rows.Clear();
-            if (dataGridView2.Rows.Count != 0)
-                dataGridView2.Rows.Clear();
+            LawActSource.Clear();
+            LawExecSource.Clear();
 
             var data1 = db.LawAct.Where(
                 x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_fio}%")
@@ -123,8 +121,8 @@ namespace DocumentAdder.Utils
             });
             var result1 = select1.ToList();
             var result2 = select2.ToList();
-            dataGridView1.DataSource = result1;
-            dataGridView2.DataSource = result2;
+            LawActSource.DataSource = result1;
+            LawExecSource.DataSource = result2;
         }
     }
 }

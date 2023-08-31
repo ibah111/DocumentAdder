@@ -39,13 +39,10 @@ namespace DocumentAdder.Dialogs
             this.isconfirmedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtcalcBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new DocumentAdder.DataSet1();
-            this.debt_calcTableAdapter = new DocumentAdder.DataSet1TableAdapters.debt_calcTableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.debtcalcBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,16 +115,6 @@ namespace DocumentAdder.Dialogs
             // debtcalcBindingSource
             // 
             this.debtcalcBindingSource.DataMember = "debt_calc";
-            this.debtcalcBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // debt_calcTableAdapter
-            // 
-            this.debt_calcTableAdapter.ClearBeforeFill = true;
             // 
             // tableLayoutPanel1
             // 
@@ -168,7 +155,6 @@ namespace DocumentAdder.Dialogs
             this.Load += new System.EventHandler(this.DebtCalc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.debtcalcBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -177,9 +163,7 @@ namespace DocumentAdder.Dialogs
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource debtcalcBindingSource;
-        private DataSet1TableAdapters.debt_calcTableAdapter debt_calcTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn calcdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDataGridViewTextBoxColumn;

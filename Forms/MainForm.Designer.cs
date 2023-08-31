@@ -34,6 +34,11 @@ namespace DocumentAdder.Forms
         {
             components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -64,6 +69,7 @@ namespace DocumentAdder.Forms
             maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
+            lawActResultBindingSource = new System.Windows.Forms.BindingSource(components);
             label19 = new System.Windows.Forms.Label();
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
@@ -79,15 +85,30 @@ namespace DocumentAdder.Forms
             maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
             maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
             dataGridView2 = new System.Windows.Forms.DataGridView();
-            court_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            court_adress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            start_sum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            series1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            number1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            birth_place1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            full_adr1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            exec_date1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            inn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            debtstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fiovzDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            portfolioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            birthdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            contractDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fsspdocnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            courtdocnumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fsspnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fsspaddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            courtnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            courtaddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            execnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dscDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fulladrDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            startsumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            seriesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            innDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            execdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            birthplaceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            lawExecResultBindingSource = new System.Windows.Forms.BindingSource(components);
             textBox11 = new System.Windows.Forms.TextBox();
             textBox12 = new System.Windows.Forms.TextBox();
             panel1 = new System.Windows.Forms.Panel();
@@ -161,10 +182,36 @@ namespace DocumentAdder.Forms
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             selectDocBarcode = new System.Windows.Forms.ComboBox();
             Documents = new System.Windows.Forms.BindingSource(components);
+            id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            act_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fio_vz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            portfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            birth_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            exec_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            total_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_doc_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            court_adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            start_sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            birth_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            full_adr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            exec_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -552,6 +599,7 @@ namespace DocumentAdder.Forms
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -563,34 +611,40 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { id, typ, status, act_status, fio_vz, name, portfolio, fio, birth_date, contract, exec_number, total_sum, dsc, court_doc_num, court_date, court_name, court_adress, start_sum, number, series, birth_place, full_adr, exec_date, inn });
             tableLayoutPanel1.SetColumnSpan(dataGridView1, 4);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.DataSource = lawActResultBindingSource;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Gray;
             dataGridView1.Location = new System.Drawing.Point(732, 168);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView1, 12);
             dataGridView1.Size = new System.Drawing.Size(724, 414);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            // 
+            // lawActResultBindingSource
+            // 
+            lawActResultBindingSource.DataSource = typeof(Utils.LawActResult);
             // 
             // label19
             // 
@@ -758,106 +812,187 @@ namespace DocumentAdder.Forms
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.AllowUserToOrderColumns = true;
+            dataGridView2.AutoGenerateColumns = false;
             dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { court_date1, court_adress1, start_sum1, series1, number1, birth_place1, full_adr1, exec_date1, inn1 });
+            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn1, statusDataGridViewTextBoxColumn1, debtstatusDataGridViewTextBoxColumn, fiovzDataGridViewTextBoxColumn1, portfolioDataGridViewTextBoxColumn1, fioDataGridViewTextBoxColumn1, birthdateDataGridViewTextBoxColumn1, contractDataGridViewTextBoxColumn1, fsspdocnumDataGridViewTextBoxColumn, courtdocnumDataGridViewTextBoxColumn1, fsspnameDataGridViewTextBoxColumn, fsspaddressDataGridViewTextBoxColumn, courtnameDataGridViewTextBoxColumn1, courtaddressDataGridViewTextBoxColumn, execnumberDataGridViewTextBoxColumn1, dscDataGridViewTextBoxColumn1, fulladrDataGridViewTextBoxColumn1, startsumDataGridViewTextBoxColumn1, numberDataGridViewTextBoxColumn1, seriesDataGridViewTextBoxColumn1, innDataGridViewTextBoxColumn1, execdateDataGridViewTextBoxColumn1, birthplaceDataGridViewTextBoxColumn1 });
             tableLayoutPanel1.SetColumnSpan(dataGridView2, 4);
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridView2.DataSource = lawExecResultBindingSource;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle10;
             dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView2.Location = new System.Drawing.Point(732, 693);
             dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
             dataGridView2.Size = new System.Drawing.Size(724, 225);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
             // 
-            // court_date1
+            // idDataGridViewTextBoxColumn1
             // 
-            court_date1.DataPropertyName = "court_date1";
-            court_date1.HeaderText = "Дата ИЛ";
-            court_date1.Name = "court_date1";
-            court_date1.ReadOnly = true;
+            idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            idDataGridViewTextBoxColumn1.HeaderText = "id";
+            idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
             // 
-            // court_adress1
+            // statusDataGridViewTextBoxColumn1
             // 
-            court_adress1.DataPropertyName = "court_adress1";
-            court_adress1.HeaderText = "Адрес суда";
-            court_adress1.Name = "court_adress1";
-            court_adress1.ReadOnly = true;
+            statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
             // 
-            // start_sum1
+            // debtstatusDataGridViewTextBoxColumn
             // 
-            start_sum1.DataPropertyName = "start_sum1";
-            start_sum1.HeaderText = "Сумма задолженности";
-            start_sum1.Name = "start_sum1";
-            start_sum1.ReadOnly = true;
+            debtstatusDataGridViewTextBoxColumn.DataPropertyName = "Debt_status";
+            debtstatusDataGridViewTextBoxColumn.HeaderText = "Debt_status";
+            debtstatusDataGridViewTextBoxColumn.Name = "debtstatusDataGridViewTextBoxColumn";
             // 
-            // series1
+            // fiovzDataGridViewTextBoxColumn1
             // 
-            series1.DataPropertyName = "series1";
-            series1.HeaderText = "Серия(паспорт)";
-            series1.Name = "series1";
-            series1.ReadOnly = true;
+            fiovzDataGridViewTextBoxColumn1.DataPropertyName = "fio_vz";
+            fiovzDataGridViewTextBoxColumn1.HeaderText = "fio_vz";
+            fiovzDataGridViewTextBoxColumn1.Name = "fiovzDataGridViewTextBoxColumn1";
             // 
-            // number1
+            // portfolioDataGridViewTextBoxColumn1
             // 
-            number1.DataPropertyName = "number1";
-            number1.HeaderText = "Номер(паспорт)";
-            number1.Name = "number1";
-            number1.ReadOnly = true;
+            portfolioDataGridViewTextBoxColumn1.DataPropertyName = "portfolio";
+            portfolioDataGridViewTextBoxColumn1.HeaderText = "portfolio";
+            portfolioDataGridViewTextBoxColumn1.Name = "portfolioDataGridViewTextBoxColumn1";
             // 
-            // birth_place1
+            // fioDataGridViewTextBoxColumn1
             // 
-            birth_place1.DataPropertyName = "birth_place1";
-            birth_place1.HeaderText = "Место рождения";
-            birth_place1.Name = "birth_place1";
-            birth_place1.ReadOnly = true;
+            fioDataGridViewTextBoxColumn1.DataPropertyName = "fio";
+            fioDataGridViewTextBoxColumn1.HeaderText = "fio";
+            fioDataGridViewTextBoxColumn1.Name = "fioDataGridViewTextBoxColumn1";
             // 
-            // full_adr1
+            // birthdateDataGridViewTextBoxColumn1
             // 
-            full_adr1.DataPropertyName = "full_adr1";
-            full_adr1.HeaderText = "Фактический адрес";
-            full_adr1.Name = "full_adr1";
-            full_adr1.ReadOnly = true;
+            birthdateDataGridViewTextBoxColumn1.DataPropertyName = "birth_date";
+            birthdateDataGridViewTextBoxColumn1.HeaderText = "birth_date";
+            birthdateDataGridViewTextBoxColumn1.Name = "birthdateDataGridViewTextBoxColumn1";
             // 
-            // exec_date1
+            // contractDataGridViewTextBoxColumn1
             // 
-            exec_date1.DataPropertyName = "exec_date1";
-            exec_date1.HeaderText = "Дата дела";
-            exec_date1.Name = "exec_date1";
-            exec_date1.ReadOnly = true;
+            contractDataGridViewTextBoxColumn1.DataPropertyName = "contract";
+            contractDataGridViewTextBoxColumn1.HeaderText = "contract";
+            contractDataGridViewTextBoxColumn1.Name = "contractDataGridViewTextBoxColumn1";
             // 
-            // inn1
+            // fsspdocnumDataGridViewTextBoxColumn
             // 
-            inn1.DataPropertyName = "inn1";
-            inn1.HeaderText = "ИНН";
-            inn1.Name = "inn1";
-            inn1.ReadOnly = true;
+            fsspdocnumDataGridViewTextBoxColumn.DataPropertyName = "fssp_doc_num";
+            fsspdocnumDataGridViewTextBoxColumn.HeaderText = "fssp_doc_num";
+            fsspdocnumDataGridViewTextBoxColumn.Name = "fsspdocnumDataGridViewTextBoxColumn";
+            // 
+            // courtdocnumDataGridViewTextBoxColumn1
+            // 
+            courtdocnumDataGridViewTextBoxColumn1.DataPropertyName = "court_doc_num";
+            courtdocnumDataGridViewTextBoxColumn1.HeaderText = "court_doc_num";
+            courtdocnumDataGridViewTextBoxColumn1.Name = "courtdocnumDataGridViewTextBoxColumn1";
+            // 
+            // fsspnameDataGridViewTextBoxColumn
+            // 
+            fsspnameDataGridViewTextBoxColumn.DataPropertyName = "fssp_name";
+            fsspnameDataGridViewTextBoxColumn.HeaderText = "fssp_name";
+            fsspnameDataGridViewTextBoxColumn.Name = "fsspnameDataGridViewTextBoxColumn";
+            // 
+            // fsspaddressDataGridViewTextBoxColumn
+            // 
+            fsspaddressDataGridViewTextBoxColumn.DataPropertyName = "fssp_address";
+            fsspaddressDataGridViewTextBoxColumn.HeaderText = "fssp_address";
+            fsspaddressDataGridViewTextBoxColumn.Name = "fsspaddressDataGridViewTextBoxColumn";
+            // 
+            // courtnameDataGridViewTextBoxColumn1
+            // 
+            courtnameDataGridViewTextBoxColumn1.DataPropertyName = "court_name";
+            courtnameDataGridViewTextBoxColumn1.HeaderText = "court_name";
+            courtnameDataGridViewTextBoxColumn1.Name = "courtnameDataGridViewTextBoxColumn1";
+            // 
+            // courtaddressDataGridViewTextBoxColumn
+            // 
+            courtaddressDataGridViewTextBoxColumn.DataPropertyName = "court_address";
+            courtaddressDataGridViewTextBoxColumn.HeaderText = "court_address";
+            courtaddressDataGridViewTextBoxColumn.Name = "courtaddressDataGridViewTextBoxColumn";
+            // 
+            // execnumberDataGridViewTextBoxColumn1
+            // 
+            execnumberDataGridViewTextBoxColumn1.DataPropertyName = "exec_number";
+            execnumberDataGridViewTextBoxColumn1.HeaderText = "exec_number";
+            execnumberDataGridViewTextBoxColumn1.Name = "execnumberDataGridViewTextBoxColumn1";
+            // 
+            // dscDataGridViewTextBoxColumn1
+            // 
+            dscDataGridViewTextBoxColumn1.DataPropertyName = "dsc";
+            dscDataGridViewTextBoxColumn1.HeaderText = "dsc";
+            dscDataGridViewTextBoxColumn1.Name = "dscDataGridViewTextBoxColumn1";
+            // 
+            // fulladrDataGridViewTextBoxColumn1
+            // 
+            fulladrDataGridViewTextBoxColumn1.DataPropertyName = "full_adr";
+            fulladrDataGridViewTextBoxColumn1.HeaderText = "full_adr";
+            fulladrDataGridViewTextBoxColumn1.Name = "fulladrDataGridViewTextBoxColumn1";
+            // 
+            // startsumDataGridViewTextBoxColumn1
+            // 
+            startsumDataGridViewTextBoxColumn1.DataPropertyName = "start_sum";
+            startsumDataGridViewTextBoxColumn1.HeaderText = "start_sum";
+            startsumDataGridViewTextBoxColumn1.Name = "startsumDataGridViewTextBoxColumn1";
+            // 
+            // numberDataGridViewTextBoxColumn1
+            // 
+            numberDataGridViewTextBoxColumn1.DataPropertyName = "number";
+            numberDataGridViewTextBoxColumn1.HeaderText = "number";
+            numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
+            // 
+            // seriesDataGridViewTextBoxColumn1
+            // 
+            seriesDataGridViewTextBoxColumn1.DataPropertyName = "series";
+            seriesDataGridViewTextBoxColumn1.HeaderText = "series";
+            seriesDataGridViewTextBoxColumn1.Name = "seriesDataGridViewTextBoxColumn1";
+            // 
+            // innDataGridViewTextBoxColumn1
+            // 
+            innDataGridViewTextBoxColumn1.DataPropertyName = "inn";
+            innDataGridViewTextBoxColumn1.HeaderText = "inn";
+            innDataGridViewTextBoxColumn1.Name = "innDataGridViewTextBoxColumn1";
+            // 
+            // execdateDataGridViewTextBoxColumn1
+            // 
+            execdateDataGridViewTextBoxColumn1.DataPropertyName = "exec_date";
+            execdateDataGridViewTextBoxColumn1.HeaderText = "exec_date";
+            execdateDataGridViewTextBoxColumn1.Name = "execdateDataGridViewTextBoxColumn1";
+            // 
+            // birthplaceDataGridViewTextBoxColumn1
+            // 
+            birthplaceDataGridViewTextBoxColumn1.DataPropertyName = "birth_place";
+            birthplaceDataGridViewTextBoxColumn1.HeaderText = "birth_place";
+            birthplaceDataGridViewTextBoxColumn1.Name = "birthplaceDataGridViewTextBoxColumn1";
+            // 
+            // lawExecResultBindingSource
+            // 
+            lawExecResultBindingSource.DataSource = typeof(Utils.LawExecResult);
             // 
             // textBox11
             // 
@@ -1680,6 +1815,165 @@ namespace DocumentAdder.Forms
             // 
             Documents.DataSource = typeof(Adder.FileItem);
             // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "ID";
+            id.Name = "id";
+            // 
+            // typ
+            // 
+            typ.DataPropertyName = "typ";
+            typ.HeaderText = "Вкладка";
+            typ.Name = "typ";
+            // 
+            // status
+            // 
+            status.DataPropertyName = "status";
+            status.HeaderText = "Статус приказа";
+            status.Name = "status";
+            // 
+            // act_status
+            // 
+            act_status.DataPropertyName = "act_status";
+            act_status.HeaderText = "Статус иска";
+            act_status.Name = "act_status";
+            // 
+            // fio_vz
+            // 
+            fio_vz.DataPropertyName = "fio_vz";
+            fio_vz.HeaderText = "ФИО взыскателя";
+            fio_vz.Name = "fio_vz";
+            // 
+            // name
+            // 
+            name.DataPropertyName = "name";
+            name.HeaderText = "Название продукта";
+            name.Name = "name";
+            // 
+            // portfolio
+            // 
+            portfolio.DataPropertyName = "portfolio";
+            portfolio.HeaderText = "Портфель";
+            portfolio.Name = "portfolio";
+            // 
+            // fio
+            // 
+            fio.DataPropertyName = "fio";
+            fio.HeaderText = "ФИО должника";
+            fio.Name = "fio";
+            // 
+            // birth_date
+            // 
+            birth_date.DataPropertyName = "birth_date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            birth_date.DefaultCellStyle = dataGridViewCellStyle2;
+            birth_date.HeaderText = "Дата рождения";
+            birth_date.Name = "birth_date";
+            // 
+            // contract
+            // 
+            contract.DataPropertyName = "contract";
+            contract.HeaderText = "Договор";
+            contract.Name = "contract";
+            // 
+            // exec_number
+            // 
+            exec_number.DataPropertyName = "exec_number";
+            exec_number.HeaderText = "Номер приказа";
+            exec_number.Name = "exec_number";
+            // 
+            // total_sum
+            // 
+            total_sum.DataPropertyName = "total_sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            total_sum.DefaultCellStyle = dataGridViewCellStyle3;
+            total_sum.HeaderText = "Размер требований";
+            total_sum.Name = "total_sum";
+            // 
+            // dsc
+            // 
+            dsc.DataPropertyName = "dsc";
+            dsc.HeaderText = "Комментарий";
+            dsc.Name = "dsc";
+            // 
+            // court_doc_num
+            // 
+            court_doc_num.DataPropertyName = "court_doc_num";
+            court_doc_num.HeaderText = "ИД";
+            court_doc_num.Name = "court_doc_num";
+            // 
+            // court_date
+            // 
+            court_date.DataPropertyName = "court_date";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            court_date.DefaultCellStyle = dataGridViewCellStyle4;
+            court_date.HeaderText = "Дата вынесения";
+            court_date.Name = "court_date";
+            // 
+            // court_name
+            // 
+            court_name.DataPropertyName = "court_name";
+            court_name.HeaderText = "Название суда";
+            court_name.Name = "court_name";
+            // 
+            // court_adress
+            // 
+            court_adress.DataPropertyName = "court_adress";
+            court_adress.HeaderText = "Адрес суда";
+            court_adress.Name = "court_adress";
+            // 
+            // start_sum
+            // 
+            start_sum.DataPropertyName = "start_sum";
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            start_sum.DefaultCellStyle = dataGridViewCellStyle5;
+            start_sum.HeaderText = "Начальная сумма";
+            start_sum.Name = "start_sum";
+            // 
+            // number
+            // 
+            number.DataPropertyName = "number";
+            number.HeaderText = "Номер паспорта";
+            number.Name = "number";
+            // 
+            // series
+            // 
+            series.DataPropertyName = "series";
+            series.HeaderText = "Серия паспорта";
+            series.Name = "series";
+            // 
+            // birth_place
+            // 
+            birth_place.DataPropertyName = "birth_place";
+            birth_place.HeaderText = "Место рождения";
+            birth_place.Name = "birth_place";
+            // 
+            // full_adr
+            // 
+            full_adr.DataPropertyName = "full_adr";
+            full_adr.HeaderText = "Адрес регистрации";
+            full_adr.Name = "full_adr";
+            // 
+            // exec_date
+            // 
+            exec_date.DataPropertyName = "exec_date";
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            exec_date.DefaultCellStyle = dataGridViewCellStyle6;
+            exec_date.HeaderText = "Дата отправки судебного приказа";
+            exec_date.Name = "exec_date";
+            // 
+            // inn
+            // 
+            inn.DataPropertyName = "inn";
+            inn.HeaderText = "ИНН";
+            inn.Name = "inn";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1697,7 +1991,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -1814,49 +2110,70 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label labelInn;
         private System.Windows.Forms.MaskedTextBox execDateMb;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fiovzDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn execnumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dscDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn debtstatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fiovzDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthdateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fsspdocnumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courtdocnumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name2DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn execnumberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dscDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn court_date1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn court_adress1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn start_sum1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn series1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birth_place1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn full_adr1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn exec_date1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inn1;
         private System.Windows.Forms.ComboBox ModeCB;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label labelSelectDocBarcode;
         private System.Windows.Forms.ComboBox selectDocBarcode;
         private System.Windows.Forms.BindingSource Documents;
+        private System.Windows.Forms.BindingSource lawActResultBindingSource;
+        private System.Windows.Forms.BindingSource lawExecResultBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debtstatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fiovzDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn portfolioDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthdateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fsspdocnumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courtdocnumDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fsspnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fsspaddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courtnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courtaddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn execnumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dscDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fulladrDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startsumDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seriesDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn execdateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthplaceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn act_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fio_vz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn portfolio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birth_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contract;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exec_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dsc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn court_doc_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn court_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn court_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn court_adress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start_sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn series;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birth_place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn full_adr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exec_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inn;
     }
 }
 

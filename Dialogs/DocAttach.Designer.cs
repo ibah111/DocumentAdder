@@ -42,12 +42,9 @@ namespace DocumentAdder.Dialogs
             this.name1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new DocumentAdder.DataSet1();
-            this.dataTable3TableAdapter = new DocumentAdder.DataSet1TableAdapters.DataTable3TableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -160,16 +157,6 @@ namespace DocumentAdder.Dialogs
             // dataTable3BindingSource
             // 
             this.dataTable3BindingSource.DataMember = "DataTable3";
-            this.dataTable3BindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataTable3TableAdapter
-            // 
-            this.dataTable3TableAdapter.ClearBeforeFill = true;
             // 
             // DocAttach
             // 
@@ -184,7 +171,6 @@ namespace DocumentAdder.Dialogs
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,9 +180,7 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource dataTable3BindingSource;
-        private DataSet1TableAdapters.DataTable3TableAdapter dataTable3TableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rELSERVERPATHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fILESERVERNAMEDataGridViewTextBoxColumn;
