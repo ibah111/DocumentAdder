@@ -66,6 +66,8 @@ namespace DocumentAdder.Forms
         public MainForm()
         {
             InitializeComponent();
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(this.clearStatus, "Не менять статус");
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -77,13 +79,13 @@ namespace DocumentAdder.Forms
                 {
                     if (item.status == null)
                         return;
-                    e.Value = Settings.dicts[getIntDict(item.typ.Value)][item.status.Value];
+                    e.Value = Settings.dicts[getIntDict(item.typ.Value)][item.status.Value].name;
                 }
                 else if (item.typ > 1)
                 {
                     if (item.act_status == null)
                         return;
-                    e.Value = Settings.dicts[getIntDict(item.typ.Value)][item.act_status.Value];
+                    e.Value = Settings.dicts[getIntDict(item.typ.Value)][item.act_status.Value].name;
                 }
 
             }
@@ -95,7 +97,7 @@ namespace DocumentAdder.Forms
                 this.Text = FromStart.DownloadInfo();
                 List<CBMember> cBMembers = new List<CBMember>();
                 Documents.DataSource = Adder.files;
-                dictModelBindingSource.DataSource = Settings.dicts[405];
+                dictTyp.DataSource = Settings.dicts[405].Values.ToList();
                 dataGridView1.CellFormatting += dataGridView1_CellFormatting;
                 cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
                 cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
@@ -138,7 +140,7 @@ namespace DocumentAdder.Forms
                 }
                 Settings.json = Resources.config;
                 panel1.AllowDrop = true;
-                Dictionary<int, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
+                var o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
                 settings_json = o;
                 for (int a = 0; a < o.Count; a++)
                     comboBox1.Items.Add(o[a].тип_документа);
@@ -151,25 +153,24 @@ namespace DocumentAdder.Forms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-            string a = comboBox1.SelectedIndex.ToString();
-            Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
-            textBox7.Enabled = o[a].номер_кд;
-            textBox8.Enabled = o[a].номер_дела;
-            textBox9.Enabled = o[a].номер_ип;
-            textBox10.Enabled = o[a].номер_испол;
-            maskedTextBox1.Enabled = o[a].дата_вынесения_решения;
-            maskedTextBox2.Enabled = o[a].дата_вступления_в_силу;
-            maskedTextBox3.Enabled = o[a].дата_возбуждения;
-            maskedTextBox4.Enabled = o[a].дата_пост_об_окончании_ип;
-            maskedTextBox5.Enabled = o[a].дата_получения_агентством;
-            maskedTextBox6.Enabled = o[a].дата_возврата;
-            maskedTextBox7.Enabled = o[a].дата_ограничения_выезда;
-            maskedTextBox8.Enabled = o[a].дата_отказа_в_возбуждении;
-            maskedTextBox9.Enabled = o[a].дата_отмены_сп;
-            maskedTextBox10.Enabled = o[a].дата_исполнения_недостатков;
-            maskedTextBox11.Enabled = o[a].дата_и_время_сз;
-            Data.int_color = o[a].цвет_карточки;
-            Settings.barcode = o[a].штрих_код;
+            var a = comboBox1.SelectedIndex;
+            textBox7.Enabled = settings_json[a].номер_кд;
+            textBox8.Enabled = settings_json[a].номер_дела;
+            textBox9.Enabled = settings_json[a].номер_ип;
+            textBox10.Enabled = settings_json[a].номер_испол;
+            maskedTextBox1.Enabled = settings_json[a].дата_вынесения_решения;
+            maskedTextBox2.Enabled = settings_json[a].дата_вступления_в_силу;
+            maskedTextBox3.Enabled = settings_json[a].дата_возбуждения;
+            maskedTextBox4.Enabled = settings_json[a].дата_пост_об_окончании_ип;
+            maskedTextBox5.Enabled = settings_json[a].дата_получения_агентством;
+            maskedTextBox6.Enabled = settings_json[a].дата_возврата;
+            maskedTextBox7.Enabled = settings_json[a].дата_ограничения_выезда;
+            maskedTextBox8.Enabled = settings_json[a].дата_отказа_в_возбуждении;
+            maskedTextBox9.Enabled = settings_json[a].дата_отмены_сп;
+            maskedTextBox10.Enabled = settings_json[a].дата_исполнения_недостатков;
+            maskedTextBox11.Enabled = settings_json[a].дата_и_время_сз;
+            Data.int_color = settings_json[a].цвет_карточки;
+            Settings.barcode = settings_json[a].штрих_код;
             if (Settings.barcode == true)
             {
                 if (Utils.Printer.CheckCom())
@@ -215,10 +216,10 @@ namespace DocumentAdder.Forms
             }
             else
                 Settings.dateId = false;
-            if (!String.IsNullOrEmpty(o[a].название_документа))
-                comboBox5.Text = o[a].название_документа;
-            if (o[a].исполнитель.HasValue)
-                comboBox7.SelectedValue = o[a].исполнитель;
+            if (!String.IsNullOrEmpty(settings_json[a].название_документа))
+                comboBox5.Text = settings_json[a].название_документа;
+            if (settings_json[a].исполнитель.HasValue)
+                comboBox7.SelectedValue = settings_json[a].исполнитель;
         }
 
         private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
@@ -285,15 +286,20 @@ namespace DocumentAdder.Forms
             textBox5.Text = data.contract; // № КД
             textBox6.Text = data.exec_number; //№ Дела
             textBox12.Text = data.dsc; //Коммент
-            dictStatus.DataSource = Settings.dicts[getIntDict(data.typ.Value)];
+            var dict = getIntDict(data.typ.Value);
+            dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
             var settings = settings_json[comboBox1.SelectedIndex];
-            if (!settings.без_смены_суд[getIntDict(data.typ.Value)].Contains(getIntStatus(data).Value))
+            if (!(settings.без_смены_суд.ContainsKey(dict) && settings.без_смены_суд[dict].Contains(getIntStatus(data).Value)) && settings.судебн_статус.ContainsKey(data.typ.Value))
             {
                 comboBox3.SelectedValue = settings.судебн_статус[data.typ.Value];
             }
+            else
+            {
+                comboBox3.SelectedIndex = -1;
+            }
 
             maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-            maskedTextBox12.Text = data.court_date.Value.ToShortDateString();
+            maskedTextBox12.Text = data.court_date?.ToShortDateString();
             textBox23.Text = data.total_sum.ToString();
             textBox19.Text = data.series;
             textBox20.Text = data.number;
@@ -959,6 +965,11 @@ namespace DocumentAdder.Forms
                 {
                     comboBox8.Enabled = true;
                 }
+        }
+
+        private void clearStatus_Click(object sender, EventArgs e)
+        {
+            comboBox3.SelectedIndex = -1;
         }
 
 

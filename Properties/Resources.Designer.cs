@@ -71,6 +71,16 @@ namespace DocumentAdder.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClearIcon {
+            get {
+                object obj = ResourceManager.GetObject("ClearIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на {
         ///  &quot;0&quot;: {
         ///    &quot;тип_документа&quot;: &quot;Судебный приказ (СП) в НАШУ пользу&quot;,

@@ -75,6 +75,6 @@ namespace DocumentAdder
 
 
         public static Dictionary<int, string> users = new Dictionary<int, string>();
-        public static Dictionary<int, List<DictModel>> dicts = new();
+        public static Dictionary<int, Dictionary<int, DictModel>> dicts = new();
     }
 }

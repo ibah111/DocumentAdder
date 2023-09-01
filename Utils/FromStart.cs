@@ -21,7 +21,7 @@ namespace DocumentAdder.Utils
         {
             return $"Входящая почта. Документооборот. Пользователь: {Settings.username} [{Settings.user_id}]";
         }
-        public static Dictionary<int, List<DictModel>> GetDicts(params int[] list)
+        public static Dictionary<int, Dictionary<int, DictModel>> GetDicts(params int[] list)
         {
 
             using var db = Program.factory_db.CreateDbContext();
@@ -30,11 +30,11 @@ namespace DocumentAdder.Utils
                 x.parent_id,
                 x.code,
                 x.name
-            }).ToList().GroupBy(x => x.parent_id).ToDictionary(x => x.Key, x => x.Select(x => new DictModel
+            }).ToList().GroupBy(x => x.parent_id).ToDictionary(x => x.Key, x => x.ToDictionary(x => x.code, x => new DictModel
             {
                 code = x.code,
                 name = x.name
-            }).ToList());
+            }));
             return data;
         }
 

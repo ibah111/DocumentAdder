@@ -21,10 +21,10 @@ namespace DocumentAdder.Models
         public bool дата_отмены_сп;
         public bool дата_исполнения_недостатков;
         public bool дата_и_время_сз;
-        public Dictionary<int, int> судебн_статус = new();
+        public Dictionary<int, int> судебн_статус;
         public int? испол_статус;
-        public Dictionary<int, List<int>> без_смены_суд = new();
-        public List<int> без_смены_ид = new();
+        public Dictionary<int, List<int>> без_смены_суд;
+        public List<int> без_смены_ид;
         public bool штрих_код;
         public int? исполнитель;
         public string название_документа = null;

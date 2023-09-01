@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net6.0-windows</TargetFramework>
-		<UseWindowsForms>true</UseWindowsForms>
+		<UseWindowsForms>True</UseWindowsForms>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<StartupObject>DocumentAdder.Main.Program</StartupObject>
 		<EnableNETAnalyzers>False</EnableNETAnalyzers>

@@ -71,7 +71,7 @@ namespace DocumentAdder.Forms
             dataGridView1 = new System.Windows.Forms.DataGridView();
             id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typ = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            dictModelBindingSource = new System.Windows.Forms.BindingSource(components);
+            dictTyp = new System.Windows.Forms.BindingSource(components);
             status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             fio_vz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,10 +151,7 @@ namespace DocumentAdder.Forms
             button4 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
             label27 = new System.Windows.Forms.Label();
-            comboBox3 = new System.Windows.Forms.ComboBox();
-            dictStatus = new System.Windows.Forms.BindingSource(components);
             comboBox7 = new System.Windows.Forms.ComboBox();
-            label34 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
             comboBox8 = new System.Windows.Forms.ComboBox();
             label35 = new System.Windows.Forms.Label();
@@ -198,18 +195,24 @@ namespace DocumentAdder.Forms
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             selectDocBarcode = new System.Windows.Forms.ComboBox();
             Documents = new System.Windows.Forms.BindingSource(components);
+            label34 = new System.Windows.Forms.Label();
+            tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            comboBox3 = new System.Windows.Forms.ComboBox();
+            dictStatus = new System.Windows.Forms.BindingSource(components);
+            clearStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dictModelBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
+            tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -279,9 +282,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(button4, 3, 22);
             tableLayoutPanel1.Controls.Add(button5, 3, 23);
             tableLayoutPanel1.Controls.Add(label27, 3, 9);
-            tableLayoutPanel1.Controls.Add(comboBox3, 3, 10);
             tableLayoutPanel1.Controls.Add(comboBox7, 3, 12);
-            tableLayoutPanel1.Controls.Add(label34, 3, 11);
             tableLayoutPanel1.Controls.Add(label26, 0, 11);
             tableLayoutPanel1.Controls.Add(comboBox8, 0, 14);
             tableLayoutPanel1.Controls.Add(label35, 0, 13);
@@ -319,6 +320,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label45, 4, 18);
             tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 2, 18);
             tableLayoutPanel1.Controls.Add(selectDocBarcode, 2, 19);
+            tableLayoutPanel1.Controls.Add(label34, 3, 11);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 3, 10);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -638,7 +641,7 @@ namespace DocumentAdder.Forms
             // typ
             // 
             typ.DataPropertyName = "typ";
-            typ.DataSource = dictModelBindingSource;
+            typ.DataSource = dictTyp;
             typ.DisplayMember = "name";
             typ.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             typ.HeaderText = "Вкладка";
@@ -646,9 +649,9 @@ namespace DocumentAdder.Forms
             typ.ReadOnly = true;
             typ.ValueMember = "code";
             // 
-            // dictModelBindingSource
+            // dictTyp
             // 
-            dictModelBindingSource.DataSource = typeof(DictModel);
+            dictTyp.DataSource = typeof(DictModel);
             // 
             // status
             // 
@@ -1384,24 +1387,6 @@ namespace DocumentAdder.Forms
             label27.TabIndex = 49;
             label27.Text = "\r\nСтатус";
             // 
-            // comboBox3
-            // 
-            comboBox3.DataSource = dictStatus;
-            comboBox3.DisplayMember = "name";
-            comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new System.Drawing.Point(550, 308);
-            comboBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new System.Drawing.Size(174, 23);
-            comboBox3.TabIndex = 0;
-            comboBox3.ValueMember = "code";
-            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
-            // 
-            // dictStatus
-            // 
-            dictStatus.DataSource = typeof(DictModel);
-            // 
             // comboBox7
             // 
             comboBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -1415,17 +1400,6 @@ namespace DocumentAdder.Forms
             comboBox7.Size = new System.Drawing.Size(174, 23);
             comboBox7.TabIndex = 69;
             comboBox7.ValueMember = "ID";
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label34.Location = new System.Drawing.Point(550, 360);
-            label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label34.Name = "label34";
-            label34.Size = new System.Drawing.Size(174, 15);
-            label34.TabIndex = 74;
-            label34.Text = "Исполнитель задачи";
             // 
             // label26
             // 
@@ -1897,6 +1871,60 @@ namespace DocumentAdder.Forms
             // 
             Documents.DataSource = typeof(Adder.FileItem);
             // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Dock = System.Windows.Forms.DockStyle.Bottom;
+            label34.Location = new System.Drawing.Point(550, 360);
+            label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label34.Name = "label34";
+            label34.Size = new System.Drawing.Size(174, 15);
+            label34.TabIndex = 74;
+            label34.Text = "Исполнитель задачи";
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel4.Controls.Add(comboBox3, 0, 0);
+            tableLayoutPanel4.Controls.Add(clearStatus, 1, 0);
+            tableLayoutPanel4.Location = new System.Drawing.Point(549, 308);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new System.Drawing.Size(176, 29);
+            tableLayoutPanel4.TabIndex = 125;
+            // 
+            // comboBox3
+            // 
+            comboBox3.DataSource = dictStatus;
+            comboBox3.DisplayMember = "name";
+            comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new System.Drawing.Point(4, 3);
+            comboBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new System.Drawing.Size(132, 23);
+            comboBox3.TabIndex = 0;
+            comboBox3.ValueMember = "code";
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            // 
+            // dictStatus
+            // 
+            dictStatus.DataSource = typeof(DictModel);
+            // 
+            // clearStatus
+            // 
+            clearStatus.Image = Properties.Resources.ClearIcon;
+            clearStatus.Location = new System.Drawing.Point(143, 3);
+            clearStatus.Name = "clearStatus";
+            clearStatus.Size = new System.Drawing.Size(30, 23);
+            clearStatus.TabIndex = 1;
+            clearStatus.UseVisualStyleBackColor = true;
+            clearStatus.Click += clearStatus_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1914,16 +1942,17 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dictModelBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
+            tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
             ResumeLayout(false);
         }
 
@@ -2066,7 +2095,8 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn execdateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthplaceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource dictModelBindingSource;
+        private System.Windows.Forms.BindingSource dictTyp;
+        private System.Windows.Forms.BindingSource dictStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewComboBoxColumn typ;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
@@ -2090,7 +2120,8 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn full_adr;
         private System.Windows.Forms.DataGridViewTextBoxColumn exec_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn inn;
-        private System.Windows.Forms.BindingSource dictStatus;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button clearStatus;
     }
 }
 
