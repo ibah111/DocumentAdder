@@ -30,6 +30,9 @@ public class LawExecResult
     public DateTime? exec_date { get; set; }
     public string birth_place { get; set; }
 
+    public DateTime? court_date { get; set; }
+    public decimal? total_sum { get; set; }
+
 
 }
 

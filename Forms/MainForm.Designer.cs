@@ -152,6 +152,7 @@ namespace DocumentAdder.Forms
             button5 = new System.Windows.Forms.Button();
             label27 = new System.Windows.Forms.Label();
             comboBox3 = new System.Windows.Forms.ComboBox();
+            dictStatus = new System.Windows.Forms.BindingSource(components);
             comboBox7 = new System.Windows.Forms.ComboBox();
             label34 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
@@ -187,19 +188,10 @@ namespace DocumentAdder.Forms
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
-            textBox14 = new System.Windows.Forms.TextBox();
-            textBox18 = new System.Windows.Forms.TextBox();
-            comboBox2 = new System.Windows.Forms.ComboBox();
-            textBox22 = new System.Windows.Forms.TextBox();
-            textBox15 = new System.Windows.Forms.TextBox();
             maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
             textBox16 = new System.Windows.Forms.TextBox();
             label42 = new System.Windows.Forms.Label();
             label43 = new System.Windows.Forms.Label();
-            innMb = new System.Windows.Forms.MaskedTextBox();
-            labelInn = new System.Windows.Forms.Label();
-            execDateMb = new System.Windows.Forms.MaskedTextBox();
-            label44 = new System.Windows.Forms.Label();
             ModeCB = new System.Windows.Forms.ComboBox();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
             label45 = new System.Windows.Forms.Label();
@@ -213,6 +205,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -318,19 +311,10 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label28, 0, 20);
             tableLayoutPanel1.Controls.Add(label29, 2, 20);
             tableLayoutPanel1.Controls.Add(label30, 4, 20);
-            tableLayoutPanel1.Controls.Add(textBox14, 5, 20);
-            tableLayoutPanel1.Controls.Add(textBox18, 5, 19);
-            tableLayoutPanel1.Controls.Add(comboBox2, 6, 20);
-            tableLayoutPanel1.Controls.Add(textBox22, 6, 19);
-            tableLayoutPanel1.Controls.Add(textBox15, 7, 20);
             tableLayoutPanel1.Controls.Add(maskedTextBox12, 0, 19);
             tableLayoutPanel1.Controls.Add(textBox16, 1, 19);
             tableLayoutPanel1.Controls.Add(label42, 0, 18);
             tableLayoutPanel1.Controls.Add(label43, 1, 18);
-            tableLayoutPanel1.Controls.Add(innMb, 7, 19);
-            tableLayoutPanel1.Controls.Add(labelInn, 7, 18);
-            tableLayoutPanel1.Controls.Add(execDateMb, 3, 19);
-            tableLayoutPanel1.Controls.Add(label44, 3, 18);
             tableLayoutPanel1.Controls.Add(ModeCB, 4, 19);
             tableLayoutPanel1.Controls.Add(label45, 4, 18);
             tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 2, 18);
@@ -1402,6 +1386,8 @@ namespace DocumentAdder.Forms
             // 
             // comboBox3
             // 
+            comboBox3.DataSource = dictStatus;
+            comboBox3.DisplayMember = "name";
             comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox3.FormattingEnabled = true;
             comboBox3.Location = new System.Drawing.Point(550, 308);
@@ -1409,7 +1395,12 @@ namespace DocumentAdder.Forms
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new System.Drawing.Size(174, 23);
             comboBox3.TabIndex = 0;
+            comboBox3.ValueMember = "code";
             comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            // 
+            // dictStatus
+            // 
+            dictStatus.DataSource = typeof(DictModel);
             // 
             // comboBox7
             // 
@@ -1807,54 +1798,6 @@ namespace DocumentAdder.Forms
             label30.TabIndex = 54;
             label30.Text = "\r\nИспол. производство";
             // 
-            // textBox14
-            // 
-            textBox14.Location = new System.Drawing.Point(914, 658);
-            textBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new System.Drawing.Size(166, 23);
-            textBox14.TabIndex = 78;
-            textBox14.Visible = false;
-            // 
-            // textBox18
-            // 
-            textBox18.Location = new System.Drawing.Point(914, 623);
-            textBox18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new System.Drawing.Size(116, 23);
-            textBox18.TabIndex = 101;
-            textBox18.Visible = false;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Приказ", "Иск", "Правопреемство", "Банкротство", "Испол. пр-во" });
-            comboBox2.Location = new System.Drawing.Point(1096, 658);
-            comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new System.Drawing.Size(170, 23);
-            comboBox2.TabIndex = 0;
-            comboBox2.Visible = false;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-            // 
-            // textBox22
-            // 
-            textBox22.Location = new System.Drawing.Point(1096, 623);
-            textBox22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new System.Drawing.Size(116, 23);
-            textBox22.TabIndex = 105;
-            textBox22.Visible = false;
-            // 
-            // textBox15
-            // 
-            textBox15.Location = new System.Drawing.Point(1278, 658);
-            textBox15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new System.Drawing.Size(166, 23);
-            textBox15.TabIndex = 80;
-            textBox15.Visible = false;
-            // 
             // maskedTextBox12
             // 
             maskedTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1896,52 +1839,6 @@ namespace DocumentAdder.Forms
             label43.Size = new System.Drawing.Size(174, 15);
             label43.TabIndex = 115;
             label43.Text = "№ ИД";
-            // 
-            // innMb
-            // 
-            innMb.Dock = System.Windows.Forms.DockStyle.Fill;
-            innMb.Location = new System.Drawing.Point(1278, 623);
-            innMb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            innMb.Mask = "000000000000";
-            innMb.Name = "innMb";
-            innMb.Size = new System.Drawing.Size(178, 23);
-            innMb.TabIndex = 117;
-            innMb.Visible = false;
-            // 
-            // labelInn
-            // 
-            labelInn.AutoSize = true;
-            labelInn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            labelInn.Location = new System.Drawing.Point(1278, 605);
-            labelInn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            labelInn.Name = "labelInn";
-            labelInn.Size = new System.Drawing.Size(178, 15);
-            labelInn.TabIndex = 118;
-            labelInn.Text = "ИНН";
-            labelInn.Visible = false;
-            // 
-            // execDateMb
-            // 
-            execDateMb.Dock = System.Windows.Forms.DockStyle.Fill;
-            execDateMb.Location = new System.Drawing.Point(550, 623);
-            execDateMb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            execDateMb.Mask = "00/00/0000";
-            execDateMb.Name = "execDateMb";
-            execDateMb.Size = new System.Drawing.Size(174, 23);
-            execDateMb.TabIndex = 119;
-            execDateMb.Visible = false;
-            // 
-            // label44
-            // 
-            label44.AutoSize = true;
-            label44.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label44.Location = new System.Drawing.Point(550, 605);
-            label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label44.Name = "label44";
-            label44.Size = new System.Drawing.Size(174, 15);
-            label44.TabIndex = 120;
-            label44.Text = "Дата дела";
-            label44.Visible = false;
             // 
             // ModeCB
             // 
@@ -2021,6 +1918,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -2075,7 +1973,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.MaskedTextBox maskedTextBox10;
         private System.Windows.Forms.MaskedTextBox maskedTextBox11;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -2100,8 +1997,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.Label label35;
@@ -2120,11 +2015,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
@@ -2133,10 +2026,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.MaskedTextBox maskedTextBox12;
-        private System.Windows.Forms.MaskedTextBox innMb;
-        private System.Windows.Forms.Label labelInn;
-        private System.Windows.Forms.MaskedTextBox execDateMb;
-        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name2DataGridViewTextBoxColumn;
@@ -2201,6 +2090,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn full_adr;
         private System.Windows.Forms.DataGridViewTextBoxColumn exec_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn inn;
+        private System.Windows.Forms.BindingSource dictStatus;
     }
 }
 

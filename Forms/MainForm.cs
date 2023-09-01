@@ -21,6 +21,11 @@ using Action = System.Action;
 
 namespace DocumentAdder.Forms
 {
+    enum LawTyp
+    {
+        LawAct,
+        LawExec
+    }
     public partial class MainForm : Form
     {
         private static string path_to_list = Environment.CurrentDirectory + "\\Список_Для_Документов.txt";
@@ -28,6 +33,9 @@ namespace DocumentAdder.Forms
         private static string path_to_list_otprav = Environment.CurrentDirectory + "\\Список_Для_Отправителя.txt";
         private static SerialPort currentPort = new SerialPort();
         private bool runed = false;
+        private Dictionary<int, SettingsModel> settings_json = new();
+        private object current;
+        private LawTyp law_typ { get; set; }
         private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
@@ -42,49 +50,8 @@ namespace DocumentAdder.Forms
                 searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
                 if (dataGridView1.RowCount == 1)
                 {
-                    textBox4.Text = dataGridView1.Rows[0].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
-                    textBoxFio.Text = dataGridView1.Rows[0].Cells[6].Value.ToString(); //ФИО
-                    textBox7.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
-                    textBox8.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
-                    textBox5.Text = dataGridView1.Rows[0].Cells[8].Value.ToString(); // № КД
-                    textBox6.Text = dataGridView1.Rows[0].Cells[9].Value.ToString(); //№ Дела
-                    textBox12.Text = dataGridView1.Rows[0].Cells[12].Value.ToString(); //Коммент
-                    textBox15.Text = dataGridView1.Rows[0].Cells[5].Value.ToString(); //реестр
-                    textBox14.Text = dataGridView1.Rows[0].Cells[3].Value.ToString(); //взыск
-                    string vkl = dataGridView1.Rows[0].Cells[1].Value.ToString(); //Вкладка
-                    string int_vkl = GetIntKvl(vkl);
-                    Dictionary<int, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
-                    string status_text = o[comboBox1.SelectedIndex].вкладка_и_статус[int_vkl];
-                    comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
-                    if (o[comboBox1.SelectedIndex].исполнитель.HasValue)
-                        comboBox7.SelectedValue = o[comboBox1.SelectedIndex].исполнитель;
-                    int status_get = GetStatusBible(status_text);
-                    if (o[comboBox1.SelectedIndex].без_смены.Contains(dataGridView1.Rows[0].Cells[2].Value.ToString()))
-                    {
-                        status_get = 99999;
-                    }
-                    if (status_get == 99999)
-                        comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
-                    else
-                        comboBox3.SelectedIndex = status_get - 1;
-                    maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-                    maskedTextBox12.Text = dataGridView1.Rows[0].Cells[14].Value.ToString();
-                    //textBox17.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
-                    //textBox25.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
-                    textBox23.Text = dataGridView1.Rows[0].Cells[17].Value.ToString();
-                    textBox19.Text = dataGridView1.Rows[0].Cells[18].Value.ToString();
-                    textBox20.Text = dataGridView1.Rows[0].Cells[19].Value.ToString();
-                    textBox21.Text = dataGridView1.Rows[0].Cells[20].Value.ToString();
-                    textBox22.Text = dataGridView1.Rows[0].Cells[21].Value.ToString();
-                    textBox16.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
-                    textBox18.Text = dataGridView1.Rows[0].Cells[7].Value.ToString().Split(' ')[0];
-                    execDateMb.Text = dataGridView1.Rows[0].Cells[22].Value.ToString();
-                    innMb.Text = dataGridView1.Rows[0].Cells[23].Value.ToString();
-                    //if (o[comboBox1.SelectedIndex].связь_суда)
-                    //{
-                    comboBox9.Text = dataGridView1.Rows[0].Cells[15].Value.ToString();
-                    comboBox8.Text = dataGridView1.Rows[0].Cells[16].Value.ToString();
-                    //}
+                    var data = ((List<LawActResult>)lawActResultBindingSource.DataSource)[0];
+                    InstallData(data);
                 }
                 indata = String.Empty;
 
@@ -110,13 +77,13 @@ namespace DocumentAdder.Forms
                 {
                     if (item.status == null)
                         return;
-                    e.Value = Settings.status[0][item.status.Value];
+                    e.Value = Settings.dicts[getIntDict(item.typ.Value)][item.status.Value];
                 }
                 else if (item.typ > 1)
                 {
                     if (item.act_status == null)
                         return;
-                    e.Value = Settings.status[1][item.act_status.Value];
+                    e.Value = Settings.dicts[getIntDict(item.typ.Value)][item.act_status.Value];
                 }
 
             }
@@ -171,9 +138,10 @@ namespace DocumentAdder.Forms
                 }
                 Settings.json = Resources.config;
                 panel1.AllowDrop = true;
-                Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
+                Dictionary<int, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
+                settings_json = o;
                 for (int a = 0; a < o.Count; a++)
-                    comboBox1.Items.Add(o[(string)a.ToString()].тип_документа);
+                    comboBox1.Items.Add(o[a].тип_документа);
                 comboBox1.SelectedIndex = 0;
                 //LoadPeople();
                 runed = true;
@@ -230,8 +198,6 @@ namespace DocumentAdder.Forms
                 textBox20.Enabled = true;
                 maskedTextBox12.Enabled = true;
                 textBox16.Enabled = true;
-                innMb.Enabled = true;
-                execDateMb.Enabled = true;
             }
             else
             {
@@ -239,10 +205,6 @@ namespace DocumentAdder.Forms
                 textBox23.Enabled = false;
                 textBox19.Enabled = false;
                 textBox20.Enabled = false;
-                //maskedTextBox12.Enabled = false;
-                //textBox16.Enabled = false;
-                innMb.Enabled = false;
-                execDateMb.Enabled = false;
             }
 
             if (comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
@@ -313,132 +275,63 @@ namespace DocumentAdder.Forms
                     (control as MaskedTextBox).Clear();
             }
         }
+        private void InstallData(LawActResult data)
+        {
+            law_typ = LawTyp.LawAct;
+            textBox4.Text = data.id.ToString();
+            textBoxFio.Text = data.fio;
+            textBox7.Text = data.contract; // № КД
+            textBox8.Text = data.exec_number; //№ Дела
+            textBox5.Text = data.contract; // № КД
+            textBox6.Text = data.exec_number; //№ Дела
+            textBox12.Text = data.dsc; //Коммент
+            dictStatus.DataSource = Settings.dicts[getIntDict(data.typ.Value)];
+            var settings = settings_json[comboBox1.SelectedIndex];
+            if (!settings.без_смены_суд[getIntDict(data.typ.Value)].Contains(getIntStatus(data).Value))
+            {
+                comboBox3.SelectedValue = settings.судебн_статус[data.typ.Value];
+            }
+
+            maskedTextBox5.Text = DateTime.Now.ToShortDateString();
+            maskedTextBox12.Text = data.court_date.Value.ToShortDateString();
+            textBox23.Text = data.total_sum.ToString();
+            textBox19.Text = data.series;
+            textBox20.Text = data.number;
+            textBox21.Text = data.birth_place;
+            textBox16.Text = data.court_doc_num;
+            // if (o[comboBox1.SelectedIndex].связь_суда)
+            // {
+            comboBox9.Text = data.court_name;
+            comboBox8.Text = data.court_adress;
+            // }
+            current = data;
+        }
+        private int getIntDict(int typ)
+        {
+            if (typ == 1) return 18;
+            else if (typ > 1) return 25;
+            return 0;
+        }
+        private int? getIntStatus(LawActResult data)
+        {
+            if (data.typ == 1) return data.status;
+            else if (data.typ > 1) return data.act_status;
+            return data.act_status;
+        }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ClearTextBox();
             if (e.RowIndex >= 0)
             {
-                textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value.ToString();
-                textBoxFio.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString(); //ФИО
-                textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString(); // № КД
-                textBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString(); //№ Дела
-                textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString(); // № КД
-                textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString(); //№ Дела
-                textBox12.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString(); //Коммент
-                textBox15.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString(); //реестр
-                textBox14.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
-                string vkl = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(); //ID Дела
-                string int_vkl = GetIntKvl(vkl);
-                Dictionary<int, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
-                string status_text = o[comboBox1.SelectedIndex].вкладка_и_статус[int_vkl];
-                comboBox2.SelectedIndex = Convert.ToInt32(int_vkl);
-                int status_get = GetStatusBible(status_text);
-                if (o[comboBox1.SelectedIndex].без_смены.Contains(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()))
-                {
-                    status_get = 99999;
-                }
-                if (status_get == 99999)
-                    comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
-                else
-                    comboBox3.SelectedIndex = status_get - 1;
-                maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-
-                maskedTextBox12.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
-                //textBox17.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
-                //textBox25.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
-                textBox23.Text = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
-                textBox19.Text = dataGridView1.Rows[e.RowIndex].Cells[18].Value.ToString();
-                textBox20.Text = dataGridView1.Rows[e.RowIndex].Cells[19].Value.ToString();
-                textBox21.Text = dataGridView1.Rows[e.RowIndex].Cells[20].Value.ToString();
-                textBox22.Text = dataGridView1.Rows[e.RowIndex].Cells[21].Value.ToString();
-                textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-                textBox18.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString().Split(' ')[0];
-                execDateMb.Text = dataGridView1.Rows[e.RowIndex].Cells[22].Value.ToString();
-                innMb.Text = dataGridView1.Rows[e.RowIndex].Cells[23].Value.ToString();
-                // if (o[comboBox1.SelectedIndex].связь_суда)
-                // {
-                comboBox9.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
-                comboBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
-                // }
+                var data = ((List<LawActResult>)lawActResultBindingSource.DataSource)[e.RowIndex];
+                InstallData(data);
             }
-        }
-
-        private int GetStatusBible(string status_text)
-        {
-            if (status_text == "Без статуса")
-                return 99999;
-            switch (comboBox2.SelectedIndex)
-            {
-                case 0:
-                    return Settings.status[0].FirstOrDefault(x => x.Value == status_text).Key;
-                case 1:
-                    return Settings.status[1].FirstOrDefault(x => x.Value == status_text).Key;
-                case 2:
-                    return Settings.status[1].FirstOrDefault(x => x.Value == status_text).Key;
-                case 4:
-                    return Settings.status[2].FirstOrDefault(x => x.Value == status_text).Key;
-            }
-            return 0;
-        }
-
-        private string GetIntKvl(string vkl)
-        {
-            switch (vkl)
-            {
-                case "Приказ":
-                    return "0";
-                case "Иск":
-                    return "1";
-                case "Правопреемство":
-                    return "2";
-                case "Банкротство":
-                    return "3";
-            }
-            return "0";
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                comboBox3.Items.Clear();
-                switch (comboBox2.SelectedIndex)
-                {
-                    case 0:
-                        foreach (KeyValuePair<int, string> key in Settings.status[0])
-                            comboBox3.Items.Add(key.Value);
-                        comboBox3.Items.Add("Без статуса");
-                        break;
-                    case 1:
-                        foreach (KeyValuePair<int, string> key in Settings.status[1])
-                            comboBox3.Items.Add(key.Value);
-                        comboBox3.Items.Add("Без статуса");
-                        break;
-                    case 2:
-                        foreach (KeyValuePair<int, string> key in Settings.status[1])
-                            comboBox3.Items.Add(key.Value);
-                        comboBox3.Items.Add("Без статуса");
-                        break;
-                    case 3:
-                        comboBox3.Items.Add("Без статуса");
-                        break;
-                    case 4:
-                        foreach (KeyValuePair<int, string> key in Settings.status[2])
-                            comboBox3.Items.Add(key.Value);
-                        comboBox3.Items.Add("Без статуса");
-                        comboBox3.SelectedIndex = 0;
-                        break;
-                }
-                Data.vkl_int = comboBox2.SelectedIndex;
-            }
-            catch { }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Settings.debt_id = textBox4.Text;
-            Settings.vkl = comboBox2.SelectedIndex;
             if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
                 var testDialog = new Dialogs.DebtCalc();
@@ -524,18 +417,19 @@ namespace DocumentAdder.Forms
                         || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                         )
             {
+                var data = (LawActResult)current;
                 PersonInfo personInfo = new PersonInfo()
                 {
                     court_doc_num = textBox16.Text,
                     court_date = maskedTextBox12.Text,
                     exec_number = textBox8.Text,
-                    fio = $"{textBoxFio.Text}",
-                    birth_date = textBox18.Text,
-                    birth_place = textBox21.Text,
-                    series = textBox19.Text,
-                    number = textBox20.Text,
-                    inn = innMb.Text,
-                    sum = textBox23.Text,
+                    fio = data.fio,
+                    birth_date = data.birth_date.Value.ToShortDateString(),
+                    birth_place = data.birth_place,
+                    series = data.series,
+                    number = data.number,
+                    inn = data.inn,
+                    sum = data.total_sum.Value,
                     /*exec_date = execDateMb.Text,
                     name = comboBox9.Text*/
                 };
@@ -557,16 +451,11 @@ namespace DocumentAdder.Forms
                 }
             }
 
-            if (comboBox2.SelectedIndex == 4)
-                Data.vkl_string = "law_exec";
-            else
-                Data.vkl_string = "law_act";
-            Data.vkl_int = comboBox2.SelectedIndex;
             Data.id = textBox4.Text;
 
             using var db = Program.factory_db.CreateDbContext();
             using var transaction = db.Database.BeginTransaction();
-            Data.Update(db, textBox7, textBox8, textBox9, textBox10, textBox11,
+            Data.Update(db, law_typ, textBox7, textBox8, textBox9, textBox10, textBox11,
                 maskedTextBox1, maskedTextBox2, maskedTextBox3, maskedTextBox4, maskedTextBox5,
                 maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, textBox23, comboBox3.Text);
             db.SaveChanges();
@@ -599,7 +488,7 @@ namespace DocumentAdder.Forms
                     if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
                     {
                         var doc = new ClientDoc() { doc = result, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
-                        if (Data.vkl_int == 4)
+                        if (law_typ == LawTyp.LawExec)
                         {
                             doc.type = 2;
                         }
@@ -680,19 +569,20 @@ namespace DocumentAdder.Forms
 
         public void newTask(int errors, List<ClientDoc> docs)
         {
+            var data = (LawActResult)current;
             PersonInfo personInfo = new PersonInfo()
             {
                 court_doc_num = textBox16.Text,
                 court_date = maskedTextBox12.Text,
                 exec_number = textBox8.Text,
-                fio = $"{textBoxFio.Text}",
-                birth_date = textBox18.Text,
-                birth_place = textBox21.Text,
+                fio = data.fio,
+                birth_date = data.birth_date.Value.ToShortDateString(),
+                birth_place = data.birth_place,
                 series = textBox19.Text,
                 number = textBox20.Text,
-                inn = innMb.Text,
-                sum = textBox23.Text,
-                exec_date = execDateMb.Text,
+                inn = data.inn,
+                sum = data.total_sum.Value,
+                exec_date = data.exec_date.Value.ToShortTimeString(),
                 name = comboBox9.Text
             };
             Tasks f = new Tasks(ref errors, this, personInfo, docs);
@@ -725,7 +615,41 @@ namespace DocumentAdder.Forms
             string desc = $"{textBox11.Text}";
             if (maskedTextBox10.Enabled == true)
                 desc += $" {maskedTextBox10.Text}";
-            var result = new { date_post = DateTime.Parse(dateTimePicker1.Value.ToShortDateString()), Convert = convert, pristavi = pristavi, adr_otp = comboBox8.Text, otprav = comboBox9.Text, reestr = textBox15.Text, doc_name = comboBox5.Text, id_dela = textBox4.Text, st_pnkt = comboBox6.Text, gd = textBox6.Text, fio_dol = $"{textBoxFio.Text}", kd = textBox5.Text, ispol_zadach = comboBox7.Text, id_ispol_zadach = comboBox7.SelectedValue, vsisk = textBox14.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = nal_skan, action = typ, user_id = comboBox7.SelectedValue, template_id = id_task, name = $"{textBoxFio.Text} {textBox5.Text} {textBox15.Text}", desc, Settings.mode, Settings.ist, dateDoc = dateDoc, Settings.ecp, Settings.adres, Settings.mail, docs };
+            var data = (LawActResult)current;
+            var result = new
+            {
+                date_post =
+                DateTime.Parse(dateTimePicker1.Value.ToShortDateString()),
+                Convert = convert,
+                pristavi = pristavi,
+                adr_otp = comboBox8.Text,
+                otprav = comboBox9.Text,
+                reestr = data.portfolio,
+                doc_name = comboBox5.Text,
+                id_dela = textBox4.Text,
+                st_pnkt = comboBox6.Text,
+                gd = textBox6.Text,
+                fio_dol = $"{textBoxFio.Text}",
+                kd = textBox5.Text,
+                ispol_zadach = comboBox7.Text,
+                id_ispol_zadach = comboBox7.SelectedValue,
+                vsisk = data.fio_vz,
+                kto_obrabotal = Settings.username,
+                id_kto_obrabotal = Settings.user_id,
+                nal_skan = nal_skan,
+                action = typ,
+                user_id = comboBox7.SelectedValue,
+                template_id = id_task,
+                name = $"{textBoxFio.Text} {textBox5.Text} {data.portfolio}",
+                desc,
+                Settings.mode,
+                Settings.ist,
+                dateDoc = dateDoc,
+                Settings.ecp,
+                Settings.adres,
+                Settings.mail,
+                docs
+            };
             //result.dateDoc = Settings.dateDoc;
             return result;
         }
@@ -767,7 +691,7 @@ namespace DocumentAdder.Forms
         {
             if (!int.TryParse(Data.id, out var id))
                 throw new Exception("Ошибка получения ID");
-            if (Data.vkl_int != 4)
+            if (law_typ == LawTyp.LawAct)
             {
                 var docAttach = new DatabaseContact.Models.DocAttach
                 {
@@ -819,7 +743,34 @@ namespace DocumentAdder.Forms
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             Data.status = comboBox3.SelectedIndex;
-            Data.status_text = comboBox3.SelectedItem.ToString();
+        }
+        private void InstallData(LawExecResult data)
+        {
+
+            law_typ = LawTyp.LawExec;
+            textBox4.Text = data.id.ToString();
+            textBoxFio.Text = data.fio;
+            textBox7.Text = data.contract;
+            textBox9.Text = data.fssp_doc_num;
+            textBox5.Text = data.contract;
+            textBox6.Text = data.exec_number;
+            textBox10.Text = data.court_doc_num;
+            textBox8.Text = data.exec_number;
+            textBox12.Text = data.dsc;
+            var settings = settings_json[comboBox1.SelectedIndex];
+            if (!settings.без_смены_ид.Contains(data.Status.Value))
+            {
+                comboBox3.SelectedValue = settings.испол_статус;
+            }
+            maskedTextBox12.Text = data.court_date.Value.ToShortDateString();
+            textBox16.Text = data.court_doc_num;
+            //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
+            //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
+            textBox23.Text = data.total_sum.ToString();
+            textBox19.Text = data.series;
+            textBox20.Text = data.number;
+            textBox21.Text = data.birth_place;
+            current = data;
         }
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -827,46 +778,14 @@ namespace DocumentAdder.Forms
             ClearTextBox();
             if (e.RowIndex >= 0)
             {
-                textBox4.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                textBoxFio.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-                textBox7.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
-                textBox9.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
-                textBox5.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
-                textBox6.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
-                textBox10.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
-                textBox8.Text = dataGridView2.Rows[e.RowIndex].Cells[13].Value.ToString();
-                textBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[14].Value.ToString();
-                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString(); //реестр
-                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString(); //взыск
-                Dictionary<string, SettingsModel> o = JsonConvert.DeserializeObject<Dictionary<string, SettingsModel>>(Settings.json);
-                string status_text = o[comboBox1.SelectedIndex.ToString()].вкладка_и_статус["4"];
-                comboBox2.SelectedIndex = 4;
-                int status_get = GetStatusBible(status_text);
-                if (status_get == 99999)
-                    comboBox3.SelectedIndex = comboBox3.Items.Count - 1;
-                else
-                    comboBox3.SelectedIndex = status_get - 1;
-                maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-
-                maskedTextBox12.Text = dataGridView2.Rows[e.RowIndex].Cells[15].Value.ToString();
-                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
-                //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
-                //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
-                textBox23.Text = dataGridView2.Rows[e.RowIndex].Cells[17].Value.ToString();
-                textBox18.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString().Split(' ')[0];
-                textBox19.Text = dataGridView2.Rows[e.RowIndex].Cells[18].Value.ToString();
-                textBox20.Text = dataGridView2.Rows[e.RowIndex].Cells[19].Value.ToString();
-                textBox21.Text = dataGridView2.Rows[e.RowIndex].Cells[20].Value.ToString();
-                textBox22.Text = dataGridView2.Rows[e.RowIndex].Cells[21].Value.ToString();
-                innMb.Text = dataGridView2.Rows[e.RowIndex].Cells[23].Value.ToString();
-                execDateMb.Text = dataGridView2.Rows[e.RowIndex].Cells[22].Value.ToString();
+                var data = ((List<LawExecResult>)lawExecResultBindingSource.DataSource)[e.RowIndex];
+                InstallData(data);
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Settings.debt_id = textBox4.Text;
-            Settings.vkl = comboBox2.SelectedIndex;
             if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
                 var testDialog = new Dialogs.DocAttach();

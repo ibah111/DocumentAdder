@@ -20,7 +20,7 @@ namespace DocumentAdder.Utils
         public string number;
         public string series;
         public string court_date;
-        public string sum;
+        public decimal sum;
         public string name;
         public string exec_date;
     }

@@ -13,8 +13,7 @@ namespace DocumentAdder.Utils
         internal static string DownloadInfo()
         {
             GetUserDB();
-            GetStatus();
-            Settings.dicts = GetDicts(405);
+            Settings.dicts = GetDicts(405, 18, 25, 77);
             return GetUser();
         }
 
@@ -37,26 +36,6 @@ namespace DocumentAdder.Utils
                 name = x.name
             }).ToList());
             return data;
-        }
-
-        internal static void GetStatus()
-        {
-            using var db = Program.factory_db.CreateDbContext();
-            int count = 0;
-            int[] li = new int[] { 18, 25, 77 }; // Приказ Иск/Правопреемство Испол
-            Settings.status = new Dictionary<int, Dictionary<int, string>>();
-            var dicts = db.Dict.Where(x => li.Contains(x.parent_id)).Select(x => new { x.parent_id, x.code, x.name }).ToList();
-            var groups = dicts.GroupBy(x => x.parent_id);
-            foreach (var group in groups)
-            {
-                Settings.status.Add(count, new Dictionary<int, string>());
-                foreach (var dict in group)
-                {
-                    Settings.status[count].Add(dict.code, dict.name);
-                }
-                count++;
-            }
-
         }
 
         internal static void GetUserDB()
