@@ -68,10 +68,11 @@ namespace DocumentAdder.Forms
             InitializeComponent();
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(this.clearStatus, "Не менять статус");
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "status")
+            if (this.dataGridView1.Columns[e.ColumnIndex].Name == nameof(LawActStatus))
             {
                 var data = (List<LawActResult>)lawActResultBindingSource.DataSource;
                 var item = data[e.RowIndex];
@@ -98,7 +99,6 @@ namespace DocumentAdder.Forms
                 List<CBMember> cBMembers = new List<CBMember>();
                 Documents.DataSource = Adder.files;
                 dictTyp.DataSource = Settings.dicts[405].Values.ToList();
-                dataGridView1.CellFormatting += dataGridView1_CellFormatting;
                 cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
                 cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
                 cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
@@ -764,11 +764,11 @@ namespace DocumentAdder.Forms
             textBox8.Text = data.exec_number;
             textBox12.Text = data.dsc;
             var settings = settings_json[comboBox1.SelectedIndex];
-            if (!settings.без_смены_ид.Contains(data.Status.Value))
+            if (!settings.без_смены_ид.Contains(data.Status.Value) && settings.испол_статус != null)
             {
                 comboBox3.SelectedValue = settings.испол_статус;
             }
-            maskedTextBox12.Text = data.court_date.Value.ToShortDateString();
+            maskedTextBox12.Text = data.court_date?.ToShortDateString();
             textBox16.Text = data.court_doc_num;
             //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
             //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
