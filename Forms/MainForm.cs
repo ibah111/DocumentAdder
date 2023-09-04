@@ -21,7 +21,7 @@ using Action = System.Action;
 
 namespace DocumentAdder.Forms
 {
-    enum LawTyp
+    public enum LawTyp
     {
         LawAct,
         LawExec
@@ -340,7 +340,7 @@ namespace DocumentAdder.Forms
             Settings.debt_id = textBox4.Text;
             if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
-                var testDialog = new Dialogs.DebtCalc();
+                var testDialog = new Dialogs.DebtCalc(law_typ);
                 testDialog.Show();
             }
             else
@@ -795,7 +795,7 @@ namespace DocumentAdder.Forms
             Settings.debt_id = textBox4.Text;
             if (!string.IsNullOrWhiteSpace(Settings.debt_id))
             {
-                var testDialog = new Dialogs.DocAttach();
+                var testDialog = new Dialogs.DocAttach(law_typ);
                 testDialog.Show();
             }
             else

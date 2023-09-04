@@ -29,150 +29,148 @@ namespace DocumentAdder.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocAttach));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.column1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rELSERVERPATHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fILESERVERNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataTable3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).BeginInit();
-            this.SuspendLayout();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            button1 = new System.Windows.Forms.Button();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            docAttachBindingSource = new System.Windows.Forms.BindingSource(components);
+            idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            filenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            isactiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            attachtypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ruseridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)docAttachBindingSource).BeginInit();
+            SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 558);
-            this.tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(button1, 0, 1);
+            tableLayoutPanel1.Controls.Add(dataGridView1, 0, 0);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(1004, 644);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(723, 528);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 27);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Закрыть";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Dock = System.Windows.Forms.DockStyle.Right;
+            button1.Location = new System.Drawing.Point(842, 609);
+            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(158, 32);
+            button1.TabIndex = 2;
+            button1.Text = "Закрыть";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.column1DataGridViewTextBoxColumn,
-            this.rELSERVERPATHDataGridViewTextBoxColumn,
-            this.fILESERVERNAMEDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.dtDataGridViewTextBoxColumn,
-            this.name1DataGridViewTextBoxColumn,
-            this.dscDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.dataTable3BindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 519);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, filenameDataGridViewTextBoxColumn, isactiveDataGridViewTextBoxColumn, attachtypDataGridViewTextBoxColumn, ruseridDataGridViewTextBoxColumn, dtDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = docAttachBindingSource;
+            dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView1.GridColor = System.Drawing.Color.Black;
+            dataGridView1.Location = new System.Drawing.Point(4, 3);
+            dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Size = new System.Drawing.Size(996, 600);
+            dataGridView1.TabIndex = 3;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
-            // column1DataGridViewTextBoxColumn
+            // docAttachBindingSource
             // 
-            this.column1DataGridViewTextBoxColumn.DataPropertyName = "Column1";
-            this.column1DataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.column1DataGridViewTextBoxColumn.Name = "column1DataGridViewTextBoxColumn";
-            this.column1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.column1DataGridViewTextBoxColumn.Width = 59;
+            docAttachBindingSource.DataSource = typeof(DatabaseContact.Models.DocAttach);
             // 
-            // rELSERVERPATHDataGridViewTextBoxColumn
+            // idDataGridViewTextBoxColumn
             // 
-            this.rELSERVERPATHDataGridViewTextBoxColumn.DataPropertyName = "REL_SERVER_PATH";
-            this.rELSERVERPATHDataGridViewTextBoxColumn.HeaderText = "REL_SERVER_PATH";
-            this.rELSERVERPATHDataGridViewTextBoxColumn.Name = "rELSERVERPATHDataGridViewTextBoxColumn";
-            this.rELSERVERPATHDataGridViewTextBoxColumn.Visible = false;
-            this.rELSERVERPATHDataGridViewTextBoxColumn.Width = 138;
-            // 
-            // fILESERVERNAMEDataGridViewTextBoxColumn
-            // 
-            this.fILESERVERNAMEDataGridViewTextBoxColumn.DataPropertyName = "FILE_SERVER_NAME";
-            this.fILESERVERNAMEDataGridViewTextBoxColumn.HeaderText = "FILE_SERVER_NAME";
-            this.fILESERVERNAMEDataGridViewTextBoxColumn.Name = "fILESERVERNAMEDataGridViewTextBoxColumn";
-            this.fILESERVERNAMEDataGridViewTextBoxColumn.Visible = false;
-            this.fILESERVERNAMEDataGridViewTextBoxColumn.Width = 141;
+            idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            idDataGridViewTextBoxColumn.HeaderText = "id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Width = 42;
             // 
             // nameDataGridViewTextBoxColumn
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Вложение";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.nameDataGridViewTextBoxColumn.Width = 83;
+            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            nameDataGridViewTextBoxColumn.HeaderText = "name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            nameDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // filenameDataGridViewTextBoxColumn
+            // 
+            filenameDataGridViewTextBoxColumn.DataPropertyName = "filename";
+            filenameDataGridViewTextBoxColumn.HeaderText = "filename";
+            filenameDataGridViewTextBoxColumn.Name = "filenameDataGridViewTextBoxColumn";
+            filenameDataGridViewTextBoxColumn.ReadOnly = true;
+            filenameDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // isactiveDataGridViewTextBoxColumn
+            // 
+            isactiveDataGridViewTextBoxColumn.DataPropertyName = "is_active";
+            isactiveDataGridViewTextBoxColumn.HeaderText = "is_active";
+            isactiveDataGridViewTextBoxColumn.Name = "isactiveDataGridViewTextBoxColumn";
+            isactiveDataGridViewTextBoxColumn.ReadOnly = true;
+            isactiveDataGridViewTextBoxColumn.Width = 76;
+            // 
+            // attachtypDataGridViewTextBoxColumn
+            // 
+            attachtypDataGridViewTextBoxColumn.DataPropertyName = "attach_typ";
+            attachtypDataGridViewTextBoxColumn.HeaderText = "attach_typ";
+            attachtypDataGridViewTextBoxColumn.Name = "attachtypDataGridViewTextBoxColumn";
+            attachtypDataGridViewTextBoxColumn.ReadOnly = true;
+            attachtypDataGridViewTextBoxColumn.Width = 87;
+            // 
+            // ruseridDataGridViewTextBoxColumn
+            // 
+            ruseridDataGridViewTextBoxColumn.DataPropertyName = "r_user_id";
+            ruseridDataGridViewTextBoxColumn.HeaderText = "r_user_id";
+            ruseridDataGridViewTextBoxColumn.Name = "ruseridDataGridViewTextBoxColumn";
+            ruseridDataGridViewTextBoxColumn.ReadOnly = true;
+            ruseridDataGridViewTextBoxColumn.Width = 78;
             // 
             // dtDataGridViewTextBoxColumn
             // 
-            this.dtDataGridViewTextBoxColumn.DataPropertyName = "dt";
-            this.dtDataGridViewTextBoxColumn.HeaderText = "Дата записи";
-            this.dtDataGridViewTextBoxColumn.Name = "dtDataGridViewTextBoxColumn";
-            this.dtDataGridViewTextBoxColumn.Width = 97;
-            // 
-            // name1DataGridViewTextBoxColumn
-            // 
-            this.name1DataGridViewTextBoxColumn.DataPropertyName = "name1";
-            this.name1DataGridViewTextBoxColumn.HeaderText = "Тип";
-            this.name1DataGridViewTextBoxColumn.Name = "name1DataGridViewTextBoxColumn";
-            this.name1DataGridViewTextBoxColumn.Width = 51;
-            // 
-            // dscDataGridViewTextBoxColumn
-            // 
-            this.dscDataGridViewTextBoxColumn.DataPropertyName = "dsc";
-            this.dscDataGridViewTextBoxColumn.HeaderText = "Комментарий";
-            this.dscDataGridViewTextBoxColumn.Name = "dscDataGridViewTextBoxColumn";
-            this.dscDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // dataTable3BindingSource
-            // 
-            this.dataTable3BindingSource.DataMember = "DataTable3";
+            dtDataGridViewTextBoxColumn.DataPropertyName = "dt";
+            dtDataGridViewTextBoxColumn.HeaderText = "dt";
+            dtDataGridViewTextBoxColumn.Name = "dtDataGridViewTextBoxColumn";
+            dtDataGridViewTextBoxColumn.ReadOnly = true;
+            dtDataGridViewTextBoxColumn.Width = 43;
             // 
             // DocAttach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 558);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DocAttach";
-            this.Text = "Информация";
-            this.Load += new System.EventHandler(this.Form3_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable3BindingSource)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1004, 644);
+            Controls.Add(tableLayoutPanel1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "DocAttach";
+            Text = "Информация";
+            Load += Form3_Load;
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)docAttachBindingSource).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -180,13 +178,16 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource dataTable3BindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rELSERVERPATHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fILESERVERNAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dscDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource docAttachBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn filenameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isactiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attachtypDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ruseridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDataGridViewTextBoxColumn;
     }
 }
