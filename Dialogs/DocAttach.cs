@@ -1,4 +1,5 @@
 ﻿using DatabaseContact.Models;
+using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,8 +13,10 @@ namespace DocumentAdder.Dialogs
 {
     public partial class DocAttach : Form
     {
-        public DocAttach()
+        private LawTyp law_typ;
+        public DocAttach(LawTyp law_typ)
         {
+            this.law_typ = law_typ;
             InitializeComponent();
         }
 
@@ -23,7 +26,7 @@ namespace DocumentAdder.Dialogs
             if (!int.TryParse(Settings.debt_id, out var id)) throw new Exception("Ошибка формы");
             using var db = Program.factory_db.CreateDbContext();
             List<DatabaseContact.Models.DocAttach> data;
-            if (Settings.vkl != 4)
+            if (law_typ == LawTyp.LawAct)
             {
                 data = db.DocAttach.Include(x => x.User).Where(x => x.r_id == id && x.obj_id == 46).ToList();
             }

@@ -1,4 +1,5 @@
-﻿using DocumentAdder.Main;
+﻿using DocumentAdder.Forms;
+using DocumentAdder.Main;
 using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
@@ -9,8 +10,10 @@ namespace DocumentAdder.Dialogs
 {
     public partial class DebtCalc : Form
     {
-        public DebtCalc()
+        private LawTyp law_typ;
+        public DebtCalc(LawTyp law_typ)
         {
+            this.law_typ = law_typ;
             InitializeComponent();
         }
 
@@ -20,7 +23,7 @@ namespace DocumentAdder.Dialogs
                 throw new Exception("Ошибка получения платежей");
             using var db = Program.factory_db.CreateDbContext();
             List<DatabaseContact.Models.DebtCalc> data;
-            if (Settings.vkl != 4)
+            if (law_typ == LawTyp.LawAct)
                 data = db.LawAct.Where(x => x.id == id).Select(x => x.Debt.DebtCalcs).First();
             else
                 data = db.LawExec.Where(x => x.id == id).Select(x => x.Debt.DebtCalcs).First();

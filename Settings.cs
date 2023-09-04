@@ -35,7 +35,6 @@ namespace DocumentAdder
         private static string _dsc;
         private static string _template_id_task;
         private static string _action;
-        private static int _vkl;
         private static int _mode;
         private static string _ist;
         private static string _dateDoc;
@@ -48,7 +47,6 @@ namespace DocumentAdder
         public static string username { get { return _username; } set { _username = value; } }
         public static string token { get; set; }
         public static string debt_id { get { return _debt_id; } set { _debt_id = value; } }
-        public static int vkl { get { return _vkl; } set { _vkl = value; } }
         public static bool conv { get { return _conv; } set { _conv = value; } }
         public static string date_post { get { return _date_post; } set { _date_post = value; } }
         public static string adr_otp { get { return _adr_otp; } set { _adr_otp = value; } }
