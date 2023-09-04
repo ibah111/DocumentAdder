@@ -35,13 +35,12 @@ namespace DocumentAdder.Dialogs
             button1 = new System.Windows.Forms.Button();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             docAttachBindingSource = new System.Windows.Forms.BindingSource(components);
-            idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            filenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            isactiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            attachtypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ruseridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            dtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DocAttachId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DocAttachName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DocAttachIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            DocAttachRUserId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            DocAttachAttachTyp = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            DocAttachDt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)docAttachBindingSource).BeginInit();
@@ -83,7 +82,7 @@ namespace DocumentAdder.Dialogs
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, filenameDataGridViewTextBoxColumn, isactiveDataGridViewTextBoxColumn, attachtypDataGridViewTextBoxColumn, ruseridDataGridViewTextBoxColumn, dtDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { DocAttachId, DocAttachName, DocAttachIsActive, DocAttachRUserId, DocAttachAttachTyp, DocAttachDt });
             dataGridView1.DataSource = docAttachBindingSource;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Black;
@@ -100,61 +99,53 @@ namespace DocumentAdder.Dialogs
             // 
             docAttachBindingSource.DataSource = typeof(DatabaseContact.Models.DocAttach);
             // 
-            // idDataGridViewTextBoxColumn
+            // DocAttachId
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn.HeaderText = "id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 42;
+            DocAttachId.DataPropertyName = "id";
+            DocAttachId.HeaderText = "ID";
+            DocAttachId.Name = "DocAttachId";
+            DocAttachId.ReadOnly = true;
+            DocAttachId.Width = 43;
             // 
-            // nameDataGridViewTextBoxColumn
+            // DocAttachName
             // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            nameDataGridViewTextBoxColumn.HeaderText = "name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
-            nameDataGridViewTextBoxColumn.Width = 62;
+            DocAttachName.DataPropertyName = "name";
+            DocAttachName.HeaderText = "Название файла";
+            DocAttachName.Name = "DocAttachName";
+            DocAttachName.ReadOnly = true;
+            DocAttachName.Width = 112;
             // 
-            // filenameDataGridViewTextBoxColumn
+            // DocAttachIsActive
             // 
-            filenameDataGridViewTextBoxColumn.DataPropertyName = "filename";
-            filenameDataGridViewTextBoxColumn.HeaderText = "filename";
-            filenameDataGridViewTextBoxColumn.Name = "filenameDataGridViewTextBoxColumn";
-            filenameDataGridViewTextBoxColumn.ReadOnly = true;
-            filenameDataGridViewTextBoxColumn.Width = 78;
+            DocAttachIsActive.DataPropertyName = "is_active";
+            DocAttachIsActive.HeaderText = "Активный";
+            DocAttachIsActive.Name = "DocAttachIsActive";
+            DocAttachIsActive.ReadOnly = true;
+            DocAttachIsActive.Width = 68;
             // 
-            // isactiveDataGridViewTextBoxColumn
+            // DocAttachRUserId
             // 
-            isactiveDataGridViewTextBoxColumn.DataPropertyName = "is_active";
-            isactiveDataGridViewTextBoxColumn.HeaderText = "is_active";
-            isactiveDataGridViewTextBoxColumn.Name = "isactiveDataGridViewTextBoxColumn";
-            isactiveDataGridViewTextBoxColumn.ReadOnly = true;
-            isactiveDataGridViewTextBoxColumn.Width = 76;
+            DocAttachRUserId.DataPropertyName = "r_user_id";
+            DocAttachRUserId.HeaderText = "Пользователь";
+            DocAttachRUserId.Name = "DocAttachRUserId";
+            DocAttachRUserId.ReadOnly = true;
+            DocAttachRUserId.Width = 90;
             // 
-            // attachtypDataGridViewTextBoxColumn
+            // DocAttachAttachTyp
             // 
-            attachtypDataGridViewTextBoxColumn.DataPropertyName = "attach_typ";
-            attachtypDataGridViewTextBoxColumn.HeaderText = "attach_typ";
-            attachtypDataGridViewTextBoxColumn.Name = "attachtypDataGridViewTextBoxColumn";
-            attachtypDataGridViewTextBoxColumn.ReadOnly = true;
-            attachtypDataGridViewTextBoxColumn.Width = 87;
+            DocAttachAttachTyp.DataPropertyName = "attach_typ";
+            DocAttachAttachTyp.HeaderText = "Тип вложения";
+            DocAttachAttachTyp.Name = "DocAttachAttachTyp";
+            DocAttachAttachTyp.ReadOnly = true;
+            DocAttachAttachTyp.Width = 82;
             // 
-            // ruseridDataGridViewTextBoxColumn
+            // DocAttachDt
             // 
-            ruseridDataGridViewTextBoxColumn.DataPropertyName = "r_user_id";
-            ruseridDataGridViewTextBoxColumn.HeaderText = "r_user_id";
-            ruseridDataGridViewTextBoxColumn.Name = "ruseridDataGridViewTextBoxColumn";
-            ruseridDataGridViewTextBoxColumn.ReadOnly = true;
-            ruseridDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dtDataGridViewTextBoxColumn
-            // 
-            dtDataGridViewTextBoxColumn.DataPropertyName = "dt";
-            dtDataGridViewTextBoxColumn.HeaderText = "dt";
-            dtDataGridViewTextBoxColumn.Name = "dtDataGridViewTextBoxColumn";
-            dtDataGridViewTextBoxColumn.ReadOnly = true;
-            dtDataGridViewTextBoxColumn.Width = 43;
+            DocAttachDt.DataPropertyName = "dt";
+            DocAttachDt.HeaderText = "Дата";
+            DocAttachDt.Name = "DocAttachDt";
+            DocAttachDt.ReadOnly = true;
+            DocAttachDt.Width = 57;
             // 
             // DocAttach
             // 
@@ -182,12 +173,11 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dscDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource docAttachBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn filenameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isactiveDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn attachtypDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ruseridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocAttachId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocAttachName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DocAttachIsActive;
+        private System.Windows.Forms.DataGridViewComboBoxColumn DocAttachRUserId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn DocAttachAttachTyp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocAttachDt;
     }
 }
