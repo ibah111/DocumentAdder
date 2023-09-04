@@ -48,6 +48,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.10" />
 		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1901.177" />
 		<PackageReference Include="RestSharp" Version="110.2.0" />
 		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="110.2.0" />
