@@ -42,10 +42,12 @@ namespace DocumentAdder.Dialogs
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            using var db = Program.factory_db.CreateDbContext();
+            string main_dir = db.ConstValue.Where(x => x.name == "DocAttach.SavePath").Select(x => x.value).First();
             if (e.ColumnIndex == 3 && !string.IsNullOrWhiteSpace(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()))
                 try
                 {
-                    Process.Start($"{Settings.main}{dataGridView1.Rows[e.RowIndex].Cells[1].Value}{dataGridView1.Rows[e.RowIndex].Cells[2].Value}");
+                    Process.Start($"{main_dir}{dataGridView1.Rows[e.RowIndex].Cells[1].Value}{dataGridView1.Rows[e.RowIndex].Cells[2].Value}");
                 }
                 catch { }
         }

@@ -673,8 +673,9 @@ namespace DocumentAdder.Forms
 
         private string GetFreeDir()
         {
+            using var db = Program.factory_db.CreateDbContext();
             int a = 0;
-            string main_dir = Settings.main;
+            string main_dir = db.ConstValue.Where(x => x.name == "DocAttach.SavePath").Select(x => x.value).First();
             string[] dirs = Directory.GetDirectories(main_dir);
             foreach (string b in dirs)
             {
