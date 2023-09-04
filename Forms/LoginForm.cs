@@ -1,3 +1,4 @@
+using DatabaseContact.DatabaseContact;
 using DocumentAdder.Main;
 using DocumentAdder.Utils;
 using Newtonsoft.Json;
@@ -99,6 +100,7 @@ namespace DocumentAdder.Forms
                 var response = client.Post<LogedData>(request);
                 if (response.login_result)
                     logedData = response;
+                Program.factory_db = new(Program.getOptionsSql<i_collectContext>(logedData.database));
                 return response.login_result;
             }
             catch
@@ -155,5 +157,6 @@ namespace DocumentAdder.Forms
         public string firstname;
         public string secondname;
         public string thirdname;
+        public string database = Settings.dbs;
     }
 }

@@ -17,7 +17,7 @@ namespace DocumentAdder.Main
     {
         public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator = new BitrixAuthenticator() };
         public static readonly RestClient client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
-        public static PooledDbContextFactory<i_collectContext> factory_db = new(getOptionsSql<i_collectContext>(Settings.dbs));
+        public static PooledDbContextFactory<i_collectContext> factory_db = null;
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
             dynamic json = JsonConvert.DeserializeObject(args.RemoteData);
