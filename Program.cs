@@ -17,7 +17,7 @@ namespace DocumentAdder.Main
     {
         public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator = new BitrixAuthenticator() };
         public static readonly RestClient client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
-        public static PooledDbContextFactory<i_collectContext> factory_db = new(new DbContextOptionsBuilder<i_collectContext>().UseLazyLoadingProxies().UseSqlServer($"Data Source=newct;Initial Catalog={Settings.dbs};Persist Security Info=True;User ID=docmail;Password=docmail;Trust Server Certificate=True").Options);
+        public static PooledDbContextFactory<i_collectContext> factory_db = new(getOptionsSql<i_collectContext>(Settings.dbs));
         static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
             dynamic json = JsonConvert.DeserializeObject(args.RemoteData);
@@ -26,6 +26,19 @@ namespace DocumentAdder.Main
                 CurrentVersion = json.version,
                 DownloadURL = json.url
             };
+        }
+        static public DbContextOptions<T> getOptionsSql<T>(string db) where T : DbContext
+        {
+            return new DbContextOptionsBuilder<T>().UseLazyLoadingProxies().UseSqlServer(getConfigSql(db)).Options;
+        }
+        static public string getConfigSql(string db)
+        {
+            return "Data Source=newct;"
+                + $"Initial Catalog={db};"
+                + "Persist Security Info=True;"
+                + "User ID=docmail;"
+                + "Password=docmail;"
+                + "Trust Server Certificate=True";
         }
         /// <summary>
         /// Главная точка входа для приложения.
