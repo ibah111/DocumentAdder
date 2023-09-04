@@ -56,8 +56,6 @@
 		<PackageReference Include="SocketIOClient.Newtonsoft.Json" Version="3.0.0" />
 		<PackageReference Include="SocketIOClient.Windows7" Version="3.0.6" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="System.Data.Odbc" Version="7.0.0" />
-		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
 		<PackageReference Include="System.DirectoryServices.AccountManagement" Version="7.0.0" />
 		<PackageReference Include="System.IO.Ports" Version="7.0.0" />
 	</ItemGroup>
