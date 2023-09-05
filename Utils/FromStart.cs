@@ -1,9 +1,7 @@
 ﻿using DocumentAdder.Main;
 using DocumentAdder.Models;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
 
 namespace DocumentAdder.Utils

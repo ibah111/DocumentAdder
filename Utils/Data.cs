@@ -1,11 +1,8 @@
 using DatabaseContact.DatabaseContact;
 using DatabaseContact.Models;
 using DocumentAdder.Forms;
-using DocumentAdder.Main;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
 using System.Windows.Forms;
 

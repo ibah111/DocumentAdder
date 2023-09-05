@@ -1,10 +1,7 @@
 ﻿using DocumentAdder.Main;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Office.Interop.Excel;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
-using System.Windows.Documents;
 using System.Windows.Forms;
 
 

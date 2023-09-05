@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
-using System.Data.Odbc;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;

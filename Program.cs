@@ -1,15 +1,14 @@
 using AutoUpdaterDotNET;
+using DatabaseContact.DatabaseContact;
+using DocumentAdder.Forms;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
 using System;
-using System.Data.Odbc;
 using System.Net;
 using System.Windows.Forms;
-using DocumentAdder.Forms;
-using DatabaseContact.DatabaseContact;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace DocumentAdder.Main
 {

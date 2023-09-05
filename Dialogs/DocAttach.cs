@@ -1,11 +1,9 @@
-﻿using DatabaseContact.Models;
-using DocumentAdder.Forms;
+﻿using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,11 +17,6 @@ namespace DocumentAdder.Dialogs
         {
             this.law_typ = law_typ;
             InitializeComponent();
-            dataGridView1.DataError += DataGridView1_DataError;
-        }
-        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
-        {
-            throw new Exception();
         }
 
         //select u.f+' '+u.i+' '+u.o, lap.dt,d.name,lap.dsc from law_act_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ where d.parent_id = 26

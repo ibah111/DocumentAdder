@@ -2,7 +2,6 @@
 using DocumentAdder.Main;
 using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
 using System.Windows.Forms;
 

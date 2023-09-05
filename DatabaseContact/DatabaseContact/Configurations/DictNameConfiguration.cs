@@ -1,9 +1,6 @@
-﻿using DatabaseContact.DatabaseContact;
-using DatabaseContact.Models;
+﻿using DatabaseContact.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
 
 
 namespace DatabaseContact.DatabaseContact.Configurations
