@@ -35,6 +35,8 @@ namespace DocumentAdder.Dialogs
             button1 = new System.Windows.Forms.Button();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             docAttachBindingSource = new System.Windows.Forms.BindingSource(components);
+            userModelBindingSource = new System.Windows.Forms.BindingSource(components);
+            dictModelBindingSource = new System.Windows.Forms.BindingSource(components);
             DocAttachId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             DocAttachName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             DocAttachIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -44,6 +46,8 @@ namespace DocumentAdder.Dialogs
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)docAttachBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userModelBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictModelBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -99,6 +103,14 @@ namespace DocumentAdder.Dialogs
             // 
             docAttachBindingSource.DataSource = typeof(DatabaseContact.Models.DocAttach);
             // 
+            // userModelBindingSource
+            // 
+            userModelBindingSource.DataSource = typeof(Models.UserModel);
+            // 
+            // dictModelBindingSource
+            // 
+            dictModelBindingSource.DataSource = typeof(Models.DictModel);
+            // 
             // DocAttachId
             // 
             DocAttachId.DataPropertyName = "id";
@@ -126,17 +138,25 @@ namespace DocumentAdder.Dialogs
             // DocAttachRUserId
             // 
             DocAttachRUserId.DataPropertyName = "r_user_id";
+            DocAttachRUserId.DataSource = userModelBindingSource;
+            DocAttachRUserId.DisplayMember = "fio";
+            DocAttachRUserId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             DocAttachRUserId.HeaderText = "Пользователь";
             DocAttachRUserId.Name = "DocAttachRUserId";
             DocAttachRUserId.ReadOnly = true;
+            DocAttachRUserId.ValueMember = "id";
             DocAttachRUserId.Width = 90;
             // 
             // DocAttachAttachTyp
             // 
             DocAttachAttachTyp.DataPropertyName = "attach_typ";
+            DocAttachAttachTyp.DataSource = dictModelBindingSource;
+            DocAttachAttachTyp.DisplayMember = "name";
+            DocAttachAttachTyp.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             DocAttachAttachTyp.HeaderText = "Тип вложения";
             DocAttachAttachTyp.Name = "DocAttachAttachTyp";
             DocAttachAttachTyp.ReadOnly = true;
+            DocAttachAttachTyp.ValueMember = "code";
             DocAttachAttachTyp.Width = 82;
             // 
             // DocAttachDt
@@ -161,6 +181,8 @@ namespace DocumentAdder.Dialogs
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)docAttachBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userModelBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictModelBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -177,7 +199,9 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.DataGridViewTextBoxColumn DocAttachName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DocAttachIsActive;
         private System.Windows.Forms.DataGridViewComboBoxColumn DocAttachRUserId;
+        private System.Windows.Forms.BindingSource userModelBindingSource;
         private System.Windows.Forms.DataGridViewComboBoxColumn DocAttachAttachTyp;
+        private System.Windows.Forms.BindingSource dictModelBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocAttachDt;
     }
 }

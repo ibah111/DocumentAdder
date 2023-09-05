@@ -1,6 +1,7 @@
 ﻿using DatabaseContact.Models;
 using DocumentAdder.Forms;
 using DocumentAdder.Main;
+using DocumentAdder.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace DocumentAdder.Dialogs
         {
             this.law_typ = law_typ;
             InitializeComponent();
+            dataGridView1.DataError += DataGridView1_DataError;
+        }
+        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
+        {
+            throw new Exception();
         }
 
         //select u.f+' '+u.i+' '+u.o, lap.dt,d.name,lap.dsc from law_act_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ where d.parent_id = 26
@@ -25,6 +31,8 @@ namespace DocumentAdder.Dialogs
         {
             if (!int.TryParse(Settings.debt_id, out var id)) throw new Exception("Ошибка формы");
             using var db = Program.factory_db.CreateDbContext();
+            userModelBindingSource.DataSource = db.User.Select(x => new UserModel() { id = x.id, fio = x.f + " " + x.i + " " + x.o }).ToList();
+            dictModelBindingSource.DataSource = db.Dict.Where(x => x.parent_id == 100).Select(x => new DictModel() { code = x.code, name = x.name }).ToList();
             List<DatabaseContact.Models.DocAttach> data;
             if (law_typ == LawTyp.LawAct)
             {
@@ -37,6 +45,11 @@ namespace DocumentAdder.Dialogs
             }
             docAttachBindingSource.DataSource = data;
 
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            docAttachBindingSource.DataSource = null;
+            base.OnFormClosing(e);
         }
         private void button1_Click(object sender, EventArgs e)
         {
