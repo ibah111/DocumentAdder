@@ -7,47 +7,57 @@ using System.Windows.Forms;
 
 
 namespace DocumentAdder.Utils;
+public class NamePerson
+{
+    public string f { get; set; }
+    public string i { get; set; }
+    public string o { get; set; }
+}
 
 public class Searcher
 {
-    private string _fio; //ФИО
-    private string _id; //ID Дела
-    private string _kd; //№ КД
-    private string _exec_num; //№ Дела
+    private NamePerson fio; //ФИО
+    private string law_id; //ID Дела
+    private string contract; //№ КД
+    private string exec_number; //№ Дела
 
-    public Searcher(string fio, string debt_id, string kd, string exec_num)
+    public Searcher(NamePerson fio, string law_id, string contract, string exec_number)
     {
-        _fio = fio;
-        _id = debt_id;
-        _kd = kd;
-        _exec_num = exec_num;
+        this.fio = fio;
+        this.law_id = law_id;
+        this.contract = contract;
+        this.exec_number = exec_number;
     }
     public void GetTables(BindingSource LawActSource, BindingSource LawExecSource)
     {
         using var db = Program.factory_db.CreateDbContext();
         LawActSource.Clear();
         LawExecSource.Clear();
-
-        var data1 = db.LawAct.Where(
-            x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_fio}%")
-            );
-        var data2 = db.LawExec.Where(
-            x => EF.Functions.Like(x.Person.f + x.Person.i + x.Person.o, $"{_fio}%")
-            );
-        if (_kd != "")
+        var data1 = db.LawAct.AsQueryable();
+        var data2 = db.LawExec.AsQueryable();
+        if (fio != null)
         {
-            data1 = data1.Where(x => EF.Functions.Like(x.Debt.contract, _kd + "%"));
-            data2 = data2.Where(x => EF.Functions.Like(x.Debt.contract, _kd + "%"));
+            data1 = db.LawAct.Where(
+                x => EF.Functions.Like(x.Person.f, $"{fio.f}%") && EF.Functions.Like(x.Person.i, $"{fio.i}%") && EF.Functions.Like(x.Person.o, $"{fio.o}%")
+                );
+            data2 = db.LawExec.Where(
+                x => EF.Functions.Like(x.Person.f, $"{fio.f}%") && EF.Functions.Like(x.Person.i, $"{fio.i}%") && EF.Functions.Like(x.Person.o, $"{fio.o}%")
+                );
         }
-        if (_id != "")
+        if (contract != "")
         {
-            data1 = data1.Where(x => EF.Functions.Like(x.id.ToString(), _id + "%"));
-            data2 = data2.Where(x => EF.Functions.Like(x.id.ToString(), _id + "%"));
+            data1 = data1.Where(x => EF.Functions.Like(x.Debt.contract, contract + "%"));
+            data2 = data2.Where(x => EF.Functions.Like(x.Debt.contract, contract + "%"));
         }
-        if (_exec_num != "")
+        if (law_id != "")
         {
-            data1 = data1.Where(x => EF.Functions.Like(x.exec_number, _exec_num + "%"));
-            data2 = data2.Where(x => EF.Functions.Like(x.LawAct.exec_number, _exec_num + "%"));
+            data1 = data1.Where(x => EF.Functions.Like(x.id.ToString(), law_id + "%"));
+            data2 = data2.Where(x => EF.Functions.Like(x.id.ToString(), law_id + "%"));
+        }
+        if (exec_number != "")
+        {
+            data1 = data1.Where(x => EF.Functions.Like(x.exec_number, exec_number + "%"));
+            data2 = data2.Where(x => EF.Functions.Like(x.LawAct.exec_number, exec_number + "%"));
         }
         var subquery1 = data1.GroupJoin(db.LawExec,
             (x) => x.id,
@@ -66,7 +76,9 @@ public class Searcher
             fio_vz = x.LawAct.Debt.WorkTask.User.f + " " + x.LawAct.Debt.WorkTask.User.i + " " + x.LawAct.Debt.WorkTask.User.o,
             name = x.LawAct.name,
             portfolio = x.LawAct.Portfolio.name,
-            fio = x.LawAct.Person.f + " " + x.LawAct.Person.i + " " + x.LawAct.Person.o,
+            f = x.LawAct.Person.f,
+            i = x.LawAct.Person.i,
+            o = x.LawAct.Person.o,
             birth_date = x.LawAct.Person.birth_date,
             contract = x.LawAct.Debt.contract,
             exec_number = x.LawAct.exec_number,
@@ -91,7 +103,9 @@ public class Searcher
             Debt_status = x.Debt.status,
             fio_vz = x.Debt.WorkTask.User.f + " " + x.Debt.WorkTask.User.i + " " + x.Debt.WorkTask.User.o,
             portfolio = x.Portfolio.name,
-            fio = x.Person.f + " " + x.Person.i + " " + x.Person.o,
+            f = x.Person.f,
+            i = x.Person.i,
+            o = x.Person.o,
             birth_date = x.Person.birth_date,
             contract = x.Debt.contract,
             fssp_doc_num = x.fssp_doc_num,

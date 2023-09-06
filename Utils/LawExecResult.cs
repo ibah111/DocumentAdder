@@ -11,7 +11,16 @@ public class LawExecResult
     public int? Debt_status { get; set; }
     public string fio_vz { get; set; }
     public string portfolio { get; set; }
-    public string fio { get; set; }
+    public string fio
+    {
+        get
+        {
+            return f + " " + i + " " + o;
+        }
+    }
+    public string f { get; set; }
+    public string i { get; set; }
+    public string o { get; set; }
     public DateTime? birth_date { get; set; }
     public string contract { get; set; }
     public string fssp_doc_num { get; set; }

@@ -45,7 +45,7 @@ public partial class MainForm : Form
             string given = indata;
             textBox4.Text = given.Replace("\r", string.Empty);
             //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
-            Searcher searcher = new Searcher("", textBox4.Text, "", "");
+            Searcher searcher = new Searcher(null, textBox4.Text, "", "");
             searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
             {
@@ -243,7 +243,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.Enter)
         {
-            Searcher searcher = new Searcher(textBoxFio.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, textBox4.Text, textBox5.Text, textBox6.Text);
             searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
         }
         if (e.Control && e.KeyCode == Keys.D)
@@ -279,7 +279,9 @@ public partial class MainForm : Form
     {
         law_typ = LawTyp.LawAct;
         textBox4.Text = data.id.ToString();
-        textBoxFio.Text = data.fio;
+        textBoxF.Text = data.f;
+        textBoxI.Text = data.i;
+        textBoxO.Text = data.o;
         textBox7.Text = data.contract; // № КД
         textBox8.Text = data.exec_number; //№ Дела
         textBox5.Text = data.contract; // № КД
@@ -634,7 +636,7 @@ public partial class MainForm : Form
             id_dela = textBox4.Text,
             st_pnkt = comboBox6.Text,
             gd = textBox6.Text,
-            fio_dol = $"{textBoxFio.Text}",
+            fio_dol = $"{textBoxF.Text} {textBoxO.Text} {textBoxO.Text}",
             kd = textBox5.Text,
             ispol_zadach = comboBox7.Text,
             id_ispol_zadach = comboBox7.SelectedValue,
@@ -645,7 +647,7 @@ public partial class MainForm : Form
             action = typ,
             user_id = comboBox7.SelectedValue,
             template_id = id_task,
-            name = $"{textBoxFio.Text} {textBox5.Text} {data.portfolio}",
+            name = $"{textBoxF.Text} {textBoxI.Text} {textBoxO.Text} {textBox5.Text} {data.portfolio}",
             desc,
             Settings.mode,
             Settings.ist,
@@ -755,7 +757,9 @@ public partial class MainForm : Form
 
         law_typ = LawTyp.LawExec;
         textBox4.Text = data.id.ToString();
-        textBoxFio.Text = data.fio;
+        textBoxF.Text = data.f;
+        textBoxI.Text = data.i;
+        textBoxO.Text = data.o;
         textBox7.Text = data.contract;
         textBox9.Text = data.fssp_doc_num;
         textBox5.Text = data.contract;

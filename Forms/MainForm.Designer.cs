@@ -51,8 +51,7 @@ namespace DocumentAdder.Forms
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             comboBox1 = new System.Windows.Forms.ComboBox();
-            label4 = new System.Windows.Forms.Label();
-            textBoxFio = new System.Windows.Forms.TextBox();
+            textBoxF = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -201,6 +200,11 @@ namespace DocumentAdder.Forms
             comboBox3 = new System.Windows.Forms.ComboBox();
             dictStatus = new System.Windows.Forms.BindingSource(components);
             clearStatus = new System.Windows.Forms.Button();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            textBoxI = new System.Windows.Forms.TextBox();
+            textBoxO = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -232,8 +236,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label2, 4, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(comboBox1, 0, 2);
-            tableLayoutPanel1.Controls.Add(label4, 4, 1);
-            tableLayoutPanel1.Controls.Add(textBoxFio, 4, 2);
+            tableLayoutPanel1.Controls.Add(textBoxF, 4, 2);
             tableLayoutPanel1.Controls.Add(label7, 0, 3);
             tableLayoutPanel1.Controls.Add(label8, 1, 3);
             tableLayoutPanel1.Controls.Add(label9, 2, 3);
@@ -323,6 +326,11 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(selectDocBarcode, 2, 19);
             tableLayoutPanel1.Controls.Add(label34, 3, 11);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 3, 10);
+            tableLayoutPanel1.Controls.Add(label4, 4, 1);
+            tableLayoutPanel1.Controls.Add(label5, 5, 1);
+            tableLayoutPanel1.Controls.Add(label6, 6, 1);
+            tableLayoutPanel1.Controls.Add(textBoxI, 5, 2);
+            tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -403,25 +411,15 @@ namespace DocumentAdder.Forms
             comboBox1.TabIndex = 0;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // label4
+            // textBoxF
             // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(732, 15);
-            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(34, 30);
-            label4.TabIndex = 4;
-            label4.Text = "\r\nФИО";
-            // 
-            // textBoxFio
-            // 
-            textBoxFio.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBoxFio.Location = new System.Drawing.Point(732, 48);
-            textBoxFio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBoxFio.Name = "textBoxFio";
-            textBoxFio.Size = new System.Drawing.Size(174, 23);
-            textBoxFio.TabIndex = 1;
-            textBoxFio.KeyDown += textBox1_KeyDown;
+            textBoxF.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBoxF.Location = new System.Drawing.Point(732, 48);
+            textBoxF.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBoxF.Name = "textBoxF";
+            textBoxF.Size = new System.Drawing.Size(174, 23);
+            textBoxF.TabIndex = 1;
+            textBoxF.KeyDown += textBox1_KeyDown;
             // 
             // label7
             // 
@@ -1060,6 +1058,7 @@ namespace DocumentAdder.Forms
             LawExecFio.DataPropertyName = "fio";
             LawExecFio.HeaderText = "ФИО";
             LawExecFio.Name = "LawExecFio";
+            LawExecFio.ReadOnly = true;
             // 
             // LawExecBirthDate
             // 
@@ -1896,6 +1895,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableLayoutPanel4.Controls.Add(comboBox3, 0, 0);
             tableLayoutPanel4.Controls.Add(clearStatus, 1, 0);
+            tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel4.Location = new System.Drawing.Point(549, 308);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
@@ -1908,6 +1908,7 @@ namespace DocumentAdder.Forms
             // 
             comboBox3.DataSource = dictStatus;
             comboBox3.DisplayMember = "name";
+            comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBox3.FormattingEnabled = true;
             comboBox3.Location = new System.Drawing.Point(4, 3);
@@ -1924,6 +1925,7 @@ namespace DocumentAdder.Forms
             // 
             // clearStatus
             // 
+            clearStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             clearStatus.Image = Properties.Resources.ClearIcon;
             clearStatus.Location = new System.Drawing.Point(143, 3);
             clearStatus.Name = "clearStatus";
@@ -1931,6 +1933,52 @@ namespace DocumentAdder.Forms
             clearStatus.TabIndex = 1;
             clearStatus.UseVisualStyleBackColor = true;
             clearStatus.Click += clearStatus_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(732, 15);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(58, 30);
+            label4.TabIndex = 4;
+            label4.Text = "\r\nФамилия";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(913, 15);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(31, 30);
+            label5.TabIndex = 126;
+            label5.Text = "\r\nИмя";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(1095, 15);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(58, 30);
+            label6.TabIndex = 127;
+            label6.Text = "\r\nОтчество";
+            // 
+            // textBoxI
+            // 
+            textBoxI.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBoxI.Location = new System.Drawing.Point(913, 48);
+            textBoxI.Name = "textBoxI";
+            textBoxI.Size = new System.Drawing.Size(176, 23);
+            textBoxI.TabIndex = 2;
+            textBoxI.KeyDown += textBox1_KeyDown;
+            // 
+            // textBoxO
+            // 
+            textBoxO.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBoxO.Location = new System.Drawing.Point(1095, 48);
+            textBoxO.Name = "textBoxO";
+            textBoxO.Size = new System.Drawing.Size(176, 23);
+            textBoxO.TabIndex = 3;
+            textBoxO.KeyDown += textBox1_KeyDown;
             // 
             // MainForm
             // 
@@ -1971,7 +2019,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxFio;
+        private System.Windows.Forms.TextBox textBoxF;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -2130,6 +2178,10 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecInn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecExecDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecBirthPlace;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxI;
+        private System.Windows.Forms.TextBox textBoxO;
     }
 }
 
