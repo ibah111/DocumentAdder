@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace DocumentAdder.Models
+namespace DocumentAdder.Models;
+
+class Adder
 {
-    class Adder
+    public class FileItem
     {
-        public class FileItem
-        {
-            public string path { get; set; }
-            public string name { get; set; }
-        }
-        public static List<FileItem> files = new List<FileItem>(); //Путь до файла | Название файла
+        public string path { get; set; }
+        public string name { get; set; }
     }
+    public static List<FileItem> files = new List<FileItem>(); //Путь до файла | Название файла
 }

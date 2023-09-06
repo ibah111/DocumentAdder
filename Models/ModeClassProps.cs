@@ -1,7 +1,6 @@
-﻿namespace DocumentAdder.Models
+﻿namespace DocumentAdder.Models;
+
+public class ModeClassProps
 {
-    public class ModeClassProps
-    {
-        public string a;
-    }
+    public string a;
 }

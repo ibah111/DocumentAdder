@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 
-namespace DocumentAdder.Utils
+namespace DocumentAdder.Utils;
+
+static class Addons
 {
-    static class Addons
+    static public string GetName(string[] names)
     {
-        static public string GetName(string[] names)
+        List<string> result = new List<string>();
+        foreach (var name in names)
         {
-            List<string> result = new List<string>();
-            foreach (var name in names)
+            if (!string.IsNullOrEmpty(name))
             {
-                if (!string.IsNullOrEmpty(name))
-                {
-                    result.Add(name);
-                }
+                result.Add(name);
             }
-            return string.Join(" ", result);
         }
+        return string.Join(" ", result);
     }
 }

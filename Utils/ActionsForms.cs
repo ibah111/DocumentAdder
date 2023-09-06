@@ -1,78 +1,77 @@
 ﻿using DocumentAdder.Forms;
 using System;
 
-namespace DocumentAdder.Utils
+namespace DocumentAdder.Utils;
+
+public class ActionsForms
 {
-    public class ActionsForms
+    private MainForm startForm;
+    private LoginForm loginForm;
+    private SocketForm socketForm;
+    public ActionsForms(MainForm startForm, LoginForm loginForm, SocketForm socketForm)
     {
-        private MainForm startForm;
-        private LoginForm loginForm;
-        private SocketForm socketForm;
-        public ActionsForms(MainForm startForm, LoginForm loginForm, SocketForm socketForm)
+        this.startForm = startForm;
+        this.loginForm = loginForm;
+        this.socketForm = socketForm;
+    }
+    public void hideStartForm()
+    {
+        Action hideStartForm = () =>
         {
-            this.startForm = startForm;
-            this.loginForm = loginForm;
-            this.socketForm = socketForm;
-        }
-        public void hideStartForm()
+            startForm.Hide();
+        };
+        startForm.Invoke(hideStartForm);
+    }
+    public void hideSocketForm()
+    {
+        Action hideSocketForm = () =>
         {
-            Action hideStartForm = () =>
-            {
-                startForm.Hide();
-            };
-            startForm.Invoke(hideStartForm);
-        }
-        public void hideSocketForm()
+            this.socketForm.Hide();
+        };
+        socketForm.Invoke(hideSocketForm);
+    }
+    public void showSocketForm(string data = null)
+    {
+        Action showSocketForm = () =>
         {
-            Action hideSocketForm = () =>
+            if (data != null)
             {
-                this.socketForm.Hide();
-            };
-            socketForm.Invoke(hideSocketForm);
-        }
-        public void showSocketForm(string data = null)
+                this.socketForm.textError.Text = data;
+            }
+            else
+            {
+                this.socketForm.Reset();
+            }
+            this.socketForm.Show();
+        };
+        socketForm.Invoke(showSocketForm);
+    }
+    public void showStartForm()
+    {
+        Action showStartForm = () =>
         {
-            Action showSocketForm = () =>
-            {
-                if (data != null)
-                {
-                    this.socketForm.textError.Text = data;
-                }
-                else
-                {
-                    this.socketForm.Reset();
-                }
-                this.socketForm.Show();
-            };
-            socketForm.Invoke(showSocketForm);
-        }
-        public void showStartForm()
+            this.startForm.Show();
+            this.startForm.Loader();
+        };
+        startForm.Invoke(showStartForm);
+    }
+    public void showLoginForm()
+    {
+        Action showStartForm = () =>
         {
-            Action showStartForm = () =>
-            {
-                this.startForm.Show();
-                this.startForm.Loader();
-            };
-            startForm.Invoke(showStartForm);
-        }
-        public void showLoginForm()
+            this.startForm.Show();
+            this.startForm.Loader();
+        };
+        Action hideStartForm = () =>
         {
-            Action showStartForm = () =>
-            {
-                this.startForm.Show();
-                this.startForm.Loader();
-            };
-            Action hideStartForm = () =>
-            {
-                this.startForm.Hide();
-            };
-            Action showLoginForm = () =>
-            {
-                this.loginForm.OnLoged += this.showStartForm;
-                this.loginForm.OnNotLoged += this.hideStartForm;
-                this.loginForm.CheckLogin();
-            };
-            loginForm.Invoke(showLoginForm);
-        }
+            this.startForm.Hide();
+        };
+        Action showLoginForm = () =>
+        {
+            this.loginForm.OnLoged += this.showStartForm;
+            this.loginForm.OnNotLoged += this.hideStartForm;
+            this.loginForm.CheckLogin();
+        };
+        loginForm.Invoke(showLoginForm);
     }
 }
