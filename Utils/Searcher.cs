@@ -49,19 +49,13 @@ namespace DocumentAdder.Utils
                 data1 = data1.Where(x => EF.Functions.Like(x.exec_number, _exec_num + "%"));
                 data2 = data2.Where(x => EF.Functions.Like(x.LawAct.exec_number, _exec_num + "%"));
             }
-            var subquery1 = data1.Join(db.LawExec.GroupBy(x => x.r_act_id).
-                Select(x => new
-                {
-                    r_act_id = x.Key,
-                    court_doc_num = x.Max(a => a.court_doc_num),
-                    court_date = x.Max(a => a.court_date)
-                }),
+            var subquery1 = data1.GroupJoin(db.LawExec,
                 (x) => x.id,
                 (x) => x.r_act_id,
                 (x, y) => new
                 {
                     LawAct = x,
-                    LawExec = y
+                    LawExec = y.FirstOrDefault()
                 });
             var select1 = subquery1.Select(x => new LawActResult()
             {
