@@ -113,7 +113,7 @@ public partial class MainForm : Form
             if (File.Exists(path_to_list))
             {
                 List<string> spis = File.ReadLines(path_to_list).ToList();
-                comboBox5.DataSource = spis;
+                documentNameBox.DataSource = spis;
             }
             else
             {
@@ -122,7 +122,7 @@ public partial class MainForm : Form
             if (File.Exists(path_to_list_adr))
             {
                 List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
-                comboBox8.DataSource = spis1;
+                postNameBox.DataSource = spis1;
             }
             else
             {
@@ -131,7 +131,7 @@ public partial class MainForm : Form
             if (File.Exists(path_to_list_otprav))
             {
                 List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
-                comboBox9.DataSource = spis2;
+                postAddressBox.DataSource = spis2;
             }
             else
             {
@@ -142,8 +142,8 @@ public partial class MainForm : Form
             var o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
             settings_json = o;
             for (int a = 0; a < o.Count; a++)
-                comboBox1.Items.Add(o[a].тип_документа);
-            comboBox1.SelectedIndex = 0;
+                typDocBox.Items.Add(o[a].тип_документа);
+            typDocBox.SelectedIndex = 0;
             //LoadPeople();
             runed = true;
         }
@@ -151,22 +151,22 @@ public partial class MainForm : Form
 
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-        var a = comboBox1.SelectedIndex;
-        textBox8.Enabled = settings_json[a].номер_дела;
-        textBox9.Enabled = settings_json[a].номер_ип;
-        textBox10.Enabled = settings_json[a].номер_испол;
-        maskedTextBox1.Enabled = settings_json[a].дата_вынесения_решения;
-        maskedTextBox2.Enabled = settings_json[a].дата_вступления_в_силу;
-        maskedTextBox3.Enabled = settings_json[a].дата_возбуждения;
-        maskedTextBox4.Enabled = settings_json[a].дата_пост_об_окончании_ип;
-        maskedTextBox5.Enabled = settings_json[a].дата_получения_агентством;
-        maskedTextBox6.Enabled = settings_json[a].дата_возврата;
-        maskedTextBox7.Enabled = settings_json[a].дата_ограничения_выезда;
-        maskedTextBox8.Enabled = settings_json[a].дата_отказа_в_возбуждении;
-        maskedTextBox9.Enabled = settings_json[a].дата_отмены_сп;
-        maskedTextBox10.Enabled = settings_json[a].дата_исполнения_недостатков;
-        maskedTextBox11.Enabled = settings_json[a].дата_и_время_сз;
+        receiptDateBox.Text = DateTime.Now.ToShortDateString();
+        var a = typDocBox.SelectedIndex;
+        execNumberBox.Enabled = settings_json[a].номер_дела;
+        courtDocNumBox.Enabled = settings_json[a].номер_ип;
+        fsspDocNumBox.Enabled = settings_json[a].номер_испол;
+        courtOrderDateBox.Enabled = settings_json[a].дата_вынесения_решения;
+        CourtExecDateBox.Enabled = settings_json[a].дата_вступления_в_силу;
+        startDateBox.Enabled = settings_json[a].дата_возбуждения;
+        finishDateBox.Enabled = settings_json[a].дата_пост_об_окончании_ип;
+        receiptDateBox.Enabled = settings_json[a].дата_получения_агентством;
+        returnDateBox.Enabled = settings_json[a].дата_возврата;
+        restrictionToLeaveDtBox.Enabled = settings_json[a].дата_ограничения_выезда;
+        rejectDateBox.Enabled = settings_json[a].дата_отказа_в_возбуждении;
+        cancelDateBox.Enabled = settings_json[a].дата_отмены_сп;
+        correctPeriodDateBox.Enabled = settings_json[a].дата_исполнения_недостатков;
+        sessionDateBox.Enabled = settings_json[a].дата_и_время_сз;
         Data.int_color = settings_json[a].цвет_карточки;
         Settings.barcode = settings_json[a].штрих_код;
         if (Settings.barcode == true)
@@ -182,20 +182,20 @@ public partial class MainForm : Form
             selectDocBarcode.Enabled = false;
         }
 
-        if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                    || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                    || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                    || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-                    || comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-                    || comboBox1.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
-                    || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
+        if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                    || typDocBox.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                    || typDocBox.Text.Contains("ИЛ в НАШУ пользу")
+                    || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                    || typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                    || typDocBox.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
+                    || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
             textBox21.Enabled = true;
             textBox23.Enabled = true;
             textBox19.Enabled = true;
             textBox20.Enabled = true;
-            maskedTextBox12.Enabled = true;
+            CourtDateBox.Enabled = true;
             textBox16.Enabled = true;
         }
         else
@@ -206,18 +206,18 @@ public partial class MainForm : Form
             textBox20.Enabled = false;
         }
 
-        if (comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-            || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-            || comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу"))
+        if (typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+            || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+            || typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу"))
         {
             Settings.dateId = true;
         }
         else
             Settings.dateId = false;
         if (!String.IsNullOrEmpty(settings_json[a].название_документа))
-            comboBox5.Text = settings_json[a].название_документа;
+            documentNameBox.Text = settings_json[a].название_документа;
         if (settings_json[a].исполнитель.HasValue)
-            comboBox7.SelectedValue = settings_json[a].исполнитель;
+            userTaskBox.SelectedValue = settings_json[a].исполнитель;
     }
 
     private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
@@ -281,24 +281,24 @@ public partial class MainForm : Form
         textBoxF.Text = data.f;
         textBoxI.Text = data.i;
         textBoxO.Text = data.o;
-        textBox8.Text = data.exec_number; //№ Дела
+        execNumberBox.Text = data.exec_number; //№ Дела
         textBox5.Text = data.contract; // № КД
         textBox6.Text = data.exec_number; //№ Дела
         textBox12.Text = data.dsc; //Коммент
         var dict = getIntDict(data.typ.Value);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
-        var settings = settings_json[comboBox1.SelectedIndex];
+        var settings = settings_json[typDocBox.SelectedIndex];
         if (!(settings.без_смены_суд.ContainsKey(dict) && settings.без_смены_суд[dict].Contains(getIntStatus(data).Value)) && settings.судебн_статус.ContainsKey(data.typ.Value))
         {
-            comboBox3.SelectedValue = settings.судебн_статус[data.typ.Value];
+            statusBox.SelectedValue = settings.судебн_статус[data.typ.Value];
         }
         else
         {
-            comboBox3.SelectedIndex = -1;
+            statusBox.SelectedIndex = -1;
         }
 
-        maskedTextBox5.Text = DateTime.Now.ToShortDateString();
-        maskedTextBox12.Text = data.court_date?.ToShortDateString();
+        receiptDateBox.Text = DateTime.Now.ToShortDateString();
+        CourtDateBox.Text = data.court_date?.ToShortDateString();
         textBox23.Text = data.total_sum.ToString();
         textBox19.Text = data.series;
         textBox20.Text = data.number;
@@ -306,8 +306,8 @@ public partial class MainForm : Form
         textBox16.Text = data.court_doc_num;
         // if (o[comboBox1.SelectedIndex].связь_суда)
         // {
-        comboBox9.Text = data.court_name;
-        comboBox8.Text = data.court_adress;
+        postAddressBox.Text = data.court_name;
+        postNameBox.Text = data.court_adress;
         // }
         current = data;
     }
@@ -384,19 +384,19 @@ public partial class MainForm : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        string vvvv = comboBox1.SelectedItem.ToString();
+        string vvvv = typDocBox.SelectedItem.ToString();
 
 
-        if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                    || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                    || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                    || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-                    || comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-                    || comboBox1.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
-                    || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
+        if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                    || typDocBox.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                    || typDocBox.Text.Contains("ИЛ в НАШУ пользу")
+                    || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                    || typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                    || typDocBox.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
+                    || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
-            if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(textBox23.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(maskedTextBox12.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(comboBox8.Text))
+            if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(textBox23.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(execNumberBox.Text) || String.IsNullOrEmpty(CourtDateBox.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(postNameBox.Text))
             {
                 MessageBox.Show("Поля для ВТБ не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -407,27 +407,27 @@ public partial class MainForm : Form
             MessageBox.Show("ДАТЫ не заполнены или заполнены некорректно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
-        if (comboBox1.Text.Contains("ПОВИП") && string.IsNullOrWhiteSpace(textBox9.Text))
+        if (typDocBox.Text.Contains("ПОВИП") && string.IsNullOrWhiteSpace(courtDocNumBox.Text))
         {
             MessageBox.Show("Поле № ИП не заполнено!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                   || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                   || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                   || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-                    || comboBox1.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-                    || comboBox1.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
-                    || comboBox1.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
+        if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
+                   || typDocBox.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
+                   || typDocBox.Text.Contains("ИЛ в НАШУ пользу")
+                   || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
+                    || typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
+                    || typDocBox.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
+                    || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
             var data = (LawActResult)current;
             PersonInfo personInfo = new PersonInfo()
             {
                 court_doc_num = textBox16.Text,
-                court_date = maskedTextBox12.Text,
-                exec_number = textBox8.Text,
+                court_date = CourtDateBox.Text,
+                exec_number = execNumberBox.Text,
                 fio = data.fio,
                 birth_date = data.birth_date.Value.ToShortDateString(),
                 birth_place = data.birth_place,
@@ -460,9 +460,9 @@ public partial class MainForm : Form
 
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
-        Data.Update(db, law_typ, textBox8, textBox9, textBox10, textBox11,
-            maskedTextBox1, maskedTextBox2, maskedTextBox3, maskedTextBox4, maskedTextBox5,
-            maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, textBox23, comboBox3.Text);
+        Data.Update(db, law_typ, execNumberBox, courtDocNumBox, fsspDocNumBox, textBox11,
+            courtOrderDateBox, CourtExecDateBox, startDateBox, finishDateBox, receiptDateBox,
+            returnDateBox, restrictionToLeaveDtBox, rejectDateBox, cancelDateBox, correctPeriodDateBox, sessionDateBox, textBox23, statusBox.Text);
         db.SaveChanges();
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
@@ -481,7 +481,7 @@ public partial class MainForm : Form
 
             try
             {
-                File.Copy(file_dir, segmentation + $"{comboBox1.SelectedItem.ToString().Replace("/", "")}" + $"\\Test{file}");
+                File.Copy(file_dir, segmentation + $"{typDocBox.SelectedItem.ToString().Replace("/", "")}" + $"\\Test{file}");
             }
             catch (Exception exeption)
             {
@@ -492,7 +492,7 @@ public partial class MainForm : Form
             {
                 if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
                 {
-                    var doc = new ClientDoc() { doc = result, barcode = true, title = textBox16.Text, date = maskedTextBox12.Text };
+                    var doc = new ClientDoc() { doc = result, barcode = true, title = textBox16.Text, date = CourtDateBox.Text };
                     if (law_typ == LawTyp.LawExec)
                     {
                         doc.type = 2;
@@ -578,8 +578,8 @@ public partial class MainForm : Form
         PersonInfo personInfo = new PersonInfo()
         {
             court_doc_num = textBox16.Text,
-            court_date = maskedTextBox12.Text,
-            exec_number = textBox8.Text,
+            court_date = CourtDateBox.Text,
+            exec_number = execNumberBox.Text,
             fio = data.fio,
             birth_date = data.birth_date.Value.ToShortDateString(),
             birth_place = data.birth_place,
@@ -588,7 +588,7 @@ public partial class MainForm : Form
             inn = data.inn,
             sum = data.total_sum.Value,
             exec_date = data.exec_date.Value.ToShortTimeString(),
-            name = comboBox9.Text
+            name = postAddressBox.Text
         };
         Tasks f = new Tasks(ref errors, this, personInfo, docs);
         f.Show();
@@ -618,32 +618,32 @@ public partial class MainForm : Form
         if (!string.IsNullOrEmpty(Settings.dateDoc))
             dateDoc = DateTime.Parse(Settings.dateDoc);
         string desc = $"{textBox11.Text}";
-        if (maskedTextBox10.Enabled == true)
-            desc += $" {maskedTextBox10.Text}";
+        if (correctPeriodDateBox.Enabled == true)
+            desc += $" {correctPeriodDateBox.Text}";
         var data = (LawActResult)current;
         var result = new
         {
             date_post =
-            DateTime.Parse(dateTimePicker1.Value.ToShortDateString()),
+            DateTime.Parse(datePostBox.Value.ToShortDateString()),
             Convert = convert,
             pristavi = pristavi,
-            adr_otp = comboBox8.Text,
-            otprav = comboBox9.Text,
+            adr_otp = postNameBox.Text,
+            otprav = postAddressBox.Text,
             reestr = data.portfolio,
-            doc_name = comboBox5.Text,
+            doc_name = documentNameBox.Text,
             id_dela = textBox4.Text,
-            st_pnkt = comboBox6.Text,
+            st_pnkt = articleAndParagraphBox.Text,
             gd = textBox6.Text,
             fio_dol = $"{textBoxF.Text} {textBoxO.Text} {textBoxO.Text}",
             kd = textBox5.Text,
-            ispol_zadach = comboBox7.Text,
-            id_ispol_zadach = comboBox7.SelectedValue,
+            ispol_zadach = userTaskBox.Text,
+            id_ispol_zadach = userTaskBox.SelectedValue,
             vsisk = data.fio_vz,
             kto_obrabotal = Settings.username,
             id_kto_obrabotal = Settings.user_id,
             nal_skan = nal_skan,
             action = typ,
-            user_id = comboBox7.SelectedValue,
+            user_id = userTaskBox.SelectedValue,
             template_id = id_task,
             name = $"{textBoxF.Text} {textBoxI.Text} {textBoxO.Text} {textBox5.Text} {data.portfolio}",
             desc,
@@ -664,7 +664,7 @@ public partial class MainForm : Form
         foreach (Control control in tableLayoutPanel1.Controls)
         {
             if (control is MaskedTextBox)
-                if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != nameof(maskedTextBox12))
+                if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != nameof(CourtDateBox))
                     return false;
         }
         return true;
@@ -748,7 +748,7 @@ public partial class MainForm : Form
 
     private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Data.status = comboBox3.SelectedIndex;
+        Data.status = statusBox.SelectedIndex;
     }
     private void InstallData(LawExecResult data)
     {
@@ -758,18 +758,18 @@ public partial class MainForm : Form
         textBoxF.Text = data.f;
         textBoxI.Text = data.i;
         textBoxO.Text = data.o;
-        textBox9.Text = data.fssp_doc_num;
+        courtDocNumBox.Text = data.fssp_doc_num;
         textBox5.Text = data.contract;
         textBox6.Text = data.exec_number;
-        textBox10.Text = data.court_doc_num;
-        textBox8.Text = data.exec_number;
+        fsspDocNumBox.Text = data.court_doc_num;
+        execNumberBox.Text = data.exec_number;
         textBox12.Text = data.dsc;
-        var settings = settings_json[comboBox1.SelectedIndex];
+        var settings = settings_json[typDocBox.SelectedIndex];
         if (!settings.без_смены_ид.Contains(data.Status.Value) && settings.испол_статус != null)
         {
-            comboBox3.SelectedValue = settings.испол_статус;
+            statusBox.SelectedValue = settings.испол_статус;
         }
-        maskedTextBox12.Text = data.court_date?.ToShortDateString();
+        CourtDateBox.Text = data.court_date?.ToShortDateString();
         textBox16.Text = data.court_doc_num;
         //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
         //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
@@ -839,41 +839,41 @@ public partial class MainForm : Form
 
     private void button6_Click(object sender, EventArgs e)
     {
-        if ((comboBox5.Text == " ") || (comboBox5.Text == ""))
+        if ((documentNameBox.Text == " ") || (documentNameBox.Text == ""))
             MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
         else
         {
             StreamWriter sw = new StreamWriter(path_to_list, true);
-            sw.WriteLine($"{comboBox5.Text}");
+            sw.WriteLine($"{documentNameBox.Text}");
             sw.Close();
             List<string> spis = File.ReadLines(path_to_list).ToList();
-            comboBox5.DataSource = spis;
+            documentNameBox.DataSource = spis;
         }
     }
 
     private void button7_Click(object sender, EventArgs e)
     {
-        if ((comboBox8.Text == " ") || (comboBox8.Text == ""))
+        if ((postNameBox.Text == " ") || (postNameBox.Text == ""))
             MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
         else
         {
             StreamWriter sw = new StreamWriter(path_to_list_adr, true);
-            sw.WriteLine($"{comboBox8.Text}");
+            sw.WriteLine($"{postNameBox.Text}");
             sw.Close();
             List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
-            comboBox8.DataSource = spis1;
+            postNameBox.DataSource = spis1;
         }
     }
 
     private void button8_Click(object sender, EventArgs e)
     {
-        if ((comboBox9.Text == " ") || (comboBox9.Text == ""))
+        if ((postAddressBox.Text == " ") || (postAddressBox.Text == ""))
             MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
         else
         {
-            File.AppendAllText(path_to_list_otprav, comboBox9.Text + "\n");
+            File.AppendAllText(path_to_list_otprav, postAddressBox.Text + "\n");
             List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
-            comboBox9.DataSource = spis2;
+            postAddressBox.DataSource = spis2;
         }
     }
 
@@ -892,10 +892,10 @@ public partial class MainForm : Form
             nal_skan = true;
         Settings.conv = convert;
         Settings.nal_skan = nal_skan;
-        Settings.adr_otp = comboBox8.Text;
-        Settings.otprav = comboBox9.Text;
-        Settings.doc_name = comboBox5.Text;
-        Settings.date_post = dateTimePicker1.Value.ToShortDateString();
+        Settings.adr_otp = postNameBox.Text;
+        Settings.otprav = postAddressBox.Text;
+        Settings.doc_name = documentNameBox.Text;
+        Settings.date_post = datePostBox.Value.ToShortDateString();
         OtherDocs f = new OtherDocs(Settings.mode);
         if (Settings.mode < 1)
             Settings.mode = 1;
@@ -909,7 +909,7 @@ public partial class MainForm : Form
         try
         {
             var vm = new { action = "users" };
-            string old_text = comboBox7.Text;
+            string old_text = userTaskBox.Text;
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = Program.client.Post<List<ServerUser>>(request);
             if (response.Count > 0)
@@ -960,17 +960,17 @@ public partial class MainForm : Form
         if (m.SelectedValue != null)
             if ((int)m.SelectedValue == 2 || (int)m.SelectedValue == 3)
             {
-                comboBox8.Enabled = false;
+                postNameBox.Enabled = false;
             }
             else
             {
-                comboBox8.Enabled = true;
+                postNameBox.Enabled = true;
             }
     }
 
     private void clearStatus_Click(object sender, EventArgs e)
     {
-        comboBox3.SelectedIndex = -1;
+        statusBox.SelectedIndex = -1;
     }
 
 

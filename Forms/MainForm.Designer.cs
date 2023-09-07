@@ -50,7 +50,7 @@ namespace DocumentAdder.Forms
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            comboBox1 = new System.Windows.Forms.ComboBox();
+            typDocBox = new System.Windows.Forms.ComboBox();
             textBoxF = new System.Windows.Forms.TextBox();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -63,9 +63,9 @@ namespace DocumentAdder.Forms
             label16 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
-            maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            CourtExecDateBox = new System.Windows.Forms.MaskedTextBox();
+            startDateBox = new System.Windows.Forms.MaskedTextBox();
+            finishDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             LawActId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActTyp = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -96,16 +96,16 @@ namespace DocumentAdder.Forms
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
-            maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
+            receiptDateBox = new System.Windows.Forms.MaskedTextBox();
+            returnDateBox = new System.Windows.Forms.MaskedTextBox();
+            restrictionToLeaveDtBox = new System.Windows.Forms.MaskedTextBox();
+            rejectDateBox = new System.Windows.Forms.MaskedTextBox();
             label23 = new System.Windows.Forms.Label();
             label24 = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
-            maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
-            maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
+            cancelDateBox = new System.Windows.Forms.MaskedTextBox();
+            correctPeriodDateBox = new System.Windows.Forms.MaskedTextBox();
+            sessionDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView2 = new System.Windows.Forms.DataGridView();
             LawExecId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,28 +141,28 @@ namespace DocumentAdder.Forms
             textBox6 = new System.Windows.Forms.TextBox();
             textBox5 = new System.Windows.Forms.TextBox();
             textBox4 = new System.Windows.Forms.TextBox();
-            textBox8 = new System.Windows.Forms.TextBox();
-            textBox10 = new System.Windows.Forms.TextBox();
-            maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            textBox9 = new System.Windows.Forms.TextBox();
+            execNumberBox = new System.Windows.Forms.TextBox();
+            fsspDocNumBox = new System.Windows.Forms.TextBox();
+            courtOrderDateBox = new System.Windows.Forms.MaskedTextBox();
+            courtDocNumBox = new System.Windows.Forms.TextBox();
             button1 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
             label27 = new System.Windows.Forms.Label();
-            comboBox7 = new System.Windows.Forms.ComboBox();
+            userTaskBox = new System.Windows.Forms.ComboBox();
             label26 = new System.Windows.Forms.Label();
-            comboBox8 = new System.Windows.Forms.ComboBox();
+            postNameBox = new System.Windows.Forms.ComboBox();
             label35 = new System.Windows.Forms.Label();
             button7 = new System.Windows.Forms.Button();
-            comboBox6 = new System.Windows.Forms.ComboBox();
-            comboBox5 = new System.Windows.Forms.ComboBox();
+            articleAndParagraphBox = new System.Windows.Forms.ComboBox();
+            documentNameBox = new System.Windows.Forms.ComboBox();
             label32 = new System.Windows.Forms.Label();
             label33 = new System.Windows.Forms.Label();
-            comboBox9 = new System.Windows.Forms.ComboBox();
+            postAddressBox = new System.Windows.Forms.ComboBox();
             button8 = new System.Windows.Forms.Button();
             label36 = new System.Windows.Forms.Label();
             button6 = new System.Windows.Forms.Button();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            datePostBox = new System.Windows.Forms.DateTimePicker();
             button9 = new System.Windows.Forms.Button();
             checkBox3 = new System.Windows.Forms.CheckBox();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -183,7 +183,7 @@ namespace DocumentAdder.Forms
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
-            maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
+            CourtDateBox = new System.Windows.Forms.MaskedTextBox();
             textBox16 = new System.Windows.Forms.TextBox();
             label42 = new System.Windows.Forms.Label();
             label43 = new System.Windows.Forms.Label();
@@ -195,7 +195,7 @@ namespace DocumentAdder.Forms
             Documents = new System.Windows.Forms.BindingSource(components);
             label34 = new System.Windows.Forms.Label();
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            comboBox3 = new System.Windows.Forms.ComboBox();
+            statusBox = new System.Windows.Forms.ComboBox();
             dictStatus = new System.Windows.Forms.BindingSource(components);
             clearStatus = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
@@ -236,7 +236,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(label2, 4, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
-            tableLayoutPanel1.Controls.Add(comboBox1, 0, 2);
+            tableLayoutPanel1.Controls.Add(typDocBox, 0, 2);
             tableLayoutPanel1.Controls.Add(textBoxF, 4, 2);
             tableLayoutPanel1.Controls.Add(label8, 0, 3);
             tableLayoutPanel1.Controls.Add(label9, 1, 3);
@@ -249,24 +249,24 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label16, 2, 5);
             tableLayoutPanel1.Controls.Add(label17, 3, 5);
             tableLayoutPanel1.Controls.Add(label18, 4, 5);
-            tableLayoutPanel1.Controls.Add(maskedTextBox2, 1, 6);
-            tableLayoutPanel1.Controls.Add(maskedTextBox3, 2, 6);
-            tableLayoutPanel1.Controls.Add(maskedTextBox4, 3, 6);
+            tableLayoutPanel1.Controls.Add(CourtExecDateBox, 1, 6);
+            tableLayoutPanel1.Controls.Add(startDateBox, 2, 6);
+            tableLayoutPanel1.Controls.Add(finishDateBox, 3, 6);
             tableLayoutPanel1.Controls.Add(dataGridView1, 4, 6);
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
             tableLayoutPanel1.Controls.Add(label20, 1, 7);
             tableLayoutPanel1.Controls.Add(label21, 2, 7);
             tableLayoutPanel1.Controls.Add(label22, 3, 7);
-            tableLayoutPanel1.Controls.Add(maskedTextBox5, 0, 8);
-            tableLayoutPanel1.Controls.Add(maskedTextBox6, 1, 8);
-            tableLayoutPanel1.Controls.Add(maskedTextBox7, 2, 8);
-            tableLayoutPanel1.Controls.Add(maskedTextBox8, 3, 8);
+            tableLayoutPanel1.Controls.Add(receiptDateBox, 0, 8);
+            tableLayoutPanel1.Controls.Add(returnDateBox, 1, 8);
+            tableLayoutPanel1.Controls.Add(restrictionToLeaveDtBox, 2, 8);
+            tableLayoutPanel1.Controls.Add(rejectDateBox, 3, 8);
             tableLayoutPanel1.Controls.Add(label23, 0, 9);
             tableLayoutPanel1.Controls.Add(label24, 1, 9);
             tableLayoutPanel1.Controls.Add(label25, 2, 9);
-            tableLayoutPanel1.Controls.Add(maskedTextBox9, 0, 10);
-            tableLayoutPanel1.Controls.Add(maskedTextBox10, 1, 10);
-            tableLayoutPanel1.Controls.Add(maskedTextBox11, 2, 10);
+            tableLayoutPanel1.Controls.Add(cancelDateBox, 0, 10);
+            tableLayoutPanel1.Controls.Add(correctPeriodDateBox, 1, 10);
+            tableLayoutPanel1.Controls.Add(sessionDateBox, 2, 10);
             tableLayoutPanel1.Controls.Add(dataGridView2, 4, 21);
             tableLayoutPanel1.Controls.Add(textBox11, 0, 21);
             tableLayoutPanel1.Controls.Add(textBox12, 0, 24);
@@ -277,28 +277,28 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(textBox6, 6, 4);
             tableLayoutPanel1.Controls.Add(textBox5, 5, 4);
             tableLayoutPanel1.Controls.Add(textBox4, 4, 4);
-            tableLayoutPanel1.Controls.Add(textBox8, 0, 4);
-            tableLayoutPanel1.Controls.Add(textBox10, 2, 4);
-            tableLayoutPanel1.Controls.Add(maskedTextBox1, 0, 6);
-            tableLayoutPanel1.Controls.Add(textBox9, 1, 4);
+            tableLayoutPanel1.Controls.Add(execNumberBox, 0, 4);
+            tableLayoutPanel1.Controls.Add(fsspDocNumBox, 2, 4);
+            tableLayoutPanel1.Controls.Add(courtOrderDateBox, 0, 6);
+            tableLayoutPanel1.Controls.Add(courtDocNumBox, 1, 4);
             tableLayoutPanel1.Controls.Add(button1, 3, 21);
             tableLayoutPanel1.Controls.Add(button4, 3, 22);
             tableLayoutPanel1.Controls.Add(button5, 3, 23);
             tableLayoutPanel1.Controls.Add(label27, 3, 9);
-            tableLayoutPanel1.Controls.Add(comboBox7, 3, 12);
+            tableLayoutPanel1.Controls.Add(userTaskBox, 3, 12);
             tableLayoutPanel1.Controls.Add(label26, 0, 11);
-            tableLayoutPanel1.Controls.Add(comboBox8, 0, 14);
+            tableLayoutPanel1.Controls.Add(postNameBox, 0, 14);
             tableLayoutPanel1.Controls.Add(label35, 0, 13);
             tableLayoutPanel1.Controls.Add(button7, 0, 15);
-            tableLayoutPanel1.Controls.Add(comboBox6, 1, 12);
-            tableLayoutPanel1.Controls.Add(comboBox5, 2, 12);
+            tableLayoutPanel1.Controls.Add(articleAndParagraphBox, 1, 12);
+            tableLayoutPanel1.Controls.Add(documentNameBox, 2, 12);
             tableLayoutPanel1.Controls.Add(label32, 2, 11);
             tableLayoutPanel1.Controls.Add(label33, 1, 11);
-            tableLayoutPanel1.Controls.Add(comboBox9, 1, 14);
+            tableLayoutPanel1.Controls.Add(postAddressBox, 1, 14);
             tableLayoutPanel1.Controls.Add(button8, 1, 15);
             tableLayoutPanel1.Controls.Add(label36, 1, 13);
             tableLayoutPanel1.Controls.Add(button6, 2, 13);
-            tableLayoutPanel1.Controls.Add(dateTimePicker1, 0, 12);
+            tableLayoutPanel1.Controls.Add(datePostBox, 0, 12);
             tableLayoutPanel1.Controls.Add(button9, 3, 24);
             tableLayoutPanel1.Controls.Add(checkBox3, 3, 25);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 14);
@@ -315,7 +315,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label28, 0, 20);
             tableLayoutPanel1.Controls.Add(label29, 2, 20);
             tableLayoutPanel1.Controls.Add(label30, 4, 20);
-            tableLayoutPanel1.Controls.Add(maskedTextBox12, 0, 19);
+            tableLayoutPanel1.Controls.Add(CourtDateBox, 0, 19);
             tableLayoutPanel1.Controls.Add(textBox16, 1, 19);
             tableLayoutPanel1.Controls.Add(label42, 0, 18);
             tableLayoutPanel1.Controls.Add(label43, 1, 18);
@@ -399,19 +399,19 @@ namespace DocumentAdder.Forms
             label3.TabIndex = 2;
             label3.Text = "Тип документа";
             // 
-            // comboBox1
+            // typDocBox
             // 
-            comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            tableLayoutPanel1.SetColumnSpan(comboBox1, 4);
-            comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new System.Drawing.Point(4, 73);
-            comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(720, 23);
-            comboBox1.TabIndex = 0;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            typDocBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            typDocBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            tableLayoutPanel1.SetColumnSpan(typDocBox, 4);
+            typDocBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            typDocBox.FormattingEnabled = true;
+            typDocBox.Location = new System.Drawing.Point(4, 73);
+            typDocBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            typDocBox.Name = "typDocBox";
+            typDocBox.Size = new System.Drawing.Size(720, 23);
+            typDocBox.TabIndex = 0;
+            typDocBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBoxF
             // 
@@ -545,44 +545,44 @@ namespace DocumentAdder.Forms
             label18.TabIndex = 28;
             label18.Text = "Приказ, иск, правопреемство, банкротство";
             // 
-            // maskedTextBox2
+            // CourtExecDateBox
             // 
-            maskedTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox2.Location = new System.Drawing.Point(186, 213);
-            maskedTextBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox2.Mask = "00/00/0000";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox2.TabIndex = 12;
-            maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            maskedTextBox2.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox2.KeyDown += textBox1_KeyDown;
+            CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            CourtExecDateBox.Location = new System.Drawing.Point(186, 213);
+            CourtExecDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            CourtExecDateBox.Mask = "00/00/0000";
+            CourtExecDateBox.Name = "CourtExecDateBox";
+            CourtExecDateBox.Size = new System.Drawing.Size(174, 23);
+            CourtExecDateBox.TabIndex = 12;
+            CourtExecDateBox.ValidatingType = typeof(System.DateTime);
+            CourtExecDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            CourtExecDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox3
+            // startDateBox
             // 
-            maskedTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox3.Location = new System.Drawing.Point(368, 213);
-            maskedTextBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox3.Mask = "00/00/0000";
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox3.TabIndex = 13;
-            maskedTextBox3.ValidatingType = typeof(System.DateTime);
-            maskedTextBox3.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox3.KeyDown += textBox1_KeyDown;
+            startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            startDateBox.Location = new System.Drawing.Point(368, 213);
+            startDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            startDateBox.Mask = "00/00/0000";
+            startDateBox.Name = "startDateBox";
+            startDateBox.Size = new System.Drawing.Size(174, 23);
+            startDateBox.TabIndex = 13;
+            startDateBox.ValidatingType = typeof(System.DateTime);
+            startDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            startDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox4
+            // finishDateBox
             // 
-            maskedTextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox4.Location = new System.Drawing.Point(550, 213);
-            maskedTextBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox4.Mask = "00/00/0000";
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox4.TabIndex = 14;
-            maskedTextBox4.ValidatingType = typeof(System.DateTime);
-            maskedTextBox4.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox4.KeyDown += textBox1_KeyDown;
+            finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            finishDateBox.Location = new System.Drawing.Point(550, 213);
+            finishDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            finishDateBox.Mask = "00/00/0000";
+            finishDateBox.Name = "finishDateBox";
+            finishDateBox.Size = new System.Drawing.Size(174, 23);
+            finishDateBox.TabIndex = 14;
+            finishDateBox.ValidatingType = typeof(System.DateTime);
+            finishDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            finishDateBox.KeyDown += textBox1_KeyDown;
             // 
             // dataGridView1
             // 
@@ -864,57 +864,57 @@ namespace DocumentAdder.Forms
             label22.TabIndex = 37;
             label22.Text = "Дата отказа в возбуждении";
             // 
-            // maskedTextBox5
+            // receiptDateBox
             // 
-            maskedTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox5.Location = new System.Drawing.Point(4, 283);
-            maskedTextBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox5.Mask = "00/00/0000";
-            maskedTextBox5.Name = "maskedTextBox5";
-            maskedTextBox5.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox5.TabIndex = 15;
-            maskedTextBox5.ValidatingType = typeof(System.DateTime);
-            maskedTextBox5.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox5.KeyDown += textBox1_KeyDown;
+            receiptDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            receiptDateBox.Location = new System.Drawing.Point(4, 283);
+            receiptDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            receiptDateBox.Mask = "00/00/0000";
+            receiptDateBox.Name = "receiptDateBox";
+            receiptDateBox.Size = new System.Drawing.Size(174, 23);
+            receiptDateBox.TabIndex = 15;
+            receiptDateBox.ValidatingType = typeof(System.DateTime);
+            receiptDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            receiptDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox6
+            // returnDateBox
             // 
-            maskedTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox6.Location = new System.Drawing.Point(186, 283);
-            maskedTextBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox6.Mask = "00/00/0000";
-            maskedTextBox6.Name = "maskedTextBox6";
-            maskedTextBox6.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox6.TabIndex = 16;
-            maskedTextBox6.ValidatingType = typeof(System.DateTime);
-            maskedTextBox6.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox6.KeyDown += textBox1_KeyDown;
+            returnDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            returnDateBox.Location = new System.Drawing.Point(186, 283);
+            returnDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            returnDateBox.Mask = "00/00/0000";
+            returnDateBox.Name = "returnDateBox";
+            returnDateBox.Size = new System.Drawing.Size(174, 23);
+            returnDateBox.TabIndex = 16;
+            returnDateBox.ValidatingType = typeof(System.DateTime);
+            returnDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            returnDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox7
+            // restrictionToLeaveDtBox
             // 
-            maskedTextBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox7.Location = new System.Drawing.Point(368, 283);
-            maskedTextBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox7.Mask = "00/00/0000";
-            maskedTextBox7.Name = "maskedTextBox7";
-            maskedTextBox7.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox7.TabIndex = 17;
-            maskedTextBox7.ValidatingType = typeof(System.DateTime);
-            maskedTextBox7.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox7.KeyDown += textBox1_KeyDown;
+            restrictionToLeaveDtBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            restrictionToLeaveDtBox.Location = new System.Drawing.Point(368, 283);
+            restrictionToLeaveDtBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            restrictionToLeaveDtBox.Mask = "00/00/0000";
+            restrictionToLeaveDtBox.Name = "restrictionToLeaveDtBox";
+            restrictionToLeaveDtBox.Size = new System.Drawing.Size(174, 23);
+            restrictionToLeaveDtBox.TabIndex = 17;
+            restrictionToLeaveDtBox.ValidatingType = typeof(System.DateTime);
+            restrictionToLeaveDtBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            restrictionToLeaveDtBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox8
+            // rejectDateBox
             // 
-            maskedTextBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox8.Location = new System.Drawing.Point(550, 283);
-            maskedTextBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox8.Mask = "00/00/0000";
-            maskedTextBox8.Name = "maskedTextBox8";
-            maskedTextBox8.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox8.TabIndex = 18;
-            maskedTextBox8.ValidatingType = typeof(System.DateTime);
-            maskedTextBox8.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox8.KeyDown += textBox1_KeyDown;
+            rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            rejectDateBox.Location = new System.Drawing.Point(550, 283);
+            rejectDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rejectDateBox.Mask = "00/00/0000";
+            rejectDateBox.Name = "rejectDateBox";
+            rejectDateBox.Size = new System.Drawing.Size(174, 23);
+            rejectDateBox.TabIndex = 18;
+            rejectDateBox.ValidatingType = typeof(System.DateTime);
+            rejectDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            rejectDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label23
             // 
@@ -949,44 +949,44 @@ namespace DocumentAdder.Forms
             label25.TabIndex = 44;
             label25.Text = "Дата и время СЗ";
             // 
-            // maskedTextBox9
+            // cancelDateBox
             // 
-            maskedTextBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox9.Location = new System.Drawing.Point(4, 353);
-            maskedTextBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox9.Mask = "00/00/0000";
-            maskedTextBox9.Name = "maskedTextBox9";
-            maskedTextBox9.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox9.TabIndex = 19;
-            maskedTextBox9.ValidatingType = typeof(System.DateTime);
-            maskedTextBox9.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox9.KeyDown += textBox1_KeyDown;
+            cancelDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            cancelDateBox.Location = new System.Drawing.Point(4, 353);
+            cancelDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cancelDateBox.Mask = "00/00/0000";
+            cancelDateBox.Name = "cancelDateBox";
+            cancelDateBox.Size = new System.Drawing.Size(174, 23);
+            cancelDateBox.TabIndex = 19;
+            cancelDateBox.ValidatingType = typeof(System.DateTime);
+            cancelDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            cancelDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox10
+            // correctPeriodDateBox
             // 
-            maskedTextBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox10.Location = new System.Drawing.Point(186, 353);
-            maskedTextBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox10.Mask = "00/00/0000";
-            maskedTextBox10.Name = "maskedTextBox10";
-            maskedTextBox10.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox10.TabIndex = 20;
-            maskedTextBox10.ValidatingType = typeof(System.DateTime);
-            maskedTextBox10.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox10.KeyDown += textBox1_KeyDown;
+            correctPeriodDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            correctPeriodDateBox.Location = new System.Drawing.Point(186, 353);
+            correctPeriodDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            correctPeriodDateBox.Mask = "00/00/0000";
+            correctPeriodDateBox.Name = "correctPeriodDateBox";
+            correctPeriodDateBox.Size = new System.Drawing.Size(174, 23);
+            correctPeriodDateBox.TabIndex = 20;
+            correctPeriodDateBox.ValidatingType = typeof(System.DateTime);
+            correctPeriodDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            correctPeriodDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox11
+            // sessionDateBox
             // 
-            maskedTextBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox11.Location = new System.Drawing.Point(368, 353);
-            maskedTextBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox11.Mask = "00/00/0000 90:00";
-            maskedTextBox11.Name = "maskedTextBox11";
-            maskedTextBox11.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox11.TabIndex = 21;
-            maskedTextBox11.ValidatingType = typeof(System.DateTime);
-            maskedTextBox11.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox11.KeyDown += textBox1_KeyDown;
+            sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            sessionDateBox.Location = new System.Drawing.Point(368, 353);
+            sessionDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            sessionDateBox.Mask = "00/00/0000 90:00";
+            sessionDateBox.Name = "sessionDateBox";
+            sessionDateBox.Size = new System.Drawing.Size(174, 23);
+            sessionDateBox.TabIndex = 21;
+            sessionDateBox.ValidatingType = typeof(System.DateTime);
+            sessionDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            sessionDateBox.KeyDown += textBox1_KeyDown;
             // 
             // dataGridView2
             // 
@@ -1295,53 +1295,53 @@ namespace DocumentAdder.Forms
             textBox4.TabIndex = 4;
             textBox4.KeyDown += textBox1_KeyDown;
             // 
-            // textBox8
+            // execNumberBox
             // 
-            textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            textBox8.Location = new System.Drawing.Point(4, 143);
-            textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new System.Drawing.Size(174, 22);
-            textBox8.TabIndex = 7;
-            textBox8.EnabledChanged += maskedTextBox8_EnabledChanged;
-            textBox8.KeyDown += textBox1_KeyDown;
+            execNumberBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            execNumberBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            execNumberBox.Location = new System.Drawing.Point(4, 143);
+            execNumberBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            execNumberBox.Name = "execNumberBox";
+            execNumberBox.Size = new System.Drawing.Size(174, 22);
+            execNumberBox.TabIndex = 7;
+            execNumberBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            execNumberBox.KeyDown += textBox1_KeyDown;
             // 
-            // textBox10
+            // fsspDocNumBox
             // 
-            textBox10.BackColor = System.Drawing.SystemColors.Window;
-            textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox10.Location = new System.Drawing.Point(368, 143);
-            textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new System.Drawing.Size(174, 23);
-            textBox10.TabIndex = 9;
-            textBox10.EnabledChanged += maskedTextBox8_EnabledChanged;
-            textBox10.KeyDown += textBox1_KeyDown;
+            fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
+            fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            fsspDocNumBox.Location = new System.Drawing.Point(368, 143);
+            fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fsspDocNumBox.Name = "fsspDocNumBox";
+            fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
+            fsspDocNumBox.TabIndex = 9;
+            fsspDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            fsspDocNumBox.KeyDown += textBox1_KeyDown;
             // 
-            // maskedTextBox1
+            // courtOrderDateBox
             // 
-            maskedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox1.Location = new System.Drawing.Point(4, 213);
-            maskedTextBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox1.Mask = "00/00/0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox1.TabIndex = 11;
-            maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            maskedTextBox1.EnabledChanged += maskedTextBox8_EnabledChanged;
-            maskedTextBox1.KeyDown += textBox1_KeyDown;
+            courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            courtOrderDateBox.Location = new System.Drawing.Point(4, 213);
+            courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            courtOrderDateBox.Mask = "00/00/0000";
+            courtOrderDateBox.Name = "courtOrderDateBox";
+            courtOrderDateBox.Size = new System.Drawing.Size(174, 23);
+            courtOrderDateBox.TabIndex = 11;
+            courtOrderDateBox.ValidatingType = typeof(System.DateTime);
+            courtOrderDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            courtOrderDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // textBox9
+            // courtDocNumBox
             // 
-            textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox9.Location = new System.Drawing.Point(186, 143);
-            textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new System.Drawing.Size(174, 23);
-            textBox9.TabIndex = 8;
-            textBox9.EnabledChanged += maskedTextBox8_EnabledChanged;
-            textBox9.KeyDown += textBox1_KeyDown;
+            courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            courtDocNumBox.Location = new System.Drawing.Point(186, 143);
+            courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            courtDocNumBox.Name = "courtDocNumBox";
+            courtDocNumBox.Size = new System.Drawing.Size(174, 23);
+            courtDocNumBox.TabIndex = 8;
+            courtDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            courtDocNumBox.KeyDown += textBox1_KeyDown;
             // 
             // button1
             // 
@@ -1393,19 +1393,19 @@ namespace DocumentAdder.Forms
             label27.TabIndex = 49;
             label27.Text = "Статус";
             // 
-            // comboBox7
+            // userTaskBox
             // 
-            comboBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            comboBox7.DataSource = Users;
-            comboBox7.DisplayMember = "NAME";
-            comboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox7.Location = new System.Drawing.Point(550, 423);
-            comboBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new System.Drawing.Size(174, 23);
-            comboBox7.TabIndex = 69;
-            comboBox7.ValueMember = "ID";
+            userTaskBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            userTaskBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            userTaskBox.DataSource = Users;
+            userTaskBox.DisplayMember = "NAME";
+            userTaskBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            userTaskBox.Location = new System.Drawing.Point(550, 423);
+            userTaskBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userTaskBox.Name = "userTaskBox";
+            userTaskBox.Size = new System.Drawing.Size(174, 23);
+            userTaskBox.TabIndex = 69;
+            userTaskBox.ValueMember = "ID";
             // 
             // label26
             // 
@@ -1418,17 +1418,17 @@ namespace DocumentAdder.Forms
             label26.TabIndex = 71;
             label26.Text = "Дата поступления";
             // 
-            // comboBox8
+            // postNameBox
             // 
-            comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            comboBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new System.Drawing.Point(4, 493);
-            comboBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new System.Drawing.Size(174, 23);
-            comboBox8.TabIndex = 84;
+            postNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            postNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            postNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            postNameBox.FormattingEnabled = true;
+            postNameBox.Location = new System.Drawing.Point(4, 493);
+            postNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            postNameBox.Name = "postNameBox";
+            postNameBox.Size = new System.Drawing.Size(174, 23);
+            postNameBox.TabIndex = 84;
             // 
             // label35
             // 
@@ -1453,31 +1453,31 @@ namespace DocumentAdder.Forms
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
-            // comboBox6
+            // articleAndParagraphBox
             // 
-            comboBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            comboBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            comboBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Items.AddRange(new object[] { "П.3,СТ.46", "П.4,СТ.46", "П.1,СТ.46", "П.3,СТ.46,П.4,СТ.46", "П.6,СТ.46", "П.1,СТ.47", "П.7,СТ.47", "П.4,СТ.47", "П.1,СТ.45", "П.5,СТ.46", "П.2,СТ.46" });
-            comboBox6.Location = new System.Drawing.Point(186, 423);
-            comboBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new System.Drawing.Size(174, 23);
-            comboBox6.TabIndex = 68;
+            articleAndParagraphBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            articleAndParagraphBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            articleAndParagraphBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            articleAndParagraphBox.FormattingEnabled = true;
+            articleAndParagraphBox.Items.AddRange(new object[] { "П.3,СТ.46", "П.4,СТ.46", "П.1,СТ.46", "П.3,СТ.46,П.4,СТ.46", "П.6,СТ.46", "П.1,СТ.47", "П.7,СТ.47", "П.4,СТ.47", "П.1,СТ.45", "П.5,СТ.46", "П.2,СТ.46" });
+            articleAndParagraphBox.Location = new System.Drawing.Point(186, 423);
+            articleAndParagraphBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            articleAndParagraphBox.Name = "articleAndParagraphBox";
+            articleAndParagraphBox.Size = new System.Drawing.Size(174, 23);
+            articleAndParagraphBox.TabIndex = 68;
             // 
-            // comboBox5
+            // documentNameBox
             // 
-            comboBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            comboBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            comboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "213123212" });
-            comboBox5.Location = new System.Drawing.Point(368, 423);
-            comboBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new System.Drawing.Size(174, 23);
-            comboBox5.TabIndex = 67;
+            documentNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            documentNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            documentNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            documentNameBox.FormattingEnabled = true;
+            documentNameBox.Items.AddRange(new object[] { "213123212" });
+            documentNameBox.Location = new System.Drawing.Point(368, 423);
+            documentNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            documentNameBox.Name = "documentNameBox";
+            documentNameBox.Size = new System.Drawing.Size(174, 23);
+            documentNameBox.TabIndex = 67;
             // 
             // label32
             // 
@@ -1501,17 +1501,17 @@ namespace DocumentAdder.Forms
             label33.TabIndex = 73;
             label33.Text = "Статья и пункт";
             // 
-            // comboBox9
+            // postAddressBox
             // 
-            comboBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            comboBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new System.Drawing.Point(186, 493);
-            comboBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox9.Name = "comboBox9";
-            comboBox9.Size = new System.Drawing.Size(174, 23);
-            comboBox9.TabIndex = 85;
+            postAddressBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            postAddressBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            postAddressBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            postAddressBox.FormattingEnabled = true;
+            postAddressBox.Location = new System.Drawing.Point(186, 493);
+            postAddressBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            postAddressBox.Name = "postAddressBox";
+            postAddressBox.Size = new System.Drawing.Size(174, 23);
+            postAddressBox.TabIndex = 85;
             // 
             // button8
             // 
@@ -1548,16 +1548,16 @@ namespace DocumentAdder.Forms
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
-            // dateTimePicker1
+            // datePostBox
             // 
-            dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new System.Drawing.Point(4, 423);
-            dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new System.Drawing.Size(174, 23);
-            dateTimePicker1.TabIndex = 90;
-            dateTimePicker1.Value = new System.DateTime(2022, 1, 10, 9, 2, 41, 0);
+            datePostBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            datePostBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            datePostBox.Location = new System.Drawing.Point(4, 423);
+            datePostBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            datePostBox.Name = "datePostBox";
+            datePostBox.Size = new System.Drawing.Size(174, 23);
+            datePostBox.TabIndex = 90;
+            datePostBox.Value = new System.DateTime(2022, 1, 10, 9, 2, 41, 0);
             // 
             // button9
             // 
@@ -1781,16 +1781,16 @@ namespace DocumentAdder.Forms
             label30.TabIndex = 54;
             label30.Text = "Испол. производство";
             // 
-            // maskedTextBox12
+            // CourtDateBox
             // 
-            maskedTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox12.Location = new System.Drawing.Point(4, 668);
-            maskedTextBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            maskedTextBox12.Mask = "00/00/0000";
-            maskedTextBox12.Name = "maskedTextBox12";
-            maskedTextBox12.Size = new System.Drawing.Size(174, 23);
-            maskedTextBox12.TabIndex = 116;
-            maskedTextBox12.ValidatingType = typeof(System.DateTime);
+            CourtDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            CourtDateBox.Location = new System.Drawing.Point(4, 668);
+            CourtDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            CourtDateBox.Mask = "00/00/0000";
+            CourtDateBox.Name = "CourtDateBox";
+            CourtDateBox.Size = new System.Drawing.Size(174, 23);
+            CourtDateBox.TabIndex = 116;
+            CourtDateBox.ValidatingType = typeof(System.DateTime);
             // 
             // textBox16
             // 
@@ -1896,7 +1896,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel4.ColumnCount = 2;
             tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableLayoutPanel4.Controls.Add(comboBox3, 0, 0);
+            tableLayoutPanel4.Controls.Add(statusBox, 0, 0);
             tableLayoutPanel4.Controls.Add(clearStatus, 1, 0);
             tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel4.Location = new System.Drawing.Point(549, 353);
@@ -1907,20 +1907,20 @@ namespace DocumentAdder.Forms
             tableLayoutPanel4.Size = new System.Drawing.Size(176, 29);
             tableLayoutPanel4.TabIndex = 125;
             // 
-            // comboBox3
+            // statusBox
             // 
-            comboBox3.DataSource = dictStatus;
-            comboBox3.DisplayMember = "name";
-            comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new System.Drawing.Point(4, 3);
-            comboBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new System.Drawing.Size(132, 23);
-            comboBox3.TabIndex = 0;
-            comboBox3.ValueMember = "code";
-            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            statusBox.DataSource = dictStatus;
+            statusBox.DisplayMember = "name";
+            statusBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            statusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            statusBox.FormattingEnabled = true;
+            statusBox.Location = new System.Drawing.Point(4, 3);
+            statusBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            statusBox.Name = "statusBox";
+            statusBox.Size = new System.Drawing.Size(132, 23);
+            statusBox.TabIndex = 0;
+            statusBox.ValueMember = "code";
+            statusBox.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // dictStatus
             // 
@@ -2043,7 +2043,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox typDocBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxF;
         private System.Windows.Forms.Label label8;
@@ -2055,33 +2055,33 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox execNumberBox;
+        private System.Windows.Forms.TextBox fsspDocNumBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.MaskedTextBox CourtExecDateBox;
+        private System.Windows.Forms.MaskedTextBox startDateBox;
+        private System.Windows.Forms.MaskedTextBox finishDateBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox8;
+        private System.Windows.Forms.MaskedTextBox receiptDateBox;
+        private System.Windows.Forms.MaskedTextBox returnDateBox;
+        private System.Windows.Forms.MaskedTextBox restrictionToLeaveDtBox;
+        private System.Windows.Forms.MaskedTextBox rejectDateBox;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox10;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox11;
+        private System.Windows.Forms.MaskedTextBox cancelDateBox;
+        private System.Windows.Forms.MaskedTextBox correctPeriodDateBox;
+        private System.Windows.Forms.MaskedTextBox sessionDateBox;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox statusBox;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
@@ -2093,26 +2093,26 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.MaskedTextBox courtOrderDateBox;
+        private System.Windows.Forms.TextBox courtDocNumBox;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox documentNameBox;
+        private System.Windows.Forms.ComboBox articleAndParagraphBox;
+        private System.Windows.Forms.ComboBox userTaskBox;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox postNameBox;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox postAddressBox;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker datePostBox;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -2133,7 +2133,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox12;
+        private System.Windows.Forms.MaskedTextBox CourtDateBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name2DataGridViewTextBoxColumn;

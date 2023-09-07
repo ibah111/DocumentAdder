@@ -23,13 +23,13 @@ public partial class DataModel : ObservableObject
     // Номер исполнительного документа
     [ObservableProperty]
     private string? court_doc_num;
-
-    //Дата исполнительного документа
-    [ObservableProperty]
-    private DateTime? receipt_act_dt;
     // Дата вынесения решения
     [ObservableProperty]
     private DateTime? court_order_date;
+
+    // Дата вынесения ИД
+    [ObservableProperty]
+    private DateTime? court_date;
 
     // Дата вступления в силу
     [ObservableProperty]
@@ -49,6 +49,14 @@ public partial class DataModel : ObservableObject
     //Дата отказа
     [ObservableProperty]
     private DateTime? failure_date;
+
+    //Дата ограничения выезда
+    [ObservableProperty]
+    private DateTime? restriction_to_leave_dt;
+
+    //Дата отказа в возбуждении
+    [ObservableProperty]
+    private DateTime? reject_date;
     //Дата возврата заявления (Протокол)
     [ObservableProperty]
     private DateTime? return_date;
