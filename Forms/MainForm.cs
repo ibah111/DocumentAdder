@@ -191,18 +191,18 @@ public partial class MainForm : Form
                     || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
-            textBox21.Enabled = true;
-            textBox23.Enabled = true;
-            textBox19.Enabled = true;
+            birthDateBox.Enabled = true;
+            debtSumBox.Enabled = true;
+            seriesBox.Enabled = true;
             textBox20.Enabled = true;
             CourtDateBox.Enabled = true;
             textBox16.Enabled = true;
         }
         else
         {
-            textBox21.Enabled = false;
-            textBox23.Enabled = false;
-            textBox19.Enabled = false;
+            birthDateBox.Enabled = false;
+            debtSumBox.Enabled = false;
+            seriesBox.Enabled = false;
             textBox20.Enabled = false;
         }
 
@@ -299,10 +299,10 @@ public partial class MainForm : Form
 
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
         CourtDateBox.Text = data.court_date?.ToShortDateString();
-        textBox23.Text = data.total_sum.ToString();
-        textBox19.Text = data.series;
+        debtSumBox.Text = data.total_sum.ToString();
+        seriesBox.Text = data.series;
         textBox20.Text = data.number;
-        textBox21.Text = data.birth_place;
+        birthDateBox.Text = data.birth_place;
         textBox16.Text = data.court_doc_num;
         // if (o[comboBox1.SelectedIndex].связь_суда)
         // {
@@ -396,7 +396,7 @@ public partial class MainForm : Form
                     || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
-            if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(textBox23.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(execNumberBox.Text) || String.IsNullOrEmpty(CourtDateBox.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(postNameBox.Text))
+            if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(debtSumBox.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(execNumberBox.Text) || String.IsNullOrEmpty(CourtDateBox.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(postNameBox.Text))
             {
                 MessageBox.Show("Поля для ВТБ не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -462,7 +462,7 @@ public partial class MainForm : Form
         using var transaction = db.Database.BeginTransaction();
         Data.Update(db, law_typ, execNumberBox, courtDocNumBox, fsspDocNumBox, textBox11,
             courtOrderDateBox, CourtExecDateBox, startDateBox, finishDateBox, receiptDateBox,
-            returnDateBox, restrictionToLeaveDtBox, rejectDateBox, cancelDateBox, correctPeriodDateBox, sessionDateBox, textBox23, statusBox.Text);
+            returnDateBox, restrictionToLeaveDtBox, rejectDateBox, cancelDateBox, correctPeriodDateBox, sessionDateBox, debtSumBox, statusBox.Text);
         db.SaveChanges();
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
@@ -583,7 +583,7 @@ public partial class MainForm : Form
             fio = data.fio,
             birth_date = data.birth_date.Value.ToShortDateString(),
             birth_place = data.birth_place,
-            series = textBox19.Text,
+            series = seriesBox.Text,
             number = textBox20.Text,
             inn = data.inn,
             sum = data.total_sum.Value,
@@ -773,10 +773,10 @@ public partial class MainForm : Form
         textBox16.Text = data.court_doc_num;
         //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
         //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
-        textBox23.Text = data.total_sum.ToString();
-        textBox19.Text = data.series;
+        debtSumBox.Text = data.total_sum.ToString();
+        seriesBox.Text = data.series;
         textBox20.Text = data.number;
-        textBox21.Text = data.birth_place;
+        birthDateBox.Text = data.birth_place;
         current = data;
     }
 

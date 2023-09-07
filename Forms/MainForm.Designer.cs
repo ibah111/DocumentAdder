@@ -171,9 +171,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             comboBox4 = new System.Windows.Forms.ComboBox();
             button10 = new System.Windows.Forms.Button();
-            textBox21 = new System.Windows.Forms.TextBox();
-            textBox23 = new System.Windows.Forms.TextBox();
-            textBox19 = new System.Windows.Forms.TextBox();
+            birthDateBox = new System.Windows.Forms.TextBox();
+            debtSumBox = new System.Windows.Forms.TextBox();
+            seriesBox = new System.Windows.Forms.TextBox();
             textBox20 = new System.Windows.Forms.TextBox();
             label37 = new System.Windows.Forms.Label();
             label38 = new System.Windows.Forms.Label();
@@ -303,9 +303,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(checkBox3, 3, 25);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 14);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 3, 13);
-            tableLayoutPanel1.Controls.Add(textBox21, 0, 17);
-            tableLayoutPanel1.Controls.Add(textBox23, 1, 17);
-            tableLayoutPanel1.Controls.Add(textBox19, 2, 17);
+            tableLayoutPanel1.Controls.Add(birthDateBox, 0, 17);
+            tableLayoutPanel1.Controls.Add(debtSumBox, 1, 17);
+            tableLayoutPanel1.Controls.Add(seriesBox, 2, 17);
             tableLayoutPanel1.Controls.Add(textBox20, 3, 17);
             tableLayoutPanel1.Controls.Add(label37, 0, 16);
             tableLayoutPanel1.Controls.Add(label38, 1, 16);
@@ -1657,32 +1657,32 @@ namespace DocumentAdder.Forms
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
-            // textBox21
+            // birthDateBox
             // 
-            textBox21.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox21.Location = new System.Drawing.Point(4, 598);
-            textBox21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox21.Name = "textBox21";
-            textBox21.Size = new System.Drawing.Size(174, 23);
-            textBox21.TabIndex = 104;
+            birthDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            birthDateBox.Location = new System.Drawing.Point(4, 598);
+            birthDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            birthDateBox.Name = "birthDateBox";
+            birthDateBox.Size = new System.Drawing.Size(174, 23);
+            birthDateBox.TabIndex = 104;
             // 
-            // textBox23
+            // debtSumBox
             // 
-            textBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox23.Location = new System.Drawing.Point(186, 598);
-            textBox23.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox23.Name = "textBox23";
-            textBox23.Size = new System.Drawing.Size(174, 23);
-            textBox23.TabIndex = 106;
+            debtSumBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            debtSumBox.Location = new System.Drawing.Point(186, 598);
+            debtSumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            debtSumBox.Name = "debtSumBox";
+            debtSumBox.Size = new System.Drawing.Size(174, 23);
+            debtSumBox.TabIndex = 106;
             // 
-            // textBox19
+            // seriesBox
             // 
-            textBox19.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox19.Location = new System.Drawing.Point(368, 598);
-            textBox19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new System.Drawing.Size(174, 23);
-            textBox19.TabIndex = 102;
+            seriesBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            seriesBox.Location = new System.Drawing.Point(368, 598);
+            seriesBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            seriesBox.Name = "seriesBox";
+            seriesBox.Size = new System.Drawing.Size(174, 23);
+            seriesBox.TabIndex = 102;
             // 
             // textBox20
             // 
@@ -2123,10 +2123,10 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox seriesBox;
         private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox birthDateBox;
+        private System.Windows.Forms.TextBox debtSumBox;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
