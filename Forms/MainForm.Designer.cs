@@ -65,6 +65,7 @@ namespace DocumentAdder.Forms
             label17 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
             CourtExecDateBox = new System.Windows.Forms.MaskedTextBox();
+            currentEnableds = new System.Windows.Forms.BindingSource(components);
             startDateBox = new System.Windows.Forms.MaskedTextBox();
             finishDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -209,6 +210,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
@@ -556,6 +558,7 @@ namespace DocumentAdder.Forms
             // 
             // CourtExecDateBox
             // 
+            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_exec_date", true));
             CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             CourtExecDateBox.Location = new System.Drawing.Point(186, 213);
             CourtExecDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -567,8 +570,13 @@ namespace DocumentAdder.Forms
             CourtExecDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             CourtExecDateBox.KeyDown += textBox1_KeyDown;
             // 
+            // currentEnableds
+            // 
+            currentEnableds.DataSource = typeof(SettingsModel);
+            // 
             // startDateBox
             // 
+            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "start_date", true));
             startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             startDateBox.Location = new System.Drawing.Point(368, 213);
             startDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -582,6 +590,7 @@ namespace DocumentAdder.Forms
             // 
             // finishDateBox
             // 
+            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "finish_date", true));
             finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             finishDateBox.Location = new System.Drawing.Point(550, 213);
             finishDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -875,6 +884,7 @@ namespace DocumentAdder.Forms
             // 
             // receiptDateBox
             // 
+            receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "receipt_date", true));
             receiptDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             receiptDateBox.Location = new System.Drawing.Point(4, 283);
             receiptDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -888,6 +898,7 @@ namespace DocumentAdder.Forms
             // 
             // returnDateBox
             // 
+            returnDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "return_date", true));
             returnDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             returnDateBox.Location = new System.Drawing.Point(186, 283);
             returnDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -901,6 +912,7 @@ namespace DocumentAdder.Forms
             // 
             // restrictionToLeaveDtBox
             // 
+            restrictionToLeaveDtBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "restriction_to_leave_dt", true));
             restrictionToLeaveDtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             restrictionToLeaveDtBox.Location = new System.Drawing.Point(368, 283);
             restrictionToLeaveDtBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -914,6 +926,7 @@ namespace DocumentAdder.Forms
             // 
             // rejectDateBox
             // 
+            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "reject_date", true));
             rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             rejectDateBox.Location = new System.Drawing.Point(550, 283);
             rejectDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -960,6 +973,7 @@ namespace DocumentAdder.Forms
             // 
             // cancelDateBox
             // 
+            cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "restriction_to_leave_dt", true));
             cancelDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             cancelDateBox.Location = new System.Drawing.Point(4, 353);
             cancelDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -973,6 +987,7 @@ namespace DocumentAdder.Forms
             // 
             // correctPeriodDateBox
             // 
+            correctPeriodDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "correct_period_date", true));
             correctPeriodDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             correctPeriodDateBox.Location = new System.Drawing.Point(186, 353);
             correctPeriodDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -986,6 +1001,7 @@ namespace DocumentAdder.Forms
             // 
             // sessionDateBox
             // 
+            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "session_date", true));
             sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             sessionDateBox.Location = new System.Drawing.Point(368, 353);
             sessionDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1306,6 +1322,7 @@ namespace DocumentAdder.Forms
             // 
             // execNumberBox
             // 
+            execNumberBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "exec_number", true));
             execNumberBox.Dock = System.Windows.Forms.DockStyle.Fill;
             execNumberBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             execNumberBox.Location = new System.Drawing.Point(4, 143);
@@ -1319,6 +1336,7 @@ namespace DocumentAdder.Forms
             // fsspDocNumBox
             // 
             fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
+            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "fssp_doc_num", true));
             fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             fsspDocNumBox.Location = new System.Drawing.Point(368, 143);
             fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1330,6 +1348,7 @@ namespace DocumentAdder.Forms
             // 
             // courtOrderDateBox
             // 
+            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtOrderDateBox.Location = new System.Drawing.Point(4, 213);
             courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1343,6 +1362,7 @@ namespace DocumentAdder.Forms
             // 
             // courtDocNumBox
             // 
+            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtDocNumBox.Location = new System.Drawing.Point(186, 143);
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2032,6 +2052,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).EndInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
@@ -2219,6 +2240,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox FailureDateBox;
         private System.Windows.Forms.BindingSource typDocBinding;
+        private System.Windows.Forms.BindingSource currentEnableds;
     }
 }
 
