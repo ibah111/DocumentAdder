@@ -51,6 +51,7 @@ namespace DocumentAdder.Forms
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             typDocBox = new System.Windows.Forms.ComboBox();
+            typDocBinding = new System.Windows.Forms.BindingSource(components);
             textBoxF = new System.Windows.Forms.TextBox();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -205,9 +206,9 @@ namespace DocumentAdder.Forms
             textBoxO = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
-            typDocBinding = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
@@ -219,7 +220,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -407,6 +407,7 @@ namespace DocumentAdder.Forms
             typDocBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             tableLayoutPanel1.SetColumnSpan(typDocBox, 4);
             typDocBox.DataSource = typDocBinding;
+            typDocBox.DisplayMember = "name";
             typDocBox.Dock = System.Windows.Forms.DockStyle.Fill;
             typDocBox.FormattingEnabled = true;
             typDocBox.Location = new System.Drawing.Point(4, 73);
@@ -414,7 +415,12 @@ namespace DocumentAdder.Forms
             typDocBox.Name = "typDocBox";
             typDocBox.Size = new System.Drawing.Size(720, 23);
             typDocBox.TabIndex = 0;
+            typDocBox.ValueMember = "id";
             typDocBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // typDocBinding
+            // 
+            typDocBinding.DataSource = typeof(SettingsModel);
             // 
             // textBoxF
             // 
@@ -2009,10 +2015,6 @@ namespace DocumentAdder.Forms
             FailureDateBox.TabIndex = 10;
             FailureDateBox.ValidatingType = typeof(System.DateTime);
             // 
-            // typDocBinding
-            // 
-            typDocBinding.DataSource = typeof(SettingsModel);
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2029,6 +2031,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Users).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)typDocBinding).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
@@ -2041,7 +2044,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
-            ((System.ComponentModel.ISupportInitialize)typDocBinding).EndInit();
             ResumeLayout(false);
         }
 

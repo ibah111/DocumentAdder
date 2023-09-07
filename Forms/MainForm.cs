@@ -32,7 +32,7 @@ public partial class MainForm : Form
     private static string path_to_list_otprav = Environment.CurrentDirectory + "\\Список_Для_Отправителя.txt";
     private static SerialPort currentPort = new SerialPort();
     private bool runed = false;
-    private Dictionary<int, SettingsModel> settings_json = new();
+    private List<SettingsModel> settings_json = new();
     private object current;
     private LawTyp law_typ { get; set; }
     private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -139,10 +139,9 @@ public partial class MainForm : Form
             }
             Settings.json = Resources.config;
             panel1.AllowDrop = true;
-            var o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
+            var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json);
             settings_json = o;
-            for (int a = 0; a < o.Count; a++)
-                typDocBox.Items.Add(o[a].name);
+            typDocBinding.DataSource = settings_json;
             typDocBox.SelectedIndex = 0;
             //LoadPeople();
             runed = true;

@@ -4,6 +4,7 @@ namespace DocumentAdder.Models;
 
 public class SettingsModel
 {
+    public int id { get; init; }
     public string name { get; init; }
     public int color { get; init; }
     public bool exec_number { get; init; }
