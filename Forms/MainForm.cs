@@ -43,9 +43,9 @@ public partial class MainForm : Form
         {
             ClearTextBox();
             string given = indata;
-            textBox4.Text = given.Replace("\r", string.Empty);
+            idBox.Text = given.Replace("\r", string.Empty);
             //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
-            Searcher searcher = new Searcher(null, textBox4.Text, "", "");
+            Searcher searcher = new Searcher(null, idBox.Text, "", "");
             searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
             {
@@ -242,7 +242,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.Enter)
         {
-            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, textBox4.Text, textBox5.Text, textBox6.Text);
+            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, idBox.Text, contractBox.Text, execNumberSearchBox.Text);
             searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
         }
         if (e.Control && e.KeyCode == Keys.D)
@@ -277,13 +277,13 @@ public partial class MainForm : Form
     private void InstallData(LawActResult data)
     {
         law_typ = LawTyp.LawAct;
-        textBox4.Text = data.id.ToString();
+        idBox.Text = data.id.ToString();
         textBoxF.Text = data.f;
         textBoxI.Text = data.i;
         textBoxO.Text = data.o;
         execNumberBox.Text = data.exec_number; //№ Дела
-        textBox5.Text = data.contract; // № КД
-        textBox6.Text = data.exec_number; //№ Дела
+        contractBox.Text = data.contract; // № КД
+        execNumberSearchBox.Text = data.exec_number; //№ Дела
         textBox12.Text = data.dsc; //Коммент
         var dict = getIntDict(data.typ.Value);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
@@ -336,7 +336,7 @@ public partial class MainForm : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        Settings.debt_id = textBox4.Text;
+        Settings.debt_id = idBox.Text;
         if (!string.IsNullOrWhiteSpace(Settings.debt_id))
         {
             var testDialog = new Dialogs.DebtCalc(law_typ);
@@ -456,7 +456,7 @@ public partial class MainForm : Form
             }
         }
 
-        Data.id = textBox4.Text;
+        Data.id = idBox.Text;
 
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
@@ -631,11 +631,11 @@ public partial class MainForm : Form
             otprav = postAddressBox.Text,
             reestr = data.portfolio,
             doc_name = documentNameBox.Text,
-            id_dela = textBox4.Text,
+            id_dela = idBox.Text,
             st_pnkt = articleAndParagraphBox.Text,
-            gd = textBox6.Text,
+            gd = execNumberSearchBox.Text,
             fio_dol = $"{textBoxF.Text} {textBoxO.Text} {textBoxO.Text}",
-            kd = textBox5.Text,
+            kd = contractBox.Text,
             ispol_zadach = userTaskBox.Text,
             id_ispol_zadach = userTaskBox.SelectedValue,
             vsisk = data.fio_vz,
@@ -645,7 +645,7 @@ public partial class MainForm : Form
             action = typ,
             user_id = userTaskBox.SelectedValue,
             template_id = id_task,
-            name = $"{textBoxF.Text} {textBoxI.Text} {textBoxO.Text} {textBox5.Text} {data.portfolio}",
+            name = $"{textBoxF.Text} {textBoxI.Text} {textBoxO.Text} {contractBox.Text} {data.portfolio}",
             desc,
             Settings.mode,
             Settings.ist,
@@ -754,13 +754,13 @@ public partial class MainForm : Form
     {
 
         law_typ = LawTyp.LawExec;
-        textBox4.Text = data.id.ToString();
+        idBox.Text = data.id.ToString();
         textBoxF.Text = data.f;
         textBoxI.Text = data.i;
         textBoxO.Text = data.o;
         courtDocNumBox.Text = data.fssp_doc_num;
-        textBox5.Text = data.contract;
-        textBox6.Text = data.exec_number;
+        contractBox.Text = data.contract;
+        execNumberSearchBox.Text = data.exec_number;
         fsspDocNumBox.Text = data.court_doc_num;
         execNumberBox.Text = data.exec_number;
         textBox12.Text = data.dsc;
@@ -792,7 +792,7 @@ public partial class MainForm : Form
 
     private void button4_Click(object sender, EventArgs e)
     {
-        Settings.debt_id = textBox4.Text;
+        Settings.debt_id = idBox.Text;
         if (!string.IsNullOrWhiteSpace(Settings.debt_id))
         {
             var testDialog = new Dialogs.DocAttach(law_typ);
@@ -804,11 +804,11 @@ public partial class MainForm : Form
 
     private void button5_Click(object sender, EventArgs e)
     {
-        if (!int.TryParse(textBox4.Text, out var law_id))
+        if (!int.TryParse(idBox.Text, out var law_id))
             throw new Exception("ID дела неправильное");
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
-        if (string.IsNullOrWhiteSpace(textBox4.Text))
+        if (string.IsNullOrWhiteSpace(idBox.Text))
         {
             MessageBox.Show("Невозможно создать банкротство без ID Дела\r\nаналогичного должника");
             return;

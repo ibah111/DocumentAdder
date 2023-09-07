@@ -138,9 +138,9 @@ namespace DocumentAdder.Forms
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
             label31 = new System.Windows.Forms.Label();
-            textBox6 = new System.Windows.Forms.TextBox();
-            textBox5 = new System.Windows.Forms.TextBox();
-            textBox4 = new System.Windows.Forms.TextBox();
+            execNumberSearchBox = new System.Windows.Forms.TextBox();
+            contractBox = new System.Windows.Forms.TextBox();
+            idBox = new System.Windows.Forms.TextBox();
             execNumberBox = new System.Windows.Forms.TextBox();
             fsspDocNumBox = new System.Windows.Forms.TextBox();
             courtOrderDateBox = new System.Windows.Forms.MaskedTextBox();
@@ -274,9 +274,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(button2, 3, 26);
             tableLayoutPanel1.Controls.Add(button3, 2, 26);
             tableLayoutPanel1.Controls.Add(label31, 7, 1);
-            tableLayoutPanel1.Controls.Add(textBox6, 6, 4);
-            tableLayoutPanel1.Controls.Add(textBox5, 5, 4);
-            tableLayoutPanel1.Controls.Add(textBox4, 4, 4);
+            tableLayoutPanel1.Controls.Add(execNumberSearchBox, 6, 4);
+            tableLayoutPanel1.Controls.Add(contractBox, 5, 4);
+            tableLayoutPanel1.Controls.Add(idBox, 4, 4);
             tableLayoutPanel1.Controls.Add(execNumberBox, 0, 4);
             tableLayoutPanel1.Controls.Add(fsspDocNumBox, 2, 4);
             tableLayoutPanel1.Controls.Add(courtOrderDateBox, 0, 6);
@@ -1265,35 +1265,35 @@ namespace DocumentAdder.Forms
             label31.TabIndex = 62;
             label31.Text = "Горячие клавиши:\r\n\r\nEnter -> Поиск\r\nCtrl + D -> Очистить панель\r\nCtrl + Q -> Удалить файлы\r\nCtrl + Shift + D -> Очистить все\r\nPageDown -> Перенести в конец строки";
             // 
-            // textBox6
+            // execNumberSearchBox
             // 
-            textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox6.Location = new System.Drawing.Point(1096, 143);
-            textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new System.Drawing.Size(174, 23);
-            textBox6.TabIndex = 6;
-            textBox6.KeyDown += textBox1_KeyDown;
+            execNumberSearchBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            execNumberSearchBox.Location = new System.Drawing.Point(1096, 143);
+            execNumberSearchBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            execNumberSearchBox.Name = "execNumberSearchBox";
+            execNumberSearchBox.Size = new System.Drawing.Size(174, 23);
+            execNumberSearchBox.TabIndex = 6;
+            execNumberSearchBox.KeyDown += textBox1_KeyDown;
             // 
-            // textBox5
+            // contractBox
             // 
-            textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox5.Location = new System.Drawing.Point(914, 143);
-            textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new System.Drawing.Size(174, 23);
-            textBox5.TabIndex = 5;
-            textBox5.KeyDown += textBox1_KeyDown;
+            contractBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            contractBox.Location = new System.Drawing.Point(914, 143);
+            contractBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            contractBox.Name = "contractBox";
+            contractBox.Size = new System.Drawing.Size(174, 23);
+            contractBox.TabIndex = 5;
+            contractBox.KeyDown += textBox1_KeyDown;
             // 
-            // textBox4
+            // idBox
             // 
-            textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox4.Location = new System.Drawing.Point(732, 143);
-            textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new System.Drawing.Size(174, 23);
-            textBox4.TabIndex = 4;
-            textBox4.KeyDown += textBox1_KeyDown;
+            idBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            idBox.Location = new System.Drawing.Point(732, 143);
+            idBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            idBox.Name = "idBox";
+            idBox.Size = new System.Drawing.Size(174, 23);
+            idBox.TabIndex = 4;
+            idBox.KeyDown += textBox1_KeyDown;
             // 
             // execNumberBox
             // 
@@ -2052,9 +2052,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox idBox;
+        private System.Windows.Forms.TextBox contractBox;
+        private System.Windows.Forms.TextBox execNumberSearchBox;
         private System.Windows.Forms.TextBox execNumberBox;
         private System.Windows.Forms.TextBox fsspDocNumBox;
         private System.Windows.Forms.Label label14;
