@@ -205,6 +205,7 @@ namespace DocumentAdder.Forms
             textBoxO = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
+            typDocBinding = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -218,6 +219,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -404,6 +406,7 @@ namespace DocumentAdder.Forms
             typDocBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             typDocBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             tableLayoutPanel1.SetColumnSpan(typDocBox, 4);
+            typDocBox.DataSource = typDocBinding;
             typDocBox.Dock = System.Windows.Forms.DockStyle.Fill;
             typDocBox.FormattingEnabled = true;
             typDocBox.Location = new System.Drawing.Point(4, 73);
@@ -2006,6 +2009,10 @@ namespace DocumentAdder.Forms
             FailureDateBox.TabIndex = 10;
             FailureDateBox.ValidatingType = typeof(System.DateTime);
             // 
+            // typDocBinding
+            // 
+            typDocBinding.DataSource = typeof(SettingsModel);
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2034,6 +2041,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)typDocBinding).EndInit();
             ResumeLayout(false);
         }
 
@@ -2208,6 +2216,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TextBox textBoxO;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox FailureDateBox;
+        private System.Windows.Forms.BindingSource typDocBinding;
     }
 }
 
