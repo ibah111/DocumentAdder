@@ -26,7 +26,7 @@ public class PersonInfo
 }
 class VTBAdder
 {
-    private static string path = $"\\\\192.168.0.162\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}\\Result {UserPrincipal.Current.DisplayName}.xlsx";
+    private static string path = $"\\\\usb-source\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}\\Result {UserPrincipal.Current.DisplayName}.xlsx";
     public static void Add(PersonInfo personInfo)
     {
         Excel excel = new Excel();
@@ -82,9 +82,9 @@ class VTBAdder
 
     public static (bool error, string message) CreateExcel()
     {
-        string patternPath = $"\\\\192.168.0.162\\source\\Сбер_запрос\\Шаблон\\Шаблон.xlsx";
-        if (!Directory.Exists($"\\\\192.168.0.162\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}"))
-            Directory.CreateDirectory($"\\\\192.168.0.162\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}");
+        string patternPath = $"\\\\usb-source\\source\\Сбер_запрос\\Шаблон\\Шаблон.xlsx";
+        if (!Directory.Exists($"\\\\usb-source\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}"))
+            Directory.CreateDirectory($"\\\\usb-source\\source\\Сбер_запрос\\{DateTime.Now.Date.ToString().Split(' ')[0]}");
 
         if (File.Exists(path))
             return (error: false, message: "");
