@@ -142,7 +142,7 @@ public partial class MainForm : Form
             var o = JsonConvert.DeserializeObject<Dictionary<int, SettingsModel>>(Settings.json);
             settings_json = o;
             for (int a = 0; a < o.Count; a++)
-                typDocBox.Items.Add(o[a].тип_документа);
+                typDocBox.Items.Add(o[a].name);
             typDocBox.SelectedIndex = 0;
             //LoadPeople();
             runed = true;
@@ -153,22 +153,22 @@ public partial class MainForm : Form
     {
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
         var a = typDocBox.SelectedIndex;
-        execNumberBox.Enabled = settings_json[a].номер_дела;
-        courtDocNumBox.Enabled = settings_json[a].номер_ип;
-        fsspDocNumBox.Enabled = settings_json[a].номер_испол;
-        courtOrderDateBox.Enabled = settings_json[a].дата_вынесения_решения;
-        CourtExecDateBox.Enabled = settings_json[a].дата_вступления_в_силу;
-        startDateBox.Enabled = settings_json[a].дата_возбуждения;
-        finishDateBox.Enabled = settings_json[a].дата_пост_об_окончании_ип;
-        receiptDateBox.Enabled = settings_json[a].дата_получения_агентством;
-        returnDateBox.Enabled = settings_json[a].дата_возврата;
-        restrictionToLeaveDtBox.Enabled = settings_json[a].дата_ограничения_выезда;
-        rejectDateBox.Enabled = settings_json[a].дата_отказа_в_возбуждении;
-        cancelDateBox.Enabled = settings_json[a].дата_отмены_сп;
-        correctPeriodDateBox.Enabled = settings_json[a].дата_исполнения_недостатков;
-        sessionDateBox.Enabled = settings_json[a].дата_и_время_сз;
-        Data.int_color = settings_json[a].цвет_карточки;
-        Settings.barcode = settings_json[a].штрих_код;
+        execNumberBox.Enabled = settings_json[a].exec_number;
+        courtDocNumBox.Enabled = settings_json[a].fssp_doc_num;
+        fsspDocNumBox.Enabled = settings_json[a].court_doc_num;
+        courtOrderDateBox.Enabled = settings_json[a].court_order_date;
+        CourtExecDateBox.Enabled = settings_json[a].court_exec_date;
+        startDateBox.Enabled = settings_json[a].start_date;
+        finishDateBox.Enabled = settings_json[a].finish_date;
+        receiptDateBox.Enabled = settings_json[a].receipt_date;
+        returnDateBox.Enabled = settings_json[a].return_date;
+        restrictionToLeaveDtBox.Enabled = settings_json[a].restriction_to_leave_dt;
+        rejectDateBox.Enabled = settings_json[a].reject_date;
+        cancelDateBox.Enabled = settings_json[a].cancel_date;
+        correctPeriodDateBox.Enabled = settings_json[a].correct_period_date;
+        sessionDateBox.Enabled = settings_json[a].session_date;
+        Data.int_color = settings_json[a].color;
+        Settings.barcode = settings_json[a].barcode;
         if (Settings.barcode == true)
         {
             if (Utils.Printer.CheckCom())
@@ -214,10 +214,10 @@ public partial class MainForm : Form
         }
         else
             Settings.dateId = false;
-        if (!String.IsNullOrEmpty(settings_json[a].название_документа))
-            documentNameBox.Text = settings_json[a].название_документа;
-        if (settings_json[a].исполнитель.HasValue)
-            userTaskBox.SelectedValue = settings_json[a].исполнитель;
+        if (!String.IsNullOrEmpty(settings_json[a].document_name))
+            documentNameBox.Text = settings_json[a].document_name;
+        if (settings_json[a].user_task.HasValue)
+            userTaskBox.SelectedValue = settings_json[a].user_task;
     }
 
     private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
@@ -288,9 +288,9 @@ public partial class MainForm : Form
         var dict = getIntDict(data.typ.Value);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
         var settings = settings_json[typDocBox.SelectedIndex];
-        if (!(settings.без_смены_суд.ContainsKey(dict) && settings.без_смены_суд[dict].Contains(getIntStatus(data).Value)) && settings.судебн_статус.ContainsKey(data.typ.Value))
+        if (!(settings.without_act_status.ContainsKey(dict) && settings.without_act_status[dict].Contains(getIntStatus(data).Value)) && settings.act_status.ContainsKey(data.typ.Value))
         {
-            statusBox.SelectedValue = settings.судебн_статус[data.typ.Value];
+            statusBox.SelectedValue = settings.act_status[data.typ.Value];
         }
         else
         {
@@ -765,9 +765,9 @@ public partial class MainForm : Form
         execNumberBox.Text = data.exec_number;
         textBox12.Text = data.dsc;
         var settings = settings_json[typDocBox.SelectedIndex];
-        if (!settings.без_смены_ид.Contains(data.Status.Value) && settings.испол_статус != null)
+        if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
         {
-            statusBox.SelectedValue = settings.испол_статус;
+            statusBox.SelectedValue = settings.exec_status;
         }
         CourtDateBox.Text = data.court_date?.ToShortDateString();
         textBox16.Text = data.court_doc_num;
