@@ -153,7 +153,6 @@ public partial class MainForm : Form
     {
         maskedTextBox5.Text = DateTime.Now.ToShortDateString();
         var a = comboBox1.SelectedIndex;
-        textBox7.Enabled = settings_json[a].номер_кд;
         textBox8.Enabled = settings_json[a].номер_дела;
         textBox9.Enabled = settings_json[a].номер_ип;
         textBox10.Enabled = settings_json[a].номер_испол;
@@ -282,7 +281,6 @@ public partial class MainForm : Form
         textBoxF.Text = data.f;
         textBoxI.Text = data.i;
         textBoxO.Text = data.o;
-        textBox7.Text = data.contract; // № КД
         textBox8.Text = data.exec_number; //№ Дела
         textBox5.Text = data.contract; // № КД
         textBox6.Text = data.exec_number; //№ Дела
@@ -462,7 +460,7 @@ public partial class MainForm : Form
 
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
-        Data.Update(db, law_typ, textBox7, textBox8, textBox9, textBox10, textBox11,
+        Data.Update(db, law_typ, textBox8, textBox9, textBox10, textBox11,
             maskedTextBox1, maskedTextBox2, maskedTextBox3, maskedTextBox4, maskedTextBox5,
             maskedTextBox6, maskedTextBox7, maskedTextBox8, maskedTextBox9, maskedTextBox10, maskedTextBox11, textBox23, comboBox3.Text);
         db.SaveChanges();
@@ -760,7 +758,6 @@ public partial class MainForm : Form
         textBoxF.Text = data.f;
         textBoxI.Text = data.i;
         textBoxO.Text = data.o;
-        textBox7.Text = data.contract;
         textBox9.Text = data.fssp_doc_num;
         textBox5.Text = data.contract;
         textBox6.Text = data.exec_number;

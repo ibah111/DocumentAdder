@@ -46,9 +46,12 @@ public partial class DataModel : ObservableObject
     [ObservableProperty]
     private DateTime? receipt_date;
 
-    //Дата возврата заявления
+    //Дата отказа
     [ObservableProperty]
     private DateTime? failure_date;
+    //Дата возврата заявления (Протокол)
+    [ObservableProperty]
+    private DateTime? return_date;
     //Дата отмены приказа (Протокол)
     [ObservableProperty]
     private DateTime? cancel_date;

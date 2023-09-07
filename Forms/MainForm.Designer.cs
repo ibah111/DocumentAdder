@@ -33,17 +33,17 @@ namespace DocumentAdder.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Users = new System.Windows.Forms.BindingSource(components);
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,7 +52,6 @@ namespace DocumentAdder.Forms
             label3 = new System.Windows.Forms.Label();
             comboBox1 = new System.Windows.Forms.ComboBox();
             textBoxF = new System.Windows.Forms.TextBox();
-            label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -142,7 +141,6 @@ namespace DocumentAdder.Forms
             textBox6 = new System.Windows.Forms.TextBox();
             textBox5 = new System.Windows.Forms.TextBox();
             textBox4 = new System.Windows.Forms.TextBox();
-            textBox7 = new System.Windows.Forms.TextBox();
             textBox8 = new System.Windows.Forms.TextBox();
             textBox10 = new System.Windows.Forms.TextBox();
             maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -205,6 +203,8 @@ namespace DocumentAdder.Forms
             label6 = new System.Windows.Forms.Label();
             textBoxI = new System.Windows.Forms.TextBox();
             textBoxO = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            FailureDateBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -237,10 +237,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(comboBox1, 0, 2);
             tableLayoutPanel1.Controls.Add(textBoxF, 4, 2);
-            tableLayoutPanel1.Controls.Add(label7, 0, 3);
-            tableLayoutPanel1.Controls.Add(label8, 1, 3);
-            tableLayoutPanel1.Controls.Add(label9, 2, 3);
-            tableLayoutPanel1.Controls.Add(label10, 3, 3);
+            tableLayoutPanel1.Controls.Add(label8, 0, 3);
+            tableLayoutPanel1.Controls.Add(label9, 1, 3);
+            tableLayoutPanel1.Controls.Add(label10, 1, 3);
             tableLayoutPanel1.Controls.Add(label11, 4, 3);
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
@@ -277,11 +276,10 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(textBox6, 6, 4);
             tableLayoutPanel1.Controls.Add(textBox5, 5, 4);
             tableLayoutPanel1.Controls.Add(textBox4, 4, 4);
-            tableLayoutPanel1.Controls.Add(textBox7, 0, 4);
-            tableLayoutPanel1.Controls.Add(textBox8, 1, 4);
-            tableLayoutPanel1.Controls.Add(textBox10, 3, 4);
+            tableLayoutPanel1.Controls.Add(textBox8, 0, 4);
+            tableLayoutPanel1.Controls.Add(textBox10, 2, 4);
             tableLayoutPanel1.Controls.Add(maskedTextBox1, 0, 6);
-            tableLayoutPanel1.Controls.Add(textBox9, 2, 4);
+            tableLayoutPanel1.Controls.Add(textBox9, 1, 4);
             tableLayoutPanel1.Controls.Add(button1, 3, 21);
             tableLayoutPanel1.Controls.Add(button4, 3, 22);
             tableLayoutPanel1.Controls.Add(button5, 3, 23);
@@ -331,6 +329,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label6, 6, 1);
             tableLayoutPanel1.Controls.Add(textBoxI, 5, 2);
             tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
+            tableLayoutPanel1.Controls.Add(label7, 3, 3);
+            tableLayoutPanel1.Controls.Add(FailureDateBox, 3, 4);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -421,20 +421,10 @@ namespace DocumentAdder.Forms
             textBoxF.TabIndex = 1;
             textBoxF.KeyDown += textBox1_KeyDown;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(4, 74);
-            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(38, 30);
-            label7.TabIndex = 10;
-            label7.Text = "\r\n№ КД\r\n";
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(186, 74);
+            label8.Location = new System.Drawing.Point(4, 74);
             label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(50, 30);
@@ -454,7 +444,7 @@ namespace DocumentAdder.Forms
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(550, 74);
+            label10.Location = new System.Drawing.Point(186, 74);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(123, 30);
@@ -589,26 +579,26 @@ namespace DocumentAdder.Forms
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { LawActId, LawActTyp, LawActStatus, LawActFIoVz, LawActName, LawActPortfolio, LawActFio, LawActBirthDate, LawActContract, LawActExecNumber, LawActCourtName, LawActTotalSum, LawActDsc, LawActCourtDocNum, LawActCourtDate, LawActCourtAdress, LawActStartSum, LawActNumber, LawActSeries, LawActBirthPlace, LawActFullAdr, LawActExecDate, LawActInn });
             tableLayoutPanel1.SetColumnSpan(dataGridView1, 4);
             dataGridView1.DataSource = lawActResultBindingSource;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Gray;
             dataGridView1.Location = new System.Drawing.Point(732, 168);
@@ -616,14 +606,14 @@ namespace DocumentAdder.Forms
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView1, 12);
             dataGridView1.Size = new System.Drawing.Size(724, 414);
@@ -689,9 +679,9 @@ namespace DocumentAdder.Forms
             // LawActBirthDate
             // 
             LawActBirthDate.DataPropertyName = "birth_date";
-            dataGridViewCellStyle13.Format = "d";
-            dataGridViewCellStyle13.NullValue = null;
-            LawActBirthDate.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            LawActBirthDate.DefaultCellStyle = dataGridViewCellStyle2;
             LawActBirthDate.HeaderText = "Дата рождения";
             LawActBirthDate.Name = "LawActBirthDate";
             LawActBirthDate.ReadOnly = true;
@@ -720,9 +710,9 @@ namespace DocumentAdder.Forms
             // LawActTotalSum
             // 
             LawActTotalSum.DataPropertyName = "total_sum";
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            LawActTotalSum.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            LawActTotalSum.DefaultCellStyle = dataGridViewCellStyle3;
             LawActTotalSum.HeaderText = "Размер требований";
             LawActTotalSum.Name = "LawActTotalSum";
             LawActTotalSum.ReadOnly = true;
@@ -744,9 +734,9 @@ namespace DocumentAdder.Forms
             // LawActCourtDate
             // 
             LawActCourtDate.DataPropertyName = "court_date";
-            dataGridViewCellStyle15.Format = "d";
-            dataGridViewCellStyle15.NullValue = null;
-            LawActCourtDate.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            LawActCourtDate.DefaultCellStyle = dataGridViewCellStyle4;
             LawActCourtDate.HeaderText = "Дата ИЛ";
             LawActCourtDate.Name = "LawActCourtDate";
             LawActCourtDate.ReadOnly = true;
@@ -761,9 +751,9 @@ namespace DocumentAdder.Forms
             // LawActStartSum
             // 
             LawActStartSum.DataPropertyName = "start_sum";
-            dataGridViewCellStyle16.Format = "C2";
-            dataGridViewCellStyle16.NullValue = null;
-            LawActStartSum.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            LawActStartSum.DefaultCellStyle = dataGridViewCellStyle5;
             LawActStartSum.HeaderText = "Начальная сумма задолженности";
             LawActStartSum.Name = "LawActStartSum";
             LawActStartSum.ReadOnly = true;
@@ -799,9 +789,9 @@ namespace DocumentAdder.Forms
             // LawActExecDate
             // 
             LawActExecDate.DataPropertyName = "exec_date";
-            dataGridViewCellStyle17.Format = "d";
-            dataGridViewCellStyle17.NullValue = null;
-            LawActExecDate.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            LawActExecDate.DefaultCellStyle = dataGridViewCellStyle6;
             LawActExecDate.HeaderText = "Дата дела";
             LawActExecDate.Name = "LawActExecDate";
             LawActExecDate.ReadOnly = true;
@@ -985,38 +975,38 @@ namespace DocumentAdder.Forms
             dataGridView2.AllowUserToOrderColumns = true;
             dataGridView2.AutoGenerateColumns = false;
             dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { LawExecId, LawExecStatus, LawExecDebtStatus, LawExecFioVz, LawExecPortfolio, LawExecFio, LawExecBirthDate, LawExecContract, LawExecFsspDocNum, LawExecCourtDocNum, LawExecTotalSum, LawExecFsspName, LawExecFsspAddress, LawExecCourtName, LawExecCourtAddress, LawExecExecNumber, LawExecDsc, LawExecFullAdr, LawExecStartSum, LawExecNumber, LawExecSeries, LawExecInn, LawExecExecDate, LawExecBirthPlace });
             tableLayoutPanel1.SetColumnSpan(dataGridView2, 4);
             dataGridView2.DataSource = lawExecResultBindingSource;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle10;
             dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView2.Location = new System.Drawing.Point(732, 693);
             dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
             dataGridView2.Size = new System.Drawing.Size(724, 225);
@@ -1285,26 +1275,15 @@ namespace DocumentAdder.Forms
             textBox4.TabIndex = 4;
             textBox4.KeyDown += textBox1_KeyDown;
             // 
-            // textBox7
-            // 
-            textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox7.Location = new System.Drawing.Point(4, 107);
-            textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new System.Drawing.Size(174, 23);
-            textBox7.TabIndex = 7;
-            textBox7.EnabledChanged += maskedTextBox8_EnabledChanged;
-            textBox7.KeyDown += textBox1_KeyDown;
-            // 
             // textBox8
             // 
             textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            textBox8.Location = new System.Drawing.Point(186, 107);
+            textBox8.Location = new System.Drawing.Point(4, 107);
             textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new System.Drawing.Size(174, 22);
-            textBox8.TabIndex = 8;
+            textBox8.TabIndex = 7;
             textBox8.EnabledChanged += maskedTextBox8_EnabledChanged;
             textBox8.KeyDown += textBox1_KeyDown;
             // 
@@ -1312,11 +1291,11 @@ namespace DocumentAdder.Forms
             // 
             textBox10.BackColor = System.Drawing.SystemColors.Window;
             textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox10.Location = new System.Drawing.Point(550, 107);
+            textBox10.Location = new System.Drawing.Point(368, 107);
             textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox10.Name = "textBox10";
             textBox10.Size = new System.Drawing.Size(174, 23);
-            textBox10.TabIndex = 10;
+            textBox10.TabIndex = 9;
             textBox10.EnabledChanged += maskedTextBox8_EnabledChanged;
             textBox10.KeyDown += textBox1_KeyDown;
             // 
@@ -1336,11 +1315,11 @@ namespace DocumentAdder.Forms
             // textBox9
             // 
             textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox9.Location = new System.Drawing.Point(368, 107);
+            textBox9.Location = new System.Drawing.Point(186, 107);
             textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
             textBox9.Size = new System.Drawing.Size(174, 23);
-            textBox9.TabIndex = 9;
+            textBox9.TabIndex = 8;
             textBox9.EnabledChanged += maskedTextBox8_EnabledChanged;
             textBox9.KeyDown += textBox1_KeyDown;
             // 
@@ -1980,6 +1959,25 @@ namespace DocumentAdder.Forms
             textBoxO.TabIndex = 3;
             textBoxO.KeyDown += textBox1_KeyDown;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(549, 74);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(70, 30);
+            label7.TabIndex = 128;
+            label7.Text = "\r\nДата отказа";
+            // 
+            // FailureDateBox
+            // 
+            FailureDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            FailureDateBox.Location = new System.Drawing.Point(549, 107);
+            FailureDateBox.Mask = "00/00/0000";
+            FailureDateBox.Name = "FailureDateBox";
+            FailureDateBox.Size = new System.Drawing.Size(176, 23);
+            FailureDateBox.TabIndex = 10;
+            FailureDateBox.ValidatingType = typeof(System.DateTime);
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2020,7 +2018,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxF;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -2030,7 +2027,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label14;
@@ -2182,6 +2178,8 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxI;
         private System.Windows.Forms.TextBox textBoxO;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox FailureDateBox;
     }
 }
 

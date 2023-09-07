@@ -18,7 +18,7 @@ class Data
     public static string id { get { return _id; } set { _id = value; } }
 
 
-    public static i_collectContext Update(i_collectContext db, LawTyp typ, TextBox textBox7, TextBox textBox8, TextBox textBox9, TextBox textBox10, TextBox textBox11, MaskedTextBox maskedTextBox1, MaskedTextBox maskedTextBox2, MaskedTextBox maskedTextBox3, MaskedTextBox maskedTextBox4, MaskedTextBox maskedTextBox5, MaskedTextBox maskedTextBox6, MaskedTextBox maskedTextBox7, MaskedTextBox maskedTextBox8, MaskedTextBox maskedTextBox9, MaskedTextBox maskedTextBox10, MaskedTextBox maskedTextBox11, TextBox textBox23, string text)
+    public static i_collectContext Update(i_collectContext db, LawTyp typ, TextBox textBox8, TextBox textBox9, TextBox textBox10, TextBox textBox11, MaskedTextBox maskedTextBox1, MaskedTextBox maskedTextBox2, MaskedTextBox maskedTextBox3, MaskedTextBox maskedTextBox4, MaskedTextBox maskedTextBox5, MaskedTextBox maskedTextBox6, MaskedTextBox maskedTextBox7, MaskedTextBox maskedTextBox8, MaskedTextBox maskedTextBox9, MaskedTextBox maskedTextBox10, MaskedTextBox maskedTextBox11, TextBox textBox23, string text)
     {
         if (!int.TryParse(id, out var id_int))
         {
