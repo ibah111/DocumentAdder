@@ -222,6 +222,7 @@ namespace DocumentAdder.Forms
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             tableLayoutPanel1.AutoScroll = true;
             tableLayoutPanel1.ColumnCount = 8;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -331,17 +332,16 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
             tableLayoutPanel1.Controls.Add(label7, 3, 3);
             tableLayoutPanel1.Controls.Add(FailureDateBox, 3, 4);
-            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 27;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -368,19 +368,20 @@ namespace DocumentAdder.Forms
             // 
             // label1
             // 
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            label1.Location = new System.Drawing.Point(4, 0);
+            label1.Location = new System.Drawing.Point(4, 20);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(174, 15);
+            label1.Size = new System.Drawing.Size(74, 15);
             label1.TabIndex = 0;
             label1.Text = "Добавление";
             // 
             // label2
             // 
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(732, 0);
+            label2.Location = new System.Drawing.Point(732, 20);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(42, 15);
@@ -389,13 +390,14 @@ namespace DocumentAdder.Forms
             // 
             // label3
             // 
+            label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(4, 15);
+            label3.Location = new System.Drawing.Point(4, 55);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(88, 30);
+            label3.Size = new System.Drawing.Size(88, 15);
             label3.TabIndex = 2;
-            label3.Text = "\r\nТип документа\r\n";
+            label3.Text = "Тип документа";
             // 
             // comboBox1
             // 
@@ -404,7 +406,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.SetColumnSpan(comboBox1, 4);
             comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new System.Drawing.Point(4, 48);
+            comboBox1.Location = new System.Drawing.Point(4, 73);
             comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new System.Drawing.Size(720, 23);
@@ -414,7 +416,7 @@ namespace DocumentAdder.Forms
             // textBoxF
             // 
             textBoxF.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBoxF.Location = new System.Drawing.Point(732, 48);
+            textBoxF.Location = new System.Drawing.Point(732, 73);
             textBoxF.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBoxF.Name = "textBoxF";
             textBoxF.Size = new System.Drawing.Size(174, 23);
@@ -423,109 +425,120 @@ namespace DocumentAdder.Forms
             // 
             // label8
             // 
+            label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(4, 74);
+            label8.Location = new System.Drawing.Point(4, 125);
             label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(50, 30);
+            label8.Size = new System.Drawing.Size(50, 15);
             label8.TabIndex = 11;
-            label8.Text = "\r\n№ Дела";
+            label8.Text = "№ Дела";
             // 
             // label9
             // 
+            label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(368, 74);
+            label9.Location = new System.Drawing.Point(368, 125);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(41, 30);
+            label9.Size = new System.Drawing.Size(41, 15);
             label9.TabIndex = 12;
-            label9.Text = "\r\n№ ИП";
+            label9.Text = "№ ИП";
             // 
             // label10
             // 
+            label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(186, 74);
+            label10.Location = new System.Drawing.Point(186, 125);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(123, 30);
+            label10.Size = new System.Drawing.Size(123, 15);
             label10.TabIndex = 13;
-            label10.Text = "\r\n№ Испол. документа";
+            label10.Text = "№ Испол. документа";
             // 
             // label11
             // 
+            label11.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(732, 74);
+            label11.Location = new System.Drawing.Point(732, 125);
             label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(48, 30);
+            label11.Size = new System.Drawing.Size(48, 15);
             label11.TabIndex = 14;
-            label11.Text = "\r\nID Дела";
+            label11.Text = "ID Дела";
             // 
             // label12
             // 
+            label12.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(914, 74);
+            label12.Location = new System.Drawing.Point(914, 125);
             label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(38, 30);
+            label12.Size = new System.Drawing.Size(38, 15);
             label12.TabIndex = 15;
-            label12.Text = "\r\n№ КД";
+            label12.Text = "№ КД";
             // 
             // label13
             // 
+            label13.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(1096, 74);
+            label13.Location = new System.Drawing.Point(1096, 125);
             label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(50, 30);
+            label13.Size = new System.Drawing.Size(50, 15);
             label13.TabIndex = 16;
-            label13.Text = "\r\n№ Дела";
+            label13.Text = "№ Дела";
             // 
             // label14
             // 
+            label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(4, 133);
+            label14.Location = new System.Drawing.Point(4, 195);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(148, 30);
+            label14.Size = new System.Drawing.Size(148, 15);
             label14.TabIndex = 24;
-            label14.Text = "\r\nДата вынесения решения";
+            label14.Text = "Дата вынесения решения";
             // 
             // label15
             // 
+            label15.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(186, 133);
+            label15.Location = new System.Drawing.Point(186, 195);
             label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(136, 30);
+            label15.Size = new System.Drawing.Size(136, 15);
             label15.TabIndex = 25;
-            label15.Text = "\r\nДата вступления в силу";
+            label15.Text = "Дата вступления в силу";
             // 
             // label16
             // 
+            label16.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(368, 133);
+            label16.Location = new System.Drawing.Point(368, 195);
             label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(107, 30);
+            label16.Size = new System.Drawing.Size(107, 15);
             label16.TabIndex = 26;
-            label16.Text = "\r\nДата возбуждения";
+            label16.Text = "Дата возбуждения";
             // 
             // label17
             // 
+            label17.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(550, 133);
+            label17.Location = new System.Drawing.Point(550, 195);
             label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(162, 30);
+            label17.Size = new System.Drawing.Size(162, 15);
             label17.TabIndex = 27;
-            label17.Text = "\r\nДата пост об окончании ИП";
+            label17.Text = "Дата пост об окончании ИП";
             // 
             // label18
             // 
+            label18.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label18.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(label18, 2);
-            label18.Location = new System.Drawing.Point(732, 133);
+            label18.Location = new System.Drawing.Point(732, 195);
             label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label18.Name = "label18";
             label18.Size = new System.Drawing.Size(245, 15);
@@ -535,7 +548,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox2
             // 
             maskedTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox2.Location = new System.Drawing.Point(186, 168);
+            maskedTextBox2.Location = new System.Drawing.Point(186, 213);
             maskedTextBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox2.Mask = "00/00/0000";
             maskedTextBox2.Name = "maskedTextBox2";
@@ -548,7 +561,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox3
             // 
             maskedTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox3.Location = new System.Drawing.Point(368, 168);
+            maskedTextBox3.Location = new System.Drawing.Point(368, 213);
             maskedTextBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox3.Mask = "00/00/0000";
             maskedTextBox3.Name = "maskedTextBox3";
@@ -561,7 +574,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox4
             // 
             maskedTextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox4.Location = new System.Drawing.Point(550, 168);
+            maskedTextBox4.Location = new System.Drawing.Point(550, 213);
             maskedTextBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox4.Mask = "00/00/0000";
             maskedTextBox4.Name = "maskedTextBox4";
@@ -601,7 +614,7 @@ namespace DocumentAdder.Forms
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Gray;
-            dataGridView1.Location = new System.Drawing.Point(732, 168);
+            dataGridView1.Location = new System.Drawing.Point(732, 213);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -809,48 +822,52 @@ namespace DocumentAdder.Forms
             // 
             // label19
             // 
+            label19.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label19.AutoSize = true;
-            label19.Location = new System.Drawing.Point(4, 200);
+            label19.Location = new System.Drawing.Point(4, 265);
             label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(160, 30);
+            label19.Size = new System.Drawing.Size(160, 15);
             label19.TabIndex = 34;
-            label19.Text = "\r\nДата получения агентством";
+            label19.Text = "Дата получения агентством";
             // 
             // label20
             // 
+            label20.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label20.AutoSize = true;
-            label20.Location = new System.Drawing.Point(186, 200);
+            label20.Location = new System.Drawing.Point(186, 265);
             label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(83, 30);
+            label20.Size = new System.Drawing.Size(83, 15);
             label20.TabIndex = 35;
-            label20.Text = "\r\nДата возврата";
+            label20.Text = "Дата возврата";
             // 
             // label21
             // 
+            label21.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label21.AutoSize = true;
-            label21.Location = new System.Drawing.Point(368, 200);
+            label21.Location = new System.Drawing.Point(368, 265);
             label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(148, 30);
+            label21.Size = new System.Drawing.Size(148, 15);
             label21.TabIndex = 36;
-            label21.Text = "\r\nДата ограничения выезда";
+            label21.Text = "Дата ограничения выезда";
             // 
             // label22
             // 
+            label22.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label22.AutoSize = true;
-            label22.Location = new System.Drawing.Point(550, 200);
+            label22.Location = new System.Drawing.Point(550, 265);
             label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(155, 30);
+            label22.Size = new System.Drawing.Size(155, 15);
             label22.TabIndex = 37;
-            label22.Text = "\r\nДата отказа в возбуждении";
+            label22.Text = "Дата отказа в возбуждении";
             // 
             // maskedTextBox5
             // 
             maskedTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox5.Location = new System.Drawing.Point(4, 238);
+            maskedTextBox5.Location = new System.Drawing.Point(4, 283);
             maskedTextBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox5.Mask = "00/00/0000";
             maskedTextBox5.Name = "maskedTextBox5";
@@ -863,7 +880,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox6
             // 
             maskedTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox6.Location = new System.Drawing.Point(186, 238);
+            maskedTextBox6.Location = new System.Drawing.Point(186, 283);
             maskedTextBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox6.Mask = "00/00/0000";
             maskedTextBox6.Name = "maskedTextBox6";
@@ -876,7 +893,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox7
             // 
             maskedTextBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox7.Location = new System.Drawing.Point(368, 238);
+            maskedTextBox7.Location = new System.Drawing.Point(368, 283);
             maskedTextBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox7.Mask = "00/00/0000";
             maskedTextBox7.Name = "maskedTextBox7";
@@ -889,7 +906,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox8
             // 
             maskedTextBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox8.Location = new System.Drawing.Point(550, 238);
+            maskedTextBox8.Location = new System.Drawing.Point(550, 283);
             maskedTextBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox8.Mask = "00/00/0000";
             maskedTextBox8.Name = "maskedTextBox8";
@@ -901,38 +918,41 @@ namespace DocumentAdder.Forms
             // 
             // label23
             // 
+            label23.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label23.AutoSize = true;
-            label23.Location = new System.Drawing.Point(4, 270);
+            label23.Location = new System.Drawing.Point(4, 335);
             label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(98, 30);
+            label23.Size = new System.Drawing.Size(98, 15);
             label23.TabIndex = 42;
-            label23.Text = "\r\nДата отмены СП";
+            label23.Text = "Дата отмены СП";
             // 
             // label24
             // 
+            label24.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label24.AutoSize = true;
-            label24.Location = new System.Drawing.Point(186, 270);
+            label24.Location = new System.Drawing.Point(186, 335);
             label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label24.Name = "label24";
-            label24.Size = new System.Drawing.Size(172, 30);
+            label24.Size = new System.Drawing.Size(172, 15);
             label24.TabIndex = 43;
-            label24.Text = "\r\nДата исполнения недостатков";
+            label24.Text = "Дата исполнения недостатков";
             // 
             // label25
             // 
+            label25.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label25.AutoSize = true;
-            label25.Location = new System.Drawing.Point(368, 270);
+            label25.Location = new System.Drawing.Point(368, 335);
             label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(97, 30);
+            label25.Size = new System.Drawing.Size(97, 15);
             label25.TabIndex = 44;
-            label25.Text = "\r\nДата и время СЗ";
+            label25.Text = "Дата и время СЗ";
             // 
             // maskedTextBox9
             // 
             maskedTextBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox9.Location = new System.Drawing.Point(4, 308);
+            maskedTextBox9.Location = new System.Drawing.Point(4, 353);
             maskedTextBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox9.Mask = "00/00/0000";
             maskedTextBox9.Name = "maskedTextBox9";
@@ -945,7 +965,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox10
             // 
             maskedTextBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox10.Location = new System.Drawing.Point(186, 308);
+            maskedTextBox10.Location = new System.Drawing.Point(186, 353);
             maskedTextBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox10.Mask = "00/00/0000";
             maskedTextBox10.Name = "maskedTextBox10";
@@ -958,7 +978,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox11
             // 
             maskedTextBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox11.Location = new System.Drawing.Point(368, 308);
+            maskedTextBox11.Location = new System.Drawing.Point(368, 353);
             maskedTextBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox11.Mask = "00/00/0000 90:00";
             maskedTextBox11.Name = "maskedTextBox11";
@@ -996,7 +1016,7 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle10;
             dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            dataGridView2.Location = new System.Drawing.Point(732, 693);
+            dataGridView2.Location = new System.Drawing.Point(732, 738);
             dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView2.Name = "dataGridView2";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1009,7 +1029,7 @@ namespace DocumentAdder.Forms
             dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
-            dataGridView2.Size = new System.Drawing.Size(724, 225);
+            dataGridView2.Size = new System.Drawing.Size(724, 204);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
             // 
@@ -1166,7 +1186,7 @@ namespace DocumentAdder.Forms
             // 
             tableLayoutPanel1.SetColumnSpan(textBox11, 2);
             textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox11.Location = new System.Drawing.Point(4, 693);
+            textBox11.Location = new System.Drawing.Point(4, 738);
             textBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox11.Multiline = true;
             textBox11.Name = "textBox11";
@@ -1180,14 +1200,14 @@ namespace DocumentAdder.Forms
             // 
             tableLayoutPanel1.SetColumnSpan(textBox12, 2);
             textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox12.Location = new System.Drawing.Point(4, 798);
+            textBox12.Location = new System.Drawing.Point(4, 843);
             textBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
             textBox12.ReadOnly = true;
             tableLayoutPanel1.SetRowSpan(textBox12, 3);
             textBox12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            textBox12.Size = new System.Drawing.Size(356, 120);
+            textBox12.Size = new System.Drawing.Size(356, 99);
             textBox12.TabIndex = 57;
             // 
             // panel1
@@ -1197,7 +1217,7 @@ namespace DocumentAdder.Forms
             panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            panel1.Location = new System.Drawing.Point(368, 693);
+            panel1.Location = new System.Drawing.Point(368, 738);
             panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             tableLayoutPanel1.SetRowSpan(panel1, 5);
@@ -1212,10 +1232,10 @@ namespace DocumentAdder.Forms
             button2.Cursor = System.Windows.Forms.Cursors.Hand;
             button2.Dock = System.Windows.Forms.DockStyle.Fill;
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Location = new System.Drawing.Point(550, 868);
+            button2.Location = new System.Drawing.Point(550, 913);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(174, 50);
+            button2.Size = new System.Drawing.Size(174, 29);
             button2.TabIndex = 60;
             button2.Text = "Готово!";
             button2.UseVisualStyleBackColor = false;
@@ -1225,10 +1245,10 @@ namespace DocumentAdder.Forms
             // 
             button3.Dock = System.Windows.Forms.DockStyle.Fill;
             button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button3.Location = new System.Drawing.Point(368, 868);
+            button3.Location = new System.Drawing.Point(368, 913);
             button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(174, 50);
+            button3.Size = new System.Drawing.Size(174, 29);
             button3.TabIndex = 61;
             button3.Text = "Посмотреть вложения";
             button3.UseVisualStyleBackColor = true;
@@ -1237,18 +1257,18 @@ namespace DocumentAdder.Forms
             // label31
             // 
             label31.AutoSize = true;
-            label31.Location = new System.Drawing.Point(1278, 15);
+            label31.Location = new System.Drawing.Point(1278, 35);
             label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label31.Name = "label31";
             tableLayoutPanel1.SetRowSpan(label31, 5);
-            label31.Size = new System.Drawing.Size(178, 135);
+            label31.Size = new System.Drawing.Size(178, 120);
             label31.TabIndex = 62;
-            label31.Text = "\r\nГорячие клавиши:\r\n\r\nEnter -> Поиск\r\nCtrl + D -> Очистить панель\r\nCtrl + Q -> Удалить файлы\r\nCtrl + Shift + D -> Очистить все\r\nPageDown -> Перенести в конец строки";
+            label31.Text = "Горячие клавиши:\r\n\r\nEnter -> Поиск\r\nCtrl + D -> Очистить панель\r\nCtrl + Q -> Удалить файлы\r\nCtrl + Shift + D -> Очистить все\r\nPageDown -> Перенести в конец строки";
             // 
             // textBox6
             // 
             textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox6.Location = new System.Drawing.Point(1096, 107);
+            textBox6.Location = new System.Drawing.Point(1096, 143);
             textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox6.Name = "textBox6";
             textBox6.Size = new System.Drawing.Size(174, 23);
@@ -1258,7 +1278,7 @@ namespace DocumentAdder.Forms
             // textBox5
             // 
             textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox5.Location = new System.Drawing.Point(914, 107);
+            textBox5.Location = new System.Drawing.Point(914, 143);
             textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox5.Name = "textBox5";
             textBox5.Size = new System.Drawing.Size(174, 23);
@@ -1268,7 +1288,7 @@ namespace DocumentAdder.Forms
             // textBox4
             // 
             textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox4.Location = new System.Drawing.Point(732, 107);
+            textBox4.Location = new System.Drawing.Point(732, 143);
             textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox4.Name = "textBox4";
             textBox4.Size = new System.Drawing.Size(174, 23);
@@ -1279,7 +1299,7 @@ namespace DocumentAdder.Forms
             // 
             textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            textBox8.Location = new System.Drawing.Point(4, 107);
+            textBox8.Location = new System.Drawing.Point(4, 143);
             textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new System.Drawing.Size(174, 22);
@@ -1291,7 +1311,7 @@ namespace DocumentAdder.Forms
             // 
             textBox10.BackColor = System.Drawing.SystemColors.Window;
             textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox10.Location = new System.Drawing.Point(368, 107);
+            textBox10.Location = new System.Drawing.Point(368, 143);
             textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox10.Name = "textBox10";
             textBox10.Size = new System.Drawing.Size(174, 23);
@@ -1302,7 +1322,7 @@ namespace DocumentAdder.Forms
             // maskedTextBox1
             // 
             maskedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox1.Location = new System.Drawing.Point(4, 168);
+            maskedTextBox1.Location = new System.Drawing.Point(4, 213);
             maskedTextBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox1.Mask = "00/00/0000";
             maskedTextBox1.Name = "maskedTextBox1";
@@ -1315,7 +1335,7 @@ namespace DocumentAdder.Forms
             // textBox9
             // 
             textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox9.Location = new System.Drawing.Point(186, 107);
+            textBox9.Location = new System.Drawing.Point(186, 143);
             textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
             textBox9.Size = new System.Drawing.Size(174, 23);
@@ -1327,7 +1347,7 @@ namespace DocumentAdder.Forms
             // 
             button1.Dock = System.Windows.Forms.DockStyle.Top;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Location = new System.Drawing.Point(550, 693);
+            button1.Location = new System.Drawing.Point(550, 738);
             button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(174, 27);
@@ -1340,7 +1360,7 @@ namespace DocumentAdder.Forms
             // 
             button4.Dock = System.Windows.Forms.DockStyle.Top;
             button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button4.Location = new System.Drawing.Point(550, 728);
+            button4.Location = new System.Drawing.Point(550, 773);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(174, 27);
@@ -1353,7 +1373,7 @@ namespace DocumentAdder.Forms
             // 
             button5.Dock = System.Windows.Forms.DockStyle.Fill;
             button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button5.Location = new System.Drawing.Point(550, 763);
+            button5.Location = new System.Drawing.Point(550, 808);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(174, 29);
@@ -1364,13 +1384,14 @@ namespace DocumentAdder.Forms
             // 
             // label27
             // 
+            label27.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label27.AutoSize = true;
-            label27.Location = new System.Drawing.Point(550, 270);
+            label27.Location = new System.Drawing.Point(550, 335);
             label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(43, 30);
+            label27.Size = new System.Drawing.Size(43, 15);
             label27.TabIndex = 49;
-            label27.Text = "\r\nСтатус";
+            label27.Text = "Статус";
             // 
             // comboBox7
             // 
@@ -1379,7 +1400,7 @@ namespace DocumentAdder.Forms
             comboBox7.DataSource = Users;
             comboBox7.DisplayMember = "NAME";
             comboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            comboBox7.Location = new System.Drawing.Point(550, 378);
+            comboBox7.Location = new System.Drawing.Point(550, 423);
             comboBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox7.Name = "comboBox7";
             comboBox7.Size = new System.Drawing.Size(174, 23);
@@ -1388,12 +1409,12 @@ namespace DocumentAdder.Forms
             // 
             // label26
             // 
+            label26.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label26.AutoSize = true;
-            label26.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label26.Location = new System.Drawing.Point(4, 360);
+            label26.Location = new System.Drawing.Point(4, 405);
             label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label26.Name = "label26";
-            label26.Size = new System.Drawing.Size(174, 15);
+            label26.Size = new System.Drawing.Size(106, 15);
             label26.TabIndex = 71;
             label26.Text = "Дата поступления";
             // 
@@ -1403,7 +1424,7 @@ namespace DocumentAdder.Forms
             comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             comboBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new System.Drawing.Point(4, 448);
+            comboBox8.Location = new System.Drawing.Point(4, 493);
             comboBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox8.Name = "comboBox8";
             comboBox8.Size = new System.Drawing.Size(174, 23);
@@ -1411,19 +1432,19 @@ namespace DocumentAdder.Forms
             // 
             // label35
             // 
+            label35.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label35.AutoSize = true;
-            label35.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label35.Location = new System.Drawing.Point(4, 430);
+            label35.Location = new System.Drawing.Point(4, 475);
             label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label35.Name = "label35";
-            label35.Size = new System.Drawing.Size(174, 15);
+            label35.Size = new System.Drawing.Size(112, 15);
             label35.TabIndex = 86;
             label35.Text = "Адрес отправителя";
             // 
             // button7
             // 
             button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            button7.Location = new System.Drawing.Point(4, 483);
+            button7.Location = new System.Drawing.Point(4, 528);
             button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button7.Name = "button7";
             button7.Size = new System.Drawing.Size(174, 29);
@@ -1439,7 +1460,7 @@ namespace DocumentAdder.Forms
             comboBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox6.FormattingEnabled = true;
             comboBox6.Items.AddRange(new object[] { "П.3,СТ.46", "П.4,СТ.46", "П.1,СТ.46", "П.3,СТ.46,П.4,СТ.46", "П.6,СТ.46", "П.1,СТ.47", "П.7,СТ.47", "П.4,СТ.47", "П.1,СТ.45", "П.5,СТ.46", "П.2,СТ.46" });
-            comboBox6.Location = new System.Drawing.Point(186, 378);
+            comboBox6.Location = new System.Drawing.Point(186, 423);
             comboBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox6.Name = "comboBox6";
             comboBox6.Size = new System.Drawing.Size(174, 23);
@@ -1452,7 +1473,7 @@ namespace DocumentAdder.Forms
             comboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox5.FormattingEnabled = true;
             comboBox5.Items.AddRange(new object[] { "213123212" });
-            comboBox5.Location = new System.Drawing.Point(368, 378);
+            comboBox5.Location = new System.Drawing.Point(368, 423);
             comboBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox5.Name = "comboBox5";
             comboBox5.Size = new System.Drawing.Size(174, 23);
@@ -1460,23 +1481,23 @@ namespace DocumentAdder.Forms
             // 
             // label32
             // 
+            label32.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label32.AutoSize = true;
-            label32.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label32.Location = new System.Drawing.Point(368, 360);
+            label32.Location = new System.Drawing.Point(368, 405);
             label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label32.Name = "label32";
-            label32.Size = new System.Drawing.Size(174, 15);
+            label32.Size = new System.Drawing.Size(120, 15);
             label32.TabIndex = 72;
             label32.Text = "Название документа";
             // 
             // label33
             // 
+            label33.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label33.AutoSize = true;
-            label33.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label33.Location = new System.Drawing.Point(186, 360);
+            label33.Location = new System.Drawing.Point(186, 405);
             label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label33.Name = "label33";
-            label33.Size = new System.Drawing.Size(174, 15);
+            label33.Size = new System.Drawing.Size(87, 15);
             label33.TabIndex = 73;
             label33.Text = "Статья и пункт";
             // 
@@ -1486,7 +1507,7 @@ namespace DocumentAdder.Forms
             comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             comboBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new System.Drawing.Point(186, 448);
+            comboBox9.Location = new System.Drawing.Point(186, 493);
             comboBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox9.Name = "comboBox9";
             comboBox9.Size = new System.Drawing.Size(174, 23);
@@ -1495,7 +1516,7 @@ namespace DocumentAdder.Forms
             // button8
             // 
             button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            button8.Location = new System.Drawing.Point(186, 483);
+            button8.Location = new System.Drawing.Point(186, 528);
             button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button8.Name = "button8";
             button8.Size = new System.Drawing.Size(174, 29);
@@ -1506,19 +1527,19 @@ namespace DocumentAdder.Forms
             // 
             // label36
             // 
+            label36.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label36.AutoSize = true;
-            label36.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label36.Location = new System.Drawing.Point(186, 430);
+            label36.Location = new System.Drawing.Point(186, 475);
             label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label36.Name = "label36";
-            label36.Size = new System.Drawing.Size(174, 15);
+            label36.Size = new System.Drawing.Size(78, 15);
             label36.TabIndex = 87;
             label36.Text = "Отправитель";
             // 
             // button6
             // 
             button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            button6.Location = new System.Drawing.Point(368, 413);
+            button6.Location = new System.Drawing.Point(368, 458);
             button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button6.Name = "button6";
             button6.Size = new System.Drawing.Size(174, 29);
@@ -1531,7 +1552,7 @@ namespace DocumentAdder.Forms
             // 
             dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new System.Drawing.Point(4, 378);
+            dateTimePicker1.Location = new System.Drawing.Point(4, 423);
             dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new System.Drawing.Size(174, 23);
@@ -1542,7 +1563,7 @@ namespace DocumentAdder.Forms
             // 
             button9.Dock = System.Windows.Forms.DockStyle.Fill;
             button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button9.Location = new System.Drawing.Point(550, 798);
+            button9.Location = new System.Drawing.Point(550, 843);
             button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button9.Name = "button9";
             button9.Size = new System.Drawing.Size(174, 29);
@@ -1554,7 +1575,7 @@ namespace DocumentAdder.Forms
             // checkBox3
             // 
             checkBox3.AutoSize = true;
-            checkBox3.Location = new System.Drawing.Point(550, 833);
+            checkBox3.Location = new System.Drawing.Point(550, 878);
             checkBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new System.Drawing.Size(131, 19);
@@ -1569,7 +1590,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(checkBox1, 0, 0);
             tableLayoutPanel2.Controls.Add(checkBox4, 1, 0);
-            tableLayoutPanel2.Location = new System.Drawing.Point(550, 448);
+            tableLayoutPanel2.Location = new System.Drawing.Point(550, 493);
             tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
@@ -1607,7 +1628,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(comboBox4, 0, 0);
             tableLayoutPanel3.Controls.Add(button10, 1, 0);
-            tableLayoutPanel3.Location = new System.Drawing.Point(550, 413);
+            tableLayoutPanel3.Location = new System.Drawing.Point(550, 458);
             tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
@@ -1639,7 +1660,7 @@ namespace DocumentAdder.Forms
             // textBox21
             // 
             textBox21.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox21.Location = new System.Drawing.Point(4, 553);
+            textBox21.Location = new System.Drawing.Point(4, 598);
             textBox21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox21.Name = "textBox21";
             textBox21.Size = new System.Drawing.Size(174, 23);
@@ -1648,7 +1669,7 @@ namespace DocumentAdder.Forms
             // textBox23
             // 
             textBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox23.Location = new System.Drawing.Point(186, 553);
+            textBox23.Location = new System.Drawing.Point(186, 598);
             textBox23.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox23.Name = "textBox23";
             textBox23.Size = new System.Drawing.Size(174, 23);
@@ -1657,7 +1678,7 @@ namespace DocumentAdder.Forms
             // textBox19
             // 
             textBox19.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox19.Location = new System.Drawing.Point(368, 553);
+            textBox19.Location = new System.Drawing.Point(368, 598);
             textBox19.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox19.Name = "textBox19";
             textBox19.Size = new System.Drawing.Size(174, 23);
@@ -1666,7 +1687,7 @@ namespace DocumentAdder.Forms
             // textBox20
             // 
             textBox20.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox20.Location = new System.Drawing.Point(550, 553);
+            textBox20.Location = new System.Drawing.Point(550, 598);
             textBox20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox20.Name = "textBox20";
             textBox20.Size = new System.Drawing.Size(174, 23);
@@ -1674,52 +1695,52 @@ namespace DocumentAdder.Forms
             // 
             // label37
             // 
+            label37.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label37.AutoSize = true;
-            label37.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label37.Location = new System.Drawing.Point(4, 535);
+            label37.Location = new System.Drawing.Point(4, 580);
             label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label37.Name = "label37";
-            label37.Size = new System.Drawing.Size(174, 15);
+            label37.Size = new System.Drawing.Size(100, 15);
             label37.TabIndex = 109;
             label37.Text = "Место рождения";
             // 
             // label38
             // 
+            label38.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label38.AutoSize = true;
-            label38.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label38.Location = new System.Drawing.Point(186, 535);
+            label38.Location = new System.Drawing.Point(186, 580);
             label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label38.Name = "label38";
-            label38.Size = new System.Drawing.Size(174, 15);
+            label38.Size = new System.Drawing.Size(133, 15);
             label38.TabIndex = 110;
             label38.Text = "Сумма задолженности";
             // 
             // label39
             // 
+            label39.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label39.AutoSize = true;
-            label39.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label39.Location = new System.Drawing.Point(368, 535);
+            label39.Location = new System.Drawing.Point(368, 580);
             label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label39.Name = "label39";
-            label39.Size = new System.Drawing.Size(174, 15);
+            label39.Size = new System.Drawing.Size(96, 15);
             label39.TabIndex = 111;
             label39.Text = "Серия(Паспорт)";
             // 
             // label40
             // 
+            label40.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label40.AutoSize = true;
-            label40.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label40.Location = new System.Drawing.Point(550, 535);
+            label40.Location = new System.Drawing.Point(550, 580);
             label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label40.Name = "label40";
-            label40.Size = new System.Drawing.Size(174, 15);
+            label40.Size = new System.Drawing.Size(100, 15);
             label40.TabIndex = 112;
             label40.Text = "Номер(Паспорт)";
             // 
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new System.Drawing.Point(368, 448);
+            checkBox2.Location = new System.Drawing.Point(368, 493);
             checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new System.Drawing.Size(62, 19);
@@ -1729,38 +1750,41 @@ namespace DocumentAdder.Forms
             // 
             // label28
             // 
+            label28.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label28.AutoSize = true;
-            label28.Location = new System.Drawing.Point(4, 655);
+            label28.Location = new System.Drawing.Point(4, 720);
             label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label28.Name = "label28";
-            label28.Size = new System.Drawing.Size(138, 30);
+            label28.Size = new System.Drawing.Size(138, 15);
             label28.TabIndex = 52;
-            label28.Text = "\r\nДобавить комментарий";
+            label28.Text = "Добавить комментарий";
             // 
             // label29
             // 
+            label29.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label29.AutoSize = true;
-            label29.Location = new System.Drawing.Point(368, 655);
+            label29.Location = new System.Drawing.Point(368, 720);
             label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label29.Name = "label29";
-            label29.Size = new System.Drawing.Size(91, 30);
+            label29.Size = new System.Drawing.Size(91, 15);
             label29.TabIndex = 53;
-            label29.Text = "\r\nДобавить файл";
+            label29.Text = "Добавить файл";
             // 
             // label30
             // 
+            label30.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label30.AutoSize = true;
-            label30.Location = new System.Drawing.Point(732, 655);
+            label30.Location = new System.Drawing.Point(732, 720);
             label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label30.Name = "label30";
-            label30.Size = new System.Drawing.Size(125, 30);
+            label30.Size = new System.Drawing.Size(125, 15);
             label30.TabIndex = 54;
-            label30.Text = "\r\nИспол. производство";
+            label30.Text = "Испол. производство";
             // 
             // maskedTextBox12
             // 
             maskedTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            maskedTextBox12.Location = new System.Drawing.Point(4, 623);
+            maskedTextBox12.Location = new System.Drawing.Point(4, 668);
             maskedTextBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             maskedTextBox12.Mask = "00/00/0000";
             maskedTextBox12.Name = "maskedTextBox12";
@@ -1771,7 +1795,7 @@ namespace DocumentAdder.Forms
             // textBox16
             // 
             textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox16.Location = new System.Drawing.Point(186, 623);
+            textBox16.Location = new System.Drawing.Point(186, 668);
             textBox16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox16.Name = "textBox16";
             textBox16.Size = new System.Drawing.Size(174, 23);
@@ -1779,23 +1803,23 @@ namespace DocumentAdder.Forms
             // 
             // label42
             // 
+            label42.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label42.AutoSize = true;
-            label42.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label42.Location = new System.Drawing.Point(4, 605);
+            label42.Location = new System.Drawing.Point(4, 650);
             label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label42.Name = "label42";
-            label42.Size = new System.Drawing.Size(174, 15);
+            label42.Size = new System.Drawing.Size(115, 15);
             label42.TabIndex = 114;
             label42.Text = "Дата вынесения ИД";
             // 
             // label43
             // 
+            label43.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label43.AutoSize = true;
-            label43.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label43.Location = new System.Drawing.Point(186, 605);
+            label43.Location = new System.Drawing.Point(186, 650);
             label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label43.Name = "label43";
-            label43.Size = new System.Drawing.Size(174, 15);
+            label43.Size = new System.Drawing.Size(40, 15);
             label43.TabIndex = 115;
             label43.Text = "№ ИД";
             // 
@@ -1806,7 +1830,7 @@ namespace DocumentAdder.Forms
             ModeCB.Dock = System.Windows.Forms.DockStyle.Fill;
             ModeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             ModeCB.FormattingEnabled = true;
-            ModeCB.Location = new System.Drawing.Point(732, 623);
+            ModeCB.Location = new System.Drawing.Point(732, 668);
             ModeCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             ModeCB.Name = "ModeCB";
             ModeCB.Size = new System.Drawing.Size(174, 23);
@@ -1820,20 +1844,20 @@ namespace DocumentAdder.Forms
             // 
             // label45
             // 
+            label45.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label45.AutoSize = true;
-            label45.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label45.Location = new System.Drawing.Point(732, 605);
+            label45.Location = new System.Drawing.Point(732, 650);
             label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label45.Name = "label45";
-            label45.Size = new System.Drawing.Size(174, 15);
+            label45.Size = new System.Drawing.Size(45, 15);
             label45.TabIndex = 122;
             label45.Text = "Режим";
             // 
             // labelSelectDocBarcode
             // 
-            labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             labelSelectDocBarcode.AutoSize = true;
-            labelSelectDocBarcode.Location = new System.Drawing.Point(393, 605);
+            labelSelectDocBarcode.Location = new System.Drawing.Point(368, 650);
             labelSelectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelSelectDocBarcode.Name = "labelSelectDocBarcode";
             labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
@@ -1846,7 +1870,7 @@ namespace DocumentAdder.Forms
             selectDocBarcode.DataSource = Documents;
             selectDocBarcode.DisplayMember = "name";
             selectDocBarcode.FormattingEnabled = true;
-            selectDocBarcode.Location = new System.Drawing.Point(368, 623);
+            selectDocBarcode.Location = new System.Drawing.Point(368, 668);
             selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
@@ -1858,12 +1882,12 @@ namespace DocumentAdder.Forms
             // 
             // label34
             // 
+            label34.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label34.AutoSize = true;
-            label34.Dock = System.Windows.Forms.DockStyle.Bottom;
-            label34.Location = new System.Drawing.Point(550, 360);
+            label34.Location = new System.Drawing.Point(550, 405);
             label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label34.Name = "label34";
-            label34.Size = new System.Drawing.Size(174, 15);
+            label34.Size = new System.Drawing.Size(121, 15);
             label34.TabIndex = 74;
             label34.Text = "Исполнитель задачи";
             // 
@@ -1875,7 +1899,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel4.Controls.Add(comboBox3, 0, 0);
             tableLayoutPanel4.Controls.Add(clearStatus, 1, 0);
             tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel4.Location = new System.Drawing.Point(549, 308);
+            tableLayoutPanel4.Location = new System.Drawing.Point(549, 353);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1915,36 +1939,39 @@ namespace DocumentAdder.Forms
             // 
             // label4
             // 
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(732, 15);
+            label4.Location = new System.Drawing.Point(732, 55);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(58, 30);
+            label4.Size = new System.Drawing.Size(58, 15);
             label4.TabIndex = 4;
-            label4.Text = "\r\nФамилия";
+            label4.Text = "Фамилия";
             // 
             // label5
             // 
+            label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(913, 15);
+            label5.Location = new System.Drawing.Point(913, 55);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(31, 30);
+            label5.Size = new System.Drawing.Size(31, 15);
             label5.TabIndex = 126;
-            label5.Text = "\r\nИмя";
+            label5.Text = "Имя";
             // 
             // label6
             // 
+            label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(1095, 15);
+            label6.Location = new System.Drawing.Point(1095, 55);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(58, 30);
+            label6.Size = new System.Drawing.Size(58, 15);
             label6.TabIndex = 127;
-            label6.Text = "\r\nОтчество";
+            label6.Text = "Отчество";
             // 
             // textBoxI
             // 
             textBoxI.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBoxI.Location = new System.Drawing.Point(913, 48);
+            textBoxI.Location = new System.Drawing.Point(913, 73);
             textBoxI.Name = "textBoxI";
             textBoxI.Size = new System.Drawing.Size(176, 23);
             textBoxI.TabIndex = 2;
@@ -1953,7 +1980,7 @@ namespace DocumentAdder.Forms
             // textBoxO
             // 
             textBoxO.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBoxO.Location = new System.Drawing.Point(1095, 48);
+            textBoxO.Location = new System.Drawing.Point(1095, 73);
             textBoxO.Name = "textBoxO";
             textBoxO.Size = new System.Drawing.Size(176, 23);
             textBoxO.TabIndex = 3;
@@ -1961,17 +1988,18 @@ namespace DocumentAdder.Forms
             // 
             // label7
             // 
+            label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(549, 74);
+            label7.Location = new System.Drawing.Point(549, 125);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(70, 30);
+            label7.Size = new System.Drawing.Size(70, 15);
             label7.TabIndex = 128;
-            label7.Text = "\r\nДата отказа";
+            label7.Text = "Дата отказа";
             // 
             // FailureDateBox
             // 
             FailureDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            FailureDateBox.Location = new System.Drawing.Point(549, 107);
+            FailureDateBox.Location = new System.Drawing.Point(549, 143);
             FailureDateBox.Mask = "00/00/0000";
             FailureDateBox.Name = "FailureDateBox";
             FailureDateBox.Size = new System.Drawing.Size(176, 23);
