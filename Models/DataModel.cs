@@ -14,10 +14,6 @@ public partial class DataModel : ObservableObject
     [ObservableProperty]
     private LawTyp typ;
     public object Data { get; set; } = null!;
-
-    //Номер договора
-    [ObservableProperty]
-    private string? contract;
     //Номер дела
     [ObservableProperty]
     private string? exec_number;
@@ -106,4 +102,8 @@ public partial class DataModel : ObservableObject
     private bool check = false;
     [ObservableProperty]
     private int mode = 1;
+
+
+    [ObservableProperty]
+    private int typ_doc = 1;
 }

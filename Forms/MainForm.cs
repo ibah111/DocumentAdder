@@ -666,7 +666,7 @@ public partial class MainForm : Form
         foreach (Control control in tableLayoutPanel1.Controls)
         {
             if (control is MaskedTextBox)
-                if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != "maskedTextBox12" && control.Name != "execDateMb" && control.Name != "innMb")
+                if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != nameof(maskedTextBox12))
                     return false;
         }
         return true;
