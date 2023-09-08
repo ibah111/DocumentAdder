@@ -34,16 +34,15 @@ namespace DocumentAdder.Forms
         {
             components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Users = new System.Windows.Forms.BindingSource(components);
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -83,8 +82,6 @@ namespace DocumentAdder.Forms
             LawActCourtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActCourtDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActCourtDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActCourtAdress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,8 +119,6 @@ namespace DocumentAdder.Forms
             LawExecTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecFsspName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecFsspAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecCourtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecCourtAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -619,17 +614,17 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { LawActId, LawActTyp, LawActStatus, LawActFIoVz, LawActName, LawActPortfolio, LawActFio, LawActBirthDate, LawActContract, LawActExecNumber, LawActCourtName, LawActTotalSum, LawActDsc, LawActCourtDocNum, LawActCourtDate, LawActCourtAdress, LawActStartSum, LawActNumber, LawActSeries, LawActBirthPlace, LawActFullAdr, LawActExecDate, LawActInn });
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { LawActId, LawActTyp, LawActStatus, LawActFIoVz, LawActName, LawActPortfolio, LawActFio, LawActBirthDate, LawActContract, LawActExecNumber, LawActCourtName, LawActTotalSum, LawActDsc, LawActCourtAdress, LawActStartSum, LawActNumber, LawActSeries, LawActBirthPlace, LawActFullAdr, LawActExecDate, LawActInn });
             tableLayoutPanel1.SetColumnSpan(dataGridView1, 4);
             dataGridView1.DataSource = lawActResultBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Gray;
             dataGridView1.Location = new System.Drawing.Point(732, 213);
@@ -637,14 +632,14 @@ namespace DocumentAdder.Forms
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView1, 12);
             dataGridView1.Size = new System.Drawing.Size(724, 414);
@@ -755,23 +750,6 @@ namespace DocumentAdder.Forms
             LawActDsc.Name = "LawActDsc";
             LawActDsc.ReadOnly = true;
             // 
-            // LawActCourtDocNum
-            // 
-            LawActCourtDocNum.DataPropertyName = "court_doc_num";
-            LawActCourtDocNum.HeaderText = "ИД";
-            LawActCourtDocNum.Name = "LawActCourtDocNum";
-            LawActCourtDocNum.ReadOnly = true;
-            // 
-            // LawActCourtDate
-            // 
-            LawActCourtDate.DataPropertyName = "court_date";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            LawActCourtDate.DefaultCellStyle = dataGridViewCellStyle4;
-            LawActCourtDate.HeaderText = "Дата ИЛ";
-            LawActCourtDate.Name = "LawActCourtDate";
-            LawActCourtDate.ReadOnly = true;
-            // 
             // LawActCourtAdress
             // 
             LawActCourtAdress.DataPropertyName = "court_adress";
@@ -782,9 +760,9 @@ namespace DocumentAdder.Forms
             // LawActStartSum
             // 
             LawActStartSum.DataPropertyName = "start_sum";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            LawActStartSum.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            LawActStartSum.DefaultCellStyle = dataGridViewCellStyle4;
             LawActStartSum.HeaderText = "Начальная сумма задолженности";
             LawActStartSum.Name = "LawActStartSum";
             LawActStartSum.ReadOnly = true;
@@ -820,9 +798,9 @@ namespace DocumentAdder.Forms
             // LawActExecDate
             // 
             LawActExecDate.DataPropertyName = "exec_date";
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            LawActExecDate.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            LawActExecDate.DefaultCellStyle = dataGridViewCellStyle5;
             LawActExecDate.HeaderText = "Дата дела";
             LawActExecDate.Name = "LawActExecDate";
             LawActExecDate.ReadOnly = true;
@@ -1020,38 +998,38 @@ namespace DocumentAdder.Forms
             dataGridView2.AllowUserToOrderColumns = true;
             dataGridView2.AutoGenerateColumns = false;
             dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { LawExecId, LawExecStatus, LawExecDebtStatus, LawExecFioVz, LawExecPortfolio, LawExecFio, LawExecBirthDate, LawExecContract, LawExecFsspDocNum, LawExecCourtDocNum, LawExecTotalSum, LawExecFsspName, LawExecFsspAddress, LawExecCourtName, LawExecCourtAddress, LawExecExecNumber, LawExecDsc, LawExecFullAdr, LawExecStartSum, LawExecNumber, LawExecSeries, LawExecInn, LawExecExecDate, LawExecBirthPlace });
+            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { LawExecId, LawExecStatus, LawExecDebtStatus, LawExecFioVz, LawExecPortfolio, LawExecFio, LawExecBirthDate, LawExecContract, LawExecFsspDocNum, LawExecCourtDocNum, LawExecTotalSum, LawExecFsspName, LawExecFsspAddress, LawExecExecNumber, LawExecDsc, LawExecFullAdr, LawExecStartSum, LawExecNumber, LawExecSeries, LawExecInn, LawExecExecDate, LawExecBirthPlace });
             tableLayoutPanel1.SetColumnSpan(dataGridView2, 4);
             dataGridView2.DataSource = lawExecResultBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle9;
             dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView2.Location = new System.Drawing.Point(732, 738);
             dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
             dataGridView2.Size = new System.Drawing.Size(724, 204);
@@ -1063,30 +1041,35 @@ namespace DocumentAdder.Forms
             LawExecId.DataPropertyName = "id";
             LawExecId.HeaderText = "ID";
             LawExecId.Name = "LawExecId";
+            LawExecId.ReadOnly = true;
             // 
             // LawExecStatus
             // 
             LawExecStatus.DataPropertyName = "Status";
             LawExecStatus.HeaderText = "Статус";
             LawExecStatus.Name = "LawExecStatus";
+            LawExecStatus.ReadOnly = true;
             // 
             // LawExecDebtStatus
             // 
             LawExecDebtStatus.DataPropertyName = "Debt_status";
             LawExecDebtStatus.HeaderText = "Статус долга";
             LawExecDebtStatus.Name = "LawExecDebtStatus";
+            LawExecDebtStatus.ReadOnly = true;
             // 
             // LawExecFioVz
             // 
             LawExecFioVz.DataPropertyName = "fio_vz";
             LawExecFioVz.HeaderText = "ФИО Взыскателя";
             LawExecFioVz.Name = "LawExecFioVz";
+            LawExecFioVz.ReadOnly = true;
             // 
             // LawExecPortfolio
             // 
             LawExecPortfolio.DataPropertyName = "portfolio";
             LawExecPortfolio.HeaderText = "Портфель";
             LawExecPortfolio.Name = "LawExecPortfolio";
+            LawExecPortfolio.ReadOnly = true;
             // 
             // LawExecFio
             // 
@@ -1100,108 +1083,112 @@ namespace DocumentAdder.Forms
             LawExecBirthDate.DataPropertyName = "birth_date";
             LawExecBirthDate.HeaderText = "Дата Рождения";
             LawExecBirthDate.Name = "LawExecBirthDate";
+            LawExecBirthDate.ReadOnly = true;
             // 
             // LawExecContract
             // 
             LawExecContract.DataPropertyName = "contract";
             LawExecContract.HeaderText = "№ КД";
             LawExecContract.Name = "LawExecContract";
+            LawExecContract.ReadOnly = true;
             // 
             // LawExecFsspDocNum
             // 
             LawExecFsspDocNum.DataPropertyName = "fssp_doc_num";
             LawExecFsspDocNum.HeaderText = "№ ИП";
             LawExecFsspDocNum.Name = "LawExecFsspDocNum";
+            LawExecFsspDocNum.ReadOnly = true;
             // 
             // LawExecCourtDocNum
             // 
             LawExecCourtDocNum.DataPropertyName = "court_doc_num";
             LawExecCourtDocNum.HeaderText = "№ ИД";
             LawExecCourtDocNum.Name = "LawExecCourtDocNum";
+            LawExecCourtDocNum.ReadOnly = true;
             // 
             // LawExecTotalSum
             // 
             LawExecTotalSum.DataPropertyName = "total_sum";
             LawExecTotalSum.HeaderText = "Размер требований";
             LawExecTotalSum.Name = "LawExecTotalSum";
+            LawExecTotalSum.ReadOnly = true;
             // 
             // LawExecFsspName
             // 
             LawExecFsspName.DataPropertyName = "fssp_name";
             LawExecFsspName.HeaderText = "ФССП";
             LawExecFsspName.Name = "LawExecFsspName";
+            LawExecFsspName.ReadOnly = true;
             // 
             // LawExecFsspAddress
             // 
             LawExecFsspAddress.DataPropertyName = "fssp_address";
             LawExecFsspAddress.HeaderText = "Адрес ФССП";
             LawExecFsspAddress.Name = "LawExecFsspAddress";
-            // 
-            // LawExecCourtName
-            // 
-            LawExecCourtName.DataPropertyName = "court_name";
-            LawExecCourtName.HeaderText = "Суд";
-            LawExecCourtName.Name = "LawExecCourtName";
-            // 
-            // LawExecCourtAddress
-            // 
-            LawExecCourtAddress.DataPropertyName = "court_address";
-            LawExecCourtAddress.HeaderText = "Адрес суда";
-            LawExecCourtAddress.Name = "LawExecCourtAddress";
+            LawExecFsspAddress.ReadOnly = true;
             // 
             // LawExecExecNumber
             // 
             LawExecExecNumber.DataPropertyName = "exec_number";
             LawExecExecNumber.HeaderText = "Номер ГД";
             LawExecExecNumber.Name = "LawExecExecNumber";
+            LawExecExecNumber.ReadOnly = true;
             // 
             // LawExecDsc
             // 
             LawExecDsc.DataPropertyName = "dsc";
             LawExecDsc.HeaderText = "Комментарий";
             LawExecDsc.Name = "LawExecDsc";
+            LawExecDsc.ReadOnly = true;
             // 
             // LawExecFullAdr
             // 
             LawExecFullAdr.DataPropertyName = "full_adr";
             LawExecFullAdr.HeaderText = "Адрес регистрации";
             LawExecFullAdr.Name = "LawExecFullAdr";
+            LawExecFullAdr.ReadOnly = true;
             // 
             // LawExecStartSum
             // 
             LawExecStartSum.DataPropertyName = "start_sum";
             LawExecStartSum.HeaderText = "Начальная сумма";
             LawExecStartSum.Name = "LawExecStartSum";
+            LawExecStartSum.ReadOnly = true;
             // 
             // LawExecNumber
             // 
             LawExecNumber.DataPropertyName = "number";
             LawExecNumber.HeaderText = "Номер паспорта";
             LawExecNumber.Name = "LawExecNumber";
+            LawExecNumber.ReadOnly = true;
             // 
             // LawExecSeries
             // 
             LawExecSeries.DataPropertyName = "series";
             LawExecSeries.HeaderText = "Серия паспорта";
             LawExecSeries.Name = "LawExecSeries";
+            LawExecSeries.ReadOnly = true;
             // 
             // LawExecInn
             // 
             LawExecInn.DataPropertyName = "inn";
             LawExecInn.HeaderText = "ИНН";
             LawExecInn.Name = "LawExecInn";
+            LawExecInn.ReadOnly = true;
             // 
             // LawExecExecDate
             // 
             LawExecExecDate.DataPropertyName = "exec_date";
             LawExecExecDate.HeaderText = "Дата дела";
             LawExecExecDate.Name = "LawExecExecDate";
+            LawExecExecDate.ReadOnly = true;
             // 
             // LawExecBirthPlace
             // 
             LawExecBirthPlace.DataPropertyName = "birth_place";
             LawExecBirthPlace.HeaderText = "Место рождения";
             LawExecBirthPlace.Name = "LawExecBirthPlace";
+            LawExecBirthPlace.ReadOnly = true;
             // 
             // lawExecResultBindingSource
             // 

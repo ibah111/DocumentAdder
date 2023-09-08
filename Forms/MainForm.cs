@@ -152,20 +152,7 @@ public partial class MainForm : Form
     {
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
         var a = typDocBox.SelectedIndex;
-        execNumberBox.Enabled = settings_json[a].exec_number;
-        courtDocNumBox.Enabled = settings_json[a].fssp_doc_num;
-        fsspDocNumBox.Enabled = settings_json[a].court_doc_num;
-        courtOrderDateBox.Enabled = settings_json[a].court_order_date;
-        CourtExecDateBox.Enabled = settings_json[a].court_exec_date;
-        startDateBox.Enabled = settings_json[a].start_date;
-        finishDateBox.Enabled = settings_json[a].finish_date;
-        receiptDateBox.Enabled = settings_json[a].receipt_date;
-        returnDateBox.Enabled = settings_json[a].return_date;
-        restrictionToLeaveDtBox.Enabled = settings_json[a].restriction_to_leave_dt;
-        rejectDateBox.Enabled = settings_json[a].reject_date;
-        cancelDateBox.Enabled = settings_json[a].cancel_date;
-        correctPeriodDateBox.Enabled = settings_json[a].correct_period_date;
-        sessionDateBox.Enabled = settings_json[a].session_date;
+        currentEnableds.DataSource = typDocBox.SelectedItem;
         Data.int_color = settings_json[a].color;
         Settings.barcode = settings_json[a].barcode;
         if (Settings.barcode == true)
