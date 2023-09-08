@@ -277,9 +277,9 @@ public partial class MainForm : Form
     {
         law_typ = LawTyp.LawAct;
         idBox.Text = data.id.ToString();
-        textBoxF.Text = data.f;
-        textBoxI.Text = data.i;
-        textBoxO.Text = data.o;
+        textBoxF.Text = data.data.Person.f;
+        textBoxI.Text = data.data.Person.i;
+        textBoxO.Text = data.data.Person.o;
         execNumberBox.Text = data.exec_number; //№ Дела
         contractBox.Text = data.contract; // № КД
         execNumberSearchBox.Text = data.exec_number; //№ Дела
@@ -297,12 +297,10 @@ public partial class MainForm : Form
         }
 
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
-        CourtDateBox.Text = data.court_date?.ToShortDateString();
         debtSumBox.Text = data.total_sum.ToString();
         seriesBox.Text = data.series;
         textBox20.Text = data.number;
         birthDateBox.Text = data.birth_place;
-        textBox16.Text = data.court_doc_num;
         // if (o[comboBox1.SelectedIndex].связь_суда)
         // {
         postAddressBox.Text = data.court_name;
@@ -754,9 +752,9 @@ public partial class MainForm : Form
 
         law_typ = LawTyp.LawExec;
         idBox.Text = data.id.ToString();
-        textBoxF.Text = data.f;
-        textBoxI.Text = data.i;
-        textBoxO.Text = data.o;
+        textBoxF.Text = data.data.Person.f;
+        textBoxI.Text = data.data.Person.i;
+        textBoxO.Text = data.data.Person.o;
         courtDocNumBox.Text = data.fssp_doc_num;
         contractBox.Text = data.contract;
         execNumberSearchBox.Text = data.exec_number;
