@@ -1,4 +1,5 @@
-﻿using DocumentAdder.Forms;
+﻿#nullable enable
+using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using Microsoft.EntityFrameworkCore;
@@ -84,7 +85,7 @@ public class Searcher
                 total_sum = x.total_sum,
                 dsc = x.dsc
             },
-            Debt = new()
+            Debt = x.Debt != null ? new()
             {
                 id = x.Debt.id,
                 contract = x.Debt.contract,
@@ -92,7 +93,7 @@ public class Searcher
                 portfolio = x.Debt.Portfolio.name,
                 fio_vz = x.Debt.WorkTask.User.f + " " + x.Debt.WorkTask.User.i + " " + x.Debt.WorkTask.User.o,
                 status = x.Debt.status
-            },
+            } : null,
             Person = new()
             {
                 id = x.Person.id,
@@ -105,7 +106,8 @@ public class Searcher
                 number = x.Person.Passport.number,
                 series = x.Person.Passport.series,
                 full_adr = x.Person.Addresses.Where(x => x.typ == 1).Select(x => x.full_adr).FirstOrDefault()
-            }
+            },
+            LawCourt = x.LawCourt != null ? new() { id = x.LawCourt.id, name = x.LawCourt.name, address = x.LawCourt.address } : null
         });
 
         var select2 = data2.Select(x => new ActDataModel()
@@ -122,7 +124,7 @@ public class Searcher
                 total_sum = x.total_sum,
                 dsc = x.dsc,
             },
-            LawAct = new()
+            LawAct = x.LawAct != null ? new()
             {
                 act_status = x.LawAct.act_status,
                 id = x.LawAct.id,
@@ -132,8 +134,8 @@ public class Searcher
                 court_order_date = x.LawAct.court_order_date,
                 total_sum = x.LawAct.total_sum,
                 dsc = x.LawAct.dsc,
-            },
-            Debt = new()
+            } : null,
+            Debt = x.Debt != null ? new()
             {
                 id = x.Debt.id,
                 contract = x.Debt.contract,
@@ -141,7 +143,7 @@ public class Searcher
                 portfolio = x.Debt.Portfolio.name,
                 fio_vz = x.Debt.WorkTask.User.f + " " + x.Debt.WorkTask.User.i + " " + x.Debt.WorkTask.User.o,
                 status = x.Debt.status
-            },
+            } : null,
             Person = new()
             {
                 id = x.Person.id,
@@ -154,11 +156,12 @@ public class Searcher
                 number = x.Person.Passport.number,
                 series = x.Person.Passport.series,
                 full_adr = x.Person.Addresses.Where(x => x.typ == 1).Select(x => x.full_adr).FirstOrDefault()
-            }
+            },
+            LawCourt = x.LawCourt != null ? new() { id = x.LawCourt.id, name = x.LawCourt.name, address = x.LawCourt.address } : null
         });
         var result1 = select1.ToList();
         var result2 = select2.ToList();
-        LawActSource.DataSource = result1.Select(x=>new LawActResult(x)).ToList();
-        LawExecSource.DataSource = result2.Select(x=>new LawExecResult(x)).ToList();
+        LawActSource.DataSource = result1.Select(x => new LawActResult(x)).ToList();
+        LawExecSource.DataSource = result2.Select(x => new LawExecResult(x)).ToList();
     }
 }
