@@ -7,13 +7,41 @@ namespace DocumentAdder.Models;
 
 public partial class DataModel : ObservableObject
 {
+    public DataModel(ActDataModel data)
+    {
+        Typ = data.typ;
+        Exec_number = data.LawAct.exec_number;
+        Court_order_date = data.LawAct.court_order_date;
+        Court_exec_date = data.LawAct.court_exec_date;
+        if (data.LawAct.typ > 1)
+        {
+            Receipt_date = data.LawAct.receipt_dt;
+        }
+        else
+            Receipt_date = data.LawAct.receipt_date;
+        //receipt_date = data.LawAct.receipt_act_dt;
+        Failure_date = data.LawAct.failure_date;
+        Correct_period_date = data.LawAct.correct_period_date;
+        if (data.typ == LawTyp.LawExec)
+        {
+            Fssp_doc_num = data.LawExec.fssp_doc_num;
+            Court_doc_num = data.LawExec.court_doc_num;
+            Court_date = data.LawExec.court_date;
+            Start_date = data.LawExec.start_date;
+            Finish_date = data.LawExec.finish_date;
+            Restriction_to_leave_dt = data.LawExec.restriction_to_leave_dt;
+            Receipt_date = data.LawExec.receipt_act_dt;
+        }
+        Post_name = data.LawCourt.name;
+        Post_address = data.LawCourt.address;
+    }
     //ID дела
     [ObservableProperty]
     private int id;
     //Тип дела
     [ObservableProperty]
     private LawTyp typ;
-    public object Data { get; set; } = null!;
+    public ActDataModel Data { get; set; } = null!;
     //Номер дела
     [ObservableProperty]
     private string? exec_number;
