@@ -16,4 +16,8 @@ public class LawExecModel
     public DateTime? court_date { get; set; }
     public decimal? total_sum { get; set; }
     public string? dsc { get; set; }
+    public DateTime? start_date { get; set; }
+    public DateTime? finish_date { get; set; }
+    public DateTime? receipt_act_dt { get; set; }
+    public DateTime? restriction_to_leave_dt { get; set; }
 }

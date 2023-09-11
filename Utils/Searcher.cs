@@ -76,14 +76,20 @@ public class Searcher
             typ = LawTyp.LawAct,
             LawAct = new()
             {
-                act_status = x.act_status.Value,
+                act_status = x.act_status,
                 id = x.id,
                 typ = x.typ,
                 status = x.status,
                 exec_number = x.exec_number,
                 court_order_date = x.court_order_date,
                 total_sum = x.total_sum,
-                dsc = x.dsc
+                court_exec_date = x.court_exec_date,
+                receipt_dt = x.receipt_dt,
+                receipt_act_dt = x.receipt_act_dt,
+                receipt_date = x.receipt_date,
+                dsc = x.dsc,
+                failure_date = x.failure_date,
+                correct_period_date = x.correct_period_date
             },
             Debt = x.Debt != null ? new()
             {
@@ -122,18 +128,28 @@ public class Searcher
                 fssp_doc_num = x.fssp_doc_num,
                 state = x.state,
                 total_sum = x.total_sum,
+                start_date = x.start_date,
                 dsc = x.dsc,
+                finish_date = x.finish_date,
+                receipt_act_dt = x.receipt_act_dt,
+                restriction_to_leave_dt = x.restriction_to_leave_dt,
             },
             LawAct = x.LawAct != null ? new()
             {
                 act_status = x.LawAct.act_status,
                 id = x.LawAct.id,
-                typ = x.LawAct.typ.Value,
-                status = x.LawAct.status.Value,
+                typ = x.LawAct.typ,
+                status = x.LawAct.status,
+                court_exec_date = x.LawAct.court_exec_date,
                 exec_number = x.LawAct.exec_number,
                 court_order_date = x.LawAct.court_order_date,
                 total_sum = x.LawAct.total_sum,
                 dsc = x.LawAct.dsc,
+                receipt_dt = x.LawAct.receipt_dt,
+                receipt_act_dt = x.LawAct.receipt_act_dt,
+                receipt_date = x.LawAct.receipt_date,
+                failure_date = x.LawAct.failure_date,
+                correct_period_date = x.LawAct.correct_period_date
             } : null,
             Debt = x.Debt != null ? new()
             {
