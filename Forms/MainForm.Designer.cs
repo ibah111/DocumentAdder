@@ -202,6 +202,7 @@ namespace DocumentAdder.Forms
             textBoxO = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
+            dataModelBinding = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
@@ -217,6 +218,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1310,6 +1312,7 @@ namespace DocumentAdder.Forms
             // execNumberBox
             // 
             execNumberBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "exec_number", true));
+            execNumberBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Exec_number", true));
             execNumberBox.Dock = System.Windows.Forms.DockStyle.Fill;
             execNumberBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             execNumberBox.Location = new System.Drawing.Point(4, 143);
@@ -1324,6 +1327,7 @@ namespace DocumentAdder.Forms
             // 
             fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
             fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "fssp_doc_num", true));
+            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Fssp_doc_num", true));
             fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             fsspDocNumBox.Location = new System.Drawing.Point(368, 143);
             fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1336,6 +1340,7 @@ namespace DocumentAdder.Forms
             // courtOrderDateBox
             // 
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_order_date", true));
+            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtOrderDateBox.Location = new System.Drawing.Point(4, 213);
             courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1350,6 +1355,7 @@ namespace DocumentAdder.Forms
             // courtDocNumBox
             // 
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_doc_num", true));
+            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtDocNumBox.Location = new System.Drawing.Point(186, 143);
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2014,6 +2020,7 @@ namespace DocumentAdder.Forms
             // 
             // FailureDateBox
             // 
+            FailureDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Failure_date", true));
             FailureDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             FailureDateBox.Location = new System.Drawing.Point(549, 143);
             FailureDateBox.Mask = "00/00/0000";
@@ -2021,6 +2028,10 @@ namespace DocumentAdder.Forms
             FailureDateBox.Size = new System.Drawing.Size(176, 23);
             FailureDateBox.TabIndex = 10;
             FailureDateBox.ValidatingType = typeof(System.DateTime);
+            // 
+            // dataModelBinding
+            // 
+            dataModelBinding.DataSource = typeof(DataModel);
             // 
             // MainForm
             // 
@@ -2052,6 +2063,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataModelBinding).EndInit();
             ResumeLayout(false);
         }
 
@@ -2228,6 +2240,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.MaskedTextBox FailureDateBox;
         private System.Windows.Forms.BindingSource typDocBinding;
         private System.Windows.Forms.BindingSource currentEnableds;
+        private System.Windows.Forms.BindingSource dataModelBinding;
     }
 }
 
