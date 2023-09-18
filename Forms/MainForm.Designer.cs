@@ -139,6 +139,7 @@ namespace DocumentAdder.Forms
             contractBox = new System.Windows.Forms.TextBox();
             idBox = new System.Windows.Forms.TextBox();
             execNumberBox = new System.Windows.Forms.TextBox();
+            dataModelBinding = new System.Windows.Forms.BindingSource(components);
             fsspDocNumBox = new System.Windows.Forms.TextBox();
             courtOrderDateBox = new System.Windows.Forms.MaskedTextBox();
             courtDocNumBox = new System.Windows.Forms.TextBox();
@@ -202,7 +203,6 @@ namespace DocumentAdder.Forms
             textBoxO = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
-            dataModelBinding = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
@@ -212,13 +212,13 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -405,6 +405,7 @@ namespace DocumentAdder.Forms
             typDocBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             typDocBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             tableLayoutPanel1.SetColumnSpan(typDocBox, 4);
+            typDocBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Typ_doc", true));
             typDocBox.DataSource = typDocBinding;
             typDocBox.DisplayMember = "name";
             typDocBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -556,6 +557,7 @@ namespace DocumentAdder.Forms
             // CourtExecDateBox
             // 
             CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_exec_date", true));
+            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_exec_date", true));
             CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             CourtExecDateBox.Location = new System.Drawing.Point(186, 213);
             CourtExecDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -574,6 +576,7 @@ namespace DocumentAdder.Forms
             // startDateBox
             // 
             startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "start_date", true));
+            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Start_date", true));
             startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             startDateBox.Location = new System.Drawing.Point(368, 213);
             startDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -588,6 +591,7 @@ namespace DocumentAdder.Forms
             // finishDateBox
             // 
             finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "finish_date", true));
+            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Finish_date", true));
             finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             finishDateBox.Location = new System.Drawing.Point(550, 213);
             finishDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -865,6 +869,7 @@ namespace DocumentAdder.Forms
             // receiptDateBox
             // 
             receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "receipt_date", true));
+            receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Receipt_date", true));
             receiptDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             receiptDateBox.Location = new System.Drawing.Point(4, 283);
             receiptDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -879,6 +884,7 @@ namespace DocumentAdder.Forms
             // returnDateBox
             // 
             returnDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "return_date", true));
+            returnDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Return_date", true));
             returnDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             returnDateBox.Location = new System.Drawing.Point(186, 283);
             returnDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -893,6 +899,7 @@ namespace DocumentAdder.Forms
             // restrictionToLeaveDtBox
             // 
             restrictionToLeaveDtBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "restriction_to_leave_dt", true));
+            restrictionToLeaveDtBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Restriction_to_leave_dt", true));
             restrictionToLeaveDtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             restrictionToLeaveDtBox.Location = new System.Drawing.Point(368, 283);
             restrictionToLeaveDtBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -907,6 +914,7 @@ namespace DocumentAdder.Forms
             // rejectDateBox
             // 
             rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "reject_date", true));
+            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Reject_date", true));
             rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             rejectDateBox.Location = new System.Drawing.Point(550, 283);
             rejectDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -953,7 +961,8 @@ namespace DocumentAdder.Forms
             // 
             // cancelDateBox
             // 
-            cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "restriction_to_leave_dt", true));
+            cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Cancel_date", true));
+            cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "cancel_date", true));
             cancelDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             cancelDateBox.Location = new System.Drawing.Point(4, 353);
             cancelDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -968,6 +977,7 @@ namespace DocumentAdder.Forms
             // correctPeriodDateBox
             // 
             correctPeriodDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "correct_period_date", true));
+            correctPeriodDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Correct_period_date", true));
             correctPeriodDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             correctPeriodDateBox.Location = new System.Drawing.Point(186, 353);
             correctPeriodDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -982,6 +992,7 @@ namespace DocumentAdder.Forms
             // sessionDateBox
             // 
             sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "session_date", true));
+            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Session_date", true));
             sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             sessionDateBox.Location = new System.Drawing.Point(368, 353);
             sessionDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1323,6 +1334,10 @@ namespace DocumentAdder.Forms
             execNumberBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             execNumberBox.KeyDown += textBox1_KeyDown;
             // 
+            // dataModelBinding
+            // 
+            dataModelBinding.DataSource = typeof(DataModel);
+            // 
             // fsspDocNumBox
             // 
             fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
@@ -1419,6 +1434,7 @@ namespace DocumentAdder.Forms
             // 
             userTaskBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             userTaskBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            userTaskBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "User_task", true));
             userTaskBox.DataSource = Users;
             userTaskBox.DisplayMember = "NAME";
             userTaskBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1444,6 +1460,7 @@ namespace DocumentAdder.Forms
             // 
             postNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             postNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            postNameBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Post_address", true));
             postNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
             postNameBox.FormattingEnabled = true;
             postNameBox.Location = new System.Drawing.Point(4, 493);
@@ -1479,6 +1496,7 @@ namespace DocumentAdder.Forms
             // 
             articleAndParagraphBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             articleAndParagraphBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            articleAndParagraphBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Article_and_paragraph", true));
             articleAndParagraphBox.Dock = System.Windows.Forms.DockStyle.Fill;
             articleAndParagraphBox.FormattingEnabled = true;
             articleAndParagraphBox.Items.AddRange(new object[] { "П.3,СТ.46", "П.4,СТ.46", "П.1,СТ.46", "П.3,СТ.46,П.4,СТ.46", "П.6,СТ.46", "П.1,СТ.47", "П.7,СТ.47", "П.4,СТ.47", "П.1,СТ.45", "П.5,СТ.46", "П.2,СТ.46" });
@@ -1492,6 +1510,7 @@ namespace DocumentAdder.Forms
             // 
             documentNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             documentNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            documentNameBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Document_name", true));
             documentNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
             documentNameBox.FormattingEnabled = true;
             documentNameBox.Items.AddRange(new object[] { "213123212" });
@@ -1527,6 +1546,7 @@ namespace DocumentAdder.Forms
             // 
             postAddressBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             postAddressBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            postAddressBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Post_name", true));
             postAddressBox.Dock = System.Windows.Forms.DockStyle.Fill;
             postAddressBox.FormattingEnabled = true;
             postAddressBox.Location = new System.Drawing.Point(186, 493);
@@ -1572,6 +1592,7 @@ namespace DocumentAdder.Forms
             // 
             // datePostBox
             // 
+            datePostBox.DataBindings.Add(new System.Windows.Forms.Binding("Value", dataModelBinding, "Date_post", true));
             datePostBox.Dock = System.Windows.Forms.DockStyle.Fill;
             datePostBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             datePostBox.Location = new System.Drawing.Point(4, 423);
@@ -1597,6 +1618,7 @@ namespace DocumentAdder.Forms
             // checkBox3
             // 
             checkBox3.AutoSize = true;
+            checkBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Task", true));
             checkBox3.Location = new System.Drawing.Point(550, 878);
             checkBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox3.Name = "checkBox3";
@@ -1624,6 +1646,7 @@ namespace DocumentAdder.Forms
             // checkBox1
             // 
             checkBox1.AutoSize = true;
+            checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Check", true));
             checkBox1.Location = new System.Drawing.Point(4, 3);
             checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox1.Name = "checkBox1";
@@ -1635,6 +1658,7 @@ namespace DocumentAdder.Forms
             // checkBox4
             // 
             checkBox4.AutoSize = true;
+            checkBox4.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Fssp", true));
             checkBox4.Location = new System.Drawing.Point(90, 3);
             checkBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox4.Name = "checkBox4";
@@ -1762,6 +1786,7 @@ namespace DocumentAdder.Forms
             // checkBox2
             // 
             checkBox2.AutoSize = true;
+            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
             checkBox2.Location = new System.Drawing.Point(368, 493);
             checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox2.Name = "checkBox2";
@@ -1847,6 +1872,7 @@ namespace DocumentAdder.Forms
             // 
             // ModeCB
             // 
+            ModeCB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Mode", true));
             ModeCB.DataSource = bindingSource1;
             ModeCB.DisplayMember = "name";
             ModeCB.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1889,6 +1915,7 @@ namespace DocumentAdder.Forms
             // selectDocBarcode
             // 
             selectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Doc_barcode", true));
             selectDocBarcode.DataSource = Documents;
             selectDocBarcode.DisplayMember = "name";
             selectDocBarcode.FormattingEnabled = true;
@@ -1931,6 +1958,7 @@ namespace DocumentAdder.Forms
             // 
             // statusBox
             // 
+            statusBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Status", true));
             statusBox.DataSource = dictStatus;
             statusBox.DisplayMember = "name";
             statusBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2029,10 +2057,6 @@ namespace DocumentAdder.Forms
             FailureDateBox.TabIndex = 10;
             FailureDateBox.ValidatingType = typeof(System.DateTime);
             // 
-            // dataModelBinding
-            // 
-            dataModelBinding.DataSource = typeof(DataModel);
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2056,6 +2080,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataModelBinding).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -2063,7 +2088,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataModelBinding).EndInit();
             ResumeLayout(false);
         }
 
