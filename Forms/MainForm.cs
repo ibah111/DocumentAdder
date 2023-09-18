@@ -14,6 +14,7 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows.Data;
 using System.Windows.Forms;
 using static DocumentAdder.Models.Adder;
 using Action = System.Action;
@@ -32,9 +33,8 @@ public partial class MainForm : Form
     private static string path_to_list_otprav = Environment.CurrentDirectory + "\\Список_Для_Отправителя.txt";
     private static SerialPort currentPort = new SerialPort();
     private bool runed = false;
-    private List<SettingsModel> settings_json = new();
-    private object current;
-    private LawTyp law_typ { get; set; }
+    private Dictionary<int, SettingsModel> settings_json = new();
+    private DataModel current;
     private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
     {
         SerialPort sp = (SerialPort)sender;
@@ -68,6 +68,8 @@ public partial class MainForm : Form
         ToolTip toolTip = new ToolTip();
         toolTip.SetToolTip(this.clearStatus, "Не менять статус");
         dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+        current = new();
+        dataModelBinding.DataSource = current;
     }
     private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
@@ -139,10 +141,10 @@ public partial class MainForm : Form
             }
             Settings.json = Resources.config;
             panel1.AllowDrop = true;
-            var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json);
+            var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.id);
             settings_json = o;
-            typDocBinding.DataSource = settings_json;
-            typDocBox.SelectedIndex = 0;
+            typDocBinding.DataSource = settings_json.Values.ToList();
+            typDocBox.SelectedValue = 1;
             //LoadPeople();
             runed = true;
         }
@@ -151,10 +153,10 @@ public partial class MainForm : Form
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
-        var a = typDocBox.SelectedIndex;
-        currentEnableds.DataSource = typDocBox.SelectedItem;
-        Data.int_color = settings_json[a].color;
-        Settings.barcode = settings_json[a].barcode;
+        var settings = (SettingsModel)typDocBox.SelectedItem;
+        currentEnableds.DataSource = settings;
+        Data.int_color = settings.color;
+        Settings.barcode = settings.barcode;
         if (Settings.barcode == true)
         {
             if (Utils.Printer.CheckCom())
@@ -200,10 +202,10 @@ public partial class MainForm : Form
         }
         else
             Settings.dateId = false;
-        if (!String.IsNullOrEmpty(settings_json[a].document_name))
-            documentNameBox.Text = settings_json[a].document_name;
-        if (settings_json[a].user_task.HasValue)
-            userTaskBox.SelectedValue = settings_json[a].user_task;
+        if (!String.IsNullOrEmpty(settings.document_name))
+            documentNameBox.Text = settings.document_name;
+        if (settings.user_task.HasValue)
+            userTaskBox.SelectedValue = settings.user_task;
     }
 
     private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
@@ -262,40 +264,22 @@ public partial class MainForm : Form
     }
     private void InstallData(LawActResult data)
     {
-        law_typ = LawTyp.LawAct;
-        idBox.Text = data.id.ToString();
-        textBoxF.Text = data.data.Person.f;
-        textBoxI.Text = data.data.Person.i;
-        textBoxO.Text = data.data.Person.o;
-        execNumberBox.Text = data.exec_number; //№ Дела
-        contractBox.Text = data.contract; // № КД
-        execNumberSearchBox.Text = data.exec_number; //№ Дела
-        textBox12.Text = data.dsc; //Коммент
-        var dict = getIntDict(data.typ.Value);
+        var typ = current.Typ_doc;
+        var binding = new DataModel(data.data);
+        binding.Typ_doc = typ;
+        var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
-        var settings = settings_json[typDocBox.SelectedIndex];
-        if (!(settings.without_act_status.ContainsKey(dict) && settings.without_act_status[dict].Contains(getIntStatus(data).Value)) && settings.act_status.ContainsKey(data.typ.Value))
-        {
-            statusBox.SelectedValue = settings.act_status[data.typ.Value];
-        }
+        var settings = settings_json[typ];
+        if (settings.without_act_status.ContainsKey(dict) && settings.without_act_status[dict].Contains(getIntStatus(data).Value) && settings.act_status.ContainsKey(data.typ.Value))
+        { binding.Status = settings.act_status[data.typ.Value]; }
         else
         {
-            statusBox.SelectedIndex = -1;
+            binding.Status = null;
         }
-
-        receiptDateBox.Text = DateTime.Now.ToShortDateString();
-        debtSumBox.Text = data.total_sum.ToString();
-        seriesBox.Text = data.series;
-        textBox20.Text = data.number;
-        birthDateBox.Text = data.birth_place;
-        // if (o[comboBox1.SelectedIndex].связь_суда)
-        // {
-        postAddressBox.Text = data.court_name;
-        postNameBox.Text = data.court_adress;
-        // }
-        current = data;
+        current = binding;
+        dataModelBinding.DataSource = current;
     }
-    private int getIntDict(int typ)
+    private int getIntDict(int? typ = 0)
     {
         if (typ == 1) return 18;
         else if (typ > 1) return 25;
@@ -323,7 +307,7 @@ public partial class MainForm : Form
         Settings.debt_id = idBox.Text;
         if (!string.IsNullOrWhiteSpace(Settings.debt_id))
         {
-            var testDialog = new Dialogs.DebtCalc(law_typ);
+            var testDialog = new Dialogs.DebtCalc(current.Typ);
             testDialog.Show();
         }
         else
@@ -406,22 +390,7 @@ public partial class MainForm : Form
                     || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
-            var data = (LawActResult)current;
-            PersonInfo personInfo = new PersonInfo()
-            {
-                court_doc_num = textBox16.Text,
-                court_date = CourtDateBox.Text,
-                exec_number = execNumberBox.Text,
-                fio = data.fio,
-                birth_date = data.birth_date.Value.ToShortDateString(),
-                birth_place = data.birth_place,
-                series = data.series,
-                number = data.number,
-                inn = data.inn,
-                sum = data.total_sum.Value,
-                /*exec_date = execDateMb.Text,
-                name = comboBox9.Text*/
-            };
+            var personInfo = new PersonInfo(current);
             try
             {
                 var (error, message) = VTBAdder.CreateExcel();
@@ -444,9 +413,7 @@ public partial class MainForm : Form
 
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
-        Data.Update(db, law_typ, execNumberBox, courtDocNumBox, fsspDocNumBox, textBox11,
-            courtOrderDateBox, CourtExecDateBox, startDateBox, finishDateBox, receiptDateBox,
-            returnDateBox, restrictionToLeaveDtBox, rejectDateBox, cancelDateBox, correctPeriodDateBox, sessionDateBox, debtSumBox, statusBox.Text);
+        Data.Update(db, current, (SettingsModel)currentEnableds.DataSource);
         db.SaveChanges();
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
@@ -474,10 +441,10 @@ public partial class MainForm : Form
             int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file);
             if (result > 0)
             {
-                if (value == (FileItem)selectDocBarcode.SelectedItem & selectDocBarcode.Enabled == true)
+                if (value == current.Doc_barcode)
                 {
                     var doc = new ClientDoc() { doc = result, barcode = true, title = textBox16.Text, date = CourtDateBox.Text };
-                    if (law_typ == LawTyp.LawExec)
+                    if (current.Typ == LawTyp.LawExec)
                     {
                         doc.type = 2;
                     }
@@ -558,22 +525,7 @@ public partial class MainForm : Form
 
     public void newTask(int errors, List<ClientDoc> docs)
     {
-        var data = (LawActResult)current;
-        PersonInfo personInfo = new PersonInfo()
-        {
-            court_doc_num = textBox16.Text,
-            court_date = CourtDateBox.Text,
-            exec_number = execNumberBox.Text,
-            fio = data.fio,
-            birth_date = data.birth_date.Value.ToShortDateString(),
-            birth_place = data.birth_place,
-            series = seriesBox.Text,
-            number = textBox20.Text,
-            inn = data.inn,
-            sum = data.total_sum.Value,
-            exec_date = data.exec_date.Value.ToShortTimeString(),
-            name = postAddressBox.Text
-        };
+        var personInfo = new PersonInfo(current);
         Tasks f = new Tasks(ref errors, this, personInfo, docs);
         f.Show();
         f.FormClosed += F_FormClosed;
@@ -604,33 +556,31 @@ public partial class MainForm : Form
         string desc = $"{textBox11.Text}";
         if (correctPeriodDateBox.Enabled == true)
             desc += $" {correctPeriodDateBox.Text}";
-        var data = (LawActResult)current;
         var result = new
         {
-            date_post =
-            DateTime.Parse(datePostBox.Value.ToShortDateString()),
-            Convert = convert,
-            pristavi = pristavi,
-            adr_otp = postNameBox.Text,
-            otprav = postAddressBox.Text,
-            reestr = data.portfolio,
-            doc_name = documentNameBox.Text,
-            id_dela = idBox.Text,
-            st_pnkt = articleAndParagraphBox.Text,
-            gd = execNumberSearchBox.Text,
-            fio_dol = $"{textBoxF.Text} {textBoxO.Text} {textBoxO.Text}",
+            date_post = current.Date_post,
+            Convert = current.Check,
+            pristavi = current.Fssp,
+            adr_otp = current.Post_address,
+            otprav = current.Post_name,
+            reestr = current.Data.Debt.portfolio,
+            doc_name = current.Document_name,
+            id_dela = current.Id,
+            st_pnkt = current.Article_and_paragraph,
+            gd = current.Exec_number,
+            fio_dol = current.Data.Person.fio,
             kd = contractBox.Text,
             ispol_zadach = userTaskBox.Text,
             id_ispol_zadach = userTaskBox.SelectedValue,
-            vsisk = data.fio_vz,
+            vsisk = current.Data.Debt.fio_vz,
             kto_obrabotal = Settings.username,
             id_kto_obrabotal = Settings.user_id,
-            nal_skan = nal_skan,
+            nal_skan = current.Scan,
             action = typ,
-            user_id = userTaskBox.SelectedValue,
-            template_id = id_task,
-            name = $"{textBoxF.Text} {textBoxI.Text} {textBoxO.Text} {contractBox.Text} {data.portfolio}",
-            desc,
+            user_id = current.User_task,
+            template_id = current.Task_id,
+            name = $"{current.Data.Person.fio} {current.Data.Debt.contract} {current.Data.Debt.portfolio}",
+            desc = current.Dsc,
             Settings.mode,
             Settings.ist,
             dateDoc = dateDoc,
@@ -681,7 +631,7 @@ public partial class MainForm : Form
     {
         if (!int.TryParse(Data.id, out var id))
             throw new Exception("Ошибка получения ID");
-        if (law_typ == LawTyp.LawAct)
+        if (current.Typ == LawTyp.LawAct)
         {
             var docAttach = new DatabaseContact.Models.DocAttach
             {
@@ -736,32 +686,18 @@ public partial class MainForm : Form
     }
     private void InstallData(LawExecResult data)
     {
-
-        law_typ = LawTyp.LawExec;
-        idBox.Text = data.id.ToString();
-        textBoxF.Text = data.data.Person.f;
-        textBoxI.Text = data.data.Person.i;
-        textBoxO.Text = data.data.Person.o;
-        courtDocNumBox.Text = data.fssp_doc_num;
-        contractBox.Text = data.contract;
-        execNumberSearchBox.Text = data.exec_number;
-        fsspDocNumBox.Text = data.court_doc_num;
-        execNumberBox.Text = data.exec_number;
-        textBox12.Text = data.dsc;
-        var settings = settings_json[typDocBox.SelectedIndex];
+        var typ = current.Typ_doc;
+        var binding = new DataModel(data.data);
+        binding.Typ_doc = typ;
+        var settings = settings_json[typ];
+        dictStatus.DataSource = Settings.dicts[77].Values.ToList();
+        binding.Typ_doc = typ;
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
         {
-            statusBox.SelectedValue = settings.exec_status;
+            binding.Status = settings.exec_status;
         }
-        CourtDateBox.Text = data.court_date?.ToShortDateString();
-        textBox16.Text = data.court_doc_num;
-        //textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
-        //textBox25.Text = dataGridView2.Rows[e.RowIndex].Cells[16].Value.ToString();
-        debtSumBox.Text = data.total_sum.ToString();
-        seriesBox.Text = data.series;
-        textBox20.Text = data.number;
-        birthDateBox.Text = data.birth_place;
-        current = data;
+        current = binding;
+        dataModelBinding.DataSource = current;
     }
 
     private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -779,7 +715,7 @@ public partial class MainForm : Form
         Settings.debt_id = idBox.Text;
         if (!string.IsNullOrWhiteSpace(Settings.debt_id))
         {
-            var testDialog = new Dialogs.DocAttach(law_typ);
+            var testDialog = new Dialogs.DocAttach(current.Typ);
             testDialog.Show();
         }
         else

@@ -2,7 +2,7 @@
 
 namespace DocumentAdder.Models;
 
-class Adder
+public class Adder
 {
     public class FileItem
     {

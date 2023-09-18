@@ -50,6 +50,7 @@ namespace DocumentAdder.Forms
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             typDocBox = new System.Windows.Forms.ComboBox();
+            dataModelBinding = new System.Windows.Forms.BindingSource(components);
             typDocBinding = new System.Windows.Forms.BindingSource(components);
             textBoxF = new System.Windows.Forms.TextBox();
             label8 = new System.Windows.Forms.Label();
@@ -139,7 +140,6 @@ namespace DocumentAdder.Forms
             contractBox = new System.Windows.Forms.TextBox();
             idBox = new System.Windows.Forms.TextBox();
             execNumberBox = new System.Windows.Forms.TextBox();
-            dataModelBinding = new System.Windows.Forms.BindingSource(components);
             fsspDocNumBox = new System.Windows.Forms.TextBox();
             courtOrderDateBox = new System.Windows.Forms.MaskedTextBox();
             courtDocNumBox = new System.Windows.Forms.TextBox();
@@ -205,6 +205,7 @@ namespace DocumentAdder.Forms
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
             ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -212,7 +213,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -223,7 +223,6 @@ namespace DocumentAdder.Forms
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             tableLayoutPanel1.AutoScroll = true;
             tableLayoutPanel1.ColumnCount = 8;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -333,6 +332,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
             tableLayoutPanel1.Controls.Add(label7, 3, 3);
             tableLayoutPanel1.Controls.Add(FailureDateBox, 3, 4);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -417,6 +417,10 @@ namespace DocumentAdder.Forms
             typDocBox.TabIndex = 0;
             typDocBox.ValueMember = "id";
             typDocBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // dataModelBinding
+            // 
+            dataModelBinding.DataSource = typeof(DataModel);
             // 
             // typDocBinding
             // 
@@ -1210,6 +1214,7 @@ namespace DocumentAdder.Forms
             // textBox11
             // 
             tableLayoutPanel1.SetColumnSpan(textBox11, 2);
+            textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Dsc", true));
             textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox11.Location = new System.Drawing.Point(4, 738);
             textBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1333,10 +1338,6 @@ namespace DocumentAdder.Forms
             execNumberBox.TabIndex = 7;
             execNumberBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             execNumberBox.KeyDown += textBox1_KeyDown;
-            // 
-            // dataModelBinding
-            // 
-            dataModelBinding.DataSource = typeof(DataModel);
             // 
             // fsspDocNumBox
             // 
@@ -1830,6 +1831,7 @@ namespace DocumentAdder.Forms
             // 
             // CourtDateBox
             // 
+            CourtDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_date", true));
             CourtDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             CourtDateBox.Location = new System.Drawing.Point(4, 668);
             CourtDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1915,7 +1917,7 @@ namespace DocumentAdder.Forms
             // selectDocBarcode
             // 
             selectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Doc_barcode", true));
+            selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
             selectDocBarcode.DataSource = Documents;
             selectDocBarcode.DisplayMember = "name";
             selectDocBarcode.FormattingEnabled = true;
@@ -2073,6 +2075,7 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Users).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataModelBinding).EndInit();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).EndInit();
             ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -2080,7 +2083,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataModelBinding).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);

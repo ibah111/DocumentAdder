@@ -2,38 +2,43 @@
 using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using DocumentAdder.Forms;
+using static DocumentAdder.Models.Adder;
 
 namespace DocumentAdder.Models;
 
 public partial class DataModel : ObservableObject
 {
-    public DataModel(ActDataModel data)
+    public DataModel(ActDataModel? data = null)
     {
-        Typ = data.typ;
-        Exec_number = data.LawAct.exec_number;
-        Court_order_date = data.LawAct.court_order_date;
-        Court_exec_date = data.LawAct.court_exec_date;
-        if (data.LawAct.typ > 1)
+        if (data != null)
         {
-            Receipt_date = data.LawAct.receipt_dt;
+            Data = data;
+            Typ = data.typ;
+            Exec_number = data.LawAct.exec_number;
+            Court_order_date = data.LawAct.court_order_date;
+            Court_exec_date = data.LawAct.court_exec_date;
+            if (data.LawAct.typ > 1)
+            {
+                Receipt_date = data.LawAct.receipt_dt;
+            }
+            else
+                Receipt_date = data.LawAct.receipt_date;
+            //receipt_date = data.LawAct.receipt_act_dt;
+            Failure_date = data.LawAct.failure_date;
+            Correct_period_date = data.LawAct.correct_period_date;
+            if (data.typ == LawTyp.LawExec)
+            {
+                Fssp_doc_num = data.LawExec.fssp_doc_num;
+                Court_doc_num = data.LawExec.court_doc_num;
+                Court_date = data.LawExec.court_date;
+                Start_date = data.LawExec.start_date;
+                Finish_date = data.LawExec.finish_date;
+                Restriction_to_leave_dt = data.LawExec.restriction_to_leave_dt;
+                Receipt_date = data.LawExec.receipt_act_dt;
+            }
+            Post_name = data.LawCourt?.name;
+            Post_address = data.LawCourt?.address;
         }
-        else
-            Receipt_date = data.LawAct.receipt_date;
-        //receipt_date = data.LawAct.receipt_act_dt;
-        Failure_date = data.LawAct.failure_date;
-        Correct_period_date = data.LawAct.correct_period_date;
-        if (data.typ == LawTyp.LawExec)
-        {
-            Fssp_doc_num = data.LawExec.fssp_doc_num;
-            Court_doc_num = data.LawExec.court_doc_num;
-            Court_date = data.LawExec.court_date;
-            Start_date = data.LawExec.start_date;
-            Finish_date = data.LawExec.finish_date;
-            Restriction_to_leave_dt = data.LawExec.restriction_to_leave_dt;
-            Receipt_date = data.LawExec.receipt_act_dt;
-        }
-        Post_name = data.LawCourt.name;
-        Post_address = data.LawCourt.address;
     }
     //ID дела
     [ObservableProperty]
@@ -101,7 +106,7 @@ public partial class DataModel : ObservableObject
     private DateTime? session_date;
     //Статус дела
     [ObservableProperty]
-    private int status = -1;
+    private int? status = null;
     //Дата поступления
     [ObservableProperty]
     private DateTime date_post = DateTime.Now;
@@ -113,9 +118,16 @@ public partial class DataModel : ObservableObject
     [ObservableProperty]
     private string? document_name;
 
+    //Комментарий
+    [ObservableProperty]
+    private string? dsc;
+
     //Исполнитель
     [ObservableProperty]
     private int? user_task;
+    //Шаблон
+    [ObservableProperty]
+    private int? task_id;
     //Отправитель
     [ObservableProperty]
     private string? post_name;
@@ -125,7 +137,7 @@ public partial class DataModel : ObservableObject
 
     //На какой документ распечатать штрих код
     [ObservableProperty]
-    private int? doc_barcode;
+    private FileItem? doc_barcode;
 
     //Сканы
     [ObservableProperty]
