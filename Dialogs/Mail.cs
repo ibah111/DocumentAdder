@@ -14,6 +14,8 @@ public partial class Mail : Form
     private int errors;
     private readonly bool _task;
     private readonly List<ClientDoc> docs;
+    private MailModelEnabled enabled;
+    private MailModel current;
 
     public Mail(int mode, MainForm form, ref int errors, bool task, List<ClientDoc> docs)
     {
@@ -22,18 +24,17 @@ public partial class Mail : Form
         this._form = form;
         this._task = task;
         this.docs = docs;
+
         switch (mode)
         {
             case 2:
                 {
-                    AdrTB.Enabled = false;
-                    MailTB.Enabled = false;
-                    IstCB.Text = Settings.ist;
-                    ECPCB.Text = Settings.ecp;
+                    enabled = new () { Cert = true, Court_date = true, Debtor = true };
                     break;
                 }
             case 3:
                 {
+                    enabled = new () { Court_date = true, From_mail = true, To_mail = true };
                     IstCB.Enabled = false;
                     ECPCB.Enabled = false;
                     break;
@@ -41,21 +42,23 @@ public partial class Mail : Form
             case 5:
             case 4:
                 {
+                    enabled = new () { Cert = true, Court_date = true };
                     IstCB.Enabled = false;
                     ECPCB.Enabled = false;
                     MailTB.Enabled = false;
                     break;
                 }
+            default:
+                {
+                    enabled = new () { Cert = true, Court_date = true, Debtor = true, To_mail = true, From_mail = true };
+                    break;
+                }
         }
+        current = new();
     }
 
     private void DoneBtn_Click(object sender, EventArgs e)
     {
-        Settings.ist = IstCB.Text;
-        Settings.dateDoc = DateDocMB.Text;
-        Settings.ecp = ECPCB.Text;
-        Settings.adres = AdrTB.Text;
-        Settings.mail = MailTB.Text;
         if (_task)
         {
             _form.newTask(errors, docs);
@@ -64,7 +67,7 @@ public partial class Mail : Form
         {
             try
             {
-                var vm = _form.getRequest("without_task", docs: this.docs);
+                var vm = _form.getRequest("without_task", docs: this.docs, current);
                 var request = new RestRequest("/123").AddJsonBody(vm);
                 var response = Program.client.Post<ServerResults>(request);
                 if (response.Barcodes != null)

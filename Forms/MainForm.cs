@@ -34,7 +34,7 @@ public partial class MainForm : Form
     private static SerialPort currentPort = new SerialPort();
     private bool runed = false;
     private Dictionary<int, SettingsModel> settings_json = new();
-    private DataModel current;
+    public DataModel current;
     private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
     {
         SerialPort sp = (SerialPort)sender;
@@ -169,39 +169,6 @@ public partial class MainForm : Form
         {
             selectDocBarcode.Enabled = false;
         }
-
-        if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                    || typDocBox.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                    || typDocBox.Text.Contains("ИЛ в НАШУ пользу")
-                    || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-                    || typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-                    || typDocBox.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
-                    || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
-                    )
-        {
-            birthDateBox.Enabled = true;
-            debtSumBox.Enabled = true;
-            seriesBox.Enabled = true;
-            textBox20.Enabled = true;
-            CourtDateBox.Enabled = true;
-            textBox16.Enabled = true;
-        }
-        else
-        {
-            birthDateBox.Enabled = false;
-            debtSumBox.Enabled = false;
-            seriesBox.Enabled = false;
-            textBox20.Enabled = false;
-        }
-
-        if (typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-            || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-            || typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу"))
-        {
-            Settings.dateId = true;
-        }
-        else
-            Settings.dateId = false;
         if (!String.IsNullOrEmpty(settings.document_name))
             documentNameBox.Text = settings.document_name;
         if (settings.user_task.HasValue)
@@ -304,14 +271,8 @@ public partial class MainForm : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        Settings.debt_id = idBox.Text;
-        if (!string.IsNullOrWhiteSpace(Settings.debt_id))
-        {
-            var testDialog = new Dialogs.DebtCalc(current.Typ);
-            testDialog.Show();
-        }
-        else
-            MessageBox.Show("Для поиска платежей необходим ID Дела", "Ошибка!");
+        var testDialog = new Dialogs.DebtCalc(current.Typ, current.Id);
+        testDialog.Show();
     }
 
     private void panel1_DragDrop(object sender, DragEventArgs e)
@@ -536,23 +497,9 @@ public partial class MainForm : Form
         ClearTextBox();
     }
 
-    public object getRequest(string typ, string id_task = "0", List<ClientDoc> docs = null)
+    public object getRequest(string typ, List<ClientDoc> docs = null, MailModel mail = null)
     {
         docs = docs ?? new List<ClientDoc>();
-        bool pristavi = false;
-        if (checkBox4.Checked == true)
-            pristavi = true;
-        bool convert = false;
-        if (checkBox1.Checked == true)
-            convert = true;
-        bool nal_skan = false;
-        if (checkBox2.Checked == true)
-            nal_skan = true;
-        if (Settings.mode < 1)
-            Settings.mode = 1;
-        DateTime? dateDoc = null;
-        if (!string.IsNullOrEmpty(Settings.dateDoc))
-            dateDoc = DateTime.Parse(Settings.dateDoc);
         string desc = $"{textBox11.Text}";
         if (correctPeriodDateBox.Enabled == true)
             desc += $" {correctPeriodDateBox.Text}";
@@ -581,12 +528,13 @@ public partial class MainForm : Form
             template_id = current.Task_id,
             name = $"{current.Data.Person.fio} {current.Data.Debt.contract} {current.Data.Debt.portfolio}",
             desc = current.Dsc,
-            Settings.mode,
-            Settings.ist,
-            dateDoc = dateDoc,
-            Settings.ecp,
-            Settings.adres,
-            Settings.mail,
+            mode = current.Mode,
+
+            ist = mail?.Debtor,
+            dateDoc = mail?.Court_date,
+            ecp = mail?.Cert,
+            adres = mail?.From_mail,
+            mail = mail?.From_mail,
             docs
         };
         //result.dateDoc = Settings.dateDoc;
@@ -712,14 +660,8 @@ public partial class MainForm : Form
 
     private void button4_Click(object sender, EventArgs e)
     {
-        Settings.debt_id = idBox.Text;
-        if (!string.IsNullOrWhiteSpace(Settings.debt_id))
-        {
-            var testDialog = new Dialogs.DocAttach(current.Typ);
-            testDialog.Show();
-        }
-        else
-            MessageBox.Show("Для поиска протокола необходим ID Дела", "Ошибка!");
+        var testDialog = new Dialogs.DocAttach(current.Typ, current.Id);
+        testDialog.Show();
     }
 
     private void button5_Click(object sender, EventArgs e)
@@ -804,22 +746,7 @@ public partial class MainForm : Form
 
     private void button9_Click(object sender, EventArgs e)
     {
-        bool convert = false;
-        if (checkBox1.Checked == true)
-            convert = true;
-        bool nal_skan = false;
-        if (checkBox2.Checked == true)
-            nal_skan = true;
-        Settings.conv = convert;
-        Settings.nal_skan = nal_skan;
-        Settings.adr_otp = postNameBox.Text;
-        Settings.otprav = postAddressBox.Text;
-        Settings.doc_name = documentNameBox.Text;
-        Settings.date_post = datePostBox.Value.ToShortDateString();
-        OtherDocs f = new OtherDocs(Settings.mode);
-        if (Settings.mode < 1)
-            Settings.mode = 1;
-        f.mode = Settings.mode;
+        OtherDocs f = new OtherDocs(current);
         f.Show();
     }
 
@@ -875,8 +802,6 @@ public partial class MainForm : Form
     private void SelectModeEvent(object sender, EventArgs e)
     {
         var m = sender as ComboBox;
-        if (m.SelectedValue != null)
-            Settings.mode = (int)m.SelectedValue;
         if (m.SelectedValue != null)
             if ((int)m.SelectedValue == 2 || (int)m.SelectedValue == 3)
             {

@@ -13,16 +13,18 @@ namespace DocumentAdder.Dialogs;
 public partial class DocAttach : Form
 {
     private LawTyp law_typ;
-    public DocAttach(LawTyp law_typ)
+    private int id;
+    public DocAttach(LawTyp law_typ, int id)
     {
         this.law_typ = law_typ;
         InitializeComponent();
+        this.id = id;
+
     }
 
     //select u.f+' '+u.i+' '+u.o, lap.dt,d.name,lap.dsc from law_act_protokol lap left join users u on u.id = lap.r_user_id left join dict d on d.code = lap.typ where d.parent_id = 26
     private void Form3_Load(object sender, EventArgs e)
     {
-        if (!int.TryParse(Settings.debt_id, out var id)) throw new Exception("Ошибка формы");
         using var db = Program.factory_db.CreateDbContext();
         userModelBindingSource.DataSource = db.User.Select(x => new UserModel() { id = x.id, fio = x.f + " " + x.i + " " + x.o }).ToList();
         dictModelBindingSource.DataSource = db.Dict.Where(x => x.parent_id == 100).Select(x => new DictModel() { code = x.code, name = x.name }).ToList();

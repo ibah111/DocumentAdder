@@ -10,16 +10,17 @@ namespace DocumentAdder.Dialogs;
 public partial class DebtCalc : Form
 {
     private LawTyp law_typ;
-    public DebtCalc(LawTyp law_typ)
+    private int id;
+    public DebtCalc(LawTyp law_typ, int id)
     {
         this.law_typ = law_typ;
         InitializeComponent();
+        this.id = id;
+
     }
 
     private void DebtCalc_Load(object sender, EventArgs e)
     {
-        if (!int.TryParse(Settings.debt_id, out var id))
-            throw new Exception("Ошибка получения платежей");
         using var db = Program.factory_db.CreateDbContext();
         List<DatabaseContact.Models.DebtCalc> data;
         if (law_typ == LawTyp.LawAct)

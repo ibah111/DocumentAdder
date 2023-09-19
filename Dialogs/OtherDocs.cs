@@ -13,12 +13,11 @@ public partial class OtherDocs : Form
 {
     private static string path_to_list_otvet = Environment.CurrentDirectory + "\\Список_Для_Ответственного(Вне_реестра).txt";
     private static string path_to_list_FIO = Environment.CurrentDirectory + "\\Список_Для_ФИО(Должник_Вне_Реестра).txt";
-    public int mode = 1;
+    private DataModel current;
     private string to_mail_text = "";
     private string who_mail_text = "";
-    public OtherDocs(int mode)
+    public OtherDocs(DataModel current)
     {
-        this.mode = mode;
         InitializeComponent();
         if (File.Exists(path_to_list_otvet))
         {
@@ -34,6 +33,8 @@ public partial class OtherDocs : Form
         }
         else
             File.CreateText(path_to_list_FIO);
+        this.current = current;
+
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -68,7 +69,26 @@ public partial class OtherDocs : Form
     {
         try
         {
-            var vm = new { action = "without_task", date_post = DateTime.Parse(Settings.date_post), Convert = Settings.conv, adr_otp = Settings.adr_otp, otprav = Settings.otprav, reestr = textBox1.Text, doc_name = Settings.doc_name, gd = textBox2.Text, fio_dol = comboBox2.Text, ispol_zadach = comboBox1.Text, kto_obrabotal = $"{Settings.username}", id_kto_obrabotal = $"{Settings.user_id}", nal_skan = Settings.nal_skan, mode = mode, adres = to_mail_text, mail = who_mail_text };
+            var vm = new
+            {
+
+                action = "without_task",
+                date_post = current.Date_post,
+                Convert = current.Check,
+                adr_otp = current.Post_address,
+                otprav = current.Post_name,
+                reestr = textBox1.Text,
+                doc_name = current.Document_name,
+                gd = textBox2.Text,
+                fio_dol = comboBox2.Text,
+                ispol_zadach = comboBox1.Text,
+                kto_obrabotal = $"{Settings.username}",
+                id_kto_obrabotal = Settings.user_id,
+                nal_skan = current.Scan,
+                mode = current.Mode,
+                adres = to_mail_text,
+                mail = who_mail_text
+            };
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = Program.client.Post<ServerResults>(request);
             if (response.Barcodes != null)
@@ -85,7 +105,7 @@ public partial class OtherDocs : Form
 
     private void OtherDocs_Load(object sender, EventArgs e)
     {
-        if (mode == 3)
+        if (current.Mode == 3)
         {
             to_mail.Enabled = true;
             who_mail.Enabled = true;

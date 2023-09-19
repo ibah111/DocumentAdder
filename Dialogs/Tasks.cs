@@ -81,7 +81,8 @@ public partial class Tasks : Form
         //}
         try
         {
-            var vm = Forms.getRequest("with_task", comboBox1.SelectedValue.ToString(), this.docs);
+            Forms.current.Task_id = (int)comboBox1.SelectedValue;
+            var vm = Forms.getRequest("with_task", this.docs);
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = Program.client.Post<ServerResults>(request);
             if (response.Barcodes != null)
