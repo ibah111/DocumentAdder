@@ -35,17 +35,12 @@ public partial class Mail : Form
             case 3:
                 {
                     enabled = new() { Court_date = true, From_mail = true, To_mail = true };
-                    IstCB.Enabled = false;
-                    ECPCB.Enabled = false;
                     break;
                 }
             case 5:
             case 4:
                 {
                     enabled = new() { Cert = true, Court_date = true };
-                    IstCB.Enabled = false;
-                    ECPCB.Enabled = false;
-                    MailTB.Enabled = false;
                     break;
                 }
             default:
@@ -55,6 +50,9 @@ public partial class Mail : Form
                 }
         }
         current = new();
+        mailModelEnabledBinding.DataSource = enabled;
+        
+        mailModelBinding.DataSource = current;
     }
 
     private void DoneBtn_Click(object sender, EventArgs e)

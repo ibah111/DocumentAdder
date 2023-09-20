@@ -29,154 +29,181 @@ namespace DocumentAdder.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mail));
-            this.label1 = new System.Windows.Forms.Label();
-            this.IstCB = new System.Windows.Forms.ComboBox();
-            this.ECPCB = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.AdrTB = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.DateDocMB = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.MailTB = new System.Windows.Forms.TextBox();
-            this.DoneBtn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            IstCB = new System.Windows.Forms.ComboBox();
+            ECPCB = new System.Windows.Forms.ComboBox();
+            label3 = new System.Windows.Forms.Label();
+            AdrTB = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            DateDocMB = new System.Windows.Forms.MaskedTextBox();
+            label6 = new System.Windows.Forms.Label();
+            MailTB = new System.Windows.Forms.TextBox();
+            DoneBtn = new System.Windows.Forms.Button();
+            mailModelEnabledBinding = new System.Windows.Forms.BindingSource(components);
+            mailModelBinding = new System.Windows.Forms.BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)mailModelEnabledBinding).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mailModelBinding).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Истец, взыскатель";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(14, 10);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(108, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Истец, взыскатель";
             // 
             // IstCB
             // 
-            this.IstCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.IstCB.FormattingEnabled = true;
-            this.IstCB.Items.AddRange(new object[] {
-            "К.С.О.",
-            "Н.С.А.",
-            "ООО Вымпел",
-            "ООО НБК",
-            "Т.И.А."});
-            this.IstCB.Location = new System.Drawing.Point(15, 25);
-            this.IstCB.Name = "IstCB";
-            this.IstCB.Size = new System.Drawing.Size(166, 21);
-            this.IstCB.TabIndex = 1;
+            IstCB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", mailModelBinding, "Debtor", true));
+            IstCB.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", mailModelEnabledBinding, "Debtor", true));
+            IstCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            IstCB.FormattingEnabled = true;
+            IstCB.Items.AddRange(new object[] { "К.С.О.", "Н.С.А.", "ООО Вымпел", "ООО НБК", "Т.И.А." });
+            IstCB.Location = new System.Drawing.Point(18, 29);
+            IstCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            IstCB.Name = "IstCB";
+            IstCB.Size = new System.Drawing.Size(193, 23);
+            IstCB.TabIndex = 1;
             // 
             // ECPCB
             // 
-            this.ECPCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ECPCB.FormattingEnabled = true;
-            this.ECPCB.Items.AddRange(new object[] {
-            "К.С.О.",
-            "Н.С.А.",
-            "Н.К.В.",
-            "Т.И.А."});
-            this.ECPCB.Location = new System.Drawing.Point(15, 74);
-            this.ECPCB.Name = "ECPCB";
-            this.ECPCB.Size = new System.Drawing.Size(166, 21);
-            this.ECPCB.TabIndex = 2;
+            ECPCB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", mailModelBinding, "Cert", true));
+            ECPCB.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", mailModelEnabledBinding, "Cert", true));
+            ECPCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            ECPCB.FormattingEnabled = true;
+            ECPCB.Items.AddRange(new object[] { "К.С.О.", "Н.С.А.", "Н.К.В.", "Т.И.А." });
+            ECPCB.Location = new System.Drawing.Point(18, 85);
+            ECPCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ECPCB.Name = "ECPCB";
+            ECPCB.Size = new System.Drawing.Size(193, 23);
+            ECPCB.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "ЭЦП";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(14, 67);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(32, 15);
+            label3.TabIndex = 5;
+            label3.Text = "ЭЦП";
             // 
             // AdrTB
             // 
-            this.AdrTB.Location = new System.Drawing.Point(215, 25);
-            this.AdrTB.Name = "AdrTB";
-            this.AdrTB.Size = new System.Drawing.Size(166, 20);
-            this.AdrTB.TabIndex = 3;
+            AdrTB.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", mailModelEnabledBinding, "From_mail", true));
+            AdrTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", mailModelBinding, "From_mail", true));
+            AdrTB.Location = new System.Drawing.Point(251, 29);
+            AdrTB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            AdrTB.Name = "AdrTB";
+            AdrTB.Size = new System.Drawing.Size(193, 23);
+            AdrTB.TabIndex = 3;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(212, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Адрес (mail)";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(247, 10);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(74, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Адрес (mail)";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Дата вынесения документа";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(14, 128);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(156, 15);
+            label5.TabIndex = 10;
+            label5.Text = "Дата вынесения документа";
             // 
             // DateDocMB
             // 
-            this.DateDocMB.Location = new System.Drawing.Point(15, 127);
-            this.DateDocMB.Mask = "00/00/0000";
-            this.DateDocMB.Name = "DateDocMB";
-            this.DateDocMB.Size = new System.Drawing.Size(166, 20);
-            this.DateDocMB.TabIndex = 5;
+            DateDocMB.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", mailModelEnabledBinding, "Court_date", true));
+            DateDocMB.DataBindings.Add(new System.Windows.Forms.Binding("Text", mailModelBinding, "Court_date", true));
+            DateDocMB.Location = new System.Drawing.Point(18, 147);
+            DateDocMB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DateDocMB.Mask = "00/00/0000";
+            DateDocMB.Name = "DateDocMB";
+            DateDocMB.Size = new System.Drawing.Size(193, 23);
+            DateDocMB.TabIndex = 5;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(212, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "На какой E-Mail поступило";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(247, 67);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(156, 15);
+            label6.TabIndex = 12;
+            label6.Text = "На какой E-Mail поступило";
             // 
             // MailTB
             // 
-            this.MailTB.Location = new System.Drawing.Point(215, 74);
-            this.MailTB.Name = "MailTB";
-            this.MailTB.Size = new System.Drawing.Size(166, 20);
-            this.MailTB.TabIndex = 4;
+            MailTB.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", mailModelEnabledBinding, "To_mail", true));
+            MailTB.DataBindings.Add(new System.Windows.Forms.Binding("Text", mailModelBinding, "To_mail", true));
+            MailTB.Location = new System.Drawing.Point(251, 85);
+            MailTB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MailTB.Name = "MailTB";
+            MailTB.Size = new System.Drawing.Size(193, 23);
+            MailTB.TabIndex = 4;
             // 
             // DoneBtn
             // 
-            this.DoneBtn.BackColor = System.Drawing.Color.LimeGreen;
-            this.DoneBtn.Location = new System.Drawing.Point(15, 169);
-            this.DoneBtn.Name = "DoneBtn";
-            this.DoneBtn.Size = new System.Drawing.Size(366, 44);
-            this.DoneBtn.TabIndex = 6;
-            this.DoneBtn.Text = "Готово";
-            this.DoneBtn.UseVisualStyleBackColor = false;
-            this.DoneBtn.Click += new System.EventHandler(this.DoneBtn_Click);
+            DoneBtn.BackColor = System.Drawing.Color.LimeGreen;
+            DoneBtn.Location = new System.Drawing.Point(18, 195);
+            DoneBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            DoneBtn.Name = "DoneBtn";
+            DoneBtn.Size = new System.Drawing.Size(427, 51);
+            DoneBtn.TabIndex = 6;
+            DoneBtn.Text = "Готово";
+            DoneBtn.UseVisualStyleBackColor = false;
+            DoneBtn.Click += DoneBtn_Click;
+            // 
+            // mailModelEnabledBinding
+            // 
+            mailModelEnabledBinding.DataSource = typeof(Models.MailModelEnabled);
+            // 
+            // mailModelBinding
+            // 
+            mailModelBinding.DataSource = typeof(Models.MailModel);
             // 
             // Mail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(397, 217);
-            this.Controls.Add(this.DoneBtn);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.MailTB);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.DateDocMB);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.AdrTB);
-            this.Controls.Add(this.ECPCB);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.IstCB);
-            this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Mail";
-            this.Text = "Занесение";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.Control;
+            ClientSize = new System.Drawing.Size(463, 250);
+            Controls.Add(DoneBtn);
+            Controls.Add(label6);
+            Controls.Add(MailTB);
+            Controls.Add(label5);
+            Controls.Add(DateDocMB);
+            Controls.Add(label4);
+            Controls.Add(AdrTB);
+            Controls.Add(ECPCB);
+            Controls.Add(label3);
+            Controls.Add(IstCB);
+            Controls.Add(label1);
+            ForeColor = System.Drawing.SystemColors.ControlText;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "Mail";
+            Text = "Занесение";
+            ((System.ComponentModel.ISupportInitialize)mailModelEnabledBinding).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mailModelBinding).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -192,5 +219,7 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox MailTB;
         private System.Windows.Forms.Button DoneBtn;
+        private System.Windows.Forms.BindingSource mailModelEnabledBinding;
+        private System.Windows.Forms.BindingSource mailModelBinding;
     }
 }
