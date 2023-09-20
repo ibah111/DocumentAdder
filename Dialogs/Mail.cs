@@ -29,12 +29,12 @@ public partial class Mail : Form
         {
             case 2:
                 {
-                    enabled = new () { Cert = true, Court_date = true, Debtor = true };
+                    enabled = new() { Cert = true, Court_date = true, Debtor = true };
                     break;
                 }
             case 3:
                 {
-                    enabled = new () { Court_date = true, From_mail = true, To_mail = true };
+                    enabled = new() { Court_date = true, From_mail = true, To_mail = true };
                     IstCB.Enabled = false;
                     ECPCB.Enabled = false;
                     break;
@@ -42,7 +42,7 @@ public partial class Mail : Form
             case 5:
             case 4:
                 {
-                    enabled = new () { Cert = true, Court_date = true };
+                    enabled = new() { Cert = true, Court_date = true };
                     IstCB.Enabled = false;
                     ECPCB.Enabled = false;
                     MailTB.Enabled = false;
@@ -50,7 +50,7 @@ public partial class Mail : Form
                 }
             default:
                 {
-                    enabled = new () { Cert = true, Court_date = true, Debtor = true, To_mail = true, From_mail = true };
+                    enabled = new() { Cert = true, Court_date = true, Debtor = true, To_mail = true, From_mail = true };
                     break;
                 }
         }

@@ -162,7 +162,7 @@ class Data
             LawAct.LawActProtokols.Add(new LawActProtokol() { typ = 2, r_user_id = Settings.user_id, dt = DateTime.Now, dsc = $"Изменен цвет: {int_color} Пользователем: {Settings.username}" });
         }
 
-        if (Settings.dateId)
+        if (enabled.receipt_date)
         {
             if (data.Typ == LawTyp.LawAct)
                 LawAct.LawExecs.ForEach(law_exec =>
