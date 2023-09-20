@@ -1087,7 +1087,7 @@
     "exec_number": true,
     "fssp_doc_num": false,
     "court_doc_num": false,
-    "court_order_date": false,
+    "court_order_date": true,
     "court_exec_date": false,
     "start_date": false,
     "finish_date": false,
@@ -1098,6 +1098,9 @@
     "cancel_date": false,
     "correct_period_date": false,
     "session_date": false,
+    "act_status": {
+      "2": 8
+    },
     "without_act_status": {
       "18": [9, 10, 11],
       "25": [13, 14, 15]
