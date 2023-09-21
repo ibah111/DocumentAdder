@@ -1,25 +1,37 @@
 ﻿#nullable enable
 
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace DocumentAdder.Models;
 
-public class OtherDocModel
+public partial class OtherDocModel : ObservableObject
 {
     public DataModel data { get; set; }
     public OtherDocModel(DataModel data)
     {
         this.data = data;
     }
-    public string? Fio { get; set; }
-    public string? Portfolio { get; set; }
-    public string? User_task { get; set; }
-    public string? From_mail { get; set; }
-    public string? To_mail { get; set; }
+    [ObservableProperty]
+    private string? fio;
+    [ObservableProperty]
+    private string? portfolio;
+    [ObservableProperty]
+    private string? user_task;
+    [ObservableProperty]
+    private string? from_mail;
+    [ObservableProperty]
+    private string? to_mail;
 }
-public class OtherDocModelEnabled
+public partial class OtherDocModelEnabled : ObservableObject
 {
-    public bool Fio { get; set; }
-    public bool Portfolio { get; set; }
-    public bool User_task { get; set; }
-    public bool From_mail { get; set; }
-    public bool To_mail { get; set; }
+    [ObservableProperty]
+    private bool fio;
+    [ObservableProperty]
+    private bool portfolio;
+    [ObservableProperty]
+    private bool user_task;
+    [ObservableProperty]
+    private bool from_mail;
+    [ObservableProperty]
+    private bool to_mail;
 }
