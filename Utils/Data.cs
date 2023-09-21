@@ -148,9 +148,8 @@ class Data
         if (enabled.session_date)
             if (data.Typ == LawTyp.LawExec)
                 MessageBox.Show("Тут должно быть добавление Дата СЗ, но я его не нашел в БД.\r\nЕсли видишь, то добавь скрин где оно находится");
-        //   else
-        // TODO: Добавить LawSession
-        //sql.Add($"insert into law_session (parent_id,dt,status) values ({id}, \'{maskedTextBox11.Text}\',1)"); //Дата СЗ
+            else
+                LawAct.LawSessions.Add(new LawSession() { dt = data.Session_date, status = 1 });
 
         if (data.Typ == LawTyp.LawAct)
             LawAct.court_order_delivery = 2;
