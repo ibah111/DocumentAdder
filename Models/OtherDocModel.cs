@@ -9,6 +9,7 @@ public class OtherDocModel
     {
         this.data = data;
     }
+    public string? Fio { get; set; }
     public string? Portfolio { get; set; }
     public string? User_task { get; set; }
     public string? From_mail { get; set; }
@@ -16,6 +17,7 @@ public class OtherDocModel
 }
 public class OtherDocModelEnabled
 {
+    public bool Fio { get; set; }
     public bool Portfolio { get; set; }
     public bool User_task { get; set; }
     public bool From_mail { get; set; }

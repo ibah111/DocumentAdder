@@ -29,9 +29,11 @@ namespace DocumentAdder.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OtherDocs));
             button1 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
+            otherDocModelEnabledBinding = new System.Windows.Forms.BindingSource(components);
             comboBox1 = new System.Windows.Forms.ComboBox();
             comboBox2 = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
@@ -45,6 +47,9 @@ namespace DocumentAdder.Dialogs
             ToMail = new System.Windows.Forms.Label();
             WhoMaol = new System.Windows.Forms.Label();
             textBox2 = new System.Windows.Forms.TextBox();
+            otherDocModelBinding = new System.Windows.Forms.BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)otherDocModelEnabledBinding).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)otherDocModelBinding).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -60,16 +65,24 @@ namespace DocumentAdder.Dialogs
             // 
             // textBox1
             // 
+            textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", otherDocModelEnabledBinding, "Portfolio", true));
+            textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", otherDocModelBinding, "Portfolio", true));
             textBox1.Location = new System.Drawing.Point(14, 32);
             textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(116, 23);
             textBox1.TabIndex = 1;
             // 
+            // otherDocModelEnabledBinding
+            // 
+            otherDocModelEnabledBinding.DataSource = typeof(Models.OtherDocModelEnabled);
+            // 
             // comboBox1
             // 
             comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", otherDocModelEnabledBinding, "User_task", true));
+            comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", otherDocModelBinding, "User_task", true));
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new System.Drawing.Point(261, 31);
             comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -81,6 +94,8 @@ namespace DocumentAdder.Dialogs
             // 
             comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", otherDocModelEnabledBinding, "Fio", true));
+            comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", otherDocModelBinding, "Fio", true));
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new System.Drawing.Point(410, 31);
             comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -155,6 +170,8 @@ namespace DocumentAdder.Dialogs
             // 
             // to_mail
             // 
+            to_mail.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", otherDocModelEnabledBinding, "From_mail", true));
+            to_mail.DataBindings.Add(new System.Windows.Forms.Binding("Text", otherDocModelBinding, "From_mail", true));
             to_mail.Location = new System.Drawing.Point(14, 129);
             to_mail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             to_mail.Name = "to_mail";
@@ -164,6 +181,8 @@ namespace DocumentAdder.Dialogs
             // 
             // who_mail
             // 
+            who_mail.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", otherDocModelEnabledBinding, "To_mail", true));
+            who_mail.DataBindings.Add(new System.Windows.Forms.Binding("Text", otherDocModelBinding, "To_mail", true));
             who_mail.Location = new System.Drawing.Point(261, 129);
             who_mail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             who_mail.Name = "who_mail";
@@ -199,6 +218,10 @@ namespace DocumentAdder.Dialogs
             textBox2.Size = new System.Drawing.Size(116, 23);
             textBox2.TabIndex = 2;
             // 
+            // otherDocModelBinding
+            // 
+            otherDocModelBinding.DataSource = typeof(Models.OtherDocModel);
+            // 
             // OtherDocs
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -224,6 +247,8 @@ namespace DocumentAdder.Dialogs
             Name = "OtherDocs";
             Text = "Другие документы";
             Load += OtherDocs_Load;
+            ((System.ComponentModel.ISupportInitialize)otherDocModelEnabledBinding).EndInit();
+            ((System.ComponentModel.ISupportInitialize)otherDocModelBinding).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,5 +270,7 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.Label ToMail;
         private System.Windows.Forms.Label WhoMaol;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.BindingSource otherDocModelEnabledBinding;
+        private System.Windows.Forms.BindingSource otherDocModelBinding;
     }
 }
