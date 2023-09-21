@@ -177,7 +177,6 @@ namespace DocumentAdder.Dialogs
             to_mail.Name = "to_mail";
             to_mail.Size = new System.Drawing.Size(240, 23);
             to_mail.TabIndex = 62;
-            to_mail.TextChanged += to_mail_TextChanged;
             // 
             // who_mail
             // 
@@ -188,7 +187,6 @@ namespace DocumentAdder.Dialogs
             who_mail.Name = "who_mail";
             who_mail.Size = new System.Drawing.Size(289, 23);
             who_mail.TabIndex = 63;
-            who_mail.TextChanged += who_mail_TextChanged;
             // 
             // ToMail
             // 
@@ -246,7 +244,6 @@ namespace DocumentAdder.Dialogs
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "OtherDocs";
             Text = "Другие документы";
-            Load += OtherDocs_Load;
             ((System.ComponentModel.ISupportInitialize)otherDocModelEnabledBinding).EndInit();
             ((System.ComponentModel.ISupportInitialize)otherDocModelBinding).EndInit();
             ResumeLayout(false);

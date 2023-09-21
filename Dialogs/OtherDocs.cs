@@ -13,9 +13,7 @@ public partial class OtherDocs : Form
 {
     private static string path_to_list_otvet = Environment.CurrentDirectory + "\\Список_Для_Ответственного(Вне_реестра).txt";
     private static string path_to_list_FIO = Environment.CurrentDirectory + "\\Список_Для_ФИО(Должник_Вне_Реестра).txt";
-    private DataModel current;
-    private string to_mail_text = "";
-    private string who_mail_text = "";
+    private OtherDocModel current;
     public OtherDocs(DataModel current)
     {
         InitializeComponent();
@@ -33,7 +31,9 @@ public partial class OtherDocs : Form
         }
         else
             File.CreateText(path_to_list_FIO);
-        this.current = current;
+        this.current = new(current);
+        otherDocModelBinding.DataSource = this.current;
+        otherDocModelEnabledBinding.DataSource = new OtherDocModelEnabled() { Fio = true, Portfolio = true, User_task = true, From_mail = current.Mode == 3 ? true : false, To_mail = current.Mode == 3 ? true : false };
 
     }
 
@@ -73,21 +73,21 @@ public partial class OtherDocs : Form
             {
 
                 action = "without_task",
-                date_post = current.Date_post,
-                Convert = current.Check,
-                adr_otp = current.Post_address,
-                otprav = current.Post_name,
-                reestr = textBox1.Text,
-                doc_name = current.Document_name,
-                gd = textBox2.Text,
-                fio_dol = comboBox2.Text,
-                ispol_zadach = comboBox1.Text,
+                date_post = current.data.Date_post,
+                Convert = current.data.Check,
+                adr_otp = current.data.Post_address,
+                otprav = current.data.Post_name,
+                reestr = current.Portfolio,
+                doc_name = current.data.Document_name,
+                gd = current.data.Exec_number,
+                fio_dol = current.Fio,
+                ispol_zadach = current.User_task,
                 kto_obrabotal = $"{Settings.username}",
                 id_kto_obrabotal = Settings.user_id,
-                nal_skan = current.Scan,
-                mode = current.Mode,
-                adres = to_mail_text,
-                mail = who_mail_text
+                nal_skan = current.data.Scan,
+                mode = current.data.Mode,
+                adres = current.From_mail,
+                mail = current.To_mail
             };
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = Program.client.Post<ServerResults>(request);
@@ -101,29 +101,5 @@ public partial class OtherDocs : Form
             MessageBox.Show($"Ошибка:{ee}\r\nДанные в таблицу не занесены!");
         }
         Close();
-    }
-
-    private void OtherDocs_Load(object sender, EventArgs e)
-    {
-        if (current.Mode == 3)
-        {
-            to_mail.Enabled = true;
-            who_mail.Enabled = true;
-        }
-        else
-        {
-            to_mail.Enabled = false;
-            who_mail.Enabled = false;
-        }
-    }
-
-    private void to_mail_TextChanged(object sender, EventArgs e)
-    {
-        to_mail_text = to_mail.Text;
-    }
-
-    private void who_mail_TextChanged(object sender, EventArgs e)
-    {
-        who_mail_text = who_mail.Text;
     }
 }
