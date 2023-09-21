@@ -34,20 +34,18 @@ namespace DocumentAdder.Dialogs
             button1 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
             otherDocModelEnabledBinding = new System.Windows.Forms.BindingSource(components);
+            otherDocModelBinding = new System.Windows.Forms.BindingSource(components);
             comboBox1 = new System.Windows.Forms.ComboBox();
             comboBox2 = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
             to_mail = new System.Windows.Forms.TextBox();
             who_mail = new System.Windows.Forms.TextBox();
             ToMail = new System.Windows.Forms.Label();
             WhoMaol = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
-            otherDocModelBinding = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)otherDocModelEnabledBinding).BeginInit();
             ((System.ComponentModel.ISupportInitialize)otherDocModelBinding).BeginInit();
             SuspendLayout();
@@ -70,12 +68,16 @@ namespace DocumentAdder.Dialogs
             textBox1.Location = new System.Drawing.Point(14, 32);
             textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(116, 23);
+            textBox1.Size = new System.Drawing.Size(239, 23);
             textBox1.TabIndex = 1;
             // 
             // otherDocModelEnabledBinding
             // 
             otherDocModelEnabledBinding.DataSource = typeof(Models.OtherDocModelEnabled);
+            // 
+            // otherDocModelBinding
+            // 
+            otherDocModelBinding.DataSource = typeof(Models.OtherDocModel);
             // 
             // comboBox1
             // 
@@ -132,16 +134,6 @@ namespace DocumentAdder.Dialogs
             label3.Size = new System.Drawing.Size(71, 15);
             label3.TabIndex = 7;
             label3.Text = "Исп.Задачи";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(134, 14);
-            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(34, 15);
-            label4.TabIndex = 8;
-            label4.Text = "№ГД";
             // 
             // button2
             // 
@@ -208,18 +200,6 @@ namespace DocumentAdder.Dialogs
             WhoMaol.TabIndex = 65;
             WhoMaol.Text = "Куда поступило";
             // 
-            // textBox2
-            // 
-            textBox2.Location = new System.Drawing.Point(138, 32);
-            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(116, 23);
-            textBox2.TabIndex = 2;
-            // 
-            // otherDocModelBinding
-            // 
-            otherDocModelBinding.DataSource = typeof(Models.OtherDocModel);
-            // 
             // OtherDocs
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -231,13 +211,11 @@ namespace DocumentAdder.Dialogs
             Controls.Add(to_mail);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
-            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
@@ -259,14 +237,12 @@ namespace DocumentAdder.Dialogs
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox to_mail;
         private System.Windows.Forms.TextBox who_mail;
         private System.Windows.Forms.Label ToMail;
         private System.Windows.Forms.Label WhoMaol;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.BindingSource otherDocModelEnabledBinding;
         private System.Windows.Forms.BindingSource otherDocModelBinding;
     }
