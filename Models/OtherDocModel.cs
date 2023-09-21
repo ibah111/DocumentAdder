@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#nullable enable
 
 namespace DocumentAdder.Models;
 
@@ -13,10 +9,10 @@ public class OtherDocModel
     {
         this.data = data;
     }
-    public string Portfolio { get; set; }
-    public string User_task { get; set; }
-    public string From_mail { get; set; }
-    public string To_mail { get; set; }
+    public string? Portfolio { get; set; }
+    public string? User_task { get; set; }
+    public string? From_mail { get; set; }
+    public string? To_mail { get; set; }
 }
 public class OtherDocModelEnabled
 {
