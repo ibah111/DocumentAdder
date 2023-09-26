@@ -141,7 +141,7 @@ public partial class MainForm : Form
             }
             Settings.json = Resources.config;
             panel1.AllowDrop = true;
-            var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.id);
+            var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
             typDocBox.SelectedValue = 1;
@@ -155,8 +155,8 @@ public partial class MainForm : Form
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
         var settings = (SettingsModel)typDocBox.SelectedItem;
         currentEnableds.DataSource = settings;
-        Data.int_color = settings.color;
-        Settings.barcode = settings.barcode;
+        Data.int_color = settings.Color;
+        Settings.barcode = settings.Barcode;
         if (Settings.barcode == true)
         {
             if (Utils.Printer.CheckCom())

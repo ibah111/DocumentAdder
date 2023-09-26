@@ -86,16 +86,16 @@ public class ListLawFields
         new(){ 
             database_order = "int_color",
             condition = (_, _, settings) => {
-                return settings.color != -1;
+                return settings.Color != -1;
             },
             change = (data, value, settings) => 
             {
-                data.int_color = settings.color;
+                data.int_color = settings.Color;
                 data.LawActProtokols.Add(new() {
                     typ = 2,
                     dt=DateTime.Now,
                     r_user_id=Settings.user_id,
-                    dsc = $"Изменен цвет: {settings.color} Пользователем: {Settings.username}"
+                    dsc = $"Изменен цвет: {settings.Color} Пользователем: {Settings.username}"
                 });
             }
         }
