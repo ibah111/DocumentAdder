@@ -43,7 +43,7 @@ public partial class DataModel : ObservableObject
     }
     //ID дела
     [ObservableProperty]
-    private int id;
+    private int? id;
     //Тип дела
     [ObservableProperty]
     private LawTyp typ;

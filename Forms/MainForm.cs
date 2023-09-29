@@ -70,6 +70,28 @@ public partial class MainForm : Form
         dataGridView1.CellFormatting += dataGridView1_CellFormatting;
         current = new();
         dataModelBinding.DataSource = current;
+        dataModelBinding.DataSourceChanged += dataModelBinding_dataModelChanged;
+    }
+    private void dataModelBinding_dataModelChanged(object sender, EventArgs e)
+    {
+        var binding = (BindingSource)sender;
+        var data = (DataModel)binding.DataSource;
+        if (data.Data.Person != null)
+        {
+            textBoxF.Text = data.Data.Person.f;
+            textBoxI.Text = data.Data.Person.i;
+            textBoxO.Text = data.Data.Person.o;
+        }
+        if (data.Id != null)
+        {
+            idBox.Text = data.Id.ToString();
+
+        }
+        if (data.Data.Debt != null)
+        {
+            contractBox.Text = data.Data.Debt.contract;
+        }
+        execNumberSearchBox.Text = data.Exec_number;
     }
     private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
@@ -272,7 +294,7 @@ public partial class MainForm : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        var testDialog = new Dialogs.DebtCalc(current.Typ, current.Id);
+        var testDialog = new Dialogs.DebtCalc(current.Typ, current.Id.Value);
         testDialog.Show();
     }
 
@@ -575,7 +597,7 @@ public partial class MainForm : Form
             var docAttach = new DatabaseContact.Models.DocAttach
             {
                 obj_id = 46,
-                r_id = current.Id,
+                r_id = current.Id.Value,
                 name = old_file,
                 filename = old_file,
                 vers1 = 0,
@@ -599,7 +621,7 @@ public partial class MainForm : Form
             var docAttach = new DatabaseContact.Models.DocAttach
             {
                 obj_id = 47,
-                r_id = current.Id,
+                r_id = current.Id.Value,
                 name = old_file,
                 filename = old_file,
                 vers1 = 0,
@@ -651,7 +673,7 @@ public partial class MainForm : Form
 
     private void button4_Click(object sender, EventArgs e)
     {
-        var testDialog = new Dialogs.DocAttach(current.Typ, current.Id);
+        var testDialog = new Dialogs.DocAttach(current.Typ, current.Id.Value);
         testDialog.Show();
     }
 
