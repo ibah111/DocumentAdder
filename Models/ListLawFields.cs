@@ -53,13 +53,25 @@ public class ListLawFields
     {
         return Settings.dicts[parent];
     }
-    public static string getDict(int parent, int code)
+    public static string? getDict(int parent, int? code)
     {
-        return getDict(parent)[code].name;
+        if (code == null) return null;
+        return getDict(parent)[code.Value].name;
     }
     public static LawActProtokol createProtokolAct(int typ)
     {
         var name = getDict(26, typ);
+        return new()
+        {
+            typ = typ,
+            dsc = name,
+            dt = DateTime.Now,
+            r_user_id = Settings.user_id,
+        };
+    }
+    public static LawExecProtokol createProtokolExec(int typ)
+    {
+        var name = getDict(76, typ);
         return new()
         {
             typ = typ,
@@ -81,6 +93,43 @@ public class ListLawFields
         new List<string>() { "restriction_to_leave_dt", "Дата ограничения на выезд" },
         new List<string>() { "failure_date", "Дата отказа в возбуждении" },
         new List<string>() { "finish_date", "Дата постановлении об окончании" },
+        new ChangerData<int?, LawExec>("state", LawTyp.LawExec, (int? original, int? current, LawExec data) =>
+        {
+            LawExecProtokol? protokol = null;
+            if (current == 1) { protokol = createProtokolExec(30); }
+            else if (current == 7)
+            {
+                protokol = new()
+                {
+                    typ = 6,
+                    dsc = $"Статус дела \"{getDict(77, current)}\". Номер исп. производства: {data.fssp_doc_num}",
+                    r_user_id = Settings.user_id,
+                    dt = DateTime.Now,
+                };
+            }
+            else if (current == 4)
+            {
+                protokol = new()
+                {
+                    typ = 31,
+                    dsc = $"Причина окончания: {getDict(41, data.finish_reason)}. Дата окончания: {data.finish_date?.ToShortDateString()}",
+                    r_user_id = Settings.user_id,
+                    dt = DateTime.Now,
+                };
+            }
+            else
+            {
+                protokol = new()
+                {
+                    typ = 6,
+                    dsc = $"Статус дела \"{getDict(77, current)}\"",
+                    r_user_id = Settings.user_id,
+                    dt = DateTime.Now,
+                };
+            }
+            if (protokol != null)
+                data.LawExecProtokols.Add(protokol);
+        }),
         new ChangerData<int?, LawAct>("act_status", LawTyp.LawAct, (int? original, int? current, LawAct data) =>
         {
             LawActProtokol? protokol = null;
@@ -181,14 +230,13 @@ public class ListLawFields
             }
             else
             {
-                if (current != null)
-                    protokol = new LawActProtokol()
-                    {
-                        typ = 2,
-                        dsc = $"Статус. Новое значение: {getDict(25, current.Value)}. Старое значение: {getDict(25, original.Value)}.",
-                        r_user_id = Settings.user_id,
-                        dt = DateTime.Now,
-                    };
+                protokol = new()
+                {
+                    typ = 105,
+                    dsc = $"Статус дела \"{getDict(25, current)}\"",
+                    r_user_id = Settings.user_id,
+                    dt = DateTime.Now,
+                };
             }
             if (protokol != null)
                 data.LawActProtokols.Add(protokol);
@@ -328,7 +376,28 @@ public class ListLawFields
                         }
                     }
                 }
-
+            if (entry.Entity is LawExec exec)
+                foreach (var entityProperty in entry.Properties.Where(prop => prop.IsModified))
+                {
+                    {
+                        var strings = list_strings.Where(x => x.Contains(entityProperty.Metadata.Name)).FirstOrDefault();
+                        if (strings != null)
+                        {
+                            exec.LawExecProtokols.Add(new()
+                            {
+                                typ = 2,
+                                dsc = $"{strings.Last()}. Новое значение: {entityProperty.CurrentValue?.ToString()}. Старое значение: {entityProperty.OriginalValue?.ToString()}.",
+                                dt = DateTime.Now,
+                                r_user_id = Settings.user_id
+                            });
+                        }
+                        var changer = list_changers.Where(x => x.name == entityProperty.Metadata.Name && x.typ == LawTyp.LawExec).FirstOrDefault();
+                        if (changer != null)
+                        {
+                            changer.write(entityProperty.OriginalValue, entityProperty.CurrentValue, exec);
+                        }
+                    }
+                }
         });
         MessageBox.Show("stop");
 
