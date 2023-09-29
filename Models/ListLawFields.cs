@@ -350,8 +350,8 @@ public class ListLawFields
         db.ChangeTracker.DetectChanges();
         var data = db.ChangeTracker.Entries().ToList();
 
-        var list_strings = (List<List<string>>)changer.Where(i => i is List<string>);
-        var list_changers = (List<ChangerData<object, object>>)changer.Where(i => i is not List<string>);
+        var list_strings = changer.Where(i => i is List<string>).Select(x => (List<string>)x).ToList();
+        var list_changers = changer.Where(i => i is not List<string>).Select(x => x as ChangerData<object, object>).ToList();
         data.ForEach(entry =>
         {
             if (entry.Entity is LawAct act)

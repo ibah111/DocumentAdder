@@ -640,11 +640,6 @@ public partial class MainForm : Form
             return docAttach.id;
         }
     }
-
-    private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        current.Status = statusBox.SelectedIndex;
-    }
     private void InstallData(LawExecResult data)
     {
         var typ = current.Typ_doc;

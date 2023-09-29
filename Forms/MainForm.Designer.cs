@@ -1,4 +1,4 @@
-﻿using DocumentAdder.Models;
+using DocumentAdder.Models;
 
 namespace DocumentAdder.Forms
 {
@@ -1972,7 +1972,6 @@ namespace DocumentAdder.Forms
             statusBox.Size = new System.Drawing.Size(132, 23);
             statusBox.TabIndex = 0;
             statusBox.ValueMember = "code";
-            statusBox.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // dictStatus
             // 
