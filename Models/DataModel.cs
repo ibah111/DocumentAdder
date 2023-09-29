@@ -13,6 +13,7 @@ public partial class DataModel : ObservableObject
         if (data != null)
         {
             Data = data;
+            Id = data.id;
             Typ = data.typ;
             Exec_number = data.LawAct.exec_number;
             Court_order_date = data.LawAct.court_order_date;

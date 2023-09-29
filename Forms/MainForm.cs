@@ -155,7 +155,6 @@ public partial class MainForm : Form
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
         var settings = (SettingsModel)typDocBox.SelectedItem;
         currentEnableds.DataSource = settings;
-        Data.int_color = settings.Color;
         Settings.barcode = settings.Barcode;
         if (Settings.barcode == true)
         {
@@ -237,7 +236,9 @@ public partial class MainForm : Form
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
         var settings = settings_json[typ];
-        if (settings.without_act_status.ContainsKey(dict) && settings.without_act_status[dict].Contains(getIntStatus(data).Value) && settings.act_status.ContainsKey(data.typ.Value))
+        if (settings.without_act_status.ContainsKey(dict)
+            && settings.without_act_status[dict].Contains(getIntStatus(data).Value)
+            && settings.act_status.ContainsKey(data.typ.Value))
         { binding.Status = settings.act_status[data.typ.Value]; }
         else
         {
@@ -369,8 +370,6 @@ public partial class MainForm : Form
                 return;
             }
         }
-
-        Data.id = idBox.Text;
 
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
@@ -543,12 +542,6 @@ public partial class MainForm : Form
 
     private bool CheckMasked()
     {
-        foreach (Control control in tableLayoutPanel1.Controls)
-        {
-            if (control is MaskedTextBox)
-                if (control.Enabled == true && ((MaskedTextBox)control).MaskCompleted == false && control.Name != nameof(CourtDateBox))
-                    return false;
-        }
         return true;
     }
 
@@ -577,14 +570,12 @@ public partial class MainForm : Form
 
     private int GetSqlFile(i_collectContext db, string new_file, string index, string old_file)
     {
-        if (!int.TryParse(Data.id, out var id))
-            throw new Exception("Ошибка получения ID");
         if (current.Typ == LawTyp.LawAct)
         {
             var docAttach = new DatabaseContact.Models.DocAttach
             {
                 obj_id = 46,
-                r_id = id,
+                r_id = current.Id,
                 name = old_file,
                 filename = old_file,
                 vers1 = 0,
@@ -598,7 +589,7 @@ public partial class MainForm : Form
                 SAVE_MODE = 2,
             };
             db.DocAttach.Add(docAttach);
-            db.LawActProtokol.Add(new LawActProtokol() { dt = DateTime.Now, typ = 23, parent_id = id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
+            db.LawActProtokol.Add(new LawActProtokol() { dt = DateTime.Now, typ = 23, parent_id = current.Id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
             db.SaveChanges();
             return docAttach.id;
         }
@@ -608,7 +599,7 @@ public partial class MainForm : Form
             var docAttach = new DatabaseContact.Models.DocAttach
             {
                 obj_id = 47,
-                r_id = id,
+                r_id = current.Id,
                 name = old_file,
                 filename = old_file,
                 vers1 = 0,
@@ -622,7 +613,7 @@ public partial class MainForm : Form
                 SAVE_MODE = 2,
             };
             db.DocAttach.Add(docAttach);
-            db.LawExecProtokol.Add(new LawExecProtokol() { dt = DateTime.Now, typ = 9, parent_id = id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
+            db.LawExecProtokol.Add(new LawExecProtokol() { dt = DateTime.Now, typ = 9, parent_id = current.Id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
             db.SaveChanges();
             return docAttach.id;
         }
@@ -630,7 +621,7 @@ public partial class MainForm : Form
 
     private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Data.status = statusBox.SelectedIndex;
+        current.Status = statusBox.SelectedIndex;
     }
     private void InstallData(LawExecResult data)
     {
