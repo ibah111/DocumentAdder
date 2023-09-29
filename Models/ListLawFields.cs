@@ -18,18 +18,18 @@ public class TestData
     public object original;
     public object current;
 }
-public class ChangerData<T, D>
+public class ChangerData
 {
-    public ChangerData(string name, LawTyp typ, ChangerWrite<T, D> write)
+    public ChangerData(string name, LawTyp typ, ChangerWrite write)
     {
         this.name = name;
         this.typ = typ;
         this.write = write;
     }
-    public delegate void ChangerWrite<T, D>(T? original, T? current, D data);
+    public delegate void ChangerWrite(object? original, object? current, object data);
     public string name;
     public LawTyp typ;
-    public ChangerWrite<T, D> write;
+    public ChangerWrite write;
 }
 
 
@@ -93,8 +93,14 @@ public class ListLawFields
         new List<string>() { "restriction_to_leave_dt", "Дата ограничения на выезд" },
         new List<string>() { "failure_date", "Дата отказа в возбуждении" },
         new List<string>() { "finish_date", "Дата постановлении об окончании" },
-        new ChangerData<int?, LawExec>("state", LawTyp.LawExec, (int? original, int? current, LawExec data) =>
+        new ChangerData("state", LawTyp.LawExec, (object? arg1, object? arg2, object arg3) =>
         {
+            if (!((arg1 == null || arg1 is int) && (arg2 == null || arg2 is int) && arg3 is LawExec data))
+            {
+                throw new Exception("Неправильные типы");
+            }
+            var original = (int?)arg1;
+            var current = (int?)arg2;
             LawExecProtokol? protokol = null;
             if (current == 1) { protokol = createProtokolExec(30); }
             else if (current == 7)
@@ -130,8 +136,14 @@ public class ListLawFields
             if (protokol != null)
                 data.LawExecProtokols.Add(protokol);
         }),
-        new ChangerData<int?, LawAct>("act_status", LawTyp.LawAct, (int? original, int? current, LawAct data) =>
+        new ChangerData("act_status", LawTyp.LawAct, (object? arg1, object? arg2, object arg3) =>
         {
+            if (!((arg1 == null || arg1 is int) && (arg2 == null || arg2 is int) && arg3 is LawAct data))
+            {
+                throw new Exception("Неправильные типы");
+            }
+            var original = (int?)arg1;
+            var current = (int?)arg2;
             LawActProtokol? protokol = null;
             // Исковое производство: иск подготовлен 2, 11
             if (current == 2)
@@ -351,7 +363,7 @@ public class ListLawFields
         var data = db.ChangeTracker.Entries().ToList();
 
         var list_strings = changer.Where(i => i is List<string>).Select(x => (List<string>)x).ToList();
-        var list_changers = changer.Where(i => i is not List<string>).Select(x => x as ChangerData<object, object>).ToList();
+        var list_changers = changer.Where(i => i is ChangerData).Select(x => (ChangerData)x).ToList();
         data.ForEach(entry =>
         {
             if (entry.Entity is LawAct act)
@@ -391,6 +403,7 @@ public class ListLawFields
                                 r_user_id = Settings.user_id
                             });
                         }
+
                         var changer = list_changers.Where(x => x.name == entityProperty.Metadata.Name && x.typ == LawTyp.LawExec).FirstOrDefault();
                         if (changer != null)
                         {
