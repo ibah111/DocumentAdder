@@ -70,10 +70,17 @@ public class ListLawFields
     }
     public List<object> changer = new()
     {
-        new List<string>() { "court_order_date", "Дата вынесения решения"},
-        new List<string>() { "court_exec_date", "Дата вступления в силу"},
-        new List<string>() { "receipt_dt", "receipt_date", "Дата получения агенством"},
-        new List<string>() { "correct_period_date", "Дата исполнения недостатков"},
+        new List<string>() { "court_order_date", "Дата вынесения решения" },
+        new List<string>() { "court_exec_date", "Дата вступления в силу" },
+        new List<string>() { "receipt_dt", "receipt_date", "Дата получения агенством" },
+        new List<string>() { "correct_period_date", "Дата исполнения недостатков" },
+        new List<string>() { "start_date", "Дата возбуждения" },
+        new List<string>() { "exec_number", "Номер дела" },
+        new List<string>() { "fssp_doc_num", "Номер ИП" },
+        new List<string>() { "court_doc_num", "Номер ИД" },
+        new List<string>() { "restriction_to_leave_dt", "Дата ограничения на выезд" },
+        new List<string>() { "failure_date", "Дата отказа в возбуждении" },
+        new List<string>() { "finish_date", "Дата постановлении об окончании" },
         new ChangerData<int?, LawAct>("act_status", LawTyp.LawAct, (int? original, int? current, LawAct data) =>
         {
             LawActProtokol? protokol = null;
