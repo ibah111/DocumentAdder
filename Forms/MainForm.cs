@@ -166,7 +166,7 @@ public partial class MainForm : Form
             var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
-            typDocBox.SelectedValue = 1;
+            typDocBox.SelectedValue = 0;
             //LoadPeople();
             runed = true;
         }
@@ -526,7 +526,7 @@ public partial class MainForm : Form
             desc += $" {correctPeriodDateBox.Text}";
         var result = new
         {
-            date_post = current.Date_post,
+            date_post = current.Date_post.ToShortDateString(),
             Convert = current.Check,
             pristavi = current.Fssp,
             adr_otp = current.Post_address,
