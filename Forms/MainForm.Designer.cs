@@ -1229,6 +1229,7 @@ namespace DocumentAdder.Forms
             // textBox12
             // 
             tableLayoutPanel1.SetColumnSpan(textBox12, 2);
+            textBox12.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "DscRead", true));
             textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
             textBox12.Location = new System.Drawing.Point(4, 843);
             textBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

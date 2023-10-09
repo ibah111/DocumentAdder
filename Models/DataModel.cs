@@ -27,6 +27,7 @@ public partial class DataModel : ObservableObject
             //receipt_date = data.LawAct.receipt_act_dt;
             Failure_date = data.LawAct.failure_date;
             Correct_period_date = data.LawAct.correct_period_date;
+            DscRead = data.LawAct.dsc;
             if (data.typ == LawTyp.LawExec)
             {
                 Fssp_doc_num = data.LawExec.fssp_doc_num;
@@ -36,6 +37,7 @@ public partial class DataModel : ObservableObject
                 Finish_date = data.LawExec.finish_date;
                 Restriction_to_leave_dt = data.LawExec.restriction_to_leave_dt;
                 Receipt_date = data.LawExec.receipt_act_dt;
+                DscRead = data.LawExec.dsc;
             }
             Post_name = data.LawCourt?.name;
             Post_address = data.LawCourt?.address;
@@ -122,6 +124,8 @@ public partial class DataModel : ObservableObject
     //Комментарий
     [ObservableProperty]
     private string? dsc;
+
+    public string DscRead { set; get; }
 
     //Исполнитель
     [ObservableProperty]

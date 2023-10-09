@@ -268,7 +268,9 @@ public class ListLawFields
                 return value.Status > -1;
             }
         },
-        new() { database_order = "dsc", instance = "Dsc" },
+        new() { instance = "Dsc", change=(data,value,_)=>{
+            data.dsc+=value.Dsc;
+        } },
         new() { database_order = "court_order_date", instance = "Court_order_date" },
         new() { database_order = "court_exec_date", instance = "Court_exec_date" },
         new() { database_order = "receipt_date", instance = "Receipt_date", database_act = "receipt_dt" },
