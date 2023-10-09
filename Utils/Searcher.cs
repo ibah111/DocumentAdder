@@ -97,6 +97,7 @@ public class Searcher
                 contract = x.Debt.contract,
                 start_sum = x.Debt.start_sum,
                 portfolio = x.Debt.Portfolio.name,
+                name = x.Debt.name,
                 fio_vz = x.Debt.WorkTask.User.f + " " + x.Debt.WorkTask.User.i + " " + x.Debt.WorkTask.User.o,
                 status = x.Debt.status
             } : null,
@@ -157,6 +158,7 @@ public class Searcher
                 contract = x.Debt.contract,
                 start_sum = x.Debt.start_sum,
                 portfolio = x.Debt.Portfolio.name,
+                name = x.Debt.name,
                 fio_vz = x.Debt.WorkTask.User.f + " " + x.Debt.WorkTask.User.i + " " + x.Debt.WorkTask.User.o,
                 status = x.Debt.status
             } : null,
