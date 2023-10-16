@@ -11,7 +11,7 @@ internal class FromStart
     internal static string DownloadInfo()
     {
         GetUserDB();
-        Settings.dicts = GetDicts(405, 18, 25, 26, 76, 77, 41);
+        Settings.dicts = GetDicts(405, 18, 25, 26, 76, 77, 41, 6);
         return GetUser();
     }
 

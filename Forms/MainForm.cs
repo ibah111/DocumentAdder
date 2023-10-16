@@ -122,6 +122,8 @@ public partial class MainForm : Form
             List<CBMember> cBMembers = new List<CBMember>();
             Documents.DataSource = Adder.files;
             dictTyp.DataSource = Settings.dicts[405].Values.ToList();
+            dictDebtStatus.DataSource = Settings.dicts[6].Values.ToList();
+            dictState.DataSource = Settings.dicts[77].Values.ToList();
             cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
             cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });

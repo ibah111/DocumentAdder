@@ -107,28 +107,6 @@ namespace DocumentAdder.Forms
             correctPeriodDateBox = new System.Windows.Forms.MaskedTextBox();
             sessionDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView2 = new System.Windows.Forms.DataGridView();
-            LawExecId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecDebtStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFioVz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecPortfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFsspDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecCourtDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFsspName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFsspAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecInn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecExecDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecBirthPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lawExecResultBindingSource = new System.Windows.Forms.BindingSource(components);
             textBox11 = new System.Windows.Forms.TextBox();
             textBox12 = new System.Windows.Forms.TextBox();
@@ -203,6 +181,30 @@ namespace DocumentAdder.Forms
             textBoxO = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
+            dictState = new System.Windows.Forms.BindingSource(components);
+            dictDebtStatus = new System.Windows.Forms.BindingSource(components);
+            LawExecId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            LawExecDebtStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            LawExecFioVz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecPortfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFsspDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecCourtDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFsspName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFsspAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecInn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecExecDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecBirthPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -219,6 +221,8 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictState).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1053,160 +1057,6 @@ namespace DocumentAdder.Forms
             dataGridView2.Size = new System.Drawing.Size(724, 204);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
-            // 
-            // LawExecId
-            // 
-            LawExecId.DataPropertyName = "id";
-            LawExecId.HeaderText = "ID";
-            LawExecId.Name = "LawExecId";
-            LawExecId.ReadOnly = true;
-            // 
-            // LawExecStatus
-            // 
-            LawExecStatus.DataPropertyName = "Status";
-            LawExecStatus.HeaderText = "Статус";
-            LawExecStatus.Name = "LawExecStatus";
-            LawExecStatus.ReadOnly = true;
-            // 
-            // LawExecDebtStatus
-            // 
-            LawExecDebtStatus.DataPropertyName = "Debt_status";
-            LawExecDebtStatus.HeaderText = "Статус долга";
-            LawExecDebtStatus.Name = "LawExecDebtStatus";
-            LawExecDebtStatus.ReadOnly = true;
-            // 
-            // LawExecFioVz
-            // 
-            LawExecFioVz.DataPropertyName = "fio_vz";
-            LawExecFioVz.HeaderText = "ФИО Взыскателя";
-            LawExecFioVz.Name = "LawExecFioVz";
-            LawExecFioVz.ReadOnly = true;
-            // 
-            // LawExecPortfolio
-            // 
-            LawExecPortfolio.DataPropertyName = "portfolio";
-            LawExecPortfolio.HeaderText = "Портфель";
-            LawExecPortfolio.Name = "LawExecPortfolio";
-            LawExecPortfolio.ReadOnly = true;
-            // 
-            // LawExecFio
-            // 
-            LawExecFio.DataPropertyName = "fio";
-            LawExecFio.HeaderText = "ФИО";
-            LawExecFio.Name = "LawExecFio";
-            LawExecFio.ReadOnly = true;
-            // 
-            // LawExecBirthDate
-            // 
-            LawExecBirthDate.DataPropertyName = "birth_date";
-            LawExecBirthDate.HeaderText = "Дата Рождения";
-            LawExecBirthDate.Name = "LawExecBirthDate";
-            LawExecBirthDate.ReadOnly = true;
-            // 
-            // LawExecContract
-            // 
-            LawExecContract.DataPropertyName = "contract";
-            LawExecContract.HeaderText = "№ КД";
-            LawExecContract.Name = "LawExecContract";
-            LawExecContract.ReadOnly = true;
-            // 
-            // LawExecFsspDocNum
-            // 
-            LawExecFsspDocNum.DataPropertyName = "fssp_doc_num";
-            LawExecFsspDocNum.HeaderText = "№ ИП";
-            LawExecFsspDocNum.Name = "LawExecFsspDocNum";
-            LawExecFsspDocNum.ReadOnly = true;
-            // 
-            // LawExecCourtDocNum
-            // 
-            LawExecCourtDocNum.DataPropertyName = "court_doc_num";
-            LawExecCourtDocNum.HeaderText = "№ ИД";
-            LawExecCourtDocNum.Name = "LawExecCourtDocNum";
-            LawExecCourtDocNum.ReadOnly = true;
-            // 
-            // LawExecTotalSum
-            // 
-            LawExecTotalSum.DataPropertyName = "total_sum";
-            LawExecTotalSum.HeaderText = "Размер требований";
-            LawExecTotalSum.Name = "LawExecTotalSum";
-            LawExecTotalSum.ReadOnly = true;
-            // 
-            // LawExecFsspName
-            // 
-            LawExecFsspName.DataPropertyName = "fssp_name";
-            LawExecFsspName.HeaderText = "ФССП";
-            LawExecFsspName.Name = "LawExecFsspName";
-            LawExecFsspName.ReadOnly = true;
-            // 
-            // LawExecFsspAddress
-            // 
-            LawExecFsspAddress.DataPropertyName = "fssp_address";
-            LawExecFsspAddress.HeaderText = "Адрес ФССП";
-            LawExecFsspAddress.Name = "LawExecFsspAddress";
-            LawExecFsspAddress.ReadOnly = true;
-            // 
-            // LawExecExecNumber
-            // 
-            LawExecExecNumber.DataPropertyName = "exec_number";
-            LawExecExecNumber.HeaderText = "Номер ГД";
-            LawExecExecNumber.Name = "LawExecExecNumber";
-            LawExecExecNumber.ReadOnly = true;
-            // 
-            // LawExecDsc
-            // 
-            LawExecDsc.DataPropertyName = "dsc";
-            LawExecDsc.HeaderText = "Комментарий";
-            LawExecDsc.Name = "LawExecDsc";
-            LawExecDsc.ReadOnly = true;
-            // 
-            // LawExecFullAdr
-            // 
-            LawExecFullAdr.DataPropertyName = "full_adr";
-            LawExecFullAdr.HeaderText = "Адрес регистрации";
-            LawExecFullAdr.Name = "LawExecFullAdr";
-            LawExecFullAdr.ReadOnly = true;
-            // 
-            // LawExecStartSum
-            // 
-            LawExecStartSum.DataPropertyName = "start_sum";
-            LawExecStartSum.HeaderText = "Начальная сумма";
-            LawExecStartSum.Name = "LawExecStartSum";
-            LawExecStartSum.ReadOnly = true;
-            // 
-            // LawExecNumber
-            // 
-            LawExecNumber.DataPropertyName = "number";
-            LawExecNumber.HeaderText = "Номер паспорта";
-            LawExecNumber.Name = "LawExecNumber";
-            LawExecNumber.ReadOnly = true;
-            // 
-            // LawExecSeries
-            // 
-            LawExecSeries.DataPropertyName = "series";
-            LawExecSeries.HeaderText = "Серия паспорта";
-            LawExecSeries.Name = "LawExecSeries";
-            LawExecSeries.ReadOnly = true;
-            // 
-            // LawExecInn
-            // 
-            LawExecInn.DataPropertyName = "inn";
-            LawExecInn.HeaderText = "ИНН";
-            LawExecInn.Name = "LawExecInn";
-            LawExecInn.ReadOnly = true;
-            // 
-            // LawExecExecDate
-            // 
-            LawExecExecDate.DataPropertyName = "exec_date";
-            LawExecExecDate.HeaderText = "Дата дела";
-            LawExecExecDate.Name = "LawExecExecDate";
-            LawExecExecDate.ReadOnly = true;
-            // 
-            // LawExecBirthPlace
-            // 
-            LawExecBirthPlace.DataPropertyName = "birth_place";
-            LawExecBirthPlace.HeaderText = "Место рождения";
-            LawExecBirthPlace.Name = "LawExecBirthPlace";
-            LawExecBirthPlace.ReadOnly = true;
             // 
             // lawExecResultBindingSource
             // 
@@ -2060,6 +1910,180 @@ namespace DocumentAdder.Forms
             FailureDateBox.TabIndex = 10;
             FailureDateBox.ValidatingType = typeof(System.DateTime);
             // 
+            // dictState
+            // 
+            dictState.DataSource = typeof(DictModel);
+            // 
+            // dictDebtStatus
+            // 
+            dictDebtStatus.DataSource = typeof(DictModel);
+            // 
+            // LawExecId
+            // 
+            LawExecId.DataPropertyName = "id";
+            LawExecId.HeaderText = "ID";
+            LawExecId.Name = "LawExecId";
+            LawExecId.ReadOnly = true;
+            // 
+            // LawExecStatus
+            // 
+            LawExecStatus.DataPropertyName = "Status";
+            LawExecStatus.DataSource = dictState;
+            LawExecStatus.DisplayMember = "name";
+            LawExecStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            LawExecStatus.HeaderText = "Статус";
+            LawExecStatus.Name = "LawExecStatus";
+            LawExecStatus.ReadOnly = true;
+            LawExecStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            LawExecStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            LawExecStatus.ValueMember = "code";
+            // 
+            // LawExecDebtStatus
+            // 
+            LawExecDebtStatus.DataPropertyName = "Debt_status";
+            LawExecDebtStatus.DataSource = dictDebtStatus;
+            LawExecDebtStatus.DisplayMember = "name";
+            LawExecDebtStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            LawExecDebtStatus.HeaderText = "Статус долга";
+            LawExecDebtStatus.Name = "LawExecDebtStatus";
+            LawExecDebtStatus.ReadOnly = true;
+            LawExecDebtStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            LawExecDebtStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            LawExecDebtStatus.ValueMember = "code";
+            // 
+            // LawExecFioVz
+            // 
+            LawExecFioVz.DataPropertyName = "fio_vz";
+            LawExecFioVz.HeaderText = "ФИО Взыскателя";
+            LawExecFioVz.Name = "LawExecFioVz";
+            LawExecFioVz.ReadOnly = true;
+            // 
+            // LawExecPortfolio
+            // 
+            LawExecPortfolio.DataPropertyName = "portfolio";
+            LawExecPortfolio.HeaderText = "Портфель";
+            LawExecPortfolio.Name = "LawExecPortfolio";
+            LawExecPortfolio.ReadOnly = true;
+            // 
+            // LawExecFio
+            // 
+            LawExecFio.DataPropertyName = "fio";
+            LawExecFio.HeaderText = "ФИО";
+            LawExecFio.Name = "LawExecFio";
+            LawExecFio.ReadOnly = true;
+            // 
+            // LawExecBirthDate
+            // 
+            LawExecBirthDate.DataPropertyName = "birth_date";
+            LawExecBirthDate.HeaderText = "Дата Рождения";
+            LawExecBirthDate.Name = "LawExecBirthDate";
+            LawExecBirthDate.ReadOnly = true;
+            // 
+            // LawExecContract
+            // 
+            LawExecContract.DataPropertyName = "contract";
+            LawExecContract.HeaderText = "№ КД";
+            LawExecContract.Name = "LawExecContract";
+            LawExecContract.ReadOnly = true;
+            // 
+            // LawExecFsspDocNum
+            // 
+            LawExecFsspDocNum.DataPropertyName = "fssp_doc_num";
+            LawExecFsspDocNum.HeaderText = "№ ИП";
+            LawExecFsspDocNum.Name = "LawExecFsspDocNum";
+            LawExecFsspDocNum.ReadOnly = true;
+            // 
+            // LawExecCourtDocNum
+            // 
+            LawExecCourtDocNum.DataPropertyName = "court_doc_num";
+            LawExecCourtDocNum.HeaderText = "№ ИД";
+            LawExecCourtDocNum.Name = "LawExecCourtDocNum";
+            LawExecCourtDocNum.ReadOnly = true;
+            // 
+            // LawExecTotalSum
+            // 
+            LawExecTotalSum.DataPropertyName = "total_sum";
+            LawExecTotalSum.HeaderText = "Размер требований";
+            LawExecTotalSum.Name = "LawExecTotalSum";
+            LawExecTotalSum.ReadOnly = true;
+            // 
+            // LawExecFsspName
+            // 
+            LawExecFsspName.DataPropertyName = "fssp_name";
+            LawExecFsspName.HeaderText = "ФССП";
+            LawExecFsspName.Name = "LawExecFsspName";
+            LawExecFsspName.ReadOnly = true;
+            // 
+            // LawExecFsspAddress
+            // 
+            LawExecFsspAddress.DataPropertyName = "fssp_address";
+            LawExecFsspAddress.HeaderText = "Адрес ФССП";
+            LawExecFsspAddress.Name = "LawExecFsspAddress";
+            LawExecFsspAddress.ReadOnly = true;
+            // 
+            // LawExecExecNumber
+            // 
+            LawExecExecNumber.DataPropertyName = "exec_number";
+            LawExecExecNumber.HeaderText = "Номер ГД";
+            LawExecExecNumber.Name = "LawExecExecNumber";
+            LawExecExecNumber.ReadOnly = true;
+            // 
+            // LawExecDsc
+            // 
+            LawExecDsc.DataPropertyName = "dsc";
+            LawExecDsc.HeaderText = "Комментарий";
+            LawExecDsc.Name = "LawExecDsc";
+            LawExecDsc.ReadOnly = true;
+            // 
+            // LawExecFullAdr
+            // 
+            LawExecFullAdr.DataPropertyName = "full_adr";
+            LawExecFullAdr.HeaderText = "Адрес регистрации";
+            LawExecFullAdr.Name = "LawExecFullAdr";
+            LawExecFullAdr.ReadOnly = true;
+            // 
+            // LawExecStartSum
+            // 
+            LawExecStartSum.DataPropertyName = "start_sum";
+            LawExecStartSum.HeaderText = "Начальная сумма";
+            LawExecStartSum.Name = "LawExecStartSum";
+            LawExecStartSum.ReadOnly = true;
+            // 
+            // LawExecNumber
+            // 
+            LawExecNumber.DataPropertyName = "number";
+            LawExecNumber.HeaderText = "Номер паспорта";
+            LawExecNumber.Name = "LawExecNumber";
+            LawExecNumber.ReadOnly = true;
+            // 
+            // LawExecSeries
+            // 
+            LawExecSeries.DataPropertyName = "series";
+            LawExecSeries.HeaderText = "Серия паспорта";
+            LawExecSeries.Name = "LawExecSeries";
+            LawExecSeries.ReadOnly = true;
+            // 
+            // LawExecInn
+            // 
+            LawExecInn.DataPropertyName = "inn";
+            LawExecInn.HeaderText = "ИНН";
+            LawExecInn.Name = "LawExecInn";
+            LawExecInn.ReadOnly = true;
+            // 
+            // LawExecExecDate
+            // 
+            LawExecExecDate.DataPropertyName = "exec_date";
+            LawExecExecDate.HeaderText = "Дата дела";
+            LawExecExecDate.Name = "LawExecExecDate";
+            LawExecExecDate.ReadOnly = true;
+            // 
+            // LawExecBirthPlace
+            // 
+            LawExecBirthPlace.DataPropertyName = "birth_place";
+            LawExecBirthPlace.HeaderText = "Место рождения";
+            LawExecBirthPlace.Name = "LawExecBirthPlace";
+            LawExecBirthPlace.ReadOnly = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2091,6 +2115,8 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictState).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ResumeLayout(false);
         }
 
@@ -2235,9 +2261,22 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn LawActFullAdr;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawActExecDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawActInn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawExecCourtName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawExecCourtAddress;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxI;
+        private System.Windows.Forms.TextBox textBoxO;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox FailureDateBox;
+        private System.Windows.Forms.BindingSource typDocBinding;
+        private System.Windows.Forms.BindingSource currentEnableds;
+        private System.Windows.Forms.BindingSource dataModelBinding;
+        private System.Windows.Forms.BindingSource dictState;
+        private System.Windows.Forms.BindingSource dictDebtStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawExecStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawExecDebtStatus;
+        private System.Windows.Forms.DataGridViewComboBoxColumn LawExecStatus;
+        private System.Windows.Forms.DataGridViewComboBoxColumn LawExecDebtStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecFioVz;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecPortfolio;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecFio;
@@ -2248,8 +2287,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecTotalSum;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecFsspName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecFsspAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawExecCourtName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawExecCourtAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecExecNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecDsc;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecFullAdr;
@@ -2259,15 +2296,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecInn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecExecDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecBirthPlace;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxI;
-        private System.Windows.Forms.TextBox textBoxO;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox FailureDateBox;
-        private System.Windows.Forms.BindingSource typDocBinding;
-        private System.Windows.Forms.BindingSource currentEnableds;
-        private System.Windows.Forms.BindingSource dataModelBinding;
     }
 }
 
