@@ -44,7 +44,7 @@ public partial class SettingsModel : ObservableObject
     public Dictionary<int, List<int>> without_act_status { get; init; } = new();
     public List<int> without_exec_status { get; init; } = new();
     [ObservableProperty]
-    private bool barcode;
+    private bool barcode = false;
     public int? user_task { get; init; }
     public string document_name { get; init; } = null;
     [ObservableProperty]

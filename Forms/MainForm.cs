@@ -179,23 +179,26 @@ public partial class MainForm : Form
         receiptDateBox.Text = DateTime.Now.ToShortDateString();
         var settings = (SettingsModel)typDocBox.SelectedItem;
         currentEnableds.DataSource = settings;
-        Settings.barcode = settings.Barcode;
-        if (Settings.barcode == true)
+        if (settings != null)
         {
-            if (Utils.Printer.CheckCom())
+            Settings.barcode = settings.Barcode;
+            if (Settings.barcode == true)
             {
-                selectDocBarcode.Enabled = true;
+                if (Utils.Printer.CheckCom())
+                {
+                    selectDocBarcode.Enabled = true;
+                }
+                else { selectDocBarcode.Enabled = false; }
             }
-            else { selectDocBarcode.Enabled = false; }
+            else
+            {
+                selectDocBarcode.Enabled = false;
+            }
+            if (!String.IsNullOrEmpty(settings.document_name))
+                documentNameBox.Text = settings.document_name;
+            if (settings.user_task.HasValue)
+                userTaskBox.SelectedValue = settings.user_task;
         }
-        else
-        {
-            selectDocBarcode.Enabled = false;
-        }
-        if (!String.IsNullOrEmpty(settings.document_name))
-            documentNameBox.Text = settings.document_name;
-        if (settings.user_task.HasValue)
-            userTaskBox.SelectedValue = settings.user_task;
     }
 
     private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
