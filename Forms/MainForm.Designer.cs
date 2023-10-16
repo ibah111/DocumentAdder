@@ -301,9 +301,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label30, 4, 18);
             tableLayoutPanel1.Controls.Add(CourtDateBox, 3, 4);
             tableLayoutPanel1.Controls.Add(label42, 3, 3);
-            tableLayoutPanel1.Controls.Add(ModeCB, 3, 17);
-            tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 1, 16);
-            tableLayoutPanel1.Controls.Add(selectDocBarcode, 1, 17);
+            tableLayoutPanel1.Controls.Add(ModeCB, 0, 17);
+            tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 2, 15);
+            tableLayoutPanel1.Controls.Add(selectDocBarcode, 2, 16);
             tableLayoutPanel1.Controls.Add(label34, 3, 11);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 3, 10);
             tableLayoutPanel1.Controls.Add(label4, 4, 1);
@@ -311,9 +311,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label6, 6, 1);
             tableLayoutPanel1.Controls.Add(textBoxI, 5, 2);
             tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
-            tableLayoutPanel1.Controls.Add(label7, 0, 16);
-            tableLayoutPanel1.Controls.Add(FailureDateBox, 0, 17);
-            tableLayoutPanel1.Controls.Add(label45, 3, 16);
+            tableLayoutPanel1.Controls.Add(label7, 3, 15);
+            tableLayoutPanel1.Controls.Add(FailureDateBox, 3, 16);
+            tableLayoutPanel1.Controls.Add(label45, 0, 16);
             tableLayoutPanel1.Controls.Add(label28, 0, 18);
             tableLayoutPanel1.Controls.Add(label29, 2, 18);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1763,7 +1763,7 @@ namespace DocumentAdder.Forms
             ModeCB.Dock = System.Windows.Forms.DockStyle.Fill;
             ModeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             ModeCB.FormattingEnabled = true;
-            ModeCB.Location = new System.Drawing.Point(550, 598);
+            ModeCB.Location = new System.Drawing.Point(4, 598);
             ModeCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             ModeCB.Name = "ModeCB";
             ModeCB.Size = new System.Drawing.Size(174, 23);
@@ -1779,7 +1779,7 @@ namespace DocumentAdder.Forms
             // 
             labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             labelSelectDocBarcode.AutoSize = true;
-            labelSelectDocBarcode.Location = new System.Drawing.Point(186, 580);
+            labelSelectDocBarcode.Location = new System.Drawing.Point(368, 545);
             labelSelectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelSelectDocBarcode.Name = "labelSelectDocBarcode";
             labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
@@ -1793,7 +1793,7 @@ namespace DocumentAdder.Forms
             selectDocBarcode.DataSource = Documents;
             selectDocBarcode.DisplayMember = "name";
             selectDocBarcode.FormattingEnabled = true;
-            selectDocBarcode.Location = new System.Drawing.Point(186, 598);
+            selectDocBarcode.Location = new System.Drawing.Point(368, 563);
             selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
@@ -1913,7 +1913,7 @@ namespace DocumentAdder.Forms
             // 
             label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(3, 580);
+            label7.Location = new System.Drawing.Point(549, 545);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(70, 15);
             label7.TabIndex = 128;
@@ -1923,7 +1923,7 @@ namespace DocumentAdder.Forms
             // 
             FailureDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Failure_date", true));
             FailureDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            FailureDateBox.Location = new System.Drawing.Point(3, 598);
+            FailureDateBox.Location = new System.Drawing.Point(549, 563);
             FailureDateBox.Mask = "00/00/0000";
             FailureDateBox.Name = "FailureDateBox";
             FailureDateBox.Size = new System.Drawing.Size(176, 23);
@@ -1934,7 +1934,7 @@ namespace DocumentAdder.Forms
             // 
             label45.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label45.AutoSize = true;
-            label45.Location = new System.Drawing.Point(550, 580);
+            label45.Location = new System.Drawing.Point(4, 580);
             label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label45.Name = "label45";
             label45.Size = new System.Drawing.Size(45, 15);
