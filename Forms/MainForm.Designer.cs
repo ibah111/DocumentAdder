@@ -59,6 +59,8 @@ namespace DocumentAdder.Forms
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
+            button2 = new System.Windows.Forms.Button();
+            button3 = new System.Windows.Forms.Button();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
@@ -107,12 +109,34 @@ namespace DocumentAdder.Forms
             correctPeriodDateBox = new System.Windows.Forms.MaskedTextBox();
             sessionDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView2 = new System.Windows.Forms.DataGridView();
+            LawExecId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            dictState = new System.Windows.Forms.BindingSource(components);
+            LawExecDebtStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            dictDebtStatus = new System.Windows.Forms.BindingSource(components);
+            LawExecFioVz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecPortfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFsspDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecCourtDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFsspName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFsspAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecInn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecExecDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawExecBirthPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lawExecResultBindingSource = new System.Windows.Forms.BindingSource(components);
             textBox11 = new System.Windows.Forms.TextBox();
             textBox12 = new System.Windows.Forms.TextBox();
             panel1 = new System.Windows.Forms.Panel();
-            button2 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
             label31 = new System.Windows.Forms.Label();
             execNumberSearchBox = new System.Windows.Forms.TextBox();
             contractBox = new System.Windows.Forms.TextBox();
@@ -147,25 +171,12 @@ namespace DocumentAdder.Forms
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             comboBox4 = new System.Windows.Forms.ComboBox();
             button10 = new System.Windows.Forms.Button();
-            birthDateBox = new System.Windows.Forms.TextBox();
-            debtSumBox = new System.Windows.Forms.TextBox();
-            seriesBox = new System.Windows.Forms.TextBox();
-            textBox20 = new System.Windows.Forms.TextBox();
-            label37 = new System.Windows.Forms.Label();
-            label38 = new System.Windows.Forms.Label();
-            label39 = new System.Windows.Forms.Label();
-            label40 = new System.Windows.Forms.Label();
             checkBox2 = new System.Windows.Forms.CheckBox();
-            label28 = new System.Windows.Forms.Label();
-            label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             CourtDateBox = new System.Windows.Forms.MaskedTextBox();
-            textBox16 = new System.Windows.Forms.TextBox();
             label42 = new System.Windows.Forms.Label();
-            label43 = new System.Windows.Forms.Label();
             ModeCB = new System.Windows.Forms.ComboBox();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
-            label45 = new System.Windows.Forms.Label();
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             selectDocBarcode = new System.Windows.Forms.ComboBox();
             Documents = new System.Windows.Forms.BindingSource(components);
@@ -181,30 +192,9 @@ namespace DocumentAdder.Forms
             textBoxO = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             FailureDateBox = new System.Windows.Forms.MaskedTextBox();
-            dictState = new System.Windows.Forms.BindingSource(components);
-            dictDebtStatus = new System.Windows.Forms.BindingSource(components);
-            LawExecId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            LawExecDebtStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            LawExecFioVz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecPortfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFsspDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecCourtDocNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFsspName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFsspAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecInn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecExecDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawExecBirthPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            label45 = new System.Windows.Forms.Label();
+            label28 = new System.Windows.Forms.Label();
+            label29 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -214,6 +204,8 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictState).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -221,8 +213,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dictState).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -248,6 +238,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label11, 4, 3);
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
+            tableLayoutPanel1.Controls.Add(button2, 3, 24);
+            tableLayoutPanel1.Controls.Add(button3, 2, 24);
             tableLayoutPanel1.Controls.Add(label14, 0, 5);
             tableLayoutPanel1.Controls.Add(label15, 1, 5);
             tableLayoutPanel1.Controls.Add(label16, 2, 5);
@@ -271,12 +263,10 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(cancelDateBox, 0, 10);
             tableLayoutPanel1.Controls.Add(correctPeriodDateBox, 1, 10);
             tableLayoutPanel1.Controls.Add(sessionDateBox, 2, 10);
-            tableLayoutPanel1.Controls.Add(dataGridView2, 4, 21);
-            tableLayoutPanel1.Controls.Add(textBox11, 0, 21);
-            tableLayoutPanel1.Controls.Add(textBox12, 0, 24);
-            tableLayoutPanel1.Controls.Add(panel1, 2, 21);
-            tableLayoutPanel1.Controls.Add(button2, 3, 26);
-            tableLayoutPanel1.Controls.Add(button3, 2, 26);
+            tableLayoutPanel1.Controls.Add(dataGridView2, 4, 19);
+            tableLayoutPanel1.Controls.Add(textBox11, 0, 19);
+            tableLayoutPanel1.Controls.Add(textBox12, 0, 22);
+            tableLayoutPanel1.Controls.Add(panel1, 2, 19);
             tableLayoutPanel1.Controls.Add(label31, 7, 1);
             tableLayoutPanel1.Controls.Add(execNumberSearchBox, 6, 4);
             tableLayoutPanel1.Controls.Add(contractBox, 5, 4);
@@ -285,9 +275,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(fsspDocNumBox, 2, 4);
             tableLayoutPanel1.Controls.Add(courtOrderDateBox, 0, 6);
             tableLayoutPanel1.Controls.Add(courtDocNumBox, 1, 4);
-            tableLayoutPanel1.Controls.Add(button1, 3, 21);
-            tableLayoutPanel1.Controls.Add(button4, 3, 22);
-            tableLayoutPanel1.Controls.Add(button5, 3, 23);
+            tableLayoutPanel1.Controls.Add(button1, 3, 19);
+            tableLayoutPanel1.Controls.Add(button4, 3, 20);
+            tableLayoutPanel1.Controls.Add(button5, 3, 21);
             tableLayoutPanel1.Controls.Add(label27, 3, 9);
             tableLayoutPanel1.Controls.Add(userTaskBox, 3, 12);
             tableLayoutPanel1.Controls.Add(label26, 0, 11);
@@ -303,30 +293,17 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label36, 1, 13);
             tableLayoutPanel1.Controls.Add(button6, 2, 13);
             tableLayoutPanel1.Controls.Add(datePostBox, 0, 12);
-            tableLayoutPanel1.Controls.Add(button9, 3, 24);
-            tableLayoutPanel1.Controls.Add(checkBox3, 3, 25);
+            tableLayoutPanel1.Controls.Add(button9, 3, 22);
+            tableLayoutPanel1.Controls.Add(checkBox3, 3, 23);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 14);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 3, 13);
-            tableLayoutPanel1.Controls.Add(birthDateBox, 0, 17);
-            tableLayoutPanel1.Controls.Add(debtSumBox, 1, 17);
-            tableLayoutPanel1.Controls.Add(seriesBox, 2, 17);
-            tableLayoutPanel1.Controls.Add(textBox20, 3, 17);
-            tableLayoutPanel1.Controls.Add(label37, 0, 16);
-            tableLayoutPanel1.Controls.Add(label38, 1, 16);
-            tableLayoutPanel1.Controls.Add(label39, 2, 16);
-            tableLayoutPanel1.Controls.Add(label40, 3, 16);
             tableLayoutPanel1.Controls.Add(checkBox2, 2, 14);
-            tableLayoutPanel1.Controls.Add(label28, 0, 20);
-            tableLayoutPanel1.Controls.Add(label29, 2, 20);
-            tableLayoutPanel1.Controls.Add(label30, 4, 20);
-            tableLayoutPanel1.Controls.Add(CourtDateBox, 0, 19);
-            tableLayoutPanel1.Controls.Add(textBox16, 1, 19);
-            tableLayoutPanel1.Controls.Add(label42, 0, 18);
-            tableLayoutPanel1.Controls.Add(label43, 1, 18);
-            tableLayoutPanel1.Controls.Add(ModeCB, 4, 19);
-            tableLayoutPanel1.Controls.Add(label45, 4, 18);
-            tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 2, 18);
-            tableLayoutPanel1.Controls.Add(selectDocBarcode, 2, 19);
+            tableLayoutPanel1.Controls.Add(label30, 4, 18);
+            tableLayoutPanel1.Controls.Add(CourtDateBox, 3, 4);
+            tableLayoutPanel1.Controls.Add(label42, 3, 3);
+            tableLayoutPanel1.Controls.Add(ModeCB, 3, 17);
+            tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 1, 16);
+            tableLayoutPanel1.Controls.Add(selectDocBarcode, 1, 17);
             tableLayoutPanel1.Controls.Add(label34, 3, 11);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 3, 10);
             tableLayoutPanel1.Controls.Add(label4, 4, 1);
@@ -334,13 +311,16 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label6, 6, 1);
             tableLayoutPanel1.Controls.Add(textBoxI, 5, 2);
             tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
-            tableLayoutPanel1.Controls.Add(label7, 3, 3);
-            tableLayoutPanel1.Controls.Add(FailureDateBox, 3, 4);
+            tableLayoutPanel1.Controls.Add(label7, 0, 16);
+            tableLayoutPanel1.Controls.Add(FailureDateBox, 0, 17);
+            tableLayoutPanel1.Controls.Add(label45, 3, 16);
+            tableLayoutPanel1.Controls.Add(label28, 0, 18);
+            tableLayoutPanel1.Controls.Add(label29, 2, 18);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 27;
+            tableLayoutPanel1.RowCount = 25;
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -366,8 +346,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new System.Drawing.Size(1460, 921);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -505,6 +484,34 @@ namespace DocumentAdder.Forms
             label13.Size = new System.Drawing.Size(50, 15);
             label13.TabIndex = 16;
             label13.Text = "№ Дела";
+            // 
+            // button2
+            // 
+            button2.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.Location = new System.Drawing.Point(550, 843);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(174, 99);
+            button2.TabIndex = 60;
+            button2.Text = "Готово!";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.Location = new System.Drawing.Point(368, 843);
+            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(174, 99);
+            button3.TabIndex = 61;
+            button3.Text = "Посмотреть вложения";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label14
             // 
@@ -1040,7 +1047,7 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle9;
             dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            dataGridView2.Location = new System.Drawing.Point(732, 738);
+            dataGridView2.Location = new System.Drawing.Point(732, 668);
             dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
@@ -1054,9 +1061,183 @@ namespace DocumentAdder.Forms
             dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
-            dataGridView2.Size = new System.Drawing.Size(724, 204);
+            dataGridView2.Size = new System.Drawing.Size(724, 274);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
+            // 
+            // LawExecId
+            // 
+            LawExecId.DataPropertyName = "id";
+            LawExecId.HeaderText = "ID";
+            LawExecId.Name = "LawExecId";
+            LawExecId.ReadOnly = true;
+            // 
+            // LawExecStatus
+            // 
+            LawExecStatus.DataPropertyName = "Status";
+            LawExecStatus.DataSource = dictState;
+            LawExecStatus.DisplayMember = "name";
+            LawExecStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            LawExecStatus.HeaderText = "Статус";
+            LawExecStatus.Name = "LawExecStatus";
+            LawExecStatus.ReadOnly = true;
+            LawExecStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            LawExecStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            LawExecStatus.ValueMember = "code";
+            // 
+            // dictState
+            // 
+            dictState.DataSource = typeof(DictModel);
+            // 
+            // LawExecDebtStatus
+            // 
+            LawExecDebtStatus.DataPropertyName = "Debt_status";
+            LawExecDebtStatus.DataSource = dictDebtStatus;
+            LawExecDebtStatus.DisplayMember = "name";
+            LawExecDebtStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            LawExecDebtStatus.HeaderText = "Статус долга";
+            LawExecDebtStatus.Name = "LawExecDebtStatus";
+            LawExecDebtStatus.ReadOnly = true;
+            LawExecDebtStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            LawExecDebtStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            LawExecDebtStatus.ValueMember = "code";
+            // 
+            // dictDebtStatus
+            // 
+            dictDebtStatus.DataSource = typeof(DictModel);
+            // 
+            // LawExecFioVz
+            // 
+            LawExecFioVz.DataPropertyName = "fio_vz";
+            LawExecFioVz.HeaderText = "ФИО Взыскателя";
+            LawExecFioVz.Name = "LawExecFioVz";
+            LawExecFioVz.ReadOnly = true;
+            // 
+            // LawExecPortfolio
+            // 
+            LawExecPortfolio.DataPropertyName = "portfolio";
+            LawExecPortfolio.HeaderText = "Портфель";
+            LawExecPortfolio.Name = "LawExecPortfolio";
+            LawExecPortfolio.ReadOnly = true;
+            // 
+            // LawExecFio
+            // 
+            LawExecFio.DataPropertyName = "fio";
+            LawExecFio.HeaderText = "ФИО";
+            LawExecFio.Name = "LawExecFio";
+            LawExecFio.ReadOnly = true;
+            // 
+            // LawExecBirthDate
+            // 
+            LawExecBirthDate.DataPropertyName = "birth_date";
+            LawExecBirthDate.HeaderText = "Дата Рождения";
+            LawExecBirthDate.Name = "LawExecBirthDate";
+            LawExecBirthDate.ReadOnly = true;
+            // 
+            // LawExecContract
+            // 
+            LawExecContract.DataPropertyName = "contract";
+            LawExecContract.HeaderText = "№ КД";
+            LawExecContract.Name = "LawExecContract";
+            LawExecContract.ReadOnly = true;
+            // 
+            // LawExecFsspDocNum
+            // 
+            LawExecFsspDocNum.DataPropertyName = "fssp_doc_num";
+            LawExecFsspDocNum.HeaderText = "№ ИП";
+            LawExecFsspDocNum.Name = "LawExecFsspDocNum";
+            LawExecFsspDocNum.ReadOnly = true;
+            // 
+            // LawExecCourtDocNum
+            // 
+            LawExecCourtDocNum.DataPropertyName = "court_doc_num";
+            LawExecCourtDocNum.HeaderText = "№ ИД";
+            LawExecCourtDocNum.Name = "LawExecCourtDocNum";
+            LawExecCourtDocNum.ReadOnly = true;
+            // 
+            // LawExecTotalSum
+            // 
+            LawExecTotalSum.DataPropertyName = "total_sum";
+            LawExecTotalSum.HeaderText = "Размер требований";
+            LawExecTotalSum.Name = "LawExecTotalSum";
+            LawExecTotalSum.ReadOnly = true;
+            // 
+            // LawExecFsspName
+            // 
+            LawExecFsspName.DataPropertyName = "fssp_name";
+            LawExecFsspName.HeaderText = "ФССП";
+            LawExecFsspName.Name = "LawExecFsspName";
+            LawExecFsspName.ReadOnly = true;
+            // 
+            // LawExecFsspAddress
+            // 
+            LawExecFsspAddress.DataPropertyName = "fssp_address";
+            LawExecFsspAddress.HeaderText = "Адрес ФССП";
+            LawExecFsspAddress.Name = "LawExecFsspAddress";
+            LawExecFsspAddress.ReadOnly = true;
+            // 
+            // LawExecExecNumber
+            // 
+            LawExecExecNumber.DataPropertyName = "exec_number";
+            LawExecExecNumber.HeaderText = "Номер ГД";
+            LawExecExecNumber.Name = "LawExecExecNumber";
+            LawExecExecNumber.ReadOnly = true;
+            // 
+            // LawExecDsc
+            // 
+            LawExecDsc.DataPropertyName = "dsc";
+            LawExecDsc.HeaderText = "Комментарий";
+            LawExecDsc.Name = "LawExecDsc";
+            LawExecDsc.ReadOnly = true;
+            // 
+            // LawExecFullAdr
+            // 
+            LawExecFullAdr.DataPropertyName = "full_adr";
+            LawExecFullAdr.HeaderText = "Адрес регистрации";
+            LawExecFullAdr.Name = "LawExecFullAdr";
+            LawExecFullAdr.ReadOnly = true;
+            // 
+            // LawExecStartSum
+            // 
+            LawExecStartSum.DataPropertyName = "start_sum";
+            LawExecStartSum.HeaderText = "Начальная сумма";
+            LawExecStartSum.Name = "LawExecStartSum";
+            LawExecStartSum.ReadOnly = true;
+            // 
+            // LawExecNumber
+            // 
+            LawExecNumber.DataPropertyName = "number";
+            LawExecNumber.HeaderText = "Номер паспорта";
+            LawExecNumber.Name = "LawExecNumber";
+            LawExecNumber.ReadOnly = true;
+            // 
+            // LawExecSeries
+            // 
+            LawExecSeries.DataPropertyName = "series";
+            LawExecSeries.HeaderText = "Серия паспорта";
+            LawExecSeries.Name = "LawExecSeries";
+            LawExecSeries.ReadOnly = true;
+            // 
+            // LawExecInn
+            // 
+            LawExecInn.DataPropertyName = "inn";
+            LawExecInn.HeaderText = "ИНН";
+            LawExecInn.Name = "LawExecInn";
+            LawExecInn.ReadOnly = true;
+            // 
+            // LawExecExecDate
+            // 
+            LawExecExecDate.DataPropertyName = "exec_date";
+            LawExecExecDate.HeaderText = "Дата дела";
+            LawExecExecDate.Name = "LawExecExecDate";
+            LawExecExecDate.ReadOnly = true;
+            // 
+            // LawExecBirthPlace
+            // 
+            LawExecBirthPlace.DataPropertyName = "birth_place";
+            LawExecBirthPlace.HeaderText = "Место рождения";
+            LawExecBirthPlace.Name = "LawExecBirthPlace";
+            LawExecBirthPlace.ReadOnly = true;
             // 
             // lawExecResultBindingSource
             // 
@@ -1067,7 +1248,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.SetColumnSpan(textBox11, 2);
             textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Dsc", true));
             textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox11.Location = new System.Drawing.Point(4, 738);
+            textBox11.Location = new System.Drawing.Point(4, 668);
             textBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox11.Multiline = true;
             textBox11.Name = "textBox11";
@@ -1082,14 +1263,14 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.SetColumnSpan(textBox12, 2);
             textBox12.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "DscRead", true));
             textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox12.Location = new System.Drawing.Point(4, 843);
+            textBox12.Location = new System.Drawing.Point(4, 773);
             textBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
             textBox12.ReadOnly = true;
             tableLayoutPanel1.SetRowSpan(textBox12, 3);
             textBox12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            textBox12.Size = new System.Drawing.Size(356, 99);
+            textBox12.Size = new System.Drawing.Size(356, 169);
             textBox12.TabIndex = 57;
             // 
             // panel1
@@ -1099,7 +1280,7 @@ namespace DocumentAdder.Forms
             panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            panel1.Location = new System.Drawing.Point(368, 738);
+            panel1.Location = new System.Drawing.Point(368, 668);
             panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             tableLayoutPanel1.SetRowSpan(panel1, 5);
@@ -1107,34 +1288,6 @@ namespace DocumentAdder.Forms
             panel1.TabIndex = 58;
             panel1.DragDrop += panel1_DragDrop;
             panel1.DragEnter += panel1_DragEnter;
-            // 
-            // button2
-            // 
-            button2.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
-            button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Location = new System.Drawing.Point(550, 913);
-            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(174, 29);
-            button2.TabIndex = 60;
-            button2.Text = "Готово!";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button3.Location = new System.Drawing.Point(368, 913);
-            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(174, 29);
-            button3.TabIndex = 61;
-            button3.Text = "Посмотреть вложения";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // label31
             // 
@@ -1237,7 +1390,7 @@ namespace DocumentAdder.Forms
             // 
             button1.Dock = System.Windows.Forms.DockStyle.Top;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Location = new System.Drawing.Point(550, 738);
+            button1.Location = new System.Drawing.Point(550, 668);
             button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(174, 27);
@@ -1250,7 +1403,7 @@ namespace DocumentAdder.Forms
             // 
             button4.Dock = System.Windows.Forms.DockStyle.Top;
             button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button4.Location = new System.Drawing.Point(550, 773);
+            button4.Location = new System.Drawing.Point(550, 703);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(174, 27);
@@ -1263,7 +1416,7 @@ namespace DocumentAdder.Forms
             // 
             button5.Dock = System.Windows.Forms.DockStyle.Fill;
             button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button5.Location = new System.Drawing.Point(550, 808);
+            button5.Location = new System.Drawing.Point(550, 738);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(174, 29);
@@ -1459,7 +1612,7 @@ namespace DocumentAdder.Forms
             // 
             button9.Dock = System.Windows.Forms.DockStyle.Fill;
             button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button9.Location = new System.Drawing.Point(550, 843);
+            button9.Location = new System.Drawing.Point(550, 773);
             button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button9.Name = "button9";
             button9.Size = new System.Drawing.Size(174, 29);
@@ -1472,7 +1625,7 @@ namespace DocumentAdder.Forms
             // 
             checkBox3.AutoSize = true;
             checkBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Task", true));
-            checkBox3.Location = new System.Drawing.Point(550, 878);
+            checkBox3.Location = new System.Drawing.Point(550, 808);
             checkBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new System.Drawing.Size(131, 19);
@@ -1556,86 +1709,6 @@ namespace DocumentAdder.Forms
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
-            // birthDateBox
-            // 
-            birthDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            birthDateBox.Location = new System.Drawing.Point(4, 598);
-            birthDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            birthDateBox.Name = "birthDateBox";
-            birthDateBox.Size = new System.Drawing.Size(174, 23);
-            birthDateBox.TabIndex = 104;
-            // 
-            // debtSumBox
-            // 
-            debtSumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            debtSumBox.Location = new System.Drawing.Point(186, 598);
-            debtSumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            debtSumBox.Name = "debtSumBox";
-            debtSumBox.Size = new System.Drawing.Size(174, 23);
-            debtSumBox.TabIndex = 106;
-            // 
-            // seriesBox
-            // 
-            seriesBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            seriesBox.Location = new System.Drawing.Point(368, 598);
-            seriesBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            seriesBox.Name = "seriesBox";
-            seriesBox.Size = new System.Drawing.Size(174, 23);
-            seriesBox.TabIndex = 102;
-            // 
-            // textBox20
-            // 
-            textBox20.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox20.Location = new System.Drawing.Point(550, 598);
-            textBox20.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new System.Drawing.Size(174, 23);
-            textBox20.TabIndex = 103;
-            // 
-            // label37
-            // 
-            label37.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label37.AutoSize = true;
-            label37.Location = new System.Drawing.Point(4, 580);
-            label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label37.Name = "label37";
-            label37.Size = new System.Drawing.Size(100, 15);
-            label37.TabIndex = 109;
-            label37.Text = "Место рождения";
-            // 
-            // label38
-            // 
-            label38.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label38.AutoSize = true;
-            label38.Location = new System.Drawing.Point(186, 580);
-            label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label38.Name = "label38";
-            label38.Size = new System.Drawing.Size(133, 15);
-            label38.TabIndex = 110;
-            label38.Text = "Сумма задолженности";
-            // 
-            // label39
-            // 
-            label39.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label39.AutoSize = true;
-            label39.Location = new System.Drawing.Point(368, 580);
-            label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label39.Name = "label39";
-            label39.Size = new System.Drawing.Size(96, 15);
-            label39.TabIndex = 111;
-            label39.Text = "Серия(Паспорт)";
-            // 
-            // label40
-            // 
-            label40.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label40.AutoSize = true;
-            label40.Location = new System.Drawing.Point(550, 580);
-            label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label40.Name = "label40";
-            label40.Size = new System.Drawing.Size(100, 15);
-            label40.TabIndex = 112;
-            label40.Text = "Номер(Паспорт)";
-            // 
             // checkBox2
             // 
             checkBox2.AutoSize = true;
@@ -1648,33 +1721,11 @@ namespace DocumentAdder.Forms
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
             // 
-            // label28
-            // 
-            label28.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label28.AutoSize = true;
-            label28.Location = new System.Drawing.Point(4, 720);
-            label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label28.Name = "label28";
-            label28.Size = new System.Drawing.Size(138, 15);
-            label28.TabIndex = 52;
-            label28.Text = "Добавить комментарий";
-            // 
-            // label29
-            // 
-            label29.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label29.AutoSize = true;
-            label29.Location = new System.Drawing.Point(368, 720);
-            label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label29.Name = "label29";
-            label29.Size = new System.Drawing.Size(91, 15);
-            label29.TabIndex = 53;
-            label29.Text = "Добавить файл";
-            // 
             // label30
             // 
             label30.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label30.AutoSize = true;
-            label30.Location = new System.Drawing.Point(732, 720);
+            label30.Location = new System.Drawing.Point(732, 650);
             label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label30.Name = "label30";
             label30.Size = new System.Drawing.Size(125, 15);
@@ -1685,7 +1736,7 @@ namespace DocumentAdder.Forms
             // 
             CourtDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_date", true));
             CourtDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            CourtDateBox.Location = new System.Drawing.Point(4, 668);
+            CourtDateBox.Location = new System.Drawing.Point(550, 143);
             CourtDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             CourtDateBox.Mask = "00/00/0000";
             CourtDateBox.Name = "CourtDateBox";
@@ -1693,36 +1744,16 @@ namespace DocumentAdder.Forms
             CourtDateBox.TabIndex = 116;
             CourtDateBox.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox16
-            // 
-            textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox16.Location = new System.Drawing.Point(186, 668);
-            textBox16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new System.Drawing.Size(174, 23);
-            textBox16.TabIndex = 99;
-            // 
             // label42
             // 
             label42.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label42.AutoSize = true;
-            label42.Location = new System.Drawing.Point(4, 650);
+            label42.Location = new System.Drawing.Point(550, 125);
             label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label42.Name = "label42";
             label42.Size = new System.Drawing.Size(115, 15);
             label42.TabIndex = 114;
             label42.Text = "Дата вынесения ИД";
-            // 
-            // label43
-            // 
-            label43.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label43.AutoSize = true;
-            label43.Location = new System.Drawing.Point(186, 650);
-            label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label43.Name = "label43";
-            label43.Size = new System.Drawing.Size(40, 15);
-            label43.TabIndex = 115;
-            label43.Text = "№ ИД";
             // 
             // ModeCB
             // 
@@ -1732,7 +1763,7 @@ namespace DocumentAdder.Forms
             ModeCB.Dock = System.Windows.Forms.DockStyle.Fill;
             ModeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             ModeCB.FormattingEnabled = true;
-            ModeCB.Location = new System.Drawing.Point(732, 668);
+            ModeCB.Location = new System.Drawing.Point(550, 598);
             ModeCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             ModeCB.Name = "ModeCB";
             ModeCB.Size = new System.Drawing.Size(174, 23);
@@ -1744,22 +1775,11 @@ namespace DocumentAdder.Forms
             // 
             bindingSource1.DataSource = typeof(CBMember);
             // 
-            // label45
-            // 
-            label45.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label45.AutoSize = true;
-            label45.Location = new System.Drawing.Point(732, 650);
-            label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label45.Name = "label45";
-            label45.Size = new System.Drawing.Size(45, 15);
-            label45.TabIndex = 122;
-            label45.Text = "Режим";
-            // 
             // labelSelectDocBarcode
             // 
             labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             labelSelectDocBarcode.AutoSize = true;
-            labelSelectDocBarcode.Location = new System.Drawing.Point(368, 650);
+            labelSelectDocBarcode.Location = new System.Drawing.Point(186, 580);
             labelSelectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelSelectDocBarcode.Name = "labelSelectDocBarcode";
             labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
@@ -1773,7 +1793,7 @@ namespace DocumentAdder.Forms
             selectDocBarcode.DataSource = Documents;
             selectDocBarcode.DisplayMember = "name";
             selectDocBarcode.FormattingEnabled = true;
-            selectDocBarcode.Location = new System.Drawing.Point(368, 668);
+            selectDocBarcode.Location = new System.Drawing.Point(186, 598);
             selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
@@ -1893,7 +1913,7 @@ namespace DocumentAdder.Forms
             // 
             label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(549, 125);
+            label7.Location = new System.Drawing.Point(3, 580);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(70, 15);
             label7.TabIndex = 128;
@@ -1903,186 +1923,45 @@ namespace DocumentAdder.Forms
             // 
             FailureDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Failure_date", true));
             FailureDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            FailureDateBox.Location = new System.Drawing.Point(549, 143);
+            FailureDateBox.Location = new System.Drawing.Point(3, 598);
             FailureDateBox.Mask = "00/00/0000";
             FailureDateBox.Name = "FailureDateBox";
             FailureDateBox.Size = new System.Drawing.Size(176, 23);
             FailureDateBox.TabIndex = 10;
             FailureDateBox.ValidatingType = typeof(System.DateTime);
             // 
-            // dictState
+            // label45
             // 
-            dictState.DataSource = typeof(DictModel);
+            label45.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label45.AutoSize = true;
+            label45.Location = new System.Drawing.Point(550, 580);
+            label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label45.Name = "label45";
+            label45.Size = new System.Drawing.Size(45, 15);
+            label45.TabIndex = 122;
+            label45.Text = "Режим";
             // 
-            // dictDebtStatus
+            // label28
             // 
-            dictDebtStatus.DataSource = typeof(DictModel);
+            label28.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label28.AutoSize = true;
+            label28.Location = new System.Drawing.Point(4, 650);
+            label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label28.Name = "label28";
+            label28.Size = new System.Drawing.Size(138, 15);
+            label28.TabIndex = 52;
+            label28.Text = "Добавить комментарий";
             // 
-            // LawExecId
+            // label29
             // 
-            LawExecId.DataPropertyName = "id";
-            LawExecId.HeaderText = "ID";
-            LawExecId.Name = "LawExecId";
-            LawExecId.ReadOnly = true;
-            // 
-            // LawExecStatus
-            // 
-            LawExecStatus.DataPropertyName = "Status";
-            LawExecStatus.DataSource = dictState;
-            LawExecStatus.DisplayMember = "name";
-            LawExecStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            LawExecStatus.HeaderText = "Статус";
-            LawExecStatus.Name = "LawExecStatus";
-            LawExecStatus.ReadOnly = true;
-            LawExecStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            LawExecStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            LawExecStatus.ValueMember = "code";
-            // 
-            // LawExecDebtStatus
-            // 
-            LawExecDebtStatus.DataPropertyName = "Debt_status";
-            LawExecDebtStatus.DataSource = dictDebtStatus;
-            LawExecDebtStatus.DisplayMember = "name";
-            LawExecDebtStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            LawExecDebtStatus.HeaderText = "Статус долга";
-            LawExecDebtStatus.Name = "LawExecDebtStatus";
-            LawExecDebtStatus.ReadOnly = true;
-            LawExecDebtStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            LawExecDebtStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            LawExecDebtStatus.ValueMember = "code";
-            // 
-            // LawExecFioVz
-            // 
-            LawExecFioVz.DataPropertyName = "fio_vz";
-            LawExecFioVz.HeaderText = "ФИО Взыскателя";
-            LawExecFioVz.Name = "LawExecFioVz";
-            LawExecFioVz.ReadOnly = true;
-            // 
-            // LawExecPortfolio
-            // 
-            LawExecPortfolio.DataPropertyName = "portfolio";
-            LawExecPortfolio.HeaderText = "Портфель";
-            LawExecPortfolio.Name = "LawExecPortfolio";
-            LawExecPortfolio.ReadOnly = true;
-            // 
-            // LawExecFio
-            // 
-            LawExecFio.DataPropertyName = "fio";
-            LawExecFio.HeaderText = "ФИО";
-            LawExecFio.Name = "LawExecFio";
-            LawExecFio.ReadOnly = true;
-            // 
-            // LawExecBirthDate
-            // 
-            LawExecBirthDate.DataPropertyName = "birth_date";
-            LawExecBirthDate.HeaderText = "Дата Рождения";
-            LawExecBirthDate.Name = "LawExecBirthDate";
-            LawExecBirthDate.ReadOnly = true;
-            // 
-            // LawExecContract
-            // 
-            LawExecContract.DataPropertyName = "contract";
-            LawExecContract.HeaderText = "№ КД";
-            LawExecContract.Name = "LawExecContract";
-            LawExecContract.ReadOnly = true;
-            // 
-            // LawExecFsspDocNum
-            // 
-            LawExecFsspDocNum.DataPropertyName = "fssp_doc_num";
-            LawExecFsspDocNum.HeaderText = "№ ИП";
-            LawExecFsspDocNum.Name = "LawExecFsspDocNum";
-            LawExecFsspDocNum.ReadOnly = true;
-            // 
-            // LawExecCourtDocNum
-            // 
-            LawExecCourtDocNum.DataPropertyName = "court_doc_num";
-            LawExecCourtDocNum.HeaderText = "№ ИД";
-            LawExecCourtDocNum.Name = "LawExecCourtDocNum";
-            LawExecCourtDocNum.ReadOnly = true;
-            // 
-            // LawExecTotalSum
-            // 
-            LawExecTotalSum.DataPropertyName = "total_sum";
-            LawExecTotalSum.HeaderText = "Размер требований";
-            LawExecTotalSum.Name = "LawExecTotalSum";
-            LawExecTotalSum.ReadOnly = true;
-            // 
-            // LawExecFsspName
-            // 
-            LawExecFsspName.DataPropertyName = "fssp_name";
-            LawExecFsspName.HeaderText = "ФССП";
-            LawExecFsspName.Name = "LawExecFsspName";
-            LawExecFsspName.ReadOnly = true;
-            // 
-            // LawExecFsspAddress
-            // 
-            LawExecFsspAddress.DataPropertyName = "fssp_address";
-            LawExecFsspAddress.HeaderText = "Адрес ФССП";
-            LawExecFsspAddress.Name = "LawExecFsspAddress";
-            LawExecFsspAddress.ReadOnly = true;
-            // 
-            // LawExecExecNumber
-            // 
-            LawExecExecNumber.DataPropertyName = "exec_number";
-            LawExecExecNumber.HeaderText = "Номер ГД";
-            LawExecExecNumber.Name = "LawExecExecNumber";
-            LawExecExecNumber.ReadOnly = true;
-            // 
-            // LawExecDsc
-            // 
-            LawExecDsc.DataPropertyName = "dsc";
-            LawExecDsc.HeaderText = "Комментарий";
-            LawExecDsc.Name = "LawExecDsc";
-            LawExecDsc.ReadOnly = true;
-            // 
-            // LawExecFullAdr
-            // 
-            LawExecFullAdr.DataPropertyName = "full_adr";
-            LawExecFullAdr.HeaderText = "Адрес регистрации";
-            LawExecFullAdr.Name = "LawExecFullAdr";
-            LawExecFullAdr.ReadOnly = true;
-            // 
-            // LawExecStartSum
-            // 
-            LawExecStartSum.DataPropertyName = "start_sum";
-            LawExecStartSum.HeaderText = "Начальная сумма";
-            LawExecStartSum.Name = "LawExecStartSum";
-            LawExecStartSum.ReadOnly = true;
-            // 
-            // LawExecNumber
-            // 
-            LawExecNumber.DataPropertyName = "number";
-            LawExecNumber.HeaderText = "Номер паспорта";
-            LawExecNumber.Name = "LawExecNumber";
-            LawExecNumber.ReadOnly = true;
-            // 
-            // LawExecSeries
-            // 
-            LawExecSeries.DataPropertyName = "series";
-            LawExecSeries.HeaderText = "Серия паспорта";
-            LawExecSeries.Name = "LawExecSeries";
-            LawExecSeries.ReadOnly = true;
-            // 
-            // LawExecInn
-            // 
-            LawExecInn.DataPropertyName = "inn";
-            LawExecInn.HeaderText = "ИНН";
-            LawExecInn.Name = "LawExecInn";
-            LawExecInn.ReadOnly = true;
-            // 
-            // LawExecExecDate
-            // 
-            LawExecExecDate.DataPropertyName = "exec_date";
-            LawExecExecDate.HeaderText = "Дата дела";
-            LawExecExecDate.Name = "LawExecExecDate";
-            LawExecExecDate.ReadOnly = true;
-            // 
-            // LawExecBirthPlace
-            // 
-            LawExecBirthPlace.DataPropertyName = "birth_place";
-            LawExecBirthPlace.HeaderText = "Место рождения";
-            LawExecBirthPlace.Name = "LawExecBirthPlace";
-            LawExecBirthPlace.ReadOnly = true;
+            label29.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label29.AutoSize = true;
+            label29.Location = new System.Drawing.Point(368, 650);
+            label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label29.Name = "label29";
+            label29.Size = new System.Drawing.Size(91, 15);
+            label29.TabIndex = 53;
+            label29.Text = "Добавить файл";
             // 
             // MainForm
             // 
@@ -2107,6 +1986,8 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictState).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
@@ -2115,8 +1996,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dictState).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ResumeLayout(false);
         }
 
@@ -2173,6 +2052,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label31;
@@ -2205,17 +2085,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox seriesBox;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox birthDateBox;
-        private System.Windows.Forms.TextBox debtSumBox;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
         private System.Windows.Forms.MaskedTextBox CourtDateBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;

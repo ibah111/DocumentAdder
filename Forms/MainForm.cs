@@ -341,7 +341,6 @@ public partial class MainForm : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        string vvvv = typDocBox.SelectedItem.ToString();
 
 
         if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
@@ -353,11 +352,7 @@ public partial class MainForm : Form
                     || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
-            if (/*String.IsNullOrEmpty(textBox21.Text) || */String.IsNullOrEmpty(debtSumBox.Text) || /*String.IsNullOrEmpty(textBox19.Text) || String.IsNullOrEmpty(textBox20.Text) ||*/ String.IsNullOrEmpty(execNumberBox.Text) || String.IsNullOrEmpty(CourtDateBox.Text) || String.IsNullOrEmpty(textBox16.Text) || /*String.IsNullOrEmpty(comboBox9.Text) ||*/ String.IsNullOrEmpty(postNameBox.Text))
-            {
-                MessageBox.Show("Поля для ВТБ не заполнены!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
         }
         if (CheckMasked() == false)
         {
@@ -430,7 +425,7 @@ public partial class MainForm : Form
             {
                 if (value == current.Doc_barcode)
                 {
-                    var doc = new ClientDoc() { doc = result, barcode = true, title = textBox16.Text, date = CourtDateBox.Text };
+                    var doc = new ClientDoc() { doc = result, barcode = true, title = current.Exec_number, date = CourtDateBox.Text };
                     if (current.Typ == LawTyp.LawExec)
                     {
                         doc.type = 2;
