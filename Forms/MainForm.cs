@@ -214,10 +214,6 @@ public partial class MainForm : Form
             {
                 selectDocBarcode.Enabled = false;
             }
-            if (!String.IsNullOrEmpty(settings.document_name))
-                documentNameBox.Text = settings.document_name;
-            if (settings.user_task.HasValue)
-                userTaskBox.SelectedValue = settings.user_task;
         }
     }
 
@@ -292,6 +288,15 @@ public partial class MainForm : Form
         else
         {
             binding.Status = null;
+        }
+
+        if (settings.user_task != null)
+        {
+            binding.User_task = settings.user_task;
+        }
+        if (settings.document_name != null)
+        {
+            binding.Document_name = settings.document_name;
         }
         current = binding;
         dataModelBinding.DataSource = current;
@@ -679,6 +684,15 @@ public partial class MainForm : Form
         else
         {
             binding.Status = null;
+        }
+
+        if (settings.user_task != null)
+        {
+            binding.User_task = settings.user_task;
+        }
+        if (settings.document_name != null)
+        {
+            binding.Document_name = settings.document_name;
         }
         current = binding;
         dataModelBinding.DataSource = current;
