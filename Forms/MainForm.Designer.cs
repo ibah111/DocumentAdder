@@ -490,11 +490,12 @@ namespace DocumentAdder.Forms
             button2.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
             button2.Cursor = System.Windows.Forms.Cursors.Hand;
             button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            button2.Enabled = false;
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             button2.Location = new System.Drawing.Point(550, 843);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(174, 99);
+            button2.Size = new System.Drawing.Size(174, 75);
             button2.TabIndex = 60;
             button2.Text = "Готово!";
             button2.UseVisualStyleBackColor = false;
@@ -507,7 +508,7 @@ namespace DocumentAdder.Forms
             button3.Location = new System.Drawing.Point(368, 843);
             button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(174, 99);
+            button3.Size = new System.Drawing.Size(174, 75);
             button3.TabIndex = 61;
             button3.Text = "Посмотреть вложения";
             button3.UseVisualStyleBackColor = true;
@@ -1061,7 +1062,7 @@ namespace DocumentAdder.Forms
             dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
-            dataGridView2.Size = new System.Drawing.Size(724, 274);
+            dataGridView2.Size = new System.Drawing.Size(724, 250);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
             // 
@@ -1270,7 +1271,7 @@ namespace DocumentAdder.Forms
             textBox12.ReadOnly = true;
             tableLayoutPanel1.SetRowSpan(textBox12, 3);
             textBox12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            textBox12.Size = new System.Drawing.Size(356, 169);
+            textBox12.Size = new System.Drawing.Size(356, 145);
             textBox12.TabIndex = 57;
             // 
             // panel1

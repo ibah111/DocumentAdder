@@ -71,7 +71,22 @@ public partial class MainForm : Form
         current = new();
         dataModelBinding.DataSource = current;
         dataModelBinding.DataSourceChanged += dataModelBinding_dataModelChanged;
+        current.PropertyChanged += Current_PropertyChanged;
     }
+
+    private void Current_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (current.Id != null)
+        {
+            if (current.Data != null)
+            {
+                button2.Enabled = true;
+                return;
+            }
+        }
+        button2.Enabled = false;
+    }
+
     private void dataModelBinding_dataModelChanged(object sender, EventArgs e)
     {
         var binding = (BindingSource)sender;
