@@ -120,7 +120,7 @@ public class Searcher
         var select2 = data2.Select(x => new ActDataModel()
         {
             id = x.id,
-            typ = LawTyp.LawAct,
+            typ = LawTyp.LawExec,
             LawExec = new()
             {
                 id = x.id,

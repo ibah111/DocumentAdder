@@ -125,7 +125,8 @@ public partial class DataModel : ObservableObject
     [ObservableProperty]
     private string? dsc;
 
-    public string DscRead { set; get; }
+    [ObservableProperty]
+    public string? dscRead;
 
     //Исполнитель
     [ObservableProperty]
