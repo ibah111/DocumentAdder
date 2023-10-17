@@ -268,9 +268,14 @@ public class ListLawFields
                 return value.Status > -1;
             }
         },
-        new() { instance = "Dsc", change=(data,value,_)=>{
-            data.dsc+=value.Dsc;
-        } },
+        new()
+        {
+            instance = "Dsc",
+            change = (data, value, _) =>
+            {
+                data.dsc += value.Dsc;
+            }
+        },
         new() { database_order = "court_order_date", instance = "Court_order_date" },
         new() { database_order = "court_exec_date", instance = "Court_exec_date" },
         new() { database_order = "receipt_date", instance = "Receipt_date", database_act = "receipt_dt" },
@@ -349,7 +354,14 @@ public class ListLawFields
         new() { database_order = "state", instance = "Status" },
         new() { database_order = "fssp_doc_num", instance = "Fssp_doc_num" },
         new() { database_order = "court_doc_num", instance = "Court_doc_num" },
-        new() { database_order = "dsc", instance = "Dsc" },
+        new()
+        {
+            instance = "Dsc",
+            change = (data, value, _) =>
+            {
+                data.dsc += value.Dsc;
+            }
+        },
         new() { database_order = "court_date", instance = "Court_order_date" },
         new() { database_order = "entry_force_dt", instance = "Court_exec_date" },
         new() { database_order = "start_date", instance = "Start_date" },
