@@ -283,10 +283,12 @@ public partial class MainForm : Form
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
         var settings = settings_json[typ];
-        if (settings.without_act_status.ContainsKey(dict)
-            && settings.without_act_status[dict].Contains(getIntStatus(data).Value)
+        if (!(settings.without_act_status.ContainsKey(dict)
+            && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
             && settings.act_status.ContainsKey(data.typ.Value))
-        { binding.Status = settings.act_status[data.typ.Value]; }
+        {
+            binding.Status = settings.act_status[data.typ.Value];
+        }
         else
         {
             binding.Status = null;
@@ -672,6 +674,10 @@ public partial class MainForm : Form
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
         {
             binding.Status = settings.exec_status;
+        }
+        else
+        {
+            binding.Status = null;
         }
         current = binding;
         dataModelBinding.DataSource = current;
