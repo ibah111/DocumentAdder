@@ -397,23 +397,24 @@ public partial class MainForm : Form
                     || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
                     )
         {
-            var personInfo = new PersonInfo(current);
-            try
-            {
-                var (error, message) = VTBAdder.CreateExcel();
-                if (error)
-                {
-                    MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                else
-                    VTBAdder.Add(personInfo);
-            }
-            catch
-            {
-                MessageBox.Show(this, "Строчка не добавлена, скорее всего открыт Excel файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //TODO: надо исправить
+            //var personInfo = new PersonInfo(current);
+            //try
+            //{
+            //    var (error, message) = VTBAdder.CreateExcel();
+            //    if (error)
+            //    {
+            //        MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        return;
+            //    }
+            //    else
+            //        VTBAdder.Add(personInfo);
+            //}
+            //catch
+            //{
+            //    MessageBox.Show(this, "Строчка не добавлена, скорее всего открыт Excel файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
         }
 
         using var db = Program.factory_db.CreateDbContext();
