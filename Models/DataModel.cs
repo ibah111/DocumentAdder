@@ -18,12 +18,13 @@ public partial class DataModel : ObservableObject
             Exec_number = data.LawAct.exec_number;
             Court_order_date = data.LawAct.court_order_date;
             Court_exec_date = data.LawAct.court_exec_date;
-            if (data.LawAct.typ > 1)
-            {
-                Receipt_date = data.LawAct.receipt_dt;
-            }
-            else
-                Receipt_date = data.LawAct.receipt_date;
+            //Надо создавать новую дату
+            //if (data.LawAct.typ > 1)
+            //{
+            //    Receipt_date = data.LawAct.receipt_dt;
+            //}
+            //else
+            //    Receipt_date = data.LawAct.receipt_date;
             //receipt_date = data.LawAct.receipt_act_dt;
             Failure_date = data.LawAct.failure_date;
             Correct_period_date = data.LawAct.correct_period_date;
@@ -36,9 +37,11 @@ public partial class DataModel : ObservableObject
                 Start_date = data.LawExec.start_date;
                 Finish_date = data.LawExec.finish_date;
                 Restriction_to_leave_dt = data.LawExec.restriction_to_leave_dt;
-                Receipt_date = data.LawExec.receipt_act_dt;
+                //Надо создавать новую дату
+                //Receipt_date = data.LawExec.receipt_act_dt;
                 DscRead = data.LawExec.dsc;
             }
+            Receipt_date = DateTime.Now;
             Post_name = data.LawCourt?.name;
             Post_address = data.LawCourt?.address;
         }
