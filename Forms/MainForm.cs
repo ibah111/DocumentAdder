@@ -76,6 +76,10 @@ public partial class MainForm : Form
 
     private void Current_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
+        checkCurrent();
+    }
+    private void checkCurrent()
+    {
         if (current.Id != null)
         {
             if (current.Data != null)
@@ -107,6 +111,7 @@ public partial class MainForm : Form
             contractBox.Text = data.Data.Debt.contract;
         }
         execNumberSearchBox.Text = data.Exec_number;
+        checkCurrent();
     }
     private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
@@ -288,6 +293,7 @@ public partial class MainForm : Form
         }
         current = binding;
         dataModelBinding.DataSource = current;
+        current.PropertyChanged += Current_PropertyChanged;
     }
     private int getIntDict(int? typ = 0)
     {
@@ -669,6 +675,7 @@ public partial class MainForm : Form
         }
         current = binding;
         dataModelBinding.DataSource = current;
+        current.PropertyChanged += Current_PropertyChanged;
     }
 
     private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
