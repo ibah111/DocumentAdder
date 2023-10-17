@@ -1736,6 +1736,7 @@ namespace DocumentAdder.Forms
             // CourtDateBox
             // 
             CourtDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_date", true));
+            CourtDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Court_date", true));
             CourtDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             CourtDateBox.Location = new System.Drawing.Point(550, 143);
             CourtDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

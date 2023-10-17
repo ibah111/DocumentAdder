@@ -22,6 +22,8 @@ public partial class SettingsModel : ObservableObject
     [ObservableProperty]
     private bool court_exec_date;
     [ObservableProperty]
+    private bool court_date = false;
+    [ObservableProperty]
     private bool start_date;
     [ObservableProperty]
     private bool finish_date;
