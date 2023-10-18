@@ -521,9 +521,9 @@ namespace DocumentAdder.Forms
             label14.Location = new System.Drawing.Point(4, 195);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(148, 15);
+            label14.Size = new System.Drawing.Size(170, 15);
             label14.TabIndex = 24;
-            label14.Text = "Дата вынесения решения";
+            label14.Text = "Дата вынесения решения/ИД";
             // 
             // label15
             // 
