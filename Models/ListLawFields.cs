@@ -271,9 +271,10 @@ public class ListLawFields
         new()
         {
             instance = "Dsc",
+            checking = false,
             change = (data, value, _) =>
             {
-                data.dsc += value.Dsc;
+                data.dsc += "\n" +value.Dsc;
             }
         },
         new() { database_order = "court_order_date", instance = "Court_order_date" },
@@ -357,9 +358,10 @@ public class ListLawFields
         new()
         {
             instance = "Dsc",
+            checking = false,
             change = (data, value, _) =>
             {
-                data.dsc += value.Dsc;
+                data.dsc += "\n"+ value.Dsc;
             }
         },
         new() { database_order = "court_date", instance = "Court_order_date" },
