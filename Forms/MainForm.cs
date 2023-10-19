@@ -274,7 +274,7 @@ public partial class MainForm : Form
     private void InstallData(LawActResult data)
     {
         var typ = current.Typ_doc;
-        var binding = new DataModel(data.data);
+        var binding = new DataModel(data.data, current.Date_post);
         binding.Typ_doc = typ;
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
@@ -672,7 +672,7 @@ public partial class MainForm : Form
     private void InstallData(LawExecResult data)
     {
         var typ = current.Typ_doc;
-        var binding = new DataModel(data.data);
+        var binding = new DataModel(data.data, current.Date_post);
         binding.Typ_doc = typ;
         var settings = settings_json[typ];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();

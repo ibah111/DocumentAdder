@@ -8,8 +8,10 @@ namespace DocumentAdder.Models;
 
 public partial class DataModel : ObservableObject
 {
-    public DataModel(ActDataModel? data = null)
+    public DataModel(ActDataModel? data = null, DateTime? date_post = null)
     {
+        if (date_post != null)
+            this.date_post = date_post.Value;
         if (data != null)
         {
             Data = data;
