@@ -555,7 +555,7 @@ public partial class MainForm : Form
             desc += $" {correctPeriodDateBox.Text}";
         var result = new
         {
-            date_post = current.Date_post.ToShortDateString(),
+            date_post = current.Date_post,
             Convert = current.Check,
             pristavi = current.Fssp,
             adr_otp = current.Post_address,
