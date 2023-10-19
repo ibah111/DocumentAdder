@@ -6,6 +6,7 @@ using DocumentAdder.Models;
 using DocumentAdder.Properties;
 using DocumentAdder.Utils;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -480,7 +481,7 @@ public partial class MainForm : Form
         if (ints.Contains(
         (int)ModeCB.SelectedValue))
         {
-            Mail f = new Mail((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked, docs);
+            Mail f = new Mail((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked, docs, transaction);
             f.Show(this);
         }
         else
@@ -488,7 +489,7 @@ public partial class MainForm : Form
 
             if (checkBox3.Checked == true)
             {
-                newTask(errors, docs);
+                newTask(errors, docs, transaction);
             }
             else
             {
@@ -535,10 +536,10 @@ public partial class MainForm : Form
         }
     }
 
-    public void newTask(int errors, List<ClientDoc> docs)
+    public void newTask(int errors, List<ClientDoc> docs, IDbContextTransaction transaction)
     {
         var personInfo = new PersonInfo(current);
-        Tasks f = new Tasks(ref errors, this, personInfo, docs);
+        Tasks f = new Tasks(ref errors, this, personInfo, docs, transaction);
         f.Show();
         f.FormClosed += F_FormClosed;
     }

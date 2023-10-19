@@ -2,6 +2,7 @@
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using DocumentAdder.Utils;
+using Microsoft.EntityFrameworkCore.Storage;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,8 @@ public partial class Tasks : Form
     private MainForm Forms;
     private PersonInfo _personInfo;
     private List<ClientDoc> docs;
-
-    public Tasks(ref int errors, MainForm form, PersonInfo personInfo, List<ClientDoc> docs)
+    private IDbContextTransaction transaction;
+    public Tasks(ref int errors, MainForm form, PersonInfo personInfo, List<ClientDoc> docs, IDbContextTransaction transaction)
     {
         InitializeComponent();
         Templates();
@@ -24,6 +25,7 @@ public partial class Tasks : Form
         this.Forms = form;
         this._personInfo = personInfo;
         this.docs = docs;
+        this.transaction = transaction;
     }
 
     private void Templates()
@@ -96,10 +98,14 @@ public partial class Tasks : Form
         }
         if (errors == 0)
         {
+            transaction.Commit();
             MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else
+        {
+            transaction.Rollback();
             MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+        }
         Forms.ClearTextBox();
         errors = 0;
         Close();

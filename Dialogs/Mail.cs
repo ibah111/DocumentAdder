@@ -1,6 +1,7 @@
 ﻿using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
+using Microsoft.EntityFrameworkCore.Storage;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,9 @@ public partial class Mail : Form
     private readonly List<ClientDoc> docs;
     private MailModelEnabled enabled;
     private MailModel current;
+    private IDbContextTransaction transaction;
 
-    public Mail(int mode, MainForm form, ref int errors, bool task, List<ClientDoc> docs)
+    public Mail(int mode, MainForm form, ref int errors, bool task, List<ClientDoc> docs, IDbContextTransaction transaction)
     {
         InitializeComponent();
         this.errors = errors;
@@ -51,7 +53,7 @@ public partial class Mail : Form
         }
         current = new();
         mailModelEnabledBinding.DataSource = enabled;
-        
+
         mailModelBinding.DataSource = current;
     }
 
@@ -59,7 +61,7 @@ public partial class Mail : Form
     {
         if (_task)
         {
-            _form.newTask(errors, docs);
+            _form.newTask(errors, docs, transaction);
         }
         else
         {
@@ -79,10 +81,14 @@ public partial class Mail : Form
             }
             if (errors == 0)
             {
+                transaction.Commit();
                 MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
+            {
+                transaction.Rollback();
                 MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
+            }
             errors = 0;
             _form.ClearTextBox();
         }
