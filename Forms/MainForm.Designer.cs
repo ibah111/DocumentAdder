@@ -572,7 +572,7 @@ namespace DocumentAdder.Forms
             CourtExecDateBox.Mask = "00/00/0000";
             CourtExecDateBox.Name = "CourtExecDateBox";
             CourtExecDateBox.Size = new System.Drawing.Size(174, 23);
-            CourtExecDateBox.TabIndex = 12;
+            CourtExecDateBox.TabIndex = 8;
             CourtExecDateBox.ValidatingType = typeof(System.DateTime);
             CourtExecDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             CourtExecDateBox.KeyDown += textBox1_KeyDown;
@@ -591,7 +591,7 @@ namespace DocumentAdder.Forms
             startDateBox.Mask = "00/00/0000";
             startDateBox.Name = "startDateBox";
             startDateBox.Size = new System.Drawing.Size(174, 23);
-            startDateBox.TabIndex = 13;
+            startDateBox.TabIndex = 11;
             startDateBox.ValidatingType = typeof(System.DateTime);
             startDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             startDateBox.KeyDown += textBox1_KeyDown;
@@ -606,7 +606,7 @@ namespace DocumentAdder.Forms
             finishDateBox.Mask = "00/00/0000";
             finishDateBox.Name = "finishDateBox";
             finishDateBox.Size = new System.Drawing.Size(174, 23);
-            finishDateBox.TabIndex = 14;
+            finishDateBox.TabIndex = 12;
             finishDateBox.ValidatingType = typeof(System.DateTime);
             finishDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             finishDateBox.KeyDown += textBox1_KeyDown;
@@ -884,7 +884,7 @@ namespace DocumentAdder.Forms
             receiptDateBox.Mask = "00/00/0000";
             receiptDateBox.Name = "receiptDateBox";
             receiptDateBox.Size = new System.Drawing.Size(174, 23);
-            receiptDateBox.TabIndex = 15;
+            receiptDateBox.TabIndex = 14;
             receiptDateBox.ValidatingType = typeof(System.DateTime);
             receiptDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
@@ -899,7 +899,7 @@ namespace DocumentAdder.Forms
             returnDateBox.Mask = "00/00/0000";
             returnDateBox.Name = "returnDateBox";
             returnDateBox.Size = new System.Drawing.Size(174, 23);
-            returnDateBox.TabIndex = 16;
+            returnDateBox.TabIndex = 15;
             returnDateBox.ValidatingType = typeof(System.DateTime);
             returnDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             returnDateBox.KeyDown += textBox1_KeyDown;
@@ -914,7 +914,7 @@ namespace DocumentAdder.Forms
             restrictionToLeaveDtBox.Mask = "00/00/0000";
             restrictionToLeaveDtBox.Name = "restrictionToLeaveDtBox";
             restrictionToLeaveDtBox.Size = new System.Drawing.Size(174, 23);
-            restrictionToLeaveDtBox.TabIndex = 17;
+            restrictionToLeaveDtBox.TabIndex = 16;
             restrictionToLeaveDtBox.ValidatingType = typeof(System.DateTime);
             restrictionToLeaveDtBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             restrictionToLeaveDtBox.KeyDown += textBox1_KeyDown;
@@ -929,7 +929,7 @@ namespace DocumentAdder.Forms
             rejectDateBox.Mask = "00/00/0000";
             rejectDateBox.Name = "rejectDateBox";
             rejectDateBox.Size = new System.Drawing.Size(174, 23);
-            rejectDateBox.TabIndex = 18;
+            rejectDateBox.TabIndex = 13;
             rejectDateBox.ValidatingType = typeof(System.DateTime);
             rejectDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             rejectDateBox.KeyDown += textBox1_KeyDown;
@@ -977,7 +977,7 @@ namespace DocumentAdder.Forms
             cancelDateBox.Mask = "00/00/0000";
             cancelDateBox.Name = "cancelDateBox";
             cancelDateBox.Size = new System.Drawing.Size(174, 23);
-            cancelDateBox.TabIndex = 19;
+            cancelDateBox.TabIndex = 18;
             cancelDateBox.ValidatingType = typeof(System.DateTime);
             cancelDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             cancelDateBox.KeyDown += textBox1_KeyDown;
@@ -992,7 +992,7 @@ namespace DocumentAdder.Forms
             correctPeriodDateBox.Mask = "00/00/0000";
             correctPeriodDateBox.Name = "correctPeriodDateBox";
             correctPeriodDateBox.Size = new System.Drawing.Size(174, 23);
-            correctPeriodDateBox.TabIndex = 20;
+            correctPeriodDateBox.TabIndex = 19;
             correctPeriodDateBox.ValidatingType = typeof(System.DateTime);
             correctPeriodDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             correctPeriodDateBox.KeyDown += textBox1_KeyDown;
@@ -1007,7 +1007,7 @@ namespace DocumentAdder.Forms
             sessionDateBox.Mask = "00/00/0000 90:00";
             sessionDateBox.Name = "sessionDateBox";
             sessionDateBox.Size = new System.Drawing.Size(174, 23);
-            sessionDateBox.TabIndex = 21;
+            sessionDateBox.TabIndex = 17;
             sessionDateBox.ValidatingType = typeof(System.DateTime);
             sessionDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             sessionDateBox.KeyDown += textBox1_KeyDown;
@@ -1247,7 +1247,7 @@ namespace DocumentAdder.Forms
             textBox11.Name = "textBox11";
             tableLayoutPanel1.SetRowSpan(textBox11, 3);
             textBox11.Size = new System.Drawing.Size(356, 99);
-            textBox11.TabIndex = 22;
+            textBox11.TabIndex = 32;
             textBox11.TextChanged += textBox11_TextChanged;
             textBox11.KeyDown += textBox1_KeyDown;
             // 
@@ -1347,7 +1347,7 @@ namespace DocumentAdder.Forms
             fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             fsspDocNumBox.Name = "fsspDocNumBox";
             fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
-            fsspDocNumBox.TabIndex = 9;
+            fsspDocNumBox.TabIndex = 10;
             fsspDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             fsspDocNumBox.KeyDown += textBox1_KeyDown;
             // 
@@ -1361,7 +1361,7 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.Mask = "00/00/0000";
             courtOrderDateBox.Name = "courtOrderDateBox";
             courtOrderDateBox.Size = new System.Drawing.Size(174, 23);
-            courtOrderDateBox.TabIndex = 11;
+            courtOrderDateBox.TabIndex = 9;
             courtOrderDateBox.ValidatingType = typeof(System.DateTime);
             courtOrderDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             courtOrderDateBox.KeyDown += textBox1_KeyDown;
@@ -1375,7 +1375,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
-            courtDocNumBox.TabIndex = 8;
+            courtDocNumBox.TabIndex = 9;
             courtDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             courtDocNumBox.KeyDown += textBox1_KeyDown;
             // 
@@ -1441,7 +1441,7 @@ namespace DocumentAdder.Forms
             userTaskBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             userTaskBox.Name = "userTaskBox";
             userTaskBox.Size = new System.Drawing.Size(174, 23);
-            userTaskBox.TabIndex = 69;
+            userTaskBox.TabIndex = 20;
             userTaskBox.ValueMember = "ID";
             // 
             // label26
@@ -1466,7 +1466,7 @@ namespace DocumentAdder.Forms
             postNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             postNameBox.Name = "postNameBox";
             postNameBox.Size = new System.Drawing.Size(174, 23);
-            postNameBox.TabIndex = 84;
+            postNameBox.TabIndex = 26;
             // 
             // label35
             // 
@@ -1503,7 +1503,7 @@ namespace DocumentAdder.Forms
             articleAndParagraphBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             articleAndParagraphBox.Name = "articleAndParagraphBox";
             articleAndParagraphBox.Size = new System.Drawing.Size(174, 23);
-            articleAndParagraphBox.TabIndex = 68;
+            articleAndParagraphBox.TabIndex = 23;
             // 
             // documentNameBox
             // 
@@ -1517,7 +1517,7 @@ namespace DocumentAdder.Forms
             documentNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             documentNameBox.Name = "documentNameBox";
             documentNameBox.Size = new System.Drawing.Size(174, 23);
-            documentNameBox.TabIndex = 67;
+            documentNameBox.TabIndex = 28;
             // 
             // label32
             // 
@@ -1552,7 +1552,7 @@ namespace DocumentAdder.Forms
             postAddressBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             postAddressBox.Name = "postAddressBox";
             postAddressBox.Size = new System.Drawing.Size(174, 23);
-            postAddressBox.TabIndex = 85;
+            postAddressBox.TabIndex = 27;
             // 
             // button8
             // 
@@ -1598,7 +1598,7 @@ namespace DocumentAdder.Forms
             datePostBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             datePostBox.Name = "datePostBox";
             datePostBox.Size = new System.Drawing.Size(174, 23);
-            datePostBox.TabIndex = 90;
+            datePostBox.TabIndex = 22;
             datePostBox.Value = new System.DateTime(2022, 1, 10, 9, 2, 41, 0);
             // 
             // button9
@@ -1640,7 +1640,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel2.Size = new System.Drawing.Size(172, 28);
-            tableLayoutPanel2.TabIndex = 96;
+            tableLayoutPanel2.TabIndex = 25;
             // 
             // checkBox1
             // 
@@ -1680,7 +1680,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel3.Size = new System.Drawing.Size(172, 28);
-            tableLayoutPanel3.TabIndex = 97;
+            tableLayoutPanel3.TabIndex = 24;
             // 
             // comboBox4
             // 
@@ -1710,7 +1710,7 @@ namespace DocumentAdder.Forms
             checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new System.Drawing.Size(62, 19);
-            checkBox2.TabIndex = 91;
+            checkBox2.TabIndex = 29;
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
             // 
@@ -1737,7 +1737,7 @@ namespace DocumentAdder.Forms
             ModeCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             ModeCB.Name = "ModeCB";
             ModeCB.Size = new System.Drawing.Size(174, 23);
-            ModeCB.TabIndex = 121;
+            ModeCB.TabIndex = 30;
             ModeCB.ValueMember = "value";
             ModeCB.SelectedIndexChanged += SelectModeEvent;
             // 
@@ -1767,7 +1767,7 @@ namespace DocumentAdder.Forms
             selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
-            selectDocBarcode.TabIndex = 124;
+            selectDocBarcode.TabIndex = 31;
             // 
             // Documents
             // 
@@ -1798,7 +1798,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             tableLayoutPanel4.Size = new System.Drawing.Size(176, 29);
-            tableLayoutPanel4.TabIndex = 125;
+            tableLayoutPanel4.TabIndex = 21;
             // 
             // statusBox
             // 
