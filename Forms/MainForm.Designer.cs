@@ -54,22 +54,12 @@ namespace DocumentAdder.Forms
             typDocBinding = new System.Windows.Forms.BindingSource(components);
             textBoxF = new System.Windows.Forms.TextBox();
             label8 = new System.Windows.Forms.Label();
-            label9 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
-            label14 = new System.Windows.Forms.Label();
-            label15 = new System.Windows.Forms.Label();
-            label16 = new System.Windows.Forms.Label();
-            label17 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
-            CourtExecDateBox = new System.Windows.Forms.MaskedTextBox();
-            currentEnableds = new System.Windows.Forms.BindingSource(components);
-            startDateBox = new System.Windows.Forms.MaskedTextBox();
-            finishDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             LawActId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActTyp = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -97,17 +87,14 @@ namespace DocumentAdder.Forms
             label19 = new System.Windows.Forms.Label();
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
-            label22 = new System.Windows.Forms.Label();
             receiptDateBox = new System.Windows.Forms.MaskedTextBox();
+            currentEnableds = new System.Windows.Forms.BindingSource(components);
             returnDateBox = new System.Windows.Forms.MaskedTextBox();
             restrictionToLeaveDtBox = new System.Windows.Forms.MaskedTextBox();
-            rejectDateBox = new System.Windows.Forms.MaskedTextBox();
             label23 = new System.Windows.Forms.Label();
             label24 = new System.Windows.Forms.Label();
-            label25 = new System.Windows.Forms.Label();
             cancelDateBox = new System.Windows.Forms.MaskedTextBox();
             correctPeriodDateBox = new System.Windows.Forms.MaskedTextBox();
-            sessionDateBox = new System.Windows.Forms.MaskedTextBox();
             dataGridView2 = new System.Windows.Forms.DataGridView();
             LawExecId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawExecStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -142,73 +129,86 @@ namespace DocumentAdder.Forms
             contractBox = new System.Windows.Forms.TextBox();
             idBox = new System.Windows.Forms.TextBox();
             execNumberBox = new System.Windows.Forms.TextBox();
-            fsspDocNumBox = new System.Windows.Forms.TextBox();
-            courtOrderDateBox = new System.Windows.Forms.MaskedTextBox();
-            courtDocNumBox = new System.Windows.Forms.TextBox();
             button1 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
-            label27 = new System.Windows.Forms.Label();
-            userTaskBox = new System.Windows.Forms.ComboBox();
             label26 = new System.Windows.Forms.Label();
             postNameBox = new System.Windows.Forms.ComboBox();
             label35 = new System.Windows.Forms.Label();
             button7 = new System.Windows.Forms.Button();
             articleAndParagraphBox = new System.Windows.Forms.ComboBox();
-            documentNameBox = new System.Windows.Forms.ComboBox();
-            label32 = new System.Windows.Forms.Label();
             label33 = new System.Windows.Forms.Label();
             postAddressBox = new System.Windows.Forms.ComboBox();
             button8 = new System.Windows.Forms.Button();
             label36 = new System.Windows.Forms.Label();
-            button6 = new System.Windows.Forms.Button();
             datePostBox = new System.Windows.Forms.DateTimePicker();
             button9 = new System.Windows.Forms.Button();
             checkBox3 = new System.Windows.Forms.CheckBox();
-            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            checkBox1 = new System.Windows.Forms.CheckBox();
-            checkBox4 = new System.Windows.Forms.CheckBox();
-            tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            comboBox4 = new System.Windows.Forms.ComboBox();
-            button10 = new System.Windows.Forms.Button();
-            checkBox2 = new System.Windows.Forms.CheckBox();
             label30 = new System.Windows.Forms.Label();
-            ModeCB = new System.Windows.Forms.ComboBox();
-            bindingSource1 = new System.Windows.Forms.BindingSource(components);
-            labelSelectDocBarcode = new System.Windows.Forms.Label();
-            selectDocBarcode = new System.Windows.Forms.ComboBox();
-            Documents = new System.Windows.Forms.BindingSource(components);
-            label34 = new System.Windows.Forms.Label();
-            tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            statusBox = new System.Windows.Forms.ComboBox();
-            dictStatus = new System.Windows.Forms.BindingSource(components);
-            clearStatus = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             textBoxI = new System.Windows.Forms.TextBox();
             textBoxO = new System.Windows.Forms.TextBox();
-            label45 = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            CourtExecDateBox = new System.Windows.Forms.MaskedTextBox();
+            courtDocNumBox = new System.Windows.Forms.TextBox();
+            label10 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            courtOrderDateBox = new System.Windows.Forms.MaskedTextBox();
+            fsspDocNumBox = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            startDateBox = new System.Windows.Forms.MaskedTextBox();
+            label17 = new System.Windows.Forms.Label();
+            finishDateBox = new System.Windows.Forms.MaskedTextBox();
+            label22 = new System.Windows.Forms.Label();
+            rejectDateBox = new System.Windows.Forms.MaskedTextBox();
+            label25 = new System.Windows.Forms.Label();
+            sessionDateBox = new System.Windows.Forms.MaskedTextBox();
+            label45 = new System.Windows.Forms.Label();
+            ModeCB = new System.Windows.Forms.ComboBox();
+            bindingSource1 = new System.Windows.Forms.BindingSource(components);
+            selectDocBarcode = new System.Windows.Forms.ComboBox();
+            Documents = new System.Windows.Forms.BindingSource(components);
+            labelSelectDocBarcode = new System.Windows.Forms.Label();
+            label32 = new System.Windows.Forms.Label();
+            documentNameBox = new System.Windows.Forms.ComboBox();
+            button6 = new System.Windows.Forms.Button();
+            tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            comboBox4 = new System.Windows.Forms.ComboBox();
+            button10 = new System.Windows.Forms.Button();
+            userTaskBox = new System.Windows.Forms.ComboBox();
+            label34 = new System.Windows.Forms.Label();
+            tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            statusBox = new System.Windows.Forms.ComboBox();
+            dictStatus = new System.Windows.Forms.BindingSource(components);
+            clearStatus = new System.Windows.Forms.Button();
+            label27 = new System.Windows.Forms.Label();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            checkBox4 = new System.Windows.Forms.CheckBox();
+            checkBox1 = new System.Windows.Forms.CheckBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictState).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
-            tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
+            tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -258,7 +258,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(button1, 3, 19);
             tableLayoutPanel1.Controls.Add(button4, 3, 20);
             tableLayoutPanel1.Controls.Add(button5, 3, 21);
-            tableLayoutPanel1.Controls.Add(label27, 3, 9);
             tableLayoutPanel1.Controls.Add(label26, 0, 11);
             tableLayoutPanel1.Controls.Add(postNameBox, 0, 14);
             tableLayoutPanel1.Controls.Add(label35, 0, 13);
@@ -272,7 +271,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(button9, 3, 22);
             tableLayoutPanel1.Controls.Add(checkBox3, 3, 23);
             tableLayoutPanel1.Controls.Add(label30, 4, 18);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 3, 10);
             tableLayoutPanel1.Controls.Add(label4, 4, 1);
             tableLayoutPanel1.Controls.Add(label5, 5, 1);
             tableLayoutPanel1.Controls.Add(label6, 6, 1);
@@ -282,10 +280,10 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label29, 2, 18);
             tableLayoutPanel1.Controls.Add(label15, 1, 3);
             tableLayoutPanel1.Controls.Add(CourtExecDateBox, 1, 4);
-            tableLayoutPanel1.Controls.Add(courtDocNumBox, 2, 4);
+            tableLayoutPanel1.Controls.Add(courtDocNumBox, 3, 4);
             tableLayoutPanel1.Controls.Add(label10, 2, 3);
-            tableLayoutPanel1.Controls.Add(label14, 3, 3);
-            tableLayoutPanel1.Controls.Add(courtOrderDateBox, 3, 4);
+            tableLayoutPanel1.Controls.Add(label14, 2, 3);
+            tableLayoutPanel1.Controls.Add(courtOrderDateBox, 2, 4);
             tableLayoutPanel1.Controls.Add(fsspDocNumBox, 0, 6);
             tableLayoutPanel1.Controls.Add(label9, 0, 5);
             tableLayoutPanel1.Controls.Add(label16, 1, 5);
@@ -300,14 +298,16 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(ModeCB, 0, 17);
             tableLayoutPanel1.Controls.Add(selectDocBarcode, 1, 17);
             tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 1, 16);
-            tableLayoutPanel1.Controls.Add(button6, 2, 15);
-            tableLayoutPanel1.Controls.Add(documentNameBox, 2, 14);
-            tableLayoutPanel1.Controls.Add(label32, 2, 13);
-            tableLayoutPanel1.Controls.Add(userTaskBox, 2, 10);
-            tableLayoutPanel1.Controls.Add(label34, 2, 9);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 2, 12);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 12);
-            tableLayoutPanel1.Controls.Add(checkBox2, 3, 14);
+            tableLayoutPanel1.Controls.Add(label32, 2, 11);
+            tableLayoutPanel1.Controls.Add(documentNameBox, 2, 12);
+            tableLayoutPanel1.Controls.Add(button6, 2, 13);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 3, 13);
+            tableLayoutPanel1.Controls.Add(userTaskBox, 3, 12);
+            tableLayoutPanel1.Controls.Add(label34, 3, 11);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 2, 10);
+            tableLayoutPanel1.Controls.Add(label27, 2, 9);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 9);
+            tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -422,28 +422,6 @@ namespace DocumentAdder.Forms
             label8.TabIndex = 11;
             label8.Text = "№ Дела";
             // 
-            // label9
-            // 
-            label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(4, 195);
-            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(41, 15);
-            label9.TabIndex = 12;
-            label9.Text = "№ ИП";
-            // 
-            // label10
-            // 
-            label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(368, 125);
-            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(123, 15);
-            label10.TabIndex = 13;
-            label10.Text = "№ Испол. документа";
-            // 
             // label11
             // 
             label11.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
@@ -488,7 +466,7 @@ namespace DocumentAdder.Forms
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(174, 75);
-            button2.TabIndex = 60;
+            button2.TabIndex = 28;
             button2.Text = "Готово!";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -506,50 +484,6 @@ namespace DocumentAdder.Forms
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // label14
-            // 
-            label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(550, 125);
-            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(170, 15);
-            label14.TabIndex = 24;
-            label14.Text = "Дата вынесения решения/ИД";
-            // 
-            // label15
-            // 
-            label15.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(186, 125);
-            label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(136, 15);
-            label15.TabIndex = 25;
-            label15.Text = "Дата вступления в силу";
-            // 
-            // label16
-            // 
-            label16.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(186, 195);
-            label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(107, 15);
-            label16.TabIndex = 26;
-            label16.Text = "Дата возбуждения";
-            // 
-            // label17
-            // 
-            label17.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(368, 195);
-            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(162, 15);
-            label17.TabIndex = 27;
-            label17.Text = "Дата пост об окончании ИП";
-            // 
             // label18
             // 
             label18.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
@@ -561,55 +495,6 @@ namespace DocumentAdder.Forms
             label18.Size = new System.Drawing.Size(245, 15);
             label18.TabIndex = 28;
             label18.Text = "Приказ, иск, правопреемство, банкротство";
-            // 
-            // CourtExecDateBox
-            // 
-            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_exec_date", true));
-            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_exec_date", true));
-            CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            CourtExecDateBox.Location = new System.Drawing.Point(186, 143);
-            CourtExecDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            CourtExecDateBox.Mask = "00/00/0000";
-            CourtExecDateBox.Name = "CourtExecDateBox";
-            CourtExecDateBox.Size = new System.Drawing.Size(174, 23);
-            CourtExecDateBox.TabIndex = 8;
-            CourtExecDateBox.ValidatingType = typeof(System.DateTime);
-            CourtExecDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            CourtExecDateBox.KeyDown += textBox1_KeyDown;
-            // 
-            // currentEnableds
-            // 
-            currentEnableds.DataSource = typeof(SettingsModel);
-            // 
-            // startDateBox
-            // 
-            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "start_date", true));
-            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Start_date", true));
-            startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            startDateBox.Location = new System.Drawing.Point(186, 213);
-            startDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            startDateBox.Mask = "00/00/0000";
-            startDateBox.Name = "startDateBox";
-            startDateBox.Size = new System.Drawing.Size(174, 23);
-            startDateBox.TabIndex = 11;
-            startDateBox.ValidatingType = typeof(System.DateTime);
-            startDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            startDateBox.KeyDown += textBox1_KeyDown;
-            // 
-            // finishDateBox
-            // 
-            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "finish_date", true));
-            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Finish_date", true));
-            finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            finishDateBox.Location = new System.Drawing.Point(368, 213);
-            finishDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            finishDateBox.Mask = "00/00/0000";
-            finishDateBox.Name = "finishDateBox";
-            finishDateBox.Size = new System.Drawing.Size(174, 23);
-            finishDateBox.TabIndex = 12;
-            finishDateBox.ValidatingType = typeof(System.DateTime);
-            finishDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            finishDateBox.KeyDown += textBox1_KeyDown;
             // 
             // dataGridView1
             // 
@@ -657,7 +542,7 @@ namespace DocumentAdder.Forms
             dataGridView1.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView1, 12);
             dataGridView1.Size = new System.Drawing.Size(724, 414);
-            dataGridView1.TabIndex = 0;
+            dataGridView1.TabIndex = 100;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // LawActId
@@ -863,17 +748,6 @@ namespace DocumentAdder.Forms
             label21.TabIndex = 36;
             label21.Text = "Дата ограничения выезда";
             // 
-            // label22
-            // 
-            label22.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label22.AutoSize = true;
-            label22.Location = new System.Drawing.Point(550, 195);
-            label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(155, 15);
-            label22.TabIndex = 37;
-            label22.Text = "Дата отказа в возбуждении";
-            // 
             // receiptDateBox
             // 
             receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "receipt_date", true));
@@ -884,10 +758,14 @@ namespace DocumentAdder.Forms
             receiptDateBox.Mask = "00/00/0000";
             receiptDateBox.Name = "receiptDateBox";
             receiptDateBox.Size = new System.Drawing.Size(174, 23);
-            receiptDateBox.TabIndex = 14;
+            receiptDateBox.TabIndex = 15;
             receiptDateBox.ValidatingType = typeof(System.DateTime);
             receiptDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // currentEnableds
+            // 
+            currentEnableds.DataSource = typeof(SettingsModel);
             // 
             // returnDateBox
             // 
@@ -899,7 +777,7 @@ namespace DocumentAdder.Forms
             returnDateBox.Mask = "00/00/0000";
             returnDateBox.Name = "returnDateBox";
             returnDateBox.Size = new System.Drawing.Size(174, 23);
-            returnDateBox.TabIndex = 15;
+            returnDateBox.TabIndex = 16;
             returnDateBox.ValidatingType = typeof(System.DateTime);
             returnDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             returnDateBox.KeyDown += textBox1_KeyDown;
@@ -914,25 +792,10 @@ namespace DocumentAdder.Forms
             restrictionToLeaveDtBox.Mask = "00/00/0000";
             restrictionToLeaveDtBox.Name = "restrictionToLeaveDtBox";
             restrictionToLeaveDtBox.Size = new System.Drawing.Size(174, 23);
-            restrictionToLeaveDtBox.TabIndex = 16;
+            restrictionToLeaveDtBox.TabIndex = 17;
             restrictionToLeaveDtBox.ValidatingType = typeof(System.DateTime);
             restrictionToLeaveDtBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             restrictionToLeaveDtBox.KeyDown += textBox1_KeyDown;
-            // 
-            // rejectDateBox
-            // 
-            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "reject_date", true));
-            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Reject_date", true));
-            rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            rejectDateBox.Location = new System.Drawing.Point(550, 213);
-            rejectDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            rejectDateBox.Mask = "00/00/0000";
-            rejectDateBox.Name = "rejectDateBox";
-            rejectDateBox.Size = new System.Drawing.Size(174, 23);
-            rejectDateBox.TabIndex = 13;
-            rejectDateBox.ValidatingType = typeof(System.DateTime);
-            rejectDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            rejectDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label23
             // 
@@ -956,17 +819,6 @@ namespace DocumentAdder.Forms
             label24.TabIndex = 43;
             label24.Text = "Дата исполнения недостатков";
             // 
-            // label25
-            // 
-            label25.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label25.AutoSize = true;
-            label25.Location = new System.Drawing.Point(550, 265);
-            label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(97, 15);
-            label25.TabIndex = 44;
-            label25.Text = "Дата и время СЗ";
-            // 
             // cancelDateBox
             // 
             cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Cancel_date", true));
@@ -977,7 +829,7 @@ namespace DocumentAdder.Forms
             cancelDateBox.Mask = "00/00/0000";
             cancelDateBox.Name = "cancelDateBox";
             cancelDateBox.Size = new System.Drawing.Size(174, 23);
-            cancelDateBox.TabIndex = 18;
+            cancelDateBox.TabIndex = 19;
             cancelDateBox.ValidatingType = typeof(System.DateTime);
             cancelDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             cancelDateBox.KeyDown += textBox1_KeyDown;
@@ -992,25 +844,10 @@ namespace DocumentAdder.Forms
             correctPeriodDateBox.Mask = "00/00/0000";
             correctPeriodDateBox.Name = "correctPeriodDateBox";
             correctPeriodDateBox.Size = new System.Drawing.Size(174, 23);
-            correctPeriodDateBox.TabIndex = 19;
+            correctPeriodDateBox.TabIndex = 20;
             correctPeriodDateBox.ValidatingType = typeof(System.DateTime);
             correctPeriodDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             correctPeriodDateBox.KeyDown += textBox1_KeyDown;
-            // 
-            // sessionDateBox
-            // 
-            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "session_date", true));
-            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Session_date", true));
-            sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            sessionDateBox.Location = new System.Drawing.Point(550, 283);
-            sessionDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            sessionDateBox.Mask = "00/00/0000 90:00";
-            sessionDateBox.Name = "sessionDateBox";
-            sessionDateBox.Size = new System.Drawing.Size(174, 23);
-            sessionDateBox.TabIndex = 17;
-            sessionDateBox.ValidatingType = typeof(System.DateTime);
-            sessionDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            sessionDateBox.KeyDown += textBox1_KeyDown;
             // 
             // dataGridView2
             // 
@@ -1055,7 +892,7 @@ namespace DocumentAdder.Forms
             dataGridView2.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(dataGridView2, 6);
             dataGridView2.Size = new System.Drawing.Size(724, 250);
-            dataGridView2.TabIndex = 0;
+            dataGridView2.TabIndex = 100;
             dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
             // 
             // LawExecId
@@ -1247,7 +1084,7 @@ namespace DocumentAdder.Forms
             textBox11.Name = "textBox11";
             tableLayoutPanel1.SetRowSpan(textBox11, 3);
             textBox11.Size = new System.Drawing.Size(356, 99);
-            textBox11.TabIndex = 32;
+            textBox11.TabIndex = 26;
             textBox11.TextChanged += textBox11_TextChanged;
             textBox11.KeyDown += textBox1_KeyDown;
             // 
@@ -1337,48 +1174,6 @@ namespace DocumentAdder.Forms
             execNumberBox.EnabledChanged += maskedTextBox8_EnabledChanged;
             execNumberBox.KeyDown += textBox1_KeyDown;
             // 
-            // fsspDocNumBox
-            // 
-            fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
-            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "fssp_doc_num", true));
-            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Fssp_doc_num", true));
-            fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            fsspDocNumBox.Location = new System.Drawing.Point(4, 213);
-            fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            fsspDocNumBox.Name = "fsspDocNumBox";
-            fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
-            fsspDocNumBox.TabIndex = 10;
-            fsspDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            fsspDocNumBox.KeyDown += textBox1_KeyDown;
-            // 
-            // courtOrderDateBox
-            // 
-            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_order_date", true));
-            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
-            courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
-            courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            courtOrderDateBox.Mask = "00/00/0000";
-            courtOrderDateBox.Name = "courtOrderDateBox";
-            courtOrderDateBox.Size = new System.Drawing.Size(174, 23);
-            courtOrderDateBox.TabIndex = 9;
-            courtOrderDateBox.ValidatingType = typeof(System.DateTime);
-            courtOrderDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            courtOrderDateBox.KeyDown += textBox1_KeyDown;
-            // 
-            // courtDocNumBox
-            // 
-            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_doc_num", true));
-            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
-            courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtDocNumBox.Location = new System.Drawing.Point(368, 143);
-            courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            courtDocNumBox.Name = "courtDocNumBox";
-            courtDocNumBox.Size = new System.Drawing.Size(174, 23);
-            courtDocNumBox.TabIndex = 9;
-            courtDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
-            courtDocNumBox.KeyDown += textBox1_KeyDown;
-            // 
             // button1
             // 
             button1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1418,32 +1213,6 @@ namespace DocumentAdder.Forms
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
-            // label27
-            // 
-            label27.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label27.AutoSize = true;
-            label27.Location = new System.Drawing.Point(550, 335);
-            label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(43, 15);
-            label27.TabIndex = 49;
-            label27.Text = "Статус";
-            // 
-            // userTaskBox
-            // 
-            userTaskBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            userTaskBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            userTaskBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "User_task", true));
-            userTaskBox.DataSource = Users;
-            userTaskBox.DisplayMember = "NAME";
-            userTaskBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            userTaskBox.Location = new System.Drawing.Point(368, 353);
-            userTaskBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            userTaskBox.Name = "userTaskBox";
-            userTaskBox.Size = new System.Drawing.Size(174, 23);
-            userTaskBox.TabIndex = 20;
-            userTaskBox.ValueMember = "ID";
-            // 
             // label26
             // 
             label26.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
@@ -1466,7 +1235,7 @@ namespace DocumentAdder.Forms
             postNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             postNameBox.Name = "postNameBox";
             postNameBox.Size = new System.Drawing.Size(174, 23);
-            postNameBox.TabIndex = 26;
+            postNameBox.TabIndex = 24;
             // 
             // label35
             // 
@@ -1503,32 +1272,7 @@ namespace DocumentAdder.Forms
             articleAndParagraphBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             articleAndParagraphBox.Name = "articleAndParagraphBox";
             articleAndParagraphBox.Size = new System.Drawing.Size(174, 23);
-            articleAndParagraphBox.TabIndex = 23;
-            // 
-            // documentNameBox
-            // 
-            documentNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            documentNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            documentNameBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Document_name", true));
-            documentNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            documentNameBox.FormattingEnabled = true;
-            documentNameBox.Items.AddRange(new object[] { "213123212" });
-            documentNameBox.Location = new System.Drawing.Point(368, 493);
-            documentNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            documentNameBox.Name = "documentNameBox";
-            documentNameBox.Size = new System.Drawing.Size(174, 23);
-            documentNameBox.TabIndex = 28;
-            // 
-            // label32
-            // 
-            label32.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label32.AutoSize = true;
-            label32.Location = new System.Drawing.Point(368, 475);
-            label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label32.Name = "label32";
-            label32.Size = new System.Drawing.Size(120, 15);
-            label32.TabIndex = 72;
-            label32.Text = "Название документа";
+            articleAndParagraphBox.TabIndex = 21;
             // 
             // label33
             // 
@@ -1552,7 +1296,7 @@ namespace DocumentAdder.Forms
             postAddressBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             postAddressBox.Name = "postAddressBox";
             postAddressBox.Size = new System.Drawing.Size(174, 23);
-            postAddressBox.TabIndex = 27;
+            postAddressBox.TabIndex = 25;
             // 
             // button8
             // 
@@ -1577,18 +1321,6 @@ namespace DocumentAdder.Forms
             label36.TabIndex = 87;
             label36.Text = "Отправитель";
             // 
-            // button6
-            // 
-            button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            button6.Location = new System.Drawing.Point(368, 528);
-            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(174, 29);
-            button6.TabIndex = 82;
-            button6.Text = "Добавить в список";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
             // datePostBox
             // 
             datePostBox.DataBindings.Add(new System.Windows.Forms.Binding("Value", dataModelBinding, "Date_post", true));
@@ -1598,7 +1330,7 @@ namespace DocumentAdder.Forms
             datePostBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             datePostBox.Name = "datePostBox";
             datePostBox.Size = new System.Drawing.Size(174, 23);
-            datePostBox.TabIndex = 22;
+            datePostBox.TabIndex = 100;
             datePostBox.Value = new System.DateTime(2022, 1, 10, 9, 2, 41, 0);
             // 
             // button9
@@ -1622,97 +1354,9 @@ namespace DocumentAdder.Forms
             checkBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new System.Drawing.Size(131, 19);
-            checkBox3.TabIndex = 94;
+            checkBox3.TabIndex = 27;
             checkBox3.Text = "Постановка задачи";
             checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(checkBox4, 1, 0);
-            tableLayoutPanel2.Controls.Add(checkBox1, 0, 0);
-            tableLayoutPanel2.Location = new System.Drawing.Point(550, 423);
-            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new System.Drawing.Size(172, 28);
-            tableLayoutPanel2.TabIndex = 25;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Check", true));
-            checkBox1.Location = new System.Drawing.Point(4, 3);
-            checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(78, 19);
-            checkBox1.TabIndex = 70;
-            checkBox1.Text = "Учёт конвертов\r\n";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            checkBox4.AutoSize = true;
-            checkBox4.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Fssp", true));
-            checkBox4.Location = new System.Drawing.Point(90, 3);
-            checkBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new System.Drawing.Size(78, 19);
-            checkBox4.TabIndex = 95;
-            checkBox4.Text = "Приставы";
-            checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(comboBox4, 0, 0);
-            tableLayoutPanel3.Controls.Add(button10, 1, 0);
-            tableLayoutPanel3.Location = new System.Drawing.Point(368, 423);
-            tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new System.Drawing.Size(172, 28);
-            tableLayoutPanel3.TabIndex = 24;
-            // 
-            // comboBox4
-            // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new System.Drawing.Point(4, 3);
-            comboBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new System.Drawing.Size(78, 23);
-            comboBox4.TabIndex = 92;
-            // 
-            // button10
-            // 
-            button10.Location = new System.Drawing.Point(90, 3);
-            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(78, 21);
-            button10.TabIndex = 93;
-            button10.Text = "Открыть";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
-            checkBox2.Location = new System.Drawing.Point(550, 493);
-            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(62, 19);
-            checkBox2.TabIndex = 29;
-            checkBox2.Text = "Сканы";
-            checkBox2.UseVisualStyleBackColor = true;
             // 
             // label30
             // 
@@ -1724,111 +1368,6 @@ namespace DocumentAdder.Forms
             label30.Size = new System.Drawing.Size(125, 15);
             label30.TabIndex = 54;
             label30.Text = "Испол. производство";
-            // 
-            // ModeCB
-            // 
-            ModeCB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Mode", true));
-            ModeCB.DataSource = bindingSource1;
-            ModeCB.DisplayMember = "name";
-            ModeCB.Dock = System.Windows.Forms.DockStyle.Fill;
-            ModeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            ModeCB.FormattingEnabled = true;
-            ModeCB.Location = new System.Drawing.Point(4, 598);
-            ModeCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            ModeCB.Name = "ModeCB";
-            ModeCB.Size = new System.Drawing.Size(174, 23);
-            ModeCB.TabIndex = 30;
-            ModeCB.ValueMember = "value";
-            ModeCB.SelectedIndexChanged += SelectModeEvent;
-            // 
-            // bindingSource1
-            // 
-            bindingSource1.DataSource = typeof(CBMember);
-            // 
-            // labelSelectDocBarcode
-            // 
-            labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            labelSelectDocBarcode.AutoSize = true;
-            labelSelectDocBarcode.Location = new System.Drawing.Point(186, 580);
-            labelSelectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            labelSelectDocBarcode.Name = "labelSelectDocBarcode";
-            labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
-            labelSelectDocBarcode.TabIndex = 123;
-            labelSelectDocBarcode.Text = "Документ штрих-код";
-            // 
-            // selectDocBarcode
-            // 
-            selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
-            selectDocBarcode.DataSource = Documents;
-            selectDocBarcode.DisplayMember = "name";
-            selectDocBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            selectDocBarcode.FormattingEnabled = true;
-            selectDocBarcode.Location = new System.Drawing.Point(186, 598);
-            selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            selectDocBarcode.Name = "selectDocBarcode";
-            selectDocBarcode.Size = new System.Drawing.Size(174, 23);
-            selectDocBarcode.TabIndex = 31;
-            // 
-            // Documents
-            // 
-            Documents.DataSource = typeof(Adder.FileItem);
-            // 
-            // label34
-            // 
-            label34.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label34.AutoSize = true;
-            label34.Location = new System.Drawing.Point(368, 335);
-            label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label34.Name = "label34";
-            label34.Size = new System.Drawing.Size(121, 15);
-            label34.TabIndex = 74;
-            label34.Text = "Исполнитель задачи";
-            // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableLayoutPanel4.Controls.Add(statusBox, 0, 0);
-            tableLayoutPanel4.Controls.Add(clearStatus, 1, 0);
-            tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel4.Location = new System.Drawing.Point(549, 353);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new System.Drawing.Size(176, 29);
-            tableLayoutPanel4.TabIndex = 21;
-            // 
-            // statusBox
-            // 
-            statusBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Status", true));
-            statusBox.DataSource = dictStatus;
-            statusBox.DisplayMember = "name";
-            statusBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            statusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            statusBox.FormattingEnabled = true;
-            statusBox.Location = new System.Drawing.Point(4, 3);
-            statusBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            statusBox.Name = "statusBox";
-            statusBox.Size = new System.Drawing.Size(132, 23);
-            statusBox.TabIndex = 0;
-            statusBox.ValueMember = "code";
-            // 
-            // dictStatus
-            // 
-            dictStatus.DataSource = typeof(DictModel);
-            // 
-            // clearStatus
-            // 
-            clearStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            clearStatus.Image = Properties.Resources.ClearIcon;
-            clearStatus.Location = new System.Drawing.Point(143, 3);
-            clearStatus.Name = "clearStatus";
-            clearStatus.Size = new System.Drawing.Size(30, 23);
-            clearStatus.TabIndex = 1;
-            clearStatus.UseVisualStyleBackColor = true;
-            clearStatus.Click += clearStatus_Click;
             // 
             // label4
             // 
@@ -1879,17 +1418,6 @@ namespace DocumentAdder.Forms
             textBoxO.TabIndex = 3;
             textBoxO.KeyDown += textBox1_KeyDown;
             // 
-            // label45
-            // 
-            label45.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label45.AutoSize = true;
-            label45.Location = new System.Drawing.Point(4, 580);
-            label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label45.Name = "label45";
-            label45.Size = new System.Drawing.Size(45, 15);
-            label45.TabIndex = 122;
-            label45.Text = "Режим";
-            // 
             // label28
             // 
             label28.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
@@ -1912,6 +1440,475 @@ namespace DocumentAdder.Forms
             label29.TabIndex = 53;
             label29.Text = "Добавить файл";
             // 
+            // label15
+            // 
+            label15.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(186, 125);
+            label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(136, 15);
+            label15.TabIndex = 25;
+            label15.Text = "Дата вступления в силу";
+            // 
+            // CourtExecDateBox
+            // 
+            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_exec_date", true));
+            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_exec_date", true));
+            CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            CourtExecDateBox.Location = new System.Drawing.Point(186, 143);
+            CourtExecDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            CourtExecDateBox.Mask = "00/00/0000";
+            CourtExecDateBox.Name = "CourtExecDateBox";
+            CourtExecDateBox.Size = new System.Drawing.Size(174, 23);
+            CourtExecDateBox.TabIndex = 8;
+            CourtExecDateBox.ValidatingType = typeof(System.DateTime);
+            CourtExecDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            CourtExecDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // courtDocNumBox
+            // 
+            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_doc_num", true));
+            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
+            courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            courtDocNumBox.Location = new System.Drawing.Point(550, 143);
+            courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            courtDocNumBox.Name = "courtDocNumBox";
+            courtDocNumBox.Size = new System.Drawing.Size(174, 23);
+            courtDocNumBox.TabIndex = 10;
+            courtDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            courtDocNumBox.KeyDown += textBox1_KeyDown;
+            // 
+            // label10
+            // 
+            label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(550, 125);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(123, 15);
+            label10.TabIndex = 13;
+            label10.Text = "№ Испол. документа";
+            // 
+            // label14
+            // 
+            label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(368, 125);
+            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(170, 15);
+            label14.TabIndex = 24;
+            label14.Text = "Дата вынесения решения/ИД";
+            // 
+            // courtOrderDateBox
+            // 
+            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_order_date", true));
+            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
+            courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            courtOrderDateBox.Location = new System.Drawing.Point(368, 143);
+            courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            courtOrderDateBox.Mask = "00/00/0000";
+            courtOrderDateBox.Name = "courtOrderDateBox";
+            courtOrderDateBox.Size = new System.Drawing.Size(174, 23);
+            courtOrderDateBox.TabIndex = 9;
+            courtOrderDateBox.ValidatingType = typeof(System.DateTime);
+            courtOrderDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            courtOrderDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // fsspDocNumBox
+            // 
+            fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
+            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "fssp_doc_num", true));
+            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Fssp_doc_num", true));
+            fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            fsspDocNumBox.Location = new System.Drawing.Point(4, 213);
+            fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fsspDocNumBox.Name = "fsspDocNumBox";
+            fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
+            fsspDocNumBox.TabIndex = 11;
+            fsspDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            fsspDocNumBox.KeyDown += textBox1_KeyDown;
+            // 
+            // label9
+            // 
+            label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(4, 195);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(41, 15);
+            label9.TabIndex = 12;
+            label9.Text = "№ ИП";
+            // 
+            // label16
+            // 
+            label16.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(186, 195);
+            label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(107, 15);
+            label16.TabIndex = 26;
+            label16.Text = "Дата возбуждения";
+            // 
+            // startDateBox
+            // 
+            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "start_date", true));
+            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Start_date", true));
+            startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            startDateBox.Location = new System.Drawing.Point(186, 213);
+            startDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            startDateBox.Mask = "00/00/0000";
+            startDateBox.Name = "startDateBox";
+            startDateBox.Size = new System.Drawing.Size(174, 23);
+            startDateBox.TabIndex = 12;
+            startDateBox.ValidatingType = typeof(System.DateTime);
+            startDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            startDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // label17
+            // 
+            label17.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(368, 195);
+            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(162, 15);
+            label17.TabIndex = 27;
+            label17.Text = "Дата пост об окончании ИП";
+            // 
+            // finishDateBox
+            // 
+            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "finish_date", true));
+            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Finish_date", true));
+            finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            finishDateBox.Location = new System.Drawing.Point(368, 213);
+            finishDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            finishDateBox.Mask = "00/00/0000";
+            finishDateBox.Name = "finishDateBox";
+            finishDateBox.Size = new System.Drawing.Size(174, 23);
+            finishDateBox.TabIndex = 13;
+            finishDateBox.ValidatingType = typeof(System.DateTime);
+            finishDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            finishDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // label22
+            // 
+            label22.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label22.AutoSize = true;
+            label22.Location = new System.Drawing.Point(550, 195);
+            label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(155, 15);
+            label22.TabIndex = 37;
+            label22.Text = "Дата отказа в возбуждении";
+            // 
+            // rejectDateBox
+            // 
+            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "reject_date", true));
+            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Reject_date", true));
+            rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            rejectDateBox.Location = new System.Drawing.Point(550, 213);
+            rejectDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rejectDateBox.Mask = "00/00/0000";
+            rejectDateBox.Name = "rejectDateBox";
+            rejectDateBox.Size = new System.Drawing.Size(174, 23);
+            rejectDateBox.TabIndex = 14;
+            rejectDateBox.ValidatingType = typeof(System.DateTime);
+            rejectDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            rejectDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // label25
+            // 
+            label25.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label25.AutoSize = true;
+            label25.Location = new System.Drawing.Point(550, 265);
+            label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(97, 15);
+            label25.TabIndex = 44;
+            label25.Text = "Дата и время СЗ";
+            // 
+            // sessionDateBox
+            // 
+            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "session_date", true));
+            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Session_date", true));
+            sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            sessionDateBox.Location = new System.Drawing.Point(550, 283);
+            sessionDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            sessionDateBox.Mask = "00/00/0000 90:00";
+            sessionDateBox.Name = "sessionDateBox";
+            sessionDateBox.Size = new System.Drawing.Size(174, 23);
+            sessionDateBox.TabIndex = 18;
+            sessionDateBox.ValidatingType = typeof(System.DateTime);
+            sessionDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            sessionDateBox.KeyDown += textBox1_KeyDown;
+            // 
+            // label45
+            // 
+            label45.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label45.AutoSize = true;
+            label45.Location = new System.Drawing.Point(4, 580);
+            label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label45.Name = "label45";
+            label45.Size = new System.Drawing.Size(45, 15);
+            label45.TabIndex = 122;
+            label45.Text = "Режим";
+            // 
+            // ModeCB
+            // 
+            ModeCB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Mode", true));
+            ModeCB.DataSource = bindingSource1;
+            ModeCB.DisplayMember = "name";
+            ModeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            ModeCB.FormattingEnabled = true;
+            ModeCB.Location = new System.Drawing.Point(4, 598);
+            ModeCB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ModeCB.Name = "ModeCB";
+            ModeCB.Size = new System.Drawing.Size(174, 23);
+            ModeCB.TabIndex = 100;
+            ModeCB.ValueMember = "value";
+            ModeCB.SelectedIndexChanged += SelectModeEvent;
+            // 
+            // bindingSource1
+            // 
+            bindingSource1.DataSource = typeof(CBMember);
+            // 
+            // selectDocBarcode
+            // 
+            selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
+            selectDocBarcode.DataSource = Documents;
+            selectDocBarcode.DisplayMember = "name";
+            selectDocBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            selectDocBarcode.FormattingEnabled = true;
+            selectDocBarcode.Location = new System.Drawing.Point(186, 598);
+            selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            selectDocBarcode.Name = "selectDocBarcode";
+            selectDocBarcode.Size = new System.Drawing.Size(174, 23);
+            selectDocBarcode.TabIndex = 31;
+            // 
+            // Documents
+            // 
+            Documents.DataSource = typeof(Adder.FileItem);
+            // 
+            // labelSelectDocBarcode
+            // 
+            labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            labelSelectDocBarcode.AutoSize = true;
+            labelSelectDocBarcode.Location = new System.Drawing.Point(186, 580);
+            labelSelectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labelSelectDocBarcode.Name = "labelSelectDocBarcode";
+            labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
+            labelSelectDocBarcode.TabIndex = 123;
+            labelSelectDocBarcode.Text = "Документ штрих-код";
+            // 
+            // label32
+            // 
+            label32.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label32.AutoSize = true;
+            label32.Location = new System.Drawing.Point(368, 405);
+            label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label32.Name = "label32";
+            label32.Size = new System.Drawing.Size(120, 15);
+            label32.TabIndex = 72;
+            label32.Text = "Название документа";
+            // 
+            // documentNameBox
+            // 
+            documentNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            documentNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            documentNameBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Document_name", true));
+            documentNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            documentNameBox.FormattingEnabled = true;
+            documentNameBox.Items.AddRange(new object[] { "213123212" });
+            documentNameBox.Location = new System.Drawing.Point(368, 423);
+            documentNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            documentNameBox.Name = "documentNameBox";
+            documentNameBox.Size = new System.Drawing.Size(174, 23);
+            documentNameBox.TabIndex = 22;
+            // 
+            // button6
+            // 
+            button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            button6.Location = new System.Drawing.Point(368, 458);
+            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(174, 29);
+            button6.TabIndex = 100;
+            button6.Text = "Добавить в список";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(comboBox4, 0, 0);
+            tableLayoutPanel3.Controls.Add(button10, 1, 0);
+            tableLayoutPanel3.Location = new System.Drawing.Point(550, 458);
+            tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.Size = new System.Drawing.Size(172, 28);
+            tableLayoutPanel3.TabIndex = 100;
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new System.Drawing.Point(4, 3);
+            comboBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new System.Drawing.Size(78, 23);
+            comboBox4.TabIndex = 92;
+            // 
+            // button10
+            // 
+            button10.Location = new System.Drawing.Point(90, 3);
+            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(78, 21);
+            button10.TabIndex = 93;
+            button10.Text = "Открыть";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // userTaskBox
+            // 
+            userTaskBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            userTaskBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            userTaskBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "User_task", true));
+            userTaskBox.DataSource = Users;
+            userTaskBox.DisplayMember = "NAME";
+            userTaskBox.Location = new System.Drawing.Point(550, 423);
+            userTaskBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userTaskBox.Name = "userTaskBox";
+            userTaskBox.Size = new System.Drawing.Size(174, 23);
+            userTaskBox.TabIndex = 23;
+            userTaskBox.ValueMember = "ID";
+            // 
+            // label34
+            // 
+            label34.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label34.AutoSize = true;
+            label34.Location = new System.Drawing.Point(550, 405);
+            label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label34.Name = "label34";
+            label34.Size = new System.Drawing.Size(121, 15);
+            label34.TabIndex = 74;
+            label34.Text = "Исполнитель задачи";
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel4.Controls.Add(statusBox, 0, 0);
+            tableLayoutPanel4.Controls.Add(clearStatus, 1, 0);
+            tableLayoutPanel4.Location = new System.Drawing.Point(367, 353);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new System.Drawing.Size(176, 29);
+            tableLayoutPanel4.TabIndex = 100;
+            // 
+            // statusBox
+            // 
+            statusBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Status", true));
+            statusBox.DataSource = dictStatus;
+            statusBox.DisplayMember = "name";
+            statusBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            statusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            statusBox.FormattingEnabled = true;
+            statusBox.Location = new System.Drawing.Point(4, 3);
+            statusBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            statusBox.Name = "statusBox";
+            statusBox.Size = new System.Drawing.Size(132, 23);
+            statusBox.TabIndex = 0;
+            statusBox.ValueMember = "code";
+            // 
+            // dictStatus
+            // 
+            dictStatus.DataSource = typeof(DictModel);
+            // 
+            // clearStatus
+            // 
+            clearStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            clearStatus.Image = Properties.Resources.ClearIcon;
+            clearStatus.Location = new System.Drawing.Point(143, 3);
+            clearStatus.Name = "clearStatus";
+            clearStatus.Size = new System.Drawing.Size(30, 23);
+            clearStatus.TabIndex = 1;
+            clearStatus.UseVisualStyleBackColor = true;
+            clearStatus.Click += clearStatus_Click;
+            // 
+            // label27
+            // 
+            label27.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label27.AutoSize = true;
+            label27.Location = new System.Drawing.Point(368, 335);
+            label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(43, 15);
+            label27.TabIndex = 49;
+            label27.Text = "Статус";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(checkBox4, 1, 0);
+            tableLayoutPanel2.Controls.Add(checkBox1, 0, 0);
+            tableLayoutPanel2.Location = new System.Drawing.Point(550, 318);
+            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(172, 28);
+            tableLayoutPanel2.TabIndex = 100;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Fssp", true));
+            checkBox4.Location = new System.Drawing.Point(90, 3);
+            checkBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new System.Drawing.Size(78, 19);
+            checkBox4.TabIndex = 95;
+            checkBox4.Text = "Приставы";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Check", true));
+            checkBox1.Location = new System.Drawing.Point(4, 3);
+            checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(78, 19);
+            checkBox1.TabIndex = 70;
+            checkBox1.Text = "Учёт конвертов\r\n";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
+            checkBox2.Location = new System.Drawing.Point(550, 353);
+            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(62, 19);
+            checkBox2.TabIndex = 100;
+            checkBox2.Text = "Сканы";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1930,21 +1927,21 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).EndInit();
             ((System.ComponentModel.ISupportInitialize)typDocBinding).EndInit();
-            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictState).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
+            tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
