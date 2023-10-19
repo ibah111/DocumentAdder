@@ -73,7 +73,7 @@ public partial class OtherDocs : Form
             {
 
                 action = "without_task",
-                date_post = current.data.Date_post.ToShortDateString(),
+                date_post = current.data.Date_post,
                 Convert = current.data.Check,
                 adr_otp = current.data.Post_address,
                 otprav = current.data.Post_name,
