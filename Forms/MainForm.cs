@@ -276,7 +276,7 @@ public partial class MainForm : Form
     private void InstallData(LawActResult data)
     {
         var typ = current.Typ_doc;
-        var binding = new DataModel(data.data, current.Date_post) { Document_name = current.Document_name, User_task = current.User_task };
+        var binding = createData(data.data);
         binding.Typ_doc = typ;
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
@@ -671,10 +671,23 @@ public partial class MainForm : Form
             return docAttach.id;
         }
     }
+    private DataModel createData(ActDataModel data)
+    {
+        return new DataModel(data, current.Date_post)
+        {
+            Document_name = current.Document_name,
+            User_task = current.User_task,
+            Scan = current.Scan,
+            Fssp = current.Fssp,
+            Task = current.Task,
+            Check = current.Check
+        };
+
+    }
     private void InstallData(LawExecResult data)
     {
         var typ = current.Typ_doc;
-        var binding = new DataModel(data.data, current.Date_post) { Document_name = current.Document_name, User_task = current.User_task };
+        var binding = createData(data.data);
         binding.Typ_doc = typ;
         var settings = settings_json[typ];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
