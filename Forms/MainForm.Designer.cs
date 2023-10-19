@@ -36,13 +36,13 @@ namespace DocumentAdder.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Users = new System.Windows.Forms.BindingSource(components);
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,28 +61,7 @@ namespace DocumentAdder.Forms
             button3 = new System.Windows.Forms.Button();
             label18 = new System.Windows.Forms.Label();
             dataGridView1 = new System.Windows.Forms.DataGridView();
-            LawActId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActTyp = new System.Windows.Forms.DataGridViewComboBoxColumn();
             dictTyp = new System.Windows.Forms.BindingSource(components);
-            LawActStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActFIoVz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActPortfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActCourtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActCourtAdress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActBirthPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActExecDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            LawActInn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lawActResultBindingSource = new System.Windows.Forms.BindingSource(components);
             label19 = new System.Windows.Forms.Label();
             label20 = new System.Windows.Forms.Label();
@@ -191,6 +170,27 @@ namespace DocumentAdder.Forms
             checkBox4 = new System.Windows.Forms.CheckBox();
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
+            LawActId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActTyp = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            LawActStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActFIoVz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActPortfolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActFio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActExecNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActCourtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActTotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActDsc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActCourtAdress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActStartSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActBirthPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActFullAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActExecDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            LawActInn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -545,171 +545,9 @@ namespace DocumentAdder.Forms
             dataGridView1.TabIndex = 100;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
-            // LawActId
-            // 
-            LawActId.DataPropertyName = "id";
-            LawActId.HeaderText = "ID";
-            LawActId.Name = "LawActId";
-            LawActId.ReadOnly = true;
-            // 
-            // LawActTyp
-            // 
-            LawActTyp.DataPropertyName = "typ";
-            LawActTyp.DataSource = dictTyp;
-            LawActTyp.DisplayMember = "name";
-            LawActTyp.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            LawActTyp.HeaderText = "Вкладка";
-            LawActTyp.Name = "LawActTyp";
-            LawActTyp.ReadOnly = true;
-            LawActTyp.ValueMember = "code";
-            // 
             // dictTyp
             // 
             dictTyp.DataSource = typeof(DictModel);
-            // 
-            // LawActStatus
-            // 
-            LawActStatus.HeaderText = "Статус";
-            LawActStatus.Name = "LawActStatus";
-            LawActStatus.ReadOnly = true;
-            // 
-            // LawActFIoVz
-            // 
-            LawActFIoVz.DataPropertyName = "fio_vz";
-            LawActFIoVz.HeaderText = "ФИО взыскателя";
-            LawActFIoVz.Name = "LawActFIoVz";
-            LawActFIoVz.ReadOnly = true;
-            // 
-            // LawActName
-            // 
-            LawActName.DataPropertyName = "name";
-            LawActName.HeaderText = "Название продукта";
-            LawActName.Name = "LawActName";
-            LawActName.ReadOnly = true;
-            // 
-            // LawActPortfolio
-            // 
-            LawActPortfolio.DataPropertyName = "portfolio";
-            LawActPortfolio.HeaderText = "Портфель";
-            LawActPortfolio.Name = "LawActPortfolio";
-            LawActPortfolio.ReadOnly = true;
-            // 
-            // LawActFio
-            // 
-            LawActFio.DataPropertyName = "fio";
-            LawActFio.HeaderText = "ФИО должника";
-            LawActFio.Name = "LawActFio";
-            LawActFio.ReadOnly = true;
-            // 
-            // LawActBirthDate
-            // 
-            LawActBirthDate.DataPropertyName = "birth_date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            LawActBirthDate.DefaultCellStyle = dataGridViewCellStyle2;
-            LawActBirthDate.HeaderText = "Дата рождения";
-            LawActBirthDate.Name = "LawActBirthDate";
-            LawActBirthDate.ReadOnly = true;
-            // 
-            // LawActContract
-            // 
-            LawActContract.DataPropertyName = "contract";
-            LawActContract.HeaderText = "№ КД";
-            LawActContract.Name = "LawActContract";
-            LawActContract.ReadOnly = true;
-            // 
-            // LawActExecNumber
-            // 
-            LawActExecNumber.DataPropertyName = "exec_number";
-            LawActExecNumber.HeaderText = "№ Дела";
-            LawActExecNumber.Name = "LawActExecNumber";
-            LawActExecNumber.ReadOnly = true;
-            // 
-            // LawActCourtName
-            // 
-            LawActCourtName.DataPropertyName = "court_name";
-            LawActCourtName.HeaderText = "Название суда";
-            LawActCourtName.Name = "LawActCourtName";
-            LawActCourtName.ReadOnly = true;
-            // 
-            // LawActTotalSum
-            // 
-            LawActTotalSum.DataPropertyName = "total_sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            LawActTotalSum.DefaultCellStyle = dataGridViewCellStyle3;
-            LawActTotalSum.HeaderText = "Размер требований";
-            LawActTotalSum.Name = "LawActTotalSum";
-            LawActTotalSum.ReadOnly = true;
-            // 
-            // LawActDsc
-            // 
-            LawActDsc.DataPropertyName = "dsc";
-            LawActDsc.HeaderText = "Комментарий";
-            LawActDsc.Name = "LawActDsc";
-            LawActDsc.ReadOnly = true;
-            // 
-            // LawActCourtAdress
-            // 
-            LawActCourtAdress.DataPropertyName = "court_adress";
-            LawActCourtAdress.HeaderText = "Адрес суда";
-            LawActCourtAdress.Name = "LawActCourtAdress";
-            LawActCourtAdress.ReadOnly = true;
-            // 
-            // LawActStartSum
-            // 
-            LawActStartSum.DataPropertyName = "start_sum";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            LawActStartSum.DefaultCellStyle = dataGridViewCellStyle4;
-            LawActStartSum.HeaderText = "Начальная сумма задолженности";
-            LawActStartSum.Name = "LawActStartSum";
-            LawActStartSum.ReadOnly = true;
-            // 
-            // LawActNumber
-            // 
-            LawActNumber.DataPropertyName = "number";
-            LawActNumber.HeaderText = "Номер паспорта";
-            LawActNumber.Name = "LawActNumber";
-            LawActNumber.ReadOnly = true;
-            // 
-            // LawActSeries
-            // 
-            LawActSeries.DataPropertyName = "series";
-            LawActSeries.HeaderText = "Серия паспорта";
-            LawActSeries.Name = "LawActSeries";
-            LawActSeries.ReadOnly = true;
-            // 
-            // LawActBirthPlace
-            // 
-            LawActBirthPlace.DataPropertyName = "birth_place";
-            LawActBirthPlace.HeaderText = "Место рождения";
-            LawActBirthPlace.Name = "LawActBirthPlace";
-            LawActBirthPlace.ReadOnly = true;
-            // 
-            // LawActFullAdr
-            // 
-            LawActFullAdr.DataPropertyName = "full_adr";
-            LawActFullAdr.HeaderText = "Адрес регистрации";
-            LawActFullAdr.Name = "LawActFullAdr";
-            LawActFullAdr.ReadOnly = true;
-            // 
-            // LawActExecDate
-            // 
-            LawActExecDate.DataPropertyName = "exec_date";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            LawActExecDate.DefaultCellStyle = dataGridViewCellStyle5;
-            LawActExecDate.HeaderText = "Дата дела";
-            LawActExecDate.Name = "LawActExecDate";
-            LawActExecDate.ReadOnly = true;
-            // 
-            // LawActInn
-            // 
-            LawActInn.DataPropertyName = "inn";
-            LawActInn.HeaderText = "ИНН";
-            LawActInn.Name = "LawActInn";
-            LawActInn.ReadOnly = true;
             // 
             // lawActResultBindingSource
             // 
@@ -1909,6 +1747,169 @@ namespace DocumentAdder.Forms
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
             // 
+            // LawActId
+            // 
+            LawActId.DataPropertyName = "id";
+            LawActId.HeaderText = "ID";
+            LawActId.Name = "LawActId";
+            LawActId.ReadOnly = true;
+            // 
+            // LawActTyp
+            // 
+            LawActTyp.DataPropertyName = "typ";
+            LawActTyp.DataSource = dictTyp;
+            LawActTyp.DisplayMember = "name";
+            LawActTyp.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            LawActTyp.HeaderText = "Вкладка";
+            LawActTyp.Name = "LawActTyp";
+            LawActTyp.ReadOnly = true;
+            LawActTyp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            LawActTyp.ValueMember = "code";
+            // 
+            // LawActStatus
+            // 
+            LawActStatus.HeaderText = "Статус";
+            LawActStatus.Name = "LawActStatus";
+            LawActStatus.ReadOnly = true;
+            // 
+            // LawActFIoVz
+            // 
+            LawActFIoVz.DataPropertyName = "fio_vz";
+            LawActFIoVz.HeaderText = "ФИО взыскателя";
+            LawActFIoVz.Name = "LawActFIoVz";
+            LawActFIoVz.ReadOnly = true;
+            // 
+            // LawActName
+            // 
+            LawActName.DataPropertyName = "name";
+            LawActName.HeaderText = "Название продукта";
+            LawActName.Name = "LawActName";
+            LawActName.ReadOnly = true;
+            // 
+            // LawActPortfolio
+            // 
+            LawActPortfolio.DataPropertyName = "portfolio";
+            LawActPortfolio.HeaderText = "Портфель";
+            LawActPortfolio.Name = "LawActPortfolio";
+            LawActPortfolio.ReadOnly = true;
+            // 
+            // LawActFio
+            // 
+            LawActFio.DataPropertyName = "fio";
+            LawActFio.HeaderText = "ФИО должника";
+            LawActFio.Name = "LawActFio";
+            LawActFio.ReadOnly = true;
+            // 
+            // LawActBirthDate
+            // 
+            LawActBirthDate.DataPropertyName = "birth_date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            LawActBirthDate.DefaultCellStyle = dataGridViewCellStyle2;
+            LawActBirthDate.HeaderText = "Дата рождения";
+            LawActBirthDate.Name = "LawActBirthDate";
+            LawActBirthDate.ReadOnly = true;
+            // 
+            // LawActContract
+            // 
+            LawActContract.DataPropertyName = "contract";
+            LawActContract.HeaderText = "№ КД";
+            LawActContract.Name = "LawActContract";
+            LawActContract.ReadOnly = true;
+            // 
+            // LawActExecNumber
+            // 
+            LawActExecNumber.DataPropertyName = "exec_number";
+            LawActExecNumber.HeaderText = "№ Дела";
+            LawActExecNumber.Name = "LawActExecNumber";
+            LawActExecNumber.ReadOnly = true;
+            // 
+            // LawActCourtName
+            // 
+            LawActCourtName.DataPropertyName = "court_name";
+            LawActCourtName.HeaderText = "Название суда";
+            LawActCourtName.Name = "LawActCourtName";
+            LawActCourtName.ReadOnly = true;
+            // 
+            // LawActTotalSum
+            // 
+            LawActTotalSum.DataPropertyName = "total_sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            LawActTotalSum.DefaultCellStyle = dataGridViewCellStyle3;
+            LawActTotalSum.HeaderText = "Размер требований";
+            LawActTotalSum.Name = "LawActTotalSum";
+            LawActTotalSum.ReadOnly = true;
+            // 
+            // LawActDsc
+            // 
+            LawActDsc.DataPropertyName = "dsc";
+            LawActDsc.HeaderText = "Комментарий";
+            LawActDsc.Name = "LawActDsc";
+            LawActDsc.ReadOnly = true;
+            // 
+            // LawActCourtAdress
+            // 
+            LawActCourtAdress.DataPropertyName = "court_adress";
+            LawActCourtAdress.HeaderText = "Адрес суда";
+            LawActCourtAdress.Name = "LawActCourtAdress";
+            LawActCourtAdress.ReadOnly = true;
+            // 
+            // LawActStartSum
+            // 
+            LawActStartSum.DataPropertyName = "start_sum";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            LawActStartSum.DefaultCellStyle = dataGridViewCellStyle4;
+            LawActStartSum.HeaderText = "Начальная сумма задолженности";
+            LawActStartSum.Name = "LawActStartSum";
+            LawActStartSum.ReadOnly = true;
+            // 
+            // LawActNumber
+            // 
+            LawActNumber.DataPropertyName = "number";
+            LawActNumber.HeaderText = "Номер паспорта";
+            LawActNumber.Name = "LawActNumber";
+            LawActNumber.ReadOnly = true;
+            // 
+            // LawActSeries
+            // 
+            LawActSeries.DataPropertyName = "series";
+            LawActSeries.HeaderText = "Серия паспорта";
+            LawActSeries.Name = "LawActSeries";
+            LawActSeries.ReadOnly = true;
+            // 
+            // LawActBirthPlace
+            // 
+            LawActBirthPlace.DataPropertyName = "birth_place";
+            LawActBirthPlace.HeaderText = "Место рождения";
+            LawActBirthPlace.Name = "LawActBirthPlace";
+            LawActBirthPlace.ReadOnly = true;
+            // 
+            // LawActFullAdr
+            // 
+            LawActFullAdr.DataPropertyName = "full_adr";
+            LawActFullAdr.HeaderText = "Адрес регистрации";
+            LawActFullAdr.Name = "LawActFullAdr";
+            LawActFullAdr.ReadOnly = true;
+            // 
+            // LawActExecDate
+            // 
+            LawActExecDate.DataPropertyName = "exec_date";
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            LawActExecDate.DefaultCellStyle = dataGridViewCellStyle5;
+            LawActExecDate.HeaderText = "Дата дела";
+            LawActExecDate.Name = "LawActExecDate";
+            LawActExecDate.ReadOnly = true;
+            // 
+            // LawActInn
+            // 
+            LawActInn.DataPropertyName = "inn";
+            LawActInn.HeaderText = "ИНН";
+            LawActInn.Name = "LawActInn";
+            LawActInn.ReadOnly = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2052,29 +2053,8 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.BindingSource dictStatus;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button clearStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActId;
-        private System.Windows.Forms.DataGridViewComboBoxColumn LawActTyp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActFIoVz;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActPortfolio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActFio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActBirthDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActContract;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActExecNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActCourtName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActTotalSum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActDsc;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawActCourtDocNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawActCourtDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActCourtAdress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActStartSum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActSeries;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActBirthPlace;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActFullAdr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActExecDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LawActInn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecCourtName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecCourtAddress;
         private System.Windows.Forms.Label label5;
@@ -2108,6 +2088,27 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecInn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecExecDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecBirthPlace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn LawActTyp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActFIoVz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActPortfolio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActFio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActBirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActContract;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActExecNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActCourtName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActTotalSum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActDsc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActCourtAdress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActStartSum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActSeries;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActBirthPlace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActFullAdr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActExecDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LawActInn;
     }
 }
 

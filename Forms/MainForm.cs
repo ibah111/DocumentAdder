@@ -5,6 +5,7 @@ using DocumentAdder.Main;
 using DocumentAdder.Models;
 using DocumentAdder.Properties;
 using DocumentAdder.Utils;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -49,7 +50,7 @@ public partial class MainForm : Form
             searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
             {
-                var data = ((List<LawActResult>)lawActResultBindingSource.DataSource)[0];
+                var data = ((SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource)[0];
                 InstallData(data);
             }
             indata = String.Empty;
@@ -117,7 +118,7 @@ public partial class MainForm : Form
     {
         if (this.dataGridView1.Columns[e.ColumnIndex].Name == nameof(LawActStatus))
         {
-            var data = (List<LawActResult>)lawActResultBindingSource.DataSource;
+            var data = (SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource;
             var item = data[e.RowIndex];
             if (item.typ == 1)
             {
@@ -320,7 +321,7 @@ public partial class MainForm : Form
         ClearTextBox();
         if (e.RowIndex >= 0)
         {
-            var data = ((List<LawActResult>)lawActResultBindingSource.DataSource)[e.RowIndex];
+            var data = ((SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource)[e.RowIndex];
             InstallData(data);
         }
     }
@@ -704,7 +705,7 @@ public partial class MainForm : Form
         ClearTextBox();
         if (e.RowIndex >= 0)
         {
-            var data = ((List<LawExecResult>)lawExecResultBindingSource.DataSource)[e.RowIndex];
+            var data = ((SortableBindingList<LawExecResult>)lawExecResultBindingSource.DataSource)[e.RowIndex];
             InstallData(data);
         }
     }

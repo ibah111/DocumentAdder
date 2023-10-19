@@ -3,6 +3,7 @@ using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -179,7 +180,7 @@ public class Searcher
         });
         var result1 = select1.ToList();
         var result2 = select2.ToList();
-        LawActSource.DataSource = result1.Select(x => new LawActResult(x)).ToList();
-        LawExecSource.DataSource = result2.Select(x => new LawExecResult(x)).ToList();
+        LawActSource.DataSource = new SortableBindingList<LawActResult>(result1.Select(x => new LawActResult(x)).ToList());
+        LawExecSource.DataSource = new SortableBindingList<LawExecResult>(result2.Select(x => new LawExecResult(x)).ToList());
     }
 }
