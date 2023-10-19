@@ -454,7 +454,7 @@ public partial class MainForm : Form
             {
                 if (value == current.Doc_barcode)
                 {
-                    var doc = new ClientDoc() { doc = result, barcode = true, title = current.Exec_number, date = CourtDateBox.Text };
+                    var doc = new ClientDoc() { doc = result, barcode = true, title = current.Exec_number, date = current.Data?.LawExec?.court_date?.ToShortDateString() };
                     if (current.Typ == LawTyp.LawExec)
                     {
                         doc.type = 2;

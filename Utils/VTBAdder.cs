@@ -21,7 +21,7 @@ public class PersonInfo
         inn = data.Data.Person.inn;
         number = data.Data.Person.number;
         series = data.Data.Person.series;
-        court_date = data.Court_date?.ToShortDateString();
+        court_date = data.Data.LawExec?.court_date?.ToShortDateString();
         sum = data.Typ == LawTyp.LawAct ? data.Data.LawAct.total_sum.Value : data.Data.LawExec.total_sum.Value;
         exec_date = data.Typ == LawTyp.LawAct ? null : data.Data.LawExec.court_date?.ToShortDateString();
 

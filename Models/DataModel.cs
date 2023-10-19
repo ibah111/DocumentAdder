@@ -26,14 +26,12 @@ public partial class DataModel : ObservableObject
             //else
             //    Receipt_date = data.LawAct.receipt_date;
             //receipt_date = data.LawAct.receipt_act_dt;
-            Failure_date = data.LawAct.failure_date;
             Correct_period_date = data.LawAct.correct_period_date;
             DscRead = data.LawAct.dsc;
             if (data.typ == LawTyp.LawExec)
             {
                 Fssp_doc_num = data.LawExec.fssp_doc_num;
                 Court_doc_num = data.LawExec.court_doc_num;
-                Court_date = data.LawExec.court_date;
                 Start_date = data.LawExec.start_date;
                 Finish_date = data.LawExec.finish_date;
                 Restriction_to_leave_dt = data.LawExec.restriction_to_leave_dt;
@@ -66,10 +64,6 @@ public partial class DataModel : ObservableObject
     [ObservableProperty]
     private DateTime? court_order_date;
 
-    // Дата вынесения ИД
-    [ObservableProperty]
-    private DateTime? court_date;
-
     // Дата вступления в силу
     [ObservableProperty]
     private DateTime? court_exec_date;
@@ -84,10 +78,6 @@ public partial class DataModel : ObservableObject
     //Получен агенством
     [ObservableProperty]
     private DateTime? receipt_date;
-
-    //Дата отказа
-    [ObservableProperty]
-    private DateTime? failure_date;
 
     //Дата ограничения выезда
     [ObservableProperty]

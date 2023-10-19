@@ -91,7 +91,7 @@ public class ListLawFields
         new List<string>() { "fssp_doc_num", "Номер ИП" },
         new List<string>() { "court_doc_num", "Номер ИД" },
         new List<string>() { "restriction_to_leave_dt", "Дата ограничения на выезд" },
-        new List<string>() { "failure_date", "Дата отказа в возбуждении" },
+        new List<string>() { "reject_date", "Дата отказа в возбуждении" },
         new List<string>() { "finish_date", "Дата постановлении об окончании" },
         new ChangerData("state", LawTyp.LawExec, (object? arg1, object? arg2, object arg3) =>
         {

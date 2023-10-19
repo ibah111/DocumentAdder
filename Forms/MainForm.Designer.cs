@@ -173,8 +173,6 @@ namespace DocumentAdder.Forms
             button10 = new System.Windows.Forms.Button();
             checkBox2 = new System.Windows.Forms.CheckBox();
             label30 = new System.Windows.Forms.Label();
-            CourtDateBox = new System.Windows.Forms.MaskedTextBox();
-            label42 = new System.Windows.Forms.Label();
             ModeCB = new System.Windows.Forms.ComboBox();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
             labelSelectDocBarcode = new System.Windows.Forms.Label();
@@ -190,8 +188,6 @@ namespace DocumentAdder.Forms
             label6 = new System.Windows.Forms.Label();
             textBoxI = new System.Windows.Forms.TextBox();
             textBoxO = new System.Windows.Forms.TextBox();
-            label7 = new System.Windows.Forms.Label();
-            FailureDateBox = new System.Windows.Forms.MaskedTextBox();
             label45 = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
@@ -233,36 +229,23 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(typDocBox, 0, 2);
             tableLayoutPanel1.Controls.Add(textBoxF, 4, 2);
             tableLayoutPanel1.Controls.Add(label8, 0, 3);
-            tableLayoutPanel1.Controls.Add(label9, 1, 3);
-            tableLayoutPanel1.Controls.Add(label10, 1, 3);
             tableLayoutPanel1.Controls.Add(label11, 4, 3);
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
             tableLayoutPanel1.Controls.Add(button2, 3, 24);
             tableLayoutPanel1.Controls.Add(button3, 2, 24);
-            tableLayoutPanel1.Controls.Add(label14, 0, 5);
-            tableLayoutPanel1.Controls.Add(label15, 1, 5);
-            tableLayoutPanel1.Controls.Add(label16, 2, 5);
-            tableLayoutPanel1.Controls.Add(label17, 3, 5);
             tableLayoutPanel1.Controls.Add(label18, 4, 5);
-            tableLayoutPanel1.Controls.Add(CourtExecDateBox, 1, 6);
-            tableLayoutPanel1.Controls.Add(startDateBox, 2, 6);
-            tableLayoutPanel1.Controls.Add(finishDateBox, 3, 6);
             tableLayoutPanel1.Controls.Add(dataGridView1, 4, 6);
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
             tableLayoutPanel1.Controls.Add(label20, 1, 7);
             tableLayoutPanel1.Controls.Add(label21, 2, 7);
-            tableLayoutPanel1.Controls.Add(label22, 3, 7);
             tableLayoutPanel1.Controls.Add(receiptDateBox, 0, 8);
             tableLayoutPanel1.Controls.Add(returnDateBox, 1, 8);
             tableLayoutPanel1.Controls.Add(restrictionToLeaveDtBox, 2, 8);
-            tableLayoutPanel1.Controls.Add(rejectDateBox, 3, 8);
             tableLayoutPanel1.Controls.Add(label23, 0, 9);
             tableLayoutPanel1.Controls.Add(label24, 1, 9);
-            tableLayoutPanel1.Controls.Add(label25, 2, 9);
             tableLayoutPanel1.Controls.Add(cancelDateBox, 0, 10);
             tableLayoutPanel1.Controls.Add(correctPeriodDateBox, 1, 10);
-            tableLayoutPanel1.Controls.Add(sessionDateBox, 2, 10);
             tableLayoutPanel1.Controls.Add(dataGridView2, 4, 19);
             tableLayoutPanel1.Controls.Add(textBox11, 0, 19);
             tableLayoutPanel1.Controls.Add(textBox12, 0, 22);
@@ -272,50 +255,59 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(contractBox, 5, 4);
             tableLayoutPanel1.Controls.Add(idBox, 4, 4);
             tableLayoutPanel1.Controls.Add(execNumberBox, 0, 4);
-            tableLayoutPanel1.Controls.Add(fsspDocNumBox, 2, 4);
-            tableLayoutPanel1.Controls.Add(courtOrderDateBox, 0, 6);
-            tableLayoutPanel1.Controls.Add(courtDocNumBox, 1, 4);
             tableLayoutPanel1.Controls.Add(button1, 3, 19);
             tableLayoutPanel1.Controls.Add(button4, 3, 20);
             tableLayoutPanel1.Controls.Add(button5, 3, 21);
             tableLayoutPanel1.Controls.Add(label27, 3, 9);
-            tableLayoutPanel1.Controls.Add(userTaskBox, 3, 12);
             tableLayoutPanel1.Controls.Add(label26, 0, 11);
             tableLayoutPanel1.Controls.Add(postNameBox, 0, 14);
             tableLayoutPanel1.Controls.Add(label35, 0, 13);
             tableLayoutPanel1.Controls.Add(button7, 0, 15);
             tableLayoutPanel1.Controls.Add(articleAndParagraphBox, 1, 12);
-            tableLayoutPanel1.Controls.Add(documentNameBox, 2, 12);
-            tableLayoutPanel1.Controls.Add(label32, 2, 11);
             tableLayoutPanel1.Controls.Add(label33, 1, 11);
             tableLayoutPanel1.Controls.Add(postAddressBox, 1, 14);
             tableLayoutPanel1.Controls.Add(button8, 1, 15);
             tableLayoutPanel1.Controls.Add(label36, 1, 13);
-            tableLayoutPanel1.Controls.Add(button6, 2, 13);
             tableLayoutPanel1.Controls.Add(datePostBox, 0, 12);
             tableLayoutPanel1.Controls.Add(button9, 3, 22);
             tableLayoutPanel1.Controls.Add(checkBox3, 3, 23);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 14);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 3, 13);
-            tableLayoutPanel1.Controls.Add(checkBox2, 2, 14);
             tableLayoutPanel1.Controls.Add(label30, 4, 18);
-            tableLayoutPanel1.Controls.Add(CourtDateBox, 3, 4);
-            tableLayoutPanel1.Controls.Add(label42, 3, 3);
-            tableLayoutPanel1.Controls.Add(ModeCB, 0, 17);
-            tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 2, 15);
-            tableLayoutPanel1.Controls.Add(selectDocBarcode, 2, 16);
-            tableLayoutPanel1.Controls.Add(label34, 3, 11);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 3, 10);
             tableLayoutPanel1.Controls.Add(label4, 4, 1);
             tableLayoutPanel1.Controls.Add(label5, 5, 1);
             tableLayoutPanel1.Controls.Add(label6, 6, 1);
             tableLayoutPanel1.Controls.Add(textBoxI, 5, 2);
             tableLayoutPanel1.Controls.Add(textBoxO, 6, 2);
-            tableLayoutPanel1.Controls.Add(label7, 3, 15);
-            tableLayoutPanel1.Controls.Add(FailureDateBox, 3, 16);
-            tableLayoutPanel1.Controls.Add(label45, 0, 16);
             tableLayoutPanel1.Controls.Add(label28, 0, 18);
             tableLayoutPanel1.Controls.Add(label29, 2, 18);
+            tableLayoutPanel1.Controls.Add(label15, 1, 3);
+            tableLayoutPanel1.Controls.Add(CourtExecDateBox, 1, 4);
+            tableLayoutPanel1.Controls.Add(courtDocNumBox, 2, 4);
+            tableLayoutPanel1.Controls.Add(label10, 2, 3);
+            tableLayoutPanel1.Controls.Add(label14, 3, 3);
+            tableLayoutPanel1.Controls.Add(courtOrderDateBox, 3, 4);
+            tableLayoutPanel1.Controls.Add(fsspDocNumBox, 0, 6);
+            tableLayoutPanel1.Controls.Add(label9, 0, 5);
+            tableLayoutPanel1.Controls.Add(label16, 1, 5);
+            tableLayoutPanel1.Controls.Add(startDateBox, 1, 6);
+            tableLayoutPanel1.Controls.Add(label17, 2, 5);
+            tableLayoutPanel1.Controls.Add(finishDateBox, 2, 6);
+            tableLayoutPanel1.Controls.Add(label22, 3, 5);
+            tableLayoutPanel1.Controls.Add(rejectDateBox, 3, 6);
+            tableLayoutPanel1.Controls.Add(label25, 3, 7);
+            tableLayoutPanel1.Controls.Add(sessionDateBox, 3, 8);
+            tableLayoutPanel1.Controls.Add(label45, 0, 16);
+            tableLayoutPanel1.Controls.Add(ModeCB, 0, 17);
+            tableLayoutPanel1.Controls.Add(selectDocBarcode, 1, 17);
+            tableLayoutPanel1.Controls.Add(labelSelectDocBarcode, 1, 16);
+            tableLayoutPanel1.Controls.Add(button6, 2, 15);
+            tableLayoutPanel1.Controls.Add(documentNameBox, 2, 14);
+            tableLayoutPanel1.Controls.Add(label32, 2, 13);
+            tableLayoutPanel1.Controls.Add(userTaskBox, 2, 10);
+            tableLayoutPanel1.Controls.Add(label34, 2, 9);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 2, 12);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 12);
+            tableLayoutPanel1.Controls.Add(checkBox2, 3, 14);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -434,7 +426,7 @@ namespace DocumentAdder.Forms
             // 
             label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(368, 125);
+            label9.Location = new System.Drawing.Point(4, 195);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(41, 15);
@@ -445,7 +437,7 @@ namespace DocumentAdder.Forms
             // 
             label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(186, 125);
+            label10.Location = new System.Drawing.Point(368, 125);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(123, 15);
@@ -518,7 +510,7 @@ namespace DocumentAdder.Forms
             // 
             label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(4, 195);
+            label14.Location = new System.Drawing.Point(550, 125);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(170, 15);
@@ -529,7 +521,7 @@ namespace DocumentAdder.Forms
             // 
             label15.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(186, 195);
+            label15.Location = new System.Drawing.Point(186, 125);
             label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label15.Name = "label15";
             label15.Size = new System.Drawing.Size(136, 15);
@@ -540,7 +532,7 @@ namespace DocumentAdder.Forms
             // 
             label16.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(368, 195);
+            label16.Location = new System.Drawing.Point(186, 195);
             label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(107, 15);
@@ -551,7 +543,7 @@ namespace DocumentAdder.Forms
             // 
             label17.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(550, 195);
+            label17.Location = new System.Drawing.Point(368, 195);
             label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(162, 15);
@@ -575,7 +567,7 @@ namespace DocumentAdder.Forms
             CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_exec_date", true));
             CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_exec_date", true));
             CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            CourtExecDateBox.Location = new System.Drawing.Point(186, 213);
+            CourtExecDateBox.Location = new System.Drawing.Point(186, 143);
             CourtExecDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             CourtExecDateBox.Mask = "00/00/0000";
             CourtExecDateBox.Name = "CourtExecDateBox";
@@ -594,7 +586,7 @@ namespace DocumentAdder.Forms
             startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "start_date", true));
             startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Start_date", true));
             startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            startDateBox.Location = new System.Drawing.Point(368, 213);
+            startDateBox.Location = new System.Drawing.Point(186, 213);
             startDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             startDateBox.Mask = "00/00/0000";
             startDateBox.Name = "startDateBox";
@@ -609,7 +601,7 @@ namespace DocumentAdder.Forms
             finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "finish_date", true));
             finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Finish_date", true));
             finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            finishDateBox.Location = new System.Drawing.Point(550, 213);
+            finishDateBox.Location = new System.Drawing.Point(368, 213);
             finishDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             finishDateBox.Mask = "00/00/0000";
             finishDateBox.Name = "finishDateBox";
@@ -875,7 +867,7 @@ namespace DocumentAdder.Forms
             // 
             label22.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label22.AutoSize = true;
-            label22.Location = new System.Drawing.Point(550, 265);
+            label22.Location = new System.Drawing.Point(550, 195);
             label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label22.Name = "label22";
             label22.Size = new System.Drawing.Size(155, 15);
@@ -932,7 +924,7 @@ namespace DocumentAdder.Forms
             rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "reject_date", true));
             rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Reject_date", true));
             rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            rejectDateBox.Location = new System.Drawing.Point(550, 283);
+            rejectDateBox.Location = new System.Drawing.Point(550, 213);
             rejectDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             rejectDateBox.Mask = "00/00/0000";
             rejectDateBox.Name = "rejectDateBox";
@@ -968,7 +960,7 @@ namespace DocumentAdder.Forms
             // 
             label25.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label25.AutoSize = true;
-            label25.Location = new System.Drawing.Point(368, 335);
+            label25.Location = new System.Drawing.Point(550, 265);
             label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label25.Name = "label25";
             label25.Size = new System.Drawing.Size(97, 15);
@@ -1010,7 +1002,7 @@ namespace DocumentAdder.Forms
             sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "session_date", true));
             sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Session_date", true));
             sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            sessionDateBox.Location = new System.Drawing.Point(368, 353);
+            sessionDateBox.Location = new System.Drawing.Point(550, 283);
             sessionDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             sessionDateBox.Mask = "00/00/0000 90:00";
             sessionDateBox.Name = "sessionDateBox";
@@ -1351,7 +1343,7 @@ namespace DocumentAdder.Forms
             fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "fssp_doc_num", true));
             fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Fssp_doc_num", true));
             fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            fsspDocNumBox.Location = new System.Drawing.Point(368, 143);
+            fsspDocNumBox.Location = new System.Drawing.Point(4, 213);
             fsspDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             fsspDocNumBox.Name = "fsspDocNumBox";
             fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
@@ -1364,7 +1356,7 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_order_date", true));
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtOrderDateBox.Location = new System.Drawing.Point(4, 213);
+            courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
             courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtOrderDateBox.Mask = "00/00/0000";
             courtOrderDateBox.Name = "courtOrderDateBox";
@@ -1379,7 +1371,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_doc_num", true));
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtDocNumBox.Location = new System.Drawing.Point(186, 143);
+            courtDocNumBox.Location = new System.Drawing.Point(368, 143);
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
@@ -1445,7 +1437,7 @@ namespace DocumentAdder.Forms
             userTaskBox.DataSource = Users;
             userTaskBox.DisplayMember = "NAME";
             userTaskBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            userTaskBox.Location = new System.Drawing.Point(550, 423);
+            userTaskBox.Location = new System.Drawing.Point(368, 353);
             userTaskBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             userTaskBox.Name = "userTaskBox";
             userTaskBox.Size = new System.Drawing.Size(174, 23);
@@ -1521,7 +1513,7 @@ namespace DocumentAdder.Forms
             documentNameBox.Dock = System.Windows.Forms.DockStyle.Fill;
             documentNameBox.FormattingEnabled = true;
             documentNameBox.Items.AddRange(new object[] { "213123212" });
-            documentNameBox.Location = new System.Drawing.Point(368, 423);
+            documentNameBox.Location = new System.Drawing.Point(368, 493);
             documentNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             documentNameBox.Name = "documentNameBox";
             documentNameBox.Size = new System.Drawing.Size(174, 23);
@@ -1531,7 +1523,7 @@ namespace DocumentAdder.Forms
             // 
             label32.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label32.AutoSize = true;
-            label32.Location = new System.Drawing.Point(368, 405);
+            label32.Location = new System.Drawing.Point(368, 475);
             label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label32.Name = "label32";
             label32.Size = new System.Drawing.Size(120, 15);
@@ -1588,7 +1580,7 @@ namespace DocumentAdder.Forms
             // button6
             // 
             button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            button6.Location = new System.Drawing.Point(368, 458);
+            button6.Location = new System.Drawing.Point(368, 528);
             button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button6.Name = "button6";
             button6.Size = new System.Drawing.Size(174, 29);
@@ -1639,9 +1631,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(checkBox1, 0, 0);
             tableLayoutPanel2.Controls.Add(checkBox4, 1, 0);
-            tableLayoutPanel2.Location = new System.Drawing.Point(550, 493);
+            tableLayoutPanel2.Controls.Add(checkBox1, 0, 0);
+            tableLayoutPanel2.Location = new System.Drawing.Point(550, 423);
             tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
@@ -1681,7 +1673,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(comboBox4, 0, 0);
             tableLayoutPanel3.Controls.Add(button10, 1, 0);
-            tableLayoutPanel3.Location = new System.Drawing.Point(550, 458);
+            tableLayoutPanel3.Location = new System.Drawing.Point(368, 423);
             tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
@@ -1714,7 +1706,7 @@ namespace DocumentAdder.Forms
             // 
             checkBox2.AutoSize = true;
             checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
-            checkBox2.Location = new System.Drawing.Point(368, 493);
+            checkBox2.Location = new System.Drawing.Point(550, 493);
             checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new System.Drawing.Size(62, 19);
@@ -1732,30 +1724,6 @@ namespace DocumentAdder.Forms
             label30.Size = new System.Drawing.Size(125, 15);
             label30.TabIndex = 54;
             label30.Text = "Испол. производство";
-            // 
-            // CourtDateBox
-            // 
-            CourtDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_date", true));
-            CourtDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Court_date", true));
-            CourtDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            CourtDateBox.Location = new System.Drawing.Point(550, 143);
-            CourtDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            CourtDateBox.Mask = "00/00/0000";
-            CourtDateBox.Name = "CourtDateBox";
-            CourtDateBox.Size = new System.Drawing.Size(174, 23);
-            CourtDateBox.TabIndex = 116;
-            CourtDateBox.ValidatingType = typeof(System.DateTime);
-            // 
-            // label42
-            // 
-            label42.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label42.AutoSize = true;
-            label42.Location = new System.Drawing.Point(550, 125);
-            label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label42.Name = "label42";
-            label42.Size = new System.Drawing.Size(115, 15);
-            label42.TabIndex = 114;
-            label42.Text = "Дата вынесения ИД";
             // 
             // ModeCB
             // 
@@ -1781,7 +1749,7 @@ namespace DocumentAdder.Forms
             // 
             labelSelectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             labelSelectDocBarcode.AutoSize = true;
-            labelSelectDocBarcode.Location = new System.Drawing.Point(368, 545);
+            labelSelectDocBarcode.Location = new System.Drawing.Point(186, 580);
             labelSelectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelSelectDocBarcode.Name = "labelSelectDocBarcode";
             labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
@@ -1790,12 +1758,12 @@ namespace DocumentAdder.Forms
             // 
             // selectDocBarcode
             // 
-            selectDocBarcode.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
             selectDocBarcode.DataSource = Documents;
             selectDocBarcode.DisplayMember = "name";
+            selectDocBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             selectDocBarcode.FormattingEnabled = true;
-            selectDocBarcode.Location = new System.Drawing.Point(368, 563);
+            selectDocBarcode.Location = new System.Drawing.Point(186, 598);
             selectDocBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
@@ -1809,7 +1777,7 @@ namespace DocumentAdder.Forms
             // 
             label34.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label34.AutoSize = true;
-            label34.Location = new System.Drawing.Point(550, 405);
+            label34.Location = new System.Drawing.Point(368, 335);
             label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label34.Name = "label34";
             label34.Size = new System.Drawing.Size(121, 15);
@@ -1910,27 +1878,6 @@ namespace DocumentAdder.Forms
             textBoxO.Size = new System.Drawing.Size(176, 23);
             textBoxO.TabIndex = 3;
             textBoxO.KeyDown += textBox1_KeyDown;
-            // 
-            // label7
-            // 
-            label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(549, 545);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(70, 15);
-            label7.TabIndex = 128;
-            label7.Text = "Дата отказа";
-            // 
-            // FailureDateBox
-            // 
-            FailureDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Failure_date", true));
-            FailureDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            FailureDateBox.Location = new System.Drawing.Point(549, 563);
-            FailureDateBox.Mask = "00/00/0000";
-            FailureDateBox.Name = "FailureDateBox";
-            FailureDateBox.Size = new System.Drawing.Size(176, 23);
-            FailureDateBox.TabIndex = 10;
-            FailureDateBox.ValidatingType = typeof(System.DateTime);
             // 
             // label45
             // 
@@ -2087,8 +2034,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.MaskedTextBox CourtDateBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn name1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name2DataGridViewTextBoxColumn;
@@ -2139,8 +2084,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxI;
         private System.Windows.Forms.TextBox textBoxO;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox FailureDateBox;
         private System.Windows.Forms.BindingSource typDocBinding;
         private System.Windows.Forms.BindingSource currentEnableds;
         private System.Windows.Forms.BindingSource dataModelBinding;
