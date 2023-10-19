@@ -274,7 +274,7 @@ public class ListLawFields
             checking = false,
             change = (data, value, _) =>
             {
-                data.dsc += "\n" +value.Dsc;
+                data.dsc += "\n" +DateTime.Now.ToShortDateString() + " " +value.Dsc;
             }
         },
         new() { database_order = "court_order_date", instance = "Court_order_date" },
@@ -361,7 +361,7 @@ public class ListLawFields
             checking = false,
             change = (data, value, _) =>
             {
-                data.dsc += "\n"+ value.Dsc;
+                data.dsc += "\n" +DateTime.Now.ToShortDateString() + " " + value.Dsc;
             }
         },
         new() { database_order = "court_date", instance = "Court_order_date" },
