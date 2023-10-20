@@ -695,29 +695,32 @@ public partial class MainForm : Form
         var typ = current.Typ_doc;
         var binding = createData(data.data);
         binding.Typ_doc = typ;
-        var settings = settings_json[typ];
-        dictStatus.DataSource = Settings.dicts[77].Values.ToList();
-        binding.Typ_doc = typ;
-        if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
+        if (typ != null)
         {
-            binding.Status = settings.exec_status;
-        }
-        else
-        {
-            binding.Status = null;
-        }
+            var settings = settings_json[typ.Value];
+            dictStatus.DataSource = Settings.dicts[77].Values.ToList();
+            binding.Typ_doc = typ;
+            if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
+            {
+                binding.Status = settings.exec_status;
+            }
+            else
+            {
+                binding.Status = null;
+            }
 
-        if (settings.user_task != null)
-        {
-            binding.User_task = settings.user_task;
+            if (settings.user_task != null)
+            {
+                binding.User_task = settings.user_task;
+            }
+            if (settings.document_name != null)
+            {
+                binding.Document_name = settings.document_name;
+            }
+            current = binding;
+            dataModelBinding.DataSource = current;
+            current.PropertyChanged += Current_PropertyChanged;
         }
-        if (settings.document_name != null)
-        {
-            binding.Document_name = settings.document_name;
-        }
-        current = binding;
-        dataModelBinding.DataSource = current;
-        current.PropertyChanged += Current_PropertyChanged;
     }
 
     private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
