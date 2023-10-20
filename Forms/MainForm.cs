@@ -161,6 +161,8 @@ public partial class MainForm : Form
     private void dataModelBinding_dataModelChanged(object sender, EventArgs e)
     {
         var binding = (BindingSource)sender;
+        if (binding.DataSource is Type)
+            return;
         var data = (DataModel)binding.DataSource;
         current = data;
         data.PropertyChanged += Current_PropertyChanged;
@@ -203,11 +205,27 @@ public partial class MainForm : Form
 
         }
     }
-    private void onClose(object sender, FormClosingEventArgs e)
+    protected override void OnFormClosing(FormClosingEventArgs e)
     {
         var result = MessageBox.Show("Вы уверены что хотите закрыть программу?", "Закрыть?", MessageBoxButtons.YesNo);
         if (result == DialogResult.No)
+        {
             e.Cancel = true;
+            base.OnFormClosing(e);
+            return;
+        }
+        dataModelBinding.DataSource = typeof(DataModel);
+        bindingSource1.DataSource = typeof(CBMember);
+        Documents.DataSource = typeof(Adder);
+        lawActResultBindingSource.DataSource = typeof(LawActResult);
+        lawExecResultBindingSource.DataSource = typeof(LawExecResult);
+        dictDebtStatus.DataSource = typeof(Dict);
+        dictState.DataSource = typeof(Dict);
+        dictStatus.DataSource = typeof(Dict);
+        dictTyp.DataSource = typeof(Dict);
+        Users.DataSource = typeof(User);
+        typDocBinding.DataSource = typeof(SettingsModel);
+        base.OnFormClosing(e);
     }
     public void Loader()
     {
@@ -265,7 +283,6 @@ public partial class MainForm : Form
             typDocBinding.DataSource = settings_json.Values.ToList();
             typDocBox.SelectedIndex = -1;
             //LoadPeople();
-            this.FormClosing += onClose;
             runed = true;
         }
     }
