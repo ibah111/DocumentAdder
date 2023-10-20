@@ -82,7 +82,7 @@ public partial class MainForm : Form
     }
     private void checkCurrent()
     {
-        if (current.Id != null)
+        if (current.Id != null && current.Typ_doc != null)
         {
             if (current.Data != null)
             {
@@ -203,6 +203,14 @@ public partial class MainForm : Form
         currentEnableds.DataSource = settings;
         if (settings != null)
         {
+            if (settings.user_task != null)
+            {
+                current.User_task = settings.user_task;
+            }
+            if (settings.document_name != null)
+            {
+                current.Document_name = settings.document_name;
+            }
             Settings.barcode = settings.Barcode;
             if (Settings.barcode == true)
             {
@@ -280,29 +288,32 @@ public partial class MainForm : Form
         binding.Typ_doc = typ;
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
-        var settings = settings_json[typ];
-        if (!(settings.without_act_status.ContainsKey(dict)
-            && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
-            && settings.act_status.ContainsKey(data.typ.Value))
+        if (typ != null)
         {
-            binding.Status = settings.act_status[data.typ.Value];
-        }
-        else
-        {
-            binding.Status = null;
-        }
+            var settings = settings_json[typ.Value];
+            if (!(settings.without_act_status.ContainsKey(dict)
+                && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
+                && settings.act_status.ContainsKey(data.typ.Value))
+            {
+                binding.Status = settings.act_status[data.typ.Value];
+            }
+            else
+            {
+                binding.Status = null;
+            }
 
-        if (settings.user_task != null)
-        {
-            binding.User_task = settings.user_task;
+            if (settings.user_task != null)
+            {
+                binding.User_task = settings.user_task;
+            }
+            if (settings.document_name != null)
+            {
+                binding.Document_name = settings.document_name;
+            }
+            current = binding;
+            dataModelBinding.DataSource = current;
+            current.PropertyChanged += Current_PropertyChanged;
         }
-        if (settings.document_name != null)
-        {
-            binding.Document_name = settings.document_name;
-        }
-        current = binding;
-        dataModelBinding.DataSource = current;
-        current.PropertyChanged += Current_PropertyChanged;
     }
     private int getIntDict(int? typ = 0)
     {
