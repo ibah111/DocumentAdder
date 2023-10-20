@@ -354,7 +354,7 @@ public partial class MainForm : Form
             if ((control is MaskedTextBox)/* && (control.Name != "maskedTextBox12")*/)
                 (control as MaskedTextBox).Clear();
         }
-        var binding = createData(current.Data);
+        var binding = createData();
         dataModelBinding.DataSource = binding;
     }
     private void InstallData(LawActResult data)
@@ -748,7 +748,7 @@ public partial class MainForm : Form
             return docAttach.id;
         }
     }
-    private DataModel createData(ActDataModel data)
+    private DataModel createData(ActDataModel data = null)
     {
         return new DataModel(data, current.Date_post)
         {
