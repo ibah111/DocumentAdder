@@ -91,63 +91,63 @@ public partial class MainForm : Form
             if (current.Data != null)
             {
                 var settings = (SettingsModel)currentEnableds.DataSource;
-                if (settings.Exec_number && current.Exec_number != null)
+                if (settings.Exec_number && current.Exec_number == null)
                 {
                     return;
                 }
-                if (settings.Exec_number && current.Exec_number != null)
+                if (settings.Exec_number && current.Exec_number == null)
                 {
                     return;
                 }
-                if (settings.Fssp_doc_num && current.Fssp_doc_num != null)
+                if (settings.Fssp_doc_num && current.Fssp_doc_num == null)
                 {
                     return;
                 }
-                if (settings.Court_doc_num && current.Court_doc_num != null)
+                if (settings.Court_doc_num && current.Court_doc_num == null)
                 {
                     return;
                 }
-                if (settings.Court_order_date && current.Court_order_date != null)
+                if (settings.Court_order_date && current.Court_order_date == null)
                 {
                     return;
                 }
-                if (settings.Court_exec_date && current.Court_exec_date != null)
+                if (settings.Court_exec_date && current.Court_exec_date == null)
                 {
                     return;
                 }
-                if (settings.Start_date && current.Start_date != null)
+                if (settings.Start_date && current.Start_date == null)
                 {
                     return;
                 }
-                if (settings.Finish_date && current.Finish_date != null)
+                if (settings.Finish_date && current.Finish_date == null)
                 {
                     return;
                 }
-                if (settings.Receipt_date && current.Receipt_date != null)
+                if (settings.Receipt_date && current.Receipt_date == null)
                 {
                     return;
                 }
-                if (settings.Return_date && current.Return_date != null)
+                if (settings.Return_date && current.Return_date == null)
                 {
                     return;
                 }
-                if (settings.Restriction_to_leave_dt && current.Restriction_to_leave_dt != null)
+                if (settings.Restriction_to_leave_dt && current.Restriction_to_leave_dt == null)
                 {
                     return;
                 }
-                if (settings.Reject_date && current.Reject_date != null)
+                if (settings.Reject_date && current.Reject_date == null)
                 {
                     return;
                 }
-                if (settings.Cancel_date && current.Cancel_date != null)
+                if (settings.Cancel_date && current.Cancel_date == null)
                 {
                     return;
                 }
-                if (settings.Correct_period_date && current.Correct_period_date != null)
+                if (settings.Correct_period_date && current.Correct_period_date == null)
                 {
                     return;
                 }
-                if (settings.Session_date && current.Session_date != null)
+                if (settings.Session_date && current.Session_date == null)
                 {
                     return;
                 }
@@ -361,7 +361,6 @@ public partial class MainForm : Form
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
-        binding.Typ_doc = typ;
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
         var settings = settings_json[typ];
@@ -403,7 +402,6 @@ public partial class MainForm : Form
 
     private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
-        ClearTextBox();
         if (e.RowIndex >= 0)
         {
             var data = ((SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource)[e.RowIndex];
@@ -759,7 +757,8 @@ public partial class MainForm : Form
             Scan = current.Scan,
             Fssp = current.Fssp,
             Task = current.Task,
-            Check = current.Check
+            Check = current.Check,
+            Typ_doc = current.Typ_doc,
         };
 
     }
@@ -767,10 +766,8 @@ public partial class MainForm : Form
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
-        binding.Typ_doc = typ;
         var settings = settings_json[typ];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
-        binding.Typ_doc = typ;
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
         {
             binding.Status = settings.exec_status;
