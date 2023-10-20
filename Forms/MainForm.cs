@@ -190,7 +190,7 @@ public partial class MainForm : Form
             var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
-            typDocBox.SelectedValue = 0;
+            typDocBox.SelectedValue = null;
             //LoadPeople();
             runed = true;
         }
