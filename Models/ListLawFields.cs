@@ -274,7 +274,8 @@ public class ListLawFields
             checking = false,
             change = (data, value, _) =>
             {
-                data.dsc += "\n" +DateTime.Now.ToShortDateString() + " " +value.Dsc;
+                if (value.Dsc != null && value.Dsc.Trim() != "")
+                    data.dsc += "\n" + DateTime.Now.ToShortDateString() + " " + value.Dsc;
             }
         },
         new() { database_order = "court_order_date", instance = "Court_order_date" },
