@@ -89,8 +89,68 @@ public partial class MainForm : Form
         {
             if (current.Data != null)
             {
-                if (Sett)
-                    button2.Enabled = true;
+                var settings = (SettingsModel)currentEnableds.DataSource;
+                if (settings.Exec_number && current.Exec_number != null)
+                {
+                    return;
+                }
+                if (settings.Exec_number && current.Exec_number != null)
+                {
+                    return;
+                }
+                if (settings.Fssp_doc_num && current.Fssp_doc_num != null)
+                {
+                    return;
+                }
+                if (settings.Court_doc_num && current.Court_doc_num != null)
+                {
+                    return;
+                }
+                if (settings.Court_order_date && current.Court_order_date != null)
+                {
+                    return;
+                }
+                if (settings.Court_exec_date && current.Court_exec_date != null)
+                {
+                    return;
+                }
+                if (settings.Start_date && current.Start_date != null)
+                {
+                    return;
+                }
+                if (settings.Finish_date && current.Finish_date != null)
+                {
+                    return;
+                }
+                if (settings.Receipt_date && current.Receipt_date != null)
+                {
+                    return;
+                }
+                if (settings.Return_date && current.Return_date != null)
+                {
+                    return;
+                }
+                if (settings.Restriction_to_leave_dt && current.Restriction_to_leave_dt != null)
+                {
+                    return;
+                }
+                if (settings.Reject_date && current.Reject_date != null)
+                {
+                    return;
+                }
+                if (settings.Cancel_date && current.Cancel_date != null)
+                {
+                    return;
+                }
+                if (settings.Correct_period_date && current.Correct_period_date != null)
+                {
+                    return;
+                }
+                if (settings.Session_date && current.Session_date != null)
+                {
+                    return;
+                }
+                button2.Enabled = true;
                 return;
             }
         }
