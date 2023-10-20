@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -202,6 +203,12 @@ public partial class MainForm : Form
 
         }
     }
+    private void onClose(object sender, FormClosingEventArgs e)
+    {
+        var result = MessageBox.Show("Вы уверены что хотите закрыть программу?", "Закрыть?", MessageBoxButtons.YesNo);
+        if (result == DialogResult.No)
+            e.Cancel = true;
+    }
     public void Loader()
     {
         if (!runed)
@@ -258,6 +265,7 @@ public partial class MainForm : Form
             typDocBinding.DataSource = settings_json.Values.ToList();
             typDocBox.SelectedIndex = -1;
             //LoadPeople();
+            this.FormClosing += onClose;
             runed = true;
         }
     }
