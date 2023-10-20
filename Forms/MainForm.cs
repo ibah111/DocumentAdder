@@ -482,7 +482,7 @@ public partial class MainForm : Form
         (int)ModeCB.SelectedValue))
         {
             Mail f = new Mail((int)ModeCB.SelectedValue, this, ref errors, checkBox3.Checked, docs, transaction);
-            f.Show(this);
+            f.ShowDialog(this);
         }
         else
         {
@@ -540,12 +540,7 @@ public partial class MainForm : Form
     {
         var personInfo = new PersonInfo(current);
         Tasks f = new Tasks(ref errors, this, personInfo, docs, transaction);
-        f.Show();
-        f.FormClosed += F_FormClosed;
-    }
-
-    private void F_FormClosed(object sender, FormClosedEventArgs e)
-    {
+        f.ShowDialog(this);
         ClearTextBox();
     }
 

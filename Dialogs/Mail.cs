@@ -26,6 +26,7 @@ public partial class Mail : Form
         this._form = form;
         this._task = task;
         this.docs = docs;
+        this.transaction = transaction;
 
         switch (mode)
         {
