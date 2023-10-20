@@ -354,6 +354,8 @@ public partial class MainForm : Form
             if ((control is MaskedTextBox)/* && (control.Name != "maskedTextBox12")*/)
                 (control as MaskedTextBox).Clear();
         }
+        var binding = createData(current.Data);
+        dataModelBinding.DataSource = binding;
     }
     private void InstallData(LawActResult data)
     {
