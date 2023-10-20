@@ -17,7 +17,7 @@ public class LawExecResult
     public int id { get { return data.id; } }
     public int? Status { get { return data.LawExec?.state; } }
     public int? Debt_status { get { return data.Debt?.status; } }
-    public string? fio_vz { get { return data.Debt?.fio_vz; } }
+    public string? fio_vz { get { return data.LawExec?.user_fio; } }
     public string? portfolio { get { return data.Debt?.portfolio; } }
     public string? fio { get { return data.Person.fio; } }
     public DateTime? birth_date { get { return data.Person.birth_date; } }

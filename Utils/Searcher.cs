@@ -135,6 +135,7 @@ public class Searcher
                 finish_date = x.finish_date,
                 receipt_act_dt = x.receipt_act_dt,
                 restriction_to_leave_dt = x.restriction_to_leave_dt,
+                user_fio = x.User.f + " " + x.User.i + " " + x.User.o
             },
             LawAct = x.LawAct != null ? new()
             {
