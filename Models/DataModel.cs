@@ -157,5 +157,5 @@ public partial class DataModel : ObservableObject
 
 
     [ObservableProperty]
-    private int? typ_doc = null;
+    private int typ_doc = 0;
 }

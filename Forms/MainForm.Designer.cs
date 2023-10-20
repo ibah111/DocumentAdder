@@ -380,7 +380,7 @@ namespace DocumentAdder.Forms
             typDocBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             typDocBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             tableLayoutPanel1.SetColumnSpan(typDocBox, 4);
-            typDocBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Typ_doc", true));
+            typDocBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", dataModelBinding, "Typ_doc", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             typDocBox.DataSource = typDocBinding;
             typDocBox.DisplayMember = "name";
             typDocBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -390,8 +390,7 @@ namespace DocumentAdder.Forms
             typDocBox.Name = "typDocBox";
             typDocBox.Size = new System.Drawing.Size(720, 23);
             typDocBox.TabIndex = 0;
-            typDocBox.ValueMember = "id";
-            typDocBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            typDocBox.ValueMember = "Id";
             // 
             // dataModelBinding
             // 

@@ -70,23 +70,27 @@ public partial class MainForm : Form
         ToolTip toolTip = new ToolTip();
         toolTip.SetToolTip(this.clearStatus, "Не менять статус");
         dataGridView1.CellFormatting += dataGridView1_CellFormatting;
-        current = new();
-        dataModelBinding.DataSource = current;
         dataModelBinding.DataSourceChanged += dataModelBinding_dataModelChanged;
-        current.PropertyChanged += Current_PropertyChanged;
+        dataModelBinding.DataSource = new DataModel();
     }
 
     private void Current_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
+        if (e.PropertyName == "Typ_doc")
+        {
+            var data = (DataModel)sender;
+            typDocChanged(data.Typ_doc);
+        }
         checkCurrent();
     }
     private void checkCurrent()
     {
-        if (current.Id != null && current.Typ_doc != null)
+        if (current.Id != null)
         {
             if (current.Data != null)
             {
-                button2.Enabled = true;
+                if (Sett)
+                    button2.Enabled = true;
                 return;
             }
         }
@@ -97,7 +101,9 @@ public partial class MainForm : Form
     {
         var binding = (BindingSource)sender;
         var data = (DataModel)binding.DataSource;
-        if (data.Data.Person != null)
+        current = data;
+        data.PropertyChanged += Current_PropertyChanged;
+        if (data.Data?.Person != null)
         {
             textBoxF.Text = data.Data.Person.f;
             textBoxI.Text = data.Data.Person.i;
@@ -108,7 +114,7 @@ public partial class MainForm : Form
             idBox.Text = data.Id.ToString();
 
         }
-        if (data.Data.Debt != null)
+        if (data.Data?.Debt != null)
         {
             contractBox.Text = data.Data.Debt.contract;
         }
@@ -190,19 +196,19 @@ public partial class MainForm : Form
             var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
-            typDocBox.SelectedIndex = 0;
+            typDocBox.SelectedIndex = -1;
             //LoadPeople();
             runed = true;
         }
     }
 
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+    private void typDocChanged(int value)
     {
-        receiptDateBox.Text = DateTime.Now.ToShortDateString();
-        var settings = (SettingsModel)typDocBox.SelectedItem;
-        currentEnableds.DataSource = settings;
+        var settings = settings_json[value];
+
         if (settings != null)
         {
+            currentEnableds.DataSource = settings;
             if (settings.user_task != null)
             {
                 current.User_task = settings.user_task;
@@ -288,32 +294,29 @@ public partial class MainForm : Form
         binding.Typ_doc = typ;
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
-        if (typ != null)
+        var settings = settings_json[typ];
+        if (!(settings.without_act_status.ContainsKey(dict)
+            && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
+            && settings.act_status.ContainsKey(data.typ.Value))
         {
-            var settings = settings_json[typ.Value];
-            if (!(settings.without_act_status.ContainsKey(dict)
-                && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
-                && settings.act_status.ContainsKey(data.typ.Value))
-            {
-                binding.Status = settings.act_status[data.typ.Value];
-            }
-            else
-            {
-                binding.Status = null;
-            }
-
-            if (settings.user_task != null)
-            {
-                binding.User_task = settings.user_task;
-            }
-            if (settings.document_name != null)
-            {
-                binding.Document_name = settings.document_name;
-            }
-            current = binding;
-            dataModelBinding.DataSource = current;
-            current.PropertyChanged += Current_PropertyChanged;
+            binding.Status = settings.act_status[data.typ.Value];
         }
+        else
+        {
+            binding.Status = null;
+        }
+
+        if (settings.user_task != null)
+        {
+            binding.User_task = settings.user_task;
+        }
+        if (settings.document_name != null)
+        {
+            binding.Document_name = settings.document_name;
+        }
+        dataModelBinding.DataSource = binding;
+        current.PropertyChanged += Current_PropertyChanged;
+
     }
     private int getIntDict(int? typ = 0)
     {
@@ -695,32 +698,29 @@ public partial class MainForm : Form
         var typ = current.Typ_doc;
         var binding = createData(data.data);
         binding.Typ_doc = typ;
-        if (typ != null)
+        var settings = settings_json[typ];
+        dictStatus.DataSource = Settings.dicts[77].Values.ToList();
+        binding.Typ_doc = typ;
+        if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
         {
-            var settings = settings_json[typ.Value];
-            dictStatus.DataSource = Settings.dicts[77].Values.ToList();
-            binding.Typ_doc = typ;
-            if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
-            {
-                binding.Status = settings.exec_status;
-            }
-            else
-            {
-                binding.Status = null;
-            }
-
-            if (settings.user_task != null)
-            {
-                binding.User_task = settings.user_task;
-            }
-            if (settings.document_name != null)
-            {
-                binding.Document_name = settings.document_name;
-            }
-            current = binding;
-            dataModelBinding.DataSource = current;
-            current.PropertyChanged += Current_PropertyChanged;
+            binding.Status = settings.exec_status;
         }
+        else
+        {
+            binding.Status = null;
+        }
+
+        if (settings.user_task != null)
+        {
+            binding.User_task = settings.user_task;
+        }
+        if (settings.document_name != null)
+        {
+            binding.Document_name = settings.document_name;
+        }
+        dataModelBinding.DataSource = binding;
+        current.PropertyChanged += Current_PropertyChanged;
+
     }
 
     private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

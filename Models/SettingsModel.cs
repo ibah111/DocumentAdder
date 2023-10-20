@@ -1,3 +1,4 @@
+#nullable enable
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 
@@ -46,7 +47,7 @@ public partial class SettingsModel : ObservableObject
     [ObservableProperty]
     private bool barcode = false;
     public int? user_task { get; init; }
-    public string document_name { get; init; } = null;
+    public string? document_name { get; init; } = null;
     [ObservableProperty]
     private bool with_court = false;
 }
