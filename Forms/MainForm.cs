@@ -7,6 +7,7 @@ using DocumentAdder.Properties;
 using DocumentAdder.Utils;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -86,24 +87,21 @@ public partial class MainForm : Form
     }
     private void checkCurrent()
     {
+        button2.Enabled = false;
         if (current.Id != null)
         {
             if (current.Data != null)
             {
                 var settings = (SettingsModel)currentEnableds.DataSource;
-                if (settings.Exec_number && current.Exec_number == null)
+                if (settings.Exec_number && string.IsNullOrEmpty(current.Exec_number))
                 {
                     return;
                 }
-                if (settings.Exec_number && current.Exec_number == null)
+                if (settings.Fssp_doc_num && string.IsNullOrEmpty(current.Fssp_doc_num))
                 {
                     return;
                 }
-                if (settings.Fssp_doc_num && current.Fssp_doc_num == null)
-                {
-                    return;
-                }
-                if (settings.Court_doc_num && current.Court_doc_num == null)
+                if (settings.Court_doc_num && string.IsNullOrEmpty(current.Court_doc_num))
                 {
                     return;
                 }
@@ -155,7 +153,6 @@ public partial class MainForm : Form
                 return;
             }
         }
-        button2.Enabled = false;
     }
 
     private void dataModelBinding_dataModelChanged(object sender, EventArgs e)
