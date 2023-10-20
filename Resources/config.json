@@ -454,7 +454,7 @@
   {
     "id": 16,
     "name": "Определение об отмене СП (нашего) (ПРИКАЗ/ПЕРЕСЧЕТ)",
-    "color": 4,
+    "color": 0,
     "exec_number": true,
     "fssp_doc_num": false,
     "court_doc_num": false,
