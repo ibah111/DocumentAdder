@@ -39,6 +39,8 @@ public class Searcher
         LawExecSource.Clear();
         var data1 = db.LawAct.AsQueryable();
         var data2 = db.LawExec.AsQueryable();
+        data1 = data1.Where(x => (x.typ == 1 && x.status != 10) || (x.typ > 1 && x.act_status != 15));
+        data2 = data2.Where(x => x.state != 5);
         if (fio != null)
         {
             data1 = db.LawAct.Where(
