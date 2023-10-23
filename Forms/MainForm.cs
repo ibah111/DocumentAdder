@@ -93,10 +93,10 @@ public partial class MainForm : Form
             if (current.Data != null)
             {
                 var settings = (SettingsModel)currentEnableds.DataSource;
-                if (settings.Exec_number && string.IsNullOrEmpty(current.Exec_number))
-                {
-                    return;
-                }
+                //if (settings.Exec_number && string.IsNullOrEmpty(current.Exec_number))
+                //{
+                //    return;
+                //}
                 if (settings.Fssp_doc_num && string.IsNullOrEmpty(current.Fssp_doc_num))
                 {
                     return;
