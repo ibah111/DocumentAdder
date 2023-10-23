@@ -528,7 +528,6 @@ public partial class MainForm : Form
         List<ClientDoc> docs = new List<ClientDoc>();
         foreach (var value in Adder.files)
         {
-            string segmentation = @"\\usb\all\shara\Сегментация обучение\";
 
             string file = value.name; //Название файла.pdf
             string file_dir = value.path; //Расположение файла
@@ -538,15 +537,6 @@ public partial class MainForm : Form
             string uuid = guid.ToString(); //НОВЫЙ GUID
             string new_file = uuid + $".{type}"; //guid.pdf
             File.Copy(file_dir, free_dir + $"\\{uuid}.{type}");
-
-            try
-            {
-                File.Copy(file_dir, segmentation + $"{typDocBox.SelectedItem.ToString().Replace("/", "")}" + $"\\Test{file}");
-            }
-            catch (Exception exeption)
-            {
-                File.AppendAllText(Environment.CurrentDirectory + "\\ErrorsSQL.txt", $"Файл: {file} не был сохранен. {exeption.Message}");
-            }
             int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file);
             if (result > 0)
             {
