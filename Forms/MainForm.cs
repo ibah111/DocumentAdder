@@ -469,56 +469,6 @@ public partial class MainForm : Form
     {
 
 
-        if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                    || typDocBox.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                    || typDocBox.Text.Contains("ИЛ в НАШУ пользу")
-                    || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-                    || typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-                    || typDocBox.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
-                    || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
-                    )
-        {
-
-        }
-        if (CheckMasked() == false)
-        {
-            MessageBox.Show("ДАТЫ не заполнены или заполнены некорректно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-        if (typDocBox.Text.Contains("ПОВИП") && string.IsNullOrWhiteSpace(courtDocNumBox.Text))
-        {
-            MessageBox.Show("Поле № ИП не заполнено!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (typDocBox.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                   || typDocBox.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                   || typDocBox.Text.Contains("ИЛ в НАШУ пользу")
-                   || typDocBox.Text.Contains("Дубликат ИЛ в НАШУ пользу")
-                    || typDocBox.Text.Contains("Дубликат ИД(Правопреемство)/Дубликат ИД + Определение о выдаче дубликата")
-                    || typDocBox.Text.Contains("ИД/Дубликат ИД/Исп. надпись с ПОИП+АКТ (мы взыскатель)")
-                    || typDocBox.Text.Contains("Постановление об отказе в возбуждении ИП с ИД")
-                    )
-        {
-            //TODO: надо исправить
-            //var personInfo = new PersonInfo(current);
-            //try
-            //{
-            //    var (error, message) = VTBAdder.CreateExcel();
-            //    if (error)
-            //    {
-            //        MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //    else
-            //        VTBAdder.Add(personInfo);
-            //}
-            //catch
-            //{
-            //    MessageBox.Show(this, "Строчка не добавлена, скорее всего открыт Excel файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-        }
 
         using var db = Program.factory_db.CreateDbContext();
         using var transaction = db.Database.BeginTransaction();
