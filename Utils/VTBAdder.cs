@@ -1,4 +1,5 @@
-﻿using DocumentAdder.Forms;
+﻿#nullable enable
+using DocumentAdder.Forms;
 using DocumentAdder.Models;
 using Microsoft.Office.Interop.Excel;
 using System;
@@ -22,22 +23,22 @@ public class PersonInfo
         number = data.Data.Person.number;
         series = data.Data.Person.series;
         court_date = data.Data.LawExec?.court_date?.ToShortDateString();
-        sum = data.Typ == LawTyp.LawAct ? data.Data.LawAct.total_sum.Value : data.Data.LawExec.total_sum.Value;
-        exec_date = data.Typ == LawTyp.LawAct ? null : data.Data.LawExec.court_date?.ToShortDateString();
+        sum = data.Typ == LawTyp.LawAct ? data.Data.LawAct?.total_sum : data.Data.LawExec?.total_sum;
+        exec_date = data.Typ == LawTyp.LawAct ? null : data.Data.LawExec?.court_date?.ToShortDateString();
 
     }
-    public string fio;
-    public string birth_date;
-    public string birth_place;
-    public string exec_number;
-    public string court_doc_num;
-    public string inn;
-    public string typ;
-    public string number;
-    public string series;
-    public string court_date;
-    public decimal sum;
-    public string name;
+    public string? fio;
+    public string? birth_date;
+    public string? birth_place;
+    public string? exec_number;
+    public string? court_doc_num;
+    public string? inn;
+    public string? typ;
+    public string? number;
+    public string? series;
+    public string? court_date;
+    public decimal? sum;
+    public string? name;
     public string? exec_date;
 }
 class VTBAdder
