@@ -67,6 +67,7 @@ public partial class OtherDocs : Form
 
     private void button3_Click(object sender, EventArgs e)
     {
+        button3.Enabled = false;
         try
         {
             var vm = new

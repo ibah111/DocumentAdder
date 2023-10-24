@@ -113,6 +113,7 @@ public partial class Tasks : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
+        button2.Enabled = false;
         Send(_personInfo);
     }
 }

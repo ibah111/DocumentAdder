@@ -60,6 +60,7 @@ public partial class Mail : Form
 
     private async void DoneBtn_Click(object sender, EventArgs e)
     {
+        DoneBtn.Enabled = true;
         if (_task)
         {
             _form.newTask(errors, docs, transaction);
