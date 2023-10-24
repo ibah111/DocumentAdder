@@ -173,7 +173,7 @@ public class ListLawFields
                 protokol = new()
                 {
                     typ = 13,
-                    dsc = "Суд: определение о принятии иска к производству. " + data.dsc,
+                    dsc = "Суд: определение о принятии иска к производству.",
                     r_user_id = Settings.user_id,
                     dt = DateTime.Now,
                 };
@@ -296,7 +296,7 @@ public class ListLawFields
                     typ = 72,
                     r_user_id = Settings.user_id,
                     dt = DateTime.Now,
-                    dsc = $"Дата возврата приказа: {value.Return_date?.ToShortDateString()} Комментарий: {value.Dsc}"
+                    dsc = $"Дата возврата приказа: {value.Return_date?.ToShortDateString()}"
                 });
             }
         },
