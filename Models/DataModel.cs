@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using DocumentAdder.Forms;
 
@@ -174,5 +175,5 @@ public partial class DataModel : ObservableObject
     [ObservableProperty]
     private int typ_doc = 0;
 
-    public List<FileData> Files = new();
+    public ObservableCollection<FileData> Files = new();
 }

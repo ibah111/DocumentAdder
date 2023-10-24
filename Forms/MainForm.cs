@@ -165,6 +165,7 @@ public partial class MainForm : Form
         current = data;
         data.PropertyChanged += Current_PropertyChanged;
         documentsBindingSource.DataSource = data.Files;
+        data.Files.CollectionChanged += Files_CollectionChanged;
 
         if (data.Data?.Person != null)
         {
@@ -184,6 +185,12 @@ public partial class MainForm : Form
         execNumberSearchBox.Text = data.Exec_number;
         checkCurrent();
     }
+
+    private void Files_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        documentsBindingSource.ResetBindings(false);
+    }
+
     private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
         if (this.dataGridView1.Columns[e.ColumnIndex].Name == nameof(LawActStatus))
@@ -298,7 +305,6 @@ public partial class MainForm : Form
             {
                 var file = current.Files[cell.RowIndex];
                 current.Files.Remove(file);
-                documentsBindingSource.ResetBindings(false);
             }
         }
     }
@@ -319,7 +325,6 @@ public partial class MainForm : Form
 
             string file_name = filePath.Split('\\').Last();
             current.Files.Add(new(Writer.read(filePath), file_name));
-            documentsBindingSource.ResetBindings(false);
         }
     }
 
