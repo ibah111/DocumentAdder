@@ -282,7 +282,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label29, 2, 18);
             tableLayoutPanel1.Controls.Add(label15, 1, 3);
             tableLayoutPanel1.Controls.Add(CourtExecDateBox, 1, 4);
-            tableLayoutPanel1.Controls.Add(courtDocNumBox, 3, 4);
+            tableLayoutPanel1.Controls.Add(courtDocNumBox, 2, 4);
             tableLayoutPanel1.Controls.Add(label10, 2, 3);
             tableLayoutPanel1.Controls.Add(label14, 2, 3);
             tableLayoutPanel1.Controls.Add(courtOrderDateBox, 2, 4);
@@ -1445,7 +1445,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_doc_num", true));
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtDocNumBox.Location = new System.Drawing.Point(550, 143);
+            courtDocNumBox.Location = new System.Drawing.Point(368, 143);
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
@@ -1480,7 +1480,7 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "court_order_date", true));
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtOrderDateBox.Location = new System.Drawing.Point(368, 143);
+            courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
             courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtOrderDateBox.Mask = "00/00/0000";
             courtOrderDateBox.Name = "courtOrderDateBox";
