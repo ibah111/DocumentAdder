@@ -1,4 +1,5 @@
-﻿using DocumentAdder.Forms;
+﻿using bpac;
+using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
 using Microsoft.EntityFrameworkCore;
@@ -29,9 +30,11 @@ public partial class DocAttach : Form
         userModelBindingSource.DataSource = db.User.Select(x => new UserModel() { id = x.id, fio = x.f + " " + x.i + " " + x.o }).ToList();
         dictModelBindingSource.DataSource = db.Dict.Where(x => x.parent_id == 100).Select(x => new DictModel() { code = x.code, name = x.name }).ToList();
         List<DatabaseContact.Models.DocAttach> data;
+
         if (law_typ == LawTyp.LawAct)
         {
-            data = db.DocAttach.Include(x => x.User).Where(x => x.r_id == id && x.obj_id == 46).ToList();
+            var ids = db.LawAct.Where(x => x.id == id).Select(x => new { id = x.id, solications = x.LawActSolicitations.Select(x => x.id) }).First();
+            data = db.DocAttach.Include(x => x.User).Where(x => (x.r_id == ids.id && x.obj_id == 46) || (x.obj_id == 108 && ids.solications.Contains(x.r_id))).ToList();
         }
         else
         {
