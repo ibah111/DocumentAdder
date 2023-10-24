@@ -675,6 +675,7 @@ public partial class MainForm : Form
     {
         return new DataModel(data, current.Date_post)
         {
+            Mode = current.Mode,
             Document_name = current.Document_name,
             User_task = current.User_task,
             Scan = current.Scan,
