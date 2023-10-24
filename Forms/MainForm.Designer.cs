@@ -189,12 +189,10 @@ namespace DocumentAdder.Forms
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
-            dataDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fileDataBindingSource = new System.Windows.Forms.BindingSource(components);
-            fileItemBindingSource = new System.Windows.Forms.BindingSource(components);
             documentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -213,9 +211,8 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)fileDataBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)fileItemBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)documentsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1888,38 +1885,44 @@ namespace DocumentAdder.Forms
             gridFiles.BackgroundColor = System.Drawing.Color.White;
             gridFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             gridFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataDataGridViewImageColumn, dataGridViewTextBoxColumn1, typDataGridViewTextBoxColumn });
+            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { nameDataGridViewTextBoxColumn, typDataGridViewTextBoxColumn });
             tableLayoutPanel1.SetColumnSpan(gridFiles, 2);
-            gridFiles.DataSource = fileDataBindingSource;
+            gridFiles.DataSource = documentsBindingSource;
             gridFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             gridFiles.Location = new System.Drawing.Point(367, 668);
             gridFiles.Name = "gridFiles";
+            gridFiles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            gridFiles.RowHeadersVisible = false;
             tableLayoutPanel1.SetRowSpan(gridFiles, 3);
             gridFiles.RowTemplate.Height = 25;
             gridFiles.Size = new System.Drawing.Size(358, 99);
             gridFiles.TabIndex = 128;
             // 
-            // dataDataGridViewImageColumn
+            // documentsBindingSource
             // 
-            dataDataGridViewImageColumn.DataPropertyName = "Data";
-            dataDataGridViewImageColumn.HeaderText = "Data";
-            dataDataGridViewImageColumn.Name = "dataDataGridViewImageColumn";
+            documentsBindingSource.DataSource = typeof(FileData);
             // 
-            // dataGridViewTextBoxColumn1
+            // typDocumentsBindingSource
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            dataGridViewTextBoxColumn1.HeaderText = "Name";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            typDocumentsBindingSource.DataSource = typeof(DictModel);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Название документа";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
             // typDataGridViewTextBoxColumn
             // 
             typDataGridViewTextBoxColumn.DataPropertyName = "Typ";
-            typDataGridViewTextBoxColumn.HeaderText = "Typ";
+            typDataGridViewTextBoxColumn.DataSource = typDocumentsBindingSource;
+            typDataGridViewTextBoxColumn.DisplayMember = "name";
+            typDataGridViewTextBoxColumn.HeaderText = "Тип документа";
             typDataGridViewTextBoxColumn.Name = "typDataGridViewTextBoxColumn";
-            // 
-            // fileDataBindingSource
-            // 
-            fileDataBindingSource.DataSource = typeof(FileData);
+            typDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            typDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            typDataGridViewTextBoxColumn.ValueMember = "code";
             // 
             // MainForm
             // 
@@ -1954,9 +1957,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).EndInit();
-            ((System.ComponentModel.ISupportInitialize)fileDataBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)fileItemBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -2123,12 +2125,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridView gridFiles;
         private System.Windows.Forms.BindingSource documentsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource typDocumentsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource fileItemBindingSource;
-        private System.Windows.Forms.DataGridViewImageColumn dataDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource fileDataBindingSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
     }
 }
 
