@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Utils;
@@ -28,6 +29,7 @@ class Data
         {
             if (item.value != null)
             {
+
                 setter.Invoke(row, new[] { item.value });
             }
             if (item.change != null)
@@ -43,10 +45,10 @@ class Data
     }
 
 
-    public static i_collectContext Update(i_collectContext db, DataModel data, SettingsModel enabled)
+    public static async Task<i_collectContext> Update(i_collectContext db, DataModel data, SettingsModel enabled)
     {
-        var LawExec = db.LawExec.Include(x => x.LawAct).FirstOrDefault(x => x.id == data.Id);
-        var LawAct = db.LawAct.FirstOrDefault(x => x.id == data.Id);
+        var LawExec = await db.LawExec.Include(x => x.LawAct).FirstOrDefaultAsync(x => x.id == data.Id);
+        var LawAct = await db.LawAct.FirstOrDefaultAsync(x => x.id == data.Id);
         var fields = new ListLawFields();
         if (data.Typ == LawTyp.LawAct)
             foreach (var item in fields.LawAct)

@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DocumentAdder.Utils;
 
@@ -8,7 +9,6 @@ public class Server
     HttpListener listener;
     public delegate void CallGetToken(string token);
     public event CallGetToken OnGetToken;
-    private bool started;
     public Server()
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -17,14 +17,12 @@ public class Server
     }
     public void Start()
     {
-        started = true;
         listener.Start();
-        while (started)
-            handler();
+        handlerAsync();
     }
-    public void handler()
+    public async void handlerAsync()
     {
-        var context = listener.GetContext();
+        var context = await listener.GetContextAsync();
         var request = context.Request;
         var response = context.Response;
         if (request.HttpMethod == "GET" && request.Url.AbsolutePath == "/login")
@@ -40,7 +38,6 @@ public class Server
                 output.Write(buffer, 0, buffer.Length);
                 // You must close the output stream.
                 output.Close();
-                started = false;
                 listener.Stop();
                 OnGetToken(token);
             }

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -32,9 +33,9 @@ public class Searcher
         this.contract = contract;
         this.exec_number = exec_number;
     }
-    public void GetTables(BindingSource LawActSource, BindingSource LawExecSource)
+    public async Task GetTables(BindingSource LawActSource, BindingSource LawExecSource)
     {
-        using var db = Program.factory_db.CreateDbContext();
+        using var db = await Program.factory_db.CreateDbContextAsync();
         LawActSource.Clear();
         LawExecSource.Clear();
         var data1 = db.LawAct.AsQueryable();
@@ -181,8 +182,8 @@ public class Searcher
             },
             LawCourt = x.LawCourt != null ? new() { id = x.LawCourt.id, name = x.LawCourt.name, address = x.LawCourt.address } : null
         });
-        var result1 = select1.ToList();
-        var result2 = select2.ToList();
+        var result1 = await select1.ToListAsync();
+        var result2 = await select2.ToListAsync();
         LawActSource.DataSource = new SortableBindingList<LawActResult>(result1.Select(x => new LawActResult(x)).ToList());
         LawExecSource.DataSource = new SortableBindingList<LawExecResult>(result2.Select(x => new LawExecResult(x)).ToList());
     }

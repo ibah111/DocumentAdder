@@ -5,6 +5,7 @@ using DocumentAdder.Main;
 using DocumentAdder.Models;
 using DocumentAdder.Properties;
 using DocumentAdder.Utils;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.IdentityModel.Tokens;
@@ -18,6 +19,7 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Forms;
 using Action = System.Action;
@@ -42,14 +44,14 @@ public partial class MainForm : Form
     {
         SerialPort sp = (SerialPort)sender;
         string indata = sp.ReadExisting();
-        Action action = () =>
+        Action action = async () =>
         {
             ClearTextBox();
             string given = indata;
             idBox.Text = given.Replace("\r", string.Empty);
             //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
             Searcher searcher = new Searcher(null, idBox.Text, "", "");
-            searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
+            await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
             {
                 var data = ((SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource)[0];
@@ -224,11 +226,11 @@ public partial class MainForm : Form
         typDocBinding.DataSource = typeof(SettingsModel);
         base.OnFormClosing(e);
     }
-    public void Loader()
+    public async Task Loader()
     {
         if (!runed)
         {
-            this.Text = FromStart.DownloadInfo();
+            this.Text = await FromStart.DownloadInfo();
             List<CBMember> cBMembers = new List<CBMember>();
             dictTyp.DataSource = Settings.dicts[405].Values.ToList();
             dictDebtStatus.DataSource = Settings.dicts[6].Values.ToList();
@@ -242,7 +244,7 @@ public partial class MainForm : Form
             bindingSource1.DataSource = cBMembers;
             //ModeCB.DataSource = bindingSource1;
 
-            LoadList();
+            await LoadList();
             currentPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
             comboBox4.DataSource = SerialPort.GetPortNames();
 
@@ -257,7 +259,7 @@ public partial class MainForm : Form
             }
             if (File.Exists(path_to_list_adr))
             {
-                List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
+                List<string> spis1 = (await File.ReadAllLinesAsync(path_to_list_adr)).ToList();
                 postNameBox.DataSource = spis1;
             }
             else
@@ -266,7 +268,7 @@ public partial class MainForm : Form
             }
             if (File.Exists(path_to_list_otprav))
             {
-                List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
+                List<string> spis2 = (await File.ReadAllLinesAsync(path_to_list_otprav)).ToList();
                 postAddressBox.DataSource = spis2;
             }
             else
@@ -370,12 +372,12 @@ public partial class MainForm : Form
         }
 
     }
-    private void textBox1_KeyDown(object sender, KeyEventArgs e)
+    private async void textBox1_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
         {
             Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, idBox.Text, contractBox.Text, execNumberSearchBox.Text);
-            searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
+            await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
         }
         if (e.Control && e.KeyCode == Keys.D)
             ClearTextBox();
@@ -475,15 +477,15 @@ public partial class MainForm : Form
         }
     }
 
-    private void button2_Click(object sender, EventArgs e)
+    private async void button2_Click(object sender, EventArgs e)
     {
 
 
 
-        using var db = Program.factory_db.CreateDbContext();
-        using var transaction = db.Database.BeginTransaction();
-        Data.Update(db, current, (SettingsModel)currentEnableds.DataSource);
-        db.SaveChanges();
+        using var db = await Program.factory_db.CreateDbContextAsync();
+        using var transaction = await db.Database.BeginTransactionAsync();
+        await Data.Update(db, current, (SettingsModel)currentEnableds.DataSource);
+        await db.SaveChangesAsync();
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
         foreach (var value in current.Files)
@@ -491,12 +493,12 @@ public partial class MainForm : Form
 
             string file = value.Name; //Название файла.pdf
             string type = file.Split('.').Last(); //расширение файла
-            string free_dir = GetFreeDir(); //свободная папка для залива
+            string free_dir = await GetFreeDir(); //свободная папка для залива
             Guid guid = Guid.NewGuid();
             string uuid = guid.ToString(); //НОВЫЙ GUID
             string new_file = uuid + $".{type}"; //guid.pdf
             Writer.write(free_dir + $"\\{uuid}.{type}", value.Data);
-            int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file, value.Typ);
+            int result = await GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file, value.Typ);
             if (result > 0)
             {
                 if (value == current.Doc_barcode)
@@ -553,7 +555,7 @@ public partial class MainForm : Form
                 {
                     var vm = getRequest("without_task", docs: docs);
                     var request = new RestRequest("/123").AddJsonBody(vm);
-                    var response = Program.client.Post<ServerResults>(request);
+                    var response = await Program.client.PostAsync<ServerResults>(request);
                     if (response.Barcodes != null)
                         foreach (var barcode in response.Barcodes)
                             Utils.Printer.PrintBarCode(barcode.barcode);
@@ -565,13 +567,13 @@ public partial class MainForm : Form
                 }
                 if (errors == 0)
                 {
-                    transaction.Commit();
+                    await transaction.CommitAsync();
                     ClearTextBox();
                     MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    transaction.Rollback();
+                    await transaction.RollbackAsync();
                     MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
                 }
 
@@ -632,11 +634,11 @@ public partial class MainForm : Form
         return result;
     }
 
-    private string GetFreeDir()
+    private async Task<string> GetFreeDir()
     {
-        using var db = Program.factory_db.CreateDbContext();
+        using var db = await Program.factory_db.CreateDbContextAsync();
         int a = 0;
-        string main_dir = db.ConstValue.Where(x => x.name == "DocAttach.SavePath").Select(x => x.value).First();
+        string main_dir = await db.ConstValue.Where(x => x.name == "DocAttach.SavePath").Select(x => x.value).FirstAsync();
         string[] dirs = Directory.GetDirectories(main_dir);
         foreach (string b in dirs)
         {
@@ -655,7 +657,7 @@ public partial class MainForm : Form
     }
 
 
-    private int GetSqlFile(i_collectContext db, string new_file, string index, string old_file, int? typ = null)
+    private async Task<int> GetSqlFile(i_collectContext db, string new_file, string index, string old_file, int? typ = null)
     {
         if (current.Typ == LawTyp.LawAct)
         {
@@ -678,7 +680,7 @@ public partial class MainForm : Form
             };
             db.DocAttach.Add(docAttach);
             db.LawActProtokol.Add(new LawActProtokol() { dt = DateTime.Now, typ = 23, parent_id = current.Id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return docAttach.id;
         }
         else
@@ -703,7 +705,7 @@ public partial class MainForm : Form
             };
             db.DocAttach.Add(docAttach);
             db.LawExecProtokol.Add(new LawExecProtokol() { dt = DateTime.Now, typ = 9, parent_id = current.Id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return docAttach.id;
         }
     }
@@ -765,12 +767,12 @@ public partial class MainForm : Form
         testDialog.Show();
     }
 
-    private void button5_Click(object sender, EventArgs e)
+    private async void button5_Click(object sender, EventArgs e)
     {
         if (!int.TryParse(idBox.Text, out var law_id))
             throw new Exception("ID дела неправильное");
-        using var db = Program.factory_db.CreateDbContext();
-        using var transaction = db.Database.BeginTransaction();
+        using var db = await Program.factory_db.CreateDbContextAsync();
+        using var transaction = await db.Database.BeginTransactionAsync();
         if (string.IsNullOrWhiteSpace(idBox.Text))
         {
             MessageBox.Show("Невозможно создать банкротство без ID Дела\r\nаналогичного должника");
@@ -793,14 +795,14 @@ public partial class MainForm : Form
             PRE_ACT_STATUS = 1
         };
         db.LawAct.Add(LawAct);
-        db.SaveChanges();
+        await db.SaveChangesAsync();
         db.LawActPersonLink.Add(new LawActPersonLink() { PERSON_ID = person_id, LINK_TYPE = 1, PERSON_ROLE = 1, R_LAW_ACT_ID = LawAct.id });
-        db.SaveChanges();
-        transaction.Commit();
+        await db.SaveChangesAsync();
+        await transaction.CommitAsync();
         MessageBox.Show("Банкротство успешно создано!");
     }
 
-    private void button6_Click(object sender, EventArgs e)
+    private async void button6_Click(object sender, EventArgs e)
     {
         if ((documentNameBox.Text == " ") || (documentNameBox.Text == ""))
             MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
@@ -809,12 +811,12 @@ public partial class MainForm : Form
             StreamWriter sw = new StreamWriter(path_to_list, true);
             sw.WriteLine($"{documentNameBox.Text}");
             sw.Close();
-            List<string> spis = File.ReadLines(path_to_list).ToList();
+            List<string> spis = (await File.ReadAllLinesAsync(path_to_list)).ToList();
             documentNameBox.DataSource = spis;
         }
     }
 
-    private void button7_Click(object sender, EventArgs e)
+    private async void button7_Click(object sender, EventArgs e)
     {
         if ((postNameBox.Text == " ") || (postNameBox.Text == ""))
             MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
@@ -823,19 +825,19 @@ public partial class MainForm : Form
             StreamWriter sw = new StreamWriter(path_to_list_adr, true);
             sw.WriteLine($"{postNameBox.Text}");
             sw.Close();
-            List<string> spis1 = File.ReadLines(path_to_list_adr).ToList();
+            List<string> spis1 = (await File.ReadAllLinesAsync(path_to_list_adr)).ToList();
             postNameBox.DataSource = spis1;
         }
     }
 
-    private void button8_Click(object sender, EventArgs e)
+    private async void button8_Click(object sender, EventArgs e)
     {
         if ((postAddressBox.Text == " ") || (postAddressBox.Text == ""))
             MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
         else
         {
             File.AppendAllText(path_to_list_otprav, postAddressBox.Text + "\n");
-            List<string> spis2 = File.ReadLines(path_to_list_otprav).ToList();
+            List<string> spis2 = (await File.ReadAllLinesAsync(path_to_list_otprav)).ToList();
             postAddressBox.DataSource = spis2;
         }
     }
@@ -851,7 +853,7 @@ public partial class MainForm : Form
         f.Show();
     }
 
-    private void LoadList()
+    private async Task LoadList()
     {
 
         try
@@ -859,7 +861,7 @@ public partial class MainForm : Form
             var vm = new { action = "users" };
             string old_text = userTaskBox.Text;
             var request = new RestRequest("/123").AddJsonBody(vm);
-            var response = Program.client.Post<List<ServerUser>>(request);
+            var response = await Program.client.PostAsync<List<ServerUser>>(request);
             if (response.Count > 0)
             {
                 Users.DataSource = response;

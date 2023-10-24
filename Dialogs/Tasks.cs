@@ -28,13 +28,13 @@ public partial class Tasks : Form
         this.transaction = transaction;
     }
 
-    private void Templates()
+    private async void Templates()
     {
         try
         {
             var vm = new { action = "templates" };
             var request = new RestRequest("/123").AddJsonBody(vm);
-            var response = Program.client.Post<List<ServerTemplate>>(request);
+            var response = await Program.client.PostAsync<List<ServerTemplate>>(request);
             if (response != null)
                 if (response.Count > 0)
                     comboBox1.DataSource = response;
@@ -45,7 +45,7 @@ public partial class Tasks : Form
         }
     }
 
-    public void Send(ref int errors, PersonInfo personInfo)
+    public async void Send(PersonInfo personInfo)
     {
         if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
                    || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
@@ -86,7 +86,7 @@ public partial class Tasks : Form
             Forms.current.Task_id = (int)comboBox1.SelectedValue;
             var vm = Forms.getRequest("with_task", this.docs);
             var request = new RestRequest("/123").AddJsonBody(vm);
-            var response = Program.client.Post<ServerResults>(request);
+            var response = await Program.client.PostAsync<ServerResults>(request);
             if (response.Barcodes != null)
                 foreach (var barcode in response.Barcodes)
                     Utils.Printer.PrintBarCode(barcode.barcode);
@@ -98,12 +98,12 @@ public partial class Tasks : Form
         }
         if (errors == 0)
         {
-            transaction.Commit();
+            await transaction.CommitAsync();
             MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else
         {
-            transaction.Rollback();
+            await transaction.RollbackAsync();
             MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
         }
         Forms.ClearTextBox();
@@ -113,6 +113,6 @@ public partial class Tasks : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        Send(ref errors, _personInfo);
+        Send(_personInfo);
     }
 }

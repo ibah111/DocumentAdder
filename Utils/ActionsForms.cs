@@ -48,29 +48,29 @@ public class ActionsForms
     }
     public void showStartForm()
     {
-        Action showStartForm = () =>
+        Action showStartForm = async () =>
         {
             this.startForm.Show();
-            this.startForm.Loader();
+            await this.startForm.Loader();
         };
         startForm.Invoke(showStartForm);
     }
     public void showLoginForm()
     {
-        Action showStartForm = () =>
+        Action showStartForm = async () =>
         {
             this.startForm.Show();
-            this.startForm.Loader();
+            await this.startForm.Loader();
         };
         Action hideStartForm = () =>
         {
             this.startForm.Hide();
         };
-        Action showLoginForm = () =>
+        Action showLoginForm = async () =>
         {
             this.loginForm.OnLoged += this.showStartForm;
             this.loginForm.OnNotLoged += this.hideStartForm;
-            this.loginForm.CheckLogin();
+            await this.loginForm.CheckLoginAsync();
         };
         loginForm.Invoke(showLoginForm);
     }

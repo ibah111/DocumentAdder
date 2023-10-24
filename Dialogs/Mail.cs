@@ -58,7 +58,7 @@ public partial class Mail : Form
         mailModelBinding.DataSource = current;
     }
 
-    private void DoneBtn_Click(object sender, EventArgs e)
+    private async void DoneBtn_Click(object sender, EventArgs e)
     {
         if (_task)
         {
@@ -70,7 +70,7 @@ public partial class Mail : Form
             {
                 var vm = _form.getRequest("without_task", docs: this.docs, current);
                 var request = new RestRequest("/123").AddJsonBody(vm);
-                var response = Program.client.Post<ServerResults>(request);
+                var response = await Program.client.PostAsync<ServerResults>(request);
                 if (response.Barcodes != null)
                     foreach (var barcode in response.Barcodes)
                         Utils.Printer.PrintBarCode(barcode.barcode);
@@ -82,12 +82,12 @@ public partial class Mail : Form
             }
             if (errors == 0)
             {
-                transaction.Commit();
+                await transaction.CommitAsync();
                 MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                transaction.Rollback();
+                await transaction.RollbackAsync();
                 MessageBox.Show($"Возникли непредвиденные ошибки\r\nКол-во: {errors}\r\nВсе ошибки находятся в ErrorsSQL.txt");
             }
             errors = 0;

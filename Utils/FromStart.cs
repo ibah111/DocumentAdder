@@ -1,17 +1,19 @@
 ﻿using DocumentAdder.Main;
 using DocumentAdder.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DocumentAdder.Utils;
 
 internal class FromStart
 {
-    internal static string DownloadInfo()
+    internal static async Task<string> DownloadInfo()
     {
-        GetUserDB();
-        Settings.dicts = GetDicts(405, 18, 25, 26, 76, 77, 41, 6, 100);
+        await GetUserDB();
+        Settings.dicts = await GetDicts(405, 18, 25, 26, 76, 77, 41, 6, 100);
         return GetUser();
     }
 
@@ -19,16 +21,16 @@ internal class FromStart
     {
         return $"Входящая почта. Документооборот. Пользователь: {Settings.username} [{Settings.user_id}]";
     }
-    public static Dictionary<int, Dictionary<int, DictModel>> GetDicts(params int[] list)
+    public static async Task<Dictionary<int, Dictionary<int, DictModel>>> GetDicts(params int[] list)
     {
 
-        using var db = Program.factory_db.CreateDbContext();
-        var data = db.Dict.Where(x => list.Contains(x.parent_id)).Select(x => new
+        using var db = await Program.factory_db.CreateDbContextAsync();
+        var data = await db.Dict.Where(x => list.Contains(x.parent_id)).Select(x => new
         {
             x.parent_id,
             x.code,
             x.name
-        }).ToList().GroupBy(x => x.parent_id).ToDictionary(x => x.Key, x => x.ToDictionary(x => x.code, x => new DictModel
+        }).GroupBy(x => x.parent_id).ToDictionaryAsync(x => x.Key, x => x.ToDictionary(x => x.code, x => new DictModel
         {
             code = x.code,
             name = x.name
@@ -36,10 +38,10 @@ internal class FromStart
         return data;
     }
 
-    internal static void GetUserDB()
+    internal static async Task GetUserDB()
     {
-        using var db = Program.factory_db.CreateDbContext();
-        foreach (var item in db.User.Where(x => string.IsNullOrEmpty(x.i)).Select(x => new { x.id, x.f, x.i }).ToList())
+        using var db = await Program.factory_db.CreateDbContextAsync();
+        foreach (var item in await db.User.Where(x => string.IsNullOrEmpty(x.i)).Select(x => new { x.id, x.f, x.i }).ToListAsync())
         {
             Settings.users.Add(item.id, $"{item.f} {item.i}");
         }

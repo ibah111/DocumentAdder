@@ -1,6 +1,7 @@
 using DatabaseContact.DatabaseContact;
 using DocumentAdder.Main;
 using DocumentAdder.Utils;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
@@ -43,18 +44,18 @@ public partial class LoginForm : Form
     public LoginForm()
     {
         timer.Interval = (int)TimeSpan.FromMinutes(5).TotalMilliseconds;
-        timer.Tick += (object sender, EventArgs e) => CheckLogin();
+        timer.Tick += async (object sender, EventArgs e) => await CheckLoginAsync();
         InitializeComponent();
-        InitData();
+        InitDataAsync();
     }
     public delegate void CallEvent();
     public event CallEvent OnLoged;
     public event CallEvent OnNotLoged;
-    public void CheckLogin()
+    public async Task CheckLoginAsync()
     {
-        if (CheckToken())
+        if (await CheckTokenAsync())
         {
-            if (GetLoginContact())
+            if (await GetLoginContactAsync())
             {
                 Hide();
                 if (!timer.Enabled) timer.Start();
@@ -77,17 +78,17 @@ public partial class LoginForm : Form
 
         }
     }
-    public bool GetLoginContact()
+    public async Task<bool> GetLoginContactAsync()
     {
         using var db = Program.factory_db.CreateDbContext();
-        Settings.user_id = db.User.Where(x => x.email == logedData.login).Select(x => x.id).FirstOrDefault();
+        Settings.user_id = await db.User.Where(x => x.email == logedData.login).Select(x => x.id).FirstOrDefaultAsync();
         string[] names = { logedData.firstname, logedData.secondname, logedData.thirdname };
         Settings.username = Addons.GetName(names);
         if (Settings.user_id == 0)
             return false;
         return true;
     }
-    private bool CheckToken()
+    private async Task<bool> CheckTokenAsync()
     {
         var request = new RestRequest("/login");
         if (client.Options.Authenticator is BitrixAuthenticator auth)
@@ -96,7 +97,7 @@ public partial class LoginForm : Form
         }
         try
         {
-            var response = client.Post<LogedData>(request);
+            var response = await client.PostAsync<LogedData>(request);
             if (response.login_result)
                 logedData = response;
             Program.factory_db = new(Program.getOptionsSql<i_collectContext>(logedData.database));
@@ -109,7 +110,7 @@ public partial class LoginForm : Form
 
     }
 
-    private void InitData()
+    private async void InitDataAsync()
     {
         if (!Directory.Exists(appdata))
         {
@@ -117,18 +118,18 @@ public partial class LoginForm : Form
         }
         if (File.Exists(appdata + LoginPath))
         {
-            loginData = JsonConvert.DeserializeObject<LoginData>(File.ReadAllText(appdata + LoginPath));
+            loginData = JsonConvert.DeserializeObject<LoginData>(await File.ReadAllTextAsync(appdata + LoginPath));
         }
         else
         {
             loginData = new LoginData();
         }
         server = new Server();
-        server.OnGetToken += (string token) =>
+        server.OnGetToken += async (string token) =>
         {
             loginData.token = token;
-            File.WriteAllText(appdata + LoginPath, JsonConvert.SerializeObject(loginData));
-            CheckLogin();
+            await File.WriteAllTextAsync(appdata + LoginPath, JsonConvert.SerializeObject(loginData));
+            CheckLoginAsync();
         };
     }
 
