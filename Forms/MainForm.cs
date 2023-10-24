@@ -618,7 +618,7 @@ public partial class MainForm : Form
             user_id = current.User_task,
             template_id = current.Task_id,
             name = $"{current.Data.Person.fio} {current.Data.Debt?.contract} {current.Data.Debt?.portfolio}",
-            desc = current.Dsc + "\n" + current.Post_name + "\n" + current.Post_address,
+            desc = current.Dsc + (current.Mode == 1 ? "\n" + current.Post_name + "\n" + current.Post_address : ""),
             mode = current.Mode,
 
             ist = mail?.Debtor,
