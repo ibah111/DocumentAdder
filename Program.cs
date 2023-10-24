@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
 using System;
+using System.Globalization;
 using System.Net;
 using System.Windows.Forms;
 
@@ -17,6 +18,13 @@ static class Program
     public static readonly RestClientOptions clientOptions = new RestClientOptions(Settings.server) { Authenticator = new BitrixAuthenticator() };
     public static readonly RestClient client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
     public static PooledDbContextFactory<i_collectContext> factory_db = null;
+    public static void setDefaults()
+    {
+        var culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;
+        culture.DateTimeFormat.ShortTimePattern = "HH:mm";
+        System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+
+    }
     static public void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
     {
         dynamic json = JsonConvert.DeserializeObject(args.RemoteData);
@@ -53,6 +61,7 @@ static class Program
         AutoUpdater.RunUpdateAsAdmin = false;
         AutoUpdater.Start("https://chat.nbkfinance.ru/apps/mail/standelone.json");
         Application.EnableVisualStyles();
+        setDefaults();
         Application.SetCompatibleTextRenderingDefault(false);
 #if DEBUG
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
