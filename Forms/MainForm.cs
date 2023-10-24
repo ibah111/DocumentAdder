@@ -280,9 +280,24 @@ public partial class MainForm : Form
             typDocBox.SelectedIndex = -1;
             gridFiles.DragDrop += GridFiles_DragDrop;
             gridFiles.DragEnter += GridFiles_DragEnter;
+            gridFiles.KeyDown += GridFiles_KeyDown;
             //LoadPeople();
 
             runed = true;
+        }
+    }
+
+    private void GridFiles_KeyDown(object sender, KeyEventArgs e)
+    {
+        var grid = (DataGridView)sender;
+        if (e.KeyCode == Keys.Delete)
+        {
+            foreach (DataGridViewCell cell in grid.SelectedCells)
+            {
+                var file = current.Files[cell.RowIndex];
+                current.Files.Remove(file);
+                documentsBindingSource.ResetBindings(false);
+            }
         }
     }
 
