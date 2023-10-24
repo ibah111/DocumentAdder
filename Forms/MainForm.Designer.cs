@@ -58,7 +58,6 @@ namespace DocumentAdder.Forms
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
             label18 = new System.Windows.Forms.Label();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             LawActId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,7 +122,6 @@ namespace DocumentAdder.Forms
             lawExecResultBindingSource = new System.Windows.Forms.BindingSource(components);
             textBox11 = new System.Windows.Forms.TextBox();
             textBox12 = new System.Windows.Forms.TextBox();
-            panel1 = new System.Windows.Forms.Panel();
             label31 = new System.Windows.Forms.Label();
             execNumberSearchBox = new System.Windows.Forms.TextBox();
             contractBox = new System.Windows.Forms.TextBox();
@@ -172,7 +170,6 @@ namespace DocumentAdder.Forms
             ModeCB = new System.Windows.Forms.ComboBox();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
             selectDocBarcode = new System.Windows.Forms.ComboBox();
-            Documents = new System.Windows.Forms.BindingSource(components);
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
             documentNameBox = new System.Windows.Forms.ComboBox();
@@ -191,6 +188,13 @@ namespace DocumentAdder.Forms
             checkBox4 = new System.Windows.Forms.CheckBox();
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
+            gridFiles = new System.Windows.Forms.DataGridView();
+            dataDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            fileDataBindingSource = new System.Windows.Forms.BindingSource(components);
+            fileItemBindingSource = new System.Windows.Forms.BindingSource(components);
+            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -204,11 +208,14 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Documents).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridFiles).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fileDataBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fileItemBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -233,7 +240,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
             tableLayoutPanel1.Controls.Add(button2, 3, 24);
-            tableLayoutPanel1.Controls.Add(button3, 2, 24);
             tableLayoutPanel1.Controls.Add(label18, 4, 5);
             tableLayoutPanel1.Controls.Add(dataGridView1, 4, 6);
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
@@ -249,15 +255,14 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(dataGridView2, 4, 19);
             tableLayoutPanel1.Controls.Add(textBox11, 0, 19);
             tableLayoutPanel1.Controls.Add(textBox12, 0, 22);
-            tableLayoutPanel1.Controls.Add(panel1, 2, 19);
             tableLayoutPanel1.Controls.Add(label31, 7, 1);
             tableLayoutPanel1.Controls.Add(execNumberSearchBox, 6, 4);
             tableLayoutPanel1.Controls.Add(contractBox, 5, 4);
             tableLayoutPanel1.Controls.Add(idBox, 4, 4);
             tableLayoutPanel1.Controls.Add(execNumberBox, 0, 4);
-            tableLayoutPanel1.Controls.Add(button1, 3, 19);
-            tableLayoutPanel1.Controls.Add(button4, 3, 20);
-            tableLayoutPanel1.Controls.Add(button5, 3, 21);
+            tableLayoutPanel1.Controls.Add(button1, 3, 22);
+            tableLayoutPanel1.Controls.Add(button4, 2, 22);
+            tableLayoutPanel1.Controls.Add(button5, 2, 23);
             tableLayoutPanel1.Controls.Add(label26, 0, 11);
             tableLayoutPanel1.Controls.Add(postNameBox, 0, 14);
             tableLayoutPanel1.Controls.Add(label35, 0, 13);
@@ -268,7 +273,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(button8, 1, 15);
             tableLayoutPanel1.Controls.Add(label36, 1, 13);
             tableLayoutPanel1.Controls.Add(datePostBox, 0, 12);
-            tableLayoutPanel1.Controls.Add(button9, 3, 22);
+            tableLayoutPanel1.Controls.Add(button9, 2, 24);
             tableLayoutPanel1.Controls.Add(checkBox3, 3, 23);
             tableLayoutPanel1.Controls.Add(label30, 4, 18);
             tableLayoutPanel1.Controls.Add(label4, 4, 1);
@@ -308,6 +313,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label27, 2, 9);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 9);
             tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
+            tableLayoutPanel1.Controls.Add(gridFiles, 2, 19);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -469,19 +475,6 @@ namespace DocumentAdder.Forms
             button2.Text = "Готово!";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button3.Location = new System.Drawing.Point(368, 843);
-            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(174, 75);
-            button3.TabIndex = 61;
-            button3.Text = "Посмотреть вложения";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // label18
             // 
@@ -1103,22 +1096,6 @@ namespace DocumentAdder.Forms
             textBox12.Size = new System.Drawing.Size(356, 145);
             textBox12.TabIndex = 57;
             // 
-            // panel1
-            // 
-            panel1.BackColor = System.Drawing.Color.White;
-            panel1.BackgroundImage = Properties.Resources.add_file;
-            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            panel1.Location = new System.Drawing.Point(368, 668);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            tableLayoutPanel1.SetRowSpan(panel1, 5);
-            panel1.Size = new System.Drawing.Size(174, 169);
-            panel1.TabIndex = 58;
-            panel1.DragDrop += panel1_DragDrop;
-            panel1.DragEnter += panel1_DragEnter;
-            // 
             // label31
             // 
             label31.AutoSize = true;
@@ -1178,7 +1155,7 @@ namespace DocumentAdder.Forms
             // 
             button1.Dock = System.Windows.Forms.DockStyle.Top;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Location = new System.Drawing.Point(550, 668);
+            button1.Location = new System.Drawing.Point(550, 773);
             button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(174, 27);
@@ -1191,7 +1168,7 @@ namespace DocumentAdder.Forms
             // 
             button4.Dock = System.Windows.Forms.DockStyle.Top;
             button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button4.Location = new System.Drawing.Point(550, 703);
+            button4.Location = new System.Drawing.Point(368, 773);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(174, 27);
@@ -1204,7 +1181,7 @@ namespace DocumentAdder.Forms
             // 
             button5.Dock = System.Windows.Forms.DockStyle.Fill;
             button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button5.Location = new System.Drawing.Point(550, 738);
+            button5.Location = new System.Drawing.Point(368, 808);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(174, 29);
@@ -1337,10 +1314,10 @@ namespace DocumentAdder.Forms
             // 
             button9.Dock = System.Windows.Forms.DockStyle.Fill;
             button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button9.Location = new System.Drawing.Point(550, 773);
+            button9.Location = new System.Drawing.Point(368, 843);
             button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(174, 29);
+            button9.Size = new System.Drawing.Size(174, 75);
             button9.TabIndex = 92;
             button9.Text = "Другие документы";
             button9.UseVisualStyleBackColor = true;
@@ -1483,7 +1460,7 @@ namespace DocumentAdder.Forms
             // 
             label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(550, 125);
+            label10.Location = new System.Drawing.Point(368, 125);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(123, 15);
@@ -1494,7 +1471,7 @@ namespace DocumentAdder.Forms
             // 
             label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(368, 125);
+            label14.Location = new System.Drawing.Point(550, 125);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(170, 15);
@@ -1678,8 +1655,6 @@ namespace DocumentAdder.Forms
             // selectDocBarcode
             // 
             selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
-            selectDocBarcode.DataSource = Documents;
-            selectDocBarcode.DisplayMember = "name";
             selectDocBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             selectDocBarcode.FormattingEnabled = true;
             selectDocBarcode.Location = new System.Drawing.Point(186, 598);
@@ -1687,10 +1662,6 @@ namespace DocumentAdder.Forms
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
             selectDocBarcode.TabIndex = 31;
-            // 
-            // Documents
-            // 
-            Documents.DataSource = typeof(Adder.FileItem);
             // 
             // labelSelectDocBarcode
             // 
@@ -1909,6 +1880,47 @@ namespace DocumentAdder.Forms
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
             // 
+            // gridFiles
+            // 
+            gridFiles.AllowUserToAddRows = false;
+            gridFiles.AllowUserToDeleteRows = false;
+            gridFiles.AutoGenerateColumns = false;
+            gridFiles.BackgroundColor = System.Drawing.Color.White;
+            gridFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            gridFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataDataGridViewImageColumn, dataGridViewTextBoxColumn1, typDataGridViewTextBoxColumn });
+            tableLayoutPanel1.SetColumnSpan(gridFiles, 2);
+            gridFiles.DataSource = fileDataBindingSource;
+            gridFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridFiles.Location = new System.Drawing.Point(367, 668);
+            gridFiles.Name = "gridFiles";
+            tableLayoutPanel1.SetRowSpan(gridFiles, 3);
+            gridFiles.RowTemplate.Height = 25;
+            gridFiles.Size = new System.Drawing.Size(358, 99);
+            gridFiles.TabIndex = 128;
+            // 
+            // dataDataGridViewImageColumn
+            // 
+            dataDataGridViewImageColumn.DataPropertyName = "Data";
+            dataDataGridViewImageColumn.HeaderText = "Data";
+            dataDataGridViewImageColumn.Name = "dataDataGridViewImageColumn";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            dataGridViewTextBoxColumn1.HeaderText = "Name";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // typDataGridViewTextBoxColumn
+            // 
+            typDataGridViewTextBoxColumn.DataPropertyName = "Typ";
+            typDataGridViewTextBoxColumn.HeaderText = "Typ";
+            typDataGridViewTextBoxColumn.Name = "typDataGridViewTextBoxColumn";
+            // 
+            // fileDataBindingSource
+            // 
+            fileDataBindingSource.DataSource = typeof(FileData);
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1936,12 +1948,15 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Documents).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)gridFiles).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fileDataBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fileItemBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -1995,11 +2010,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.MaskedTextBox courtOrderDateBox;
         private System.Windows.Forms.TextBox courtDocNumBox;
@@ -2044,7 +2057,6 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label labelSelectDocBarcode;
         private System.Windows.Forms.ComboBox selectDocBarcode;
-        private System.Windows.Forms.BindingSource Documents;
         private System.Windows.Forms.BindingSource lawActResultBindingSource;
         private System.Windows.Forms.BindingSource lawExecResultBindingSource;
         private System.Windows.Forms.BindingSource dictTyp;
@@ -2108,6 +2120,15 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecExecDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LawExecBirthPlace;
         private System.Windows.Forms.ComboBox statusBox;
+        private System.Windows.Forms.DataGridView gridFiles;
+        private System.Windows.Forms.BindingSource documentsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource fileItemBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn dataDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource fileDataBindingSource;
     }
 }
 

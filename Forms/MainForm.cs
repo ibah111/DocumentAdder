@@ -20,7 +20,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Data;
 using System.Windows.Forms;
-using static DocumentAdder.Models.Adder;
 using Action = System.Action;
 
 namespace DocumentAdder.Forms;
@@ -213,7 +212,6 @@ public partial class MainForm : Form
         }
         dataModelBinding.DataSource = typeof(DataModel);
         bindingSource1.DataSource = typeof(CBMember);
-        Documents.DataSource = typeof(Adder);
         lawActResultBindingSource.DataSource = typeof(LawActResult);
         lawExecResultBindingSource.DataSource = typeof(LawExecResult);
         dictDebtStatus.DataSource = typeof(Dict);
@@ -230,7 +228,6 @@ public partial class MainForm : Form
         {
             this.Text = FromStart.DownloadInfo();
             List<CBMember> cBMembers = new List<CBMember>();
-            Documents.DataSource = Adder.files;
             dictTyp.DataSource = Settings.dicts[405].Values.ToList();
             dictDebtStatus.DataSource = Settings.dicts[6].Values.ToList();
             dictState.DataSource = Settings.dicts[77].Values.ToList();
@@ -274,7 +271,6 @@ public partial class MainForm : Form
                 File.CreateText(path_to_list_otprav);
             }
             Settings.json = Resources.config;
-            panel1.AllowDrop = true;
             var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
@@ -344,15 +340,13 @@ public partial class MainForm : Form
             ClearTextBox();
         if (e.Control && e.KeyCode == Keys.Q)
         {
-            Adder.files.Clear();
-            Documents.ResetBindings(true);
+            current.Files.Clear();
             MessageBox.Show("Все файлы удалены!", "Удачно!");
         }
         if (e.Control && e.Shift && e.KeyCode == Keys.D)
         {
             ClearTextBox();
-            Adder.files.Clear();
-            Documents.ResetBindings(true);
+            current.Files.Clear();
             MessageBox.Show("Все файлы удалены, Поля очищены!", "Удачно!");
         }
         if (e.KeyCode == Keys.PageDown)
@@ -436,33 +430,8 @@ public partial class MainForm : Form
         {
             string file = files[0];
             string file_name = files[0].Split('\\').Last();
-            Adder.files.Add(new FileItem() { path = file, name = file_name }); //Путь до файла | Название файла
-            Documents.ResetBindings(true);
-            MessageBox.Show($"Добавлен новый файл!\r\n\r\nНазвание файла: {file_name}\r\n\r\nПуть до файла: {file}\r\n\r\nВсего файлов: {Adder.files.Count}", "Добавлен файл!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            panel1.BackgroundImageLayout = ImageLayout.Zoom;
+            current.Files.Add(new(Writer.read(file), file_name));
         }
-    }
-
-    private void panel1_DragEnter(object sender, DragEventArgs e)
-    {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
-        {
-            e.Effect = DragDropEffects.All;
-        }
-        string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-        if (files.Length != 0)
-        {
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-        }
-    }
-
-    private void button3_Click(object sender, EventArgs e)
-    {
-        List<string> ls = new List<string>();
-        foreach (var value in Adder.files)
-            ls.Add($"Название файла: {value.name}\r\nПуть: {value.path}\r\n");
-        MessageBox.Show($"Всего добавлено {Adder.files.Count} файлов\r\n\r\n" + string.Join("\r\n", ls));
-        ls.Clear();
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -476,18 +445,17 @@ public partial class MainForm : Form
         db.SaveChanges();
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
-        foreach (var value in Adder.files)
+        foreach (var value in current.Files)
         {
 
-            string file = value.name; //Название файла.pdf
-            string file_dir = value.path; //Расположение файла
+            string file = value.Name; //Название файла.pdf
             string type = file.Split('.').Last(); //расширение файла
             string free_dir = GetFreeDir(); //свободная папка для залива
             Guid guid = Guid.NewGuid();
             string uuid = guid.ToString(); //НОВЫЙ GUID
             string new_file = uuid + $".{type}"; //guid.pdf
-            File.Copy(file_dir, free_dir + $"\\{uuid}.{type}");
-            int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file);
+            Writer.write(free_dir + $"\\{uuid}.{type}", value.Data);
+            int result = GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file, value.Typ);
             if (result > 0)
             {
                 if (value == current.Doc_barcode)
@@ -510,8 +478,7 @@ public partial class MainForm : Form
             }
         }
 
-        Adder.files.Clear();
-        Documents.ResetBindings(true);
+        current.Files.Clear();
         int[] ints = { 2, 3, 4, 5 };
 
         if (ints.Contains(
@@ -652,7 +619,7 @@ public partial class MainForm : Form
     }
 
 
-    private int GetSqlFile(i_collectContext db, string new_file, string index, string old_file)
+    private int GetSqlFile(i_collectContext db, string new_file, string index, string old_file, int? typ = null)
     {
         if (current.Typ == LawTyp.LawAct)
         {
@@ -671,6 +638,7 @@ public partial class MainForm : Form
                 REL_SERVER_PATH = "\\" + index + "\\",
                 CHANGE_DT = DateTime.Now,
                 SAVE_MODE = 2,
+                attach_typ = typ,
             };
             db.DocAttach.Add(docAttach);
             db.LawActProtokol.Add(new LawActProtokol() { dt = DateTime.Now, typ = 23, parent_id = current.Id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });
@@ -695,6 +663,7 @@ public partial class MainForm : Form
                 REL_SERVER_PATH = index,
                 CHANGE_DT = DateTime.Now,
                 SAVE_MODE = 2,
+                attach_typ = typ,
             };
             db.DocAttach.Add(docAttach);
             db.LawExecProtokol.Add(new LawExecProtokol() { dt = DateTime.Now, typ = 9, parent_id = current.Id, r_user_id = Settings.user_id, dsc = $"Вложение: {old_file}" });

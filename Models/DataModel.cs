@@ -1,10 +1,22 @@
 ﻿#nullable enable
 using System;
+using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using DocumentAdder.Forms;
-using static DocumentAdder.Models.Adder;
 
 namespace DocumentAdder.Models;
+public class FileData
+{
+    public FileData(byte[] data, string? name = null, int? typ = null)
+    {
+        this.Data = data;
+        this.Name = name;
+        this.Typ = typ;
+    }
+    public byte[] Data { get; set; }
+    public string? Name { get; set; }
+    public int? Typ { get; set; }
+}
 
 public partial class DataModel : ObservableObject
 {
@@ -138,7 +150,7 @@ public partial class DataModel : ObservableObject
 
     //На какой документ распечатать штрих код
     [ObservableProperty]
-    private FileItem? doc_barcode;
+    private FileData? doc_barcode;
 
     //Сканы
     [ObservableProperty]
@@ -158,4 +170,6 @@ public partial class DataModel : ObservableObject
 
     [ObservableProperty]
     private int typ_doc = 0;
+
+    public List<FileData> Files = new();
 }
