@@ -63,6 +63,8 @@ public partial class i_collectContext : DbContext
 
     public virtual DbSet<LawSession> LawSession { get; set; }
 
+    public virtual DbSet<LawActSolicitation> LawActSolicitation { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new Configurations.LawActPersonLinkConfiguration());
@@ -89,6 +91,7 @@ public partial class i_collectContext : DbContext
         modelBuilder.ApplyConfiguration(new Configurations.UserConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.WorkTaskConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawSessionConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.LawActSolicitationConfiguration());
 
         OnModelCreatingPartial(modelBuilder);
     }
