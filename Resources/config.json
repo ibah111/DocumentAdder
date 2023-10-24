@@ -930,7 +930,7 @@
     "name": "Постановление об отказе в возбуждении ИП с ИД",
     "color": -1,
     "exec_number": true,
-    "fssp_doc_num": true,
+    "fssp_doc_num": false,
     "court_doc_num": true,
     "court_order_date": false,
     "court_exec_date": false,
