@@ -396,6 +396,7 @@ public partial class MainForm : Form
 
     public void ClearTextBox()
     {
+        documentsBindingSource.DataSource = typeof(FileData);
         foreach (Control control in tableLayoutPanel1.Controls)
         {
             if (control is TextBox)
@@ -565,8 +566,8 @@ public partial class MainForm : Form
                 if (errors == 0)
                 {
                     transaction.Commit();
-                    MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearTextBox();
+                    MessageBox.Show("Успешно добавлено!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
