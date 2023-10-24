@@ -162,6 +162,8 @@ public partial class MainForm : Form
         var data = (DataModel)binding.DataSource;
         current = data;
         data.PropertyChanged += Current_PropertyChanged;
+        documentsBindingSource.DataSource = data.Files;
+
         if (data.Data?.Person != null)
         {
             textBoxF.Text = data.Data.Person.f;
@@ -231,6 +233,7 @@ public partial class MainForm : Form
             dictTyp.DataSource = Settings.dicts[405].Values.ToList();
             dictDebtStatus.DataSource = Settings.dicts[6].Values.ToList();
             dictState.DataSource = Settings.dicts[77].Values.ToList();
+            typDocumentsBindingSource.DataSource = Settings.dicts[100].Values.ToList();
             cBMembers.Add(new CBMember() { name = "Входящая почта", value = 1 });
             cBMembers.Add(new CBMember() { name = "Госпочта", value = 2 });
             cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
@@ -275,8 +278,31 @@ public partial class MainForm : Form
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
             typDocBox.SelectedIndex = -1;
+            gridFiles.DragDrop += GridFiles_DragDrop;
+            gridFiles.DragEnter += GridFiles_DragEnter;
             //LoadPeople();
+
             runed = true;
+        }
+    }
+
+    private void GridFiles_DragEnter(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            e.Effect = DragDropEffects.All;
+        else
+            e.Effect = DragDropEffects.None;
+    }
+
+    private void GridFiles_DragDrop(object sender, DragEventArgs e)
+    {
+        var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+        foreach (string filePath in files)
+        {
+
+            string file_name = filePath.Split('\\').Last();
+            current.Files.Add(new(Writer.read(filePath), file_name));
+            documentsBindingSource.ResetBindings(false);
         }
     }
 
@@ -392,7 +418,6 @@ public partial class MainForm : Form
             binding.Document_name = settings.document_name;
         }
         dataModelBinding.DataSource = binding;
-        current.PropertyChanged += Current_PropertyChanged;
 
     }
     private int getIntDict(int? typ = 0)
@@ -591,11 +616,6 @@ public partial class MainForm : Form
         return result;
     }
 
-    private bool CheckMasked()
-    {
-        return true;
-    }
-
     private string GetFreeDir()
     {
         using var db = Program.factory_db.CreateDbContext();
@@ -710,7 +730,6 @@ public partial class MainForm : Form
             binding.Document_name = settings.document_name;
         }
         dataModelBinding.DataSource = binding;
-        current.PropertyChanged += Current_PropertyChanged;
 
     }
 

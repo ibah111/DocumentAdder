@@ -189,10 +189,10 @@ namespace DocumentAdder.Forms
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
-            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
-            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
             nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -211,8 +211,8 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1879,8 +1879,8 @@ namespace DocumentAdder.Forms
             // 
             // gridFiles
             // 
+            gridFiles.AllowDrop = true;
             gridFiles.AllowUserToAddRows = false;
-            gridFiles.AllowUserToDeleteRows = false;
             gridFiles.AutoGenerateColumns = false;
             gridFiles.BackgroundColor = System.Drawing.Color.White;
             gridFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -1897,14 +1897,6 @@ namespace DocumentAdder.Forms
             gridFiles.RowTemplate.Height = 25;
             gridFiles.Size = new System.Drawing.Size(358, 99);
             gridFiles.TabIndex = 128;
-            // 
-            // documentsBindingSource
-            // 
-            documentsBindingSource.DataSource = typeof(FileData);
-            // 
-            // typDocumentsBindingSource
-            // 
-            typDocumentsBindingSource.DataSource = typeof(DictModel);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -1923,6 +1915,14 @@ namespace DocumentAdder.Forms
             typDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             typDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             typDataGridViewTextBoxColumn.ValueMember = "code";
+            // 
+            // typDocumentsBindingSource
+            // 
+            typDocumentsBindingSource.DataSource = typeof(DictModel);
+            // 
+            // documentsBindingSource
+            // 
+            documentsBindingSource.DataSource = typeof(FileData);
             // 
             // MainForm
             // 
@@ -1957,8 +1957,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).EndInit();
-            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
             ResumeLayout(false);
         }
 
