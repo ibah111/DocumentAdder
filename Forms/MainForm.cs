@@ -485,7 +485,7 @@ public partial class MainForm : Form
     private async void button2_Click(object sender, EventArgs e)
     {
 
-
+        button2.Enabled = false;
 
         using var db = await Program.factory_db.CreateDbContextAsync();
         using var transaction = await db.Database.BeginTransactionAsync();
