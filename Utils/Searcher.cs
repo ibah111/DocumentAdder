@@ -42,26 +42,44 @@ public class Searcher
         var data2 = db.LawExec.AsQueryable();
         data1 = data1.Where(x => (x.typ == 1 && x.status != 10) || (x.typ > 1 && x.act_status != 15));
         data2 = data2.Where(x => x.state != 5);
-        if (fio != null)
+        if (!string.IsNullOrEmpty(fio.f))
         {
-            data1 = db.LawAct.Where(
-                x => EF.Functions.Like(x.Person.f, $"{fio.f}%") && EF.Functions.Like(x.Person.i, $"{fio.i}%") && EF.Functions.Like(x.Person.o, $"{fio.o}%")
+            data1 = data1.Where(
+                x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
                 );
-            data2 = db.LawExec.Where(
-                x => EF.Functions.Like(x.Person.f, $"{fio.f}%") && EF.Functions.Like(x.Person.i, $"{fio.i}%") && EF.Functions.Like(x.Person.o, $"{fio.o}%")
+            data2 = data2.Where(
+                x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
                 );
         }
-        if (contract != "")
+        if (!string.IsNullOrEmpty(fio.i))
+        {
+            data1 = data1.Where(
+                x => EF.Functions.Like(x.Person.i, $"{fio.i}%")
+                );
+            data2 = data2.Where(
+                x => EF.Functions.Like(x.Person.i, $"{fio.i}%")
+                );
+        }
+        if (!string.IsNullOrEmpty(fio.o))
+        {
+            data1 = data1.Where(
+                x => EF.Functions.Like(x.Person.o, $"{fio.o}%")
+                );
+            data2 = data2.Where(
+                x => EF.Functions.Like(x.Person.o, $"{fio.o}%")
+                );
+        }
+        if (!string.IsNullOrEmpty(contract))
         {
             data1 = data1.Where(x => EF.Functions.Like(x.Debt.contract, contract + "%"));
             data2 = data2.Where(x => EF.Functions.Like(x.Debt.contract, contract + "%"));
         }
-        if (law_id != "")
+        if (!string.IsNullOrEmpty(law_id))
         {
             data1 = data1.Where(x => EF.Functions.Like(x.id.ToString(), law_id + "%"));
             data2 = data2.Where(x => EF.Functions.Like(x.id.ToString(), law_id + "%"));
         }
-        if (exec_number != "")
+        if (!string.IsNullOrEmpty(exec_number))
         {
             data1 = data1.Where(x => EF.Functions.Like(x.exec_number, exec_number + "%"));
             data2 = data2.Where(x => EF.Functions.Like(x.LawAct.exec_number, exec_number + "%"));
@@ -183,8 +201,8 @@ public class Searcher
             LawCourt = x.LawCourt != null ? new() { id = x.LawCourt.id, name = x.LawCourt.name, address = x.LawCourt.address } : null
         });
         var result1 = await select1.ToListAsync();
-        var result2 = await select2.ToListAsync();
         LawActSource.DataSource = new SortableBindingList<LawActResult>(result1.Select(x => new LawActResult(x)).ToList());
+        var result2 = await select2.ToListAsync();
         LawExecSource.DataSource = new SortableBindingList<LawExecResult>(result2.Select(x => new LawExecResult(x)).ToList());
     }
 }
