@@ -421,25 +421,27 @@ public partial class MainForm : Form
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
         var settings = settings_json[typ];
-        if (!notChange)
-            if (!(settings.without_act_status.ContainsKey(dict)
-            && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
-            && settings.act_status.ContainsKey(data.typ.Value))
-            {
-                binding.Status = settings.act_status[data.typ.Value];
-            }
-            else
-            {
-                binding.Status = null;
-            }
-
-        if (settings.user_task != null)
+        if (!(settings.without_act_status.ContainsKey(dict)
+        && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
+        && settings.act_status.ContainsKey(data.typ.Value))
         {
-            binding.User_task = settings.user_task;
+            binding.Status = settings.act_status[data.typ.Value];
         }
-        if (settings.document_name != null)
+        else
         {
-            binding.Document_name = settings.document_name;
+            binding.Status = null;
+        }
+
+        if (!notChange)
+        {
+            if (settings.user_task != null)
+            {
+                binding.User_task = settings.user_task;
+            }
+            if (settings.document_name != null)
+            {
+                binding.Document_name = settings.document_name;
+            }
         }
         dataModelBinding.DataSource = binding;
 
@@ -462,7 +464,7 @@ public partial class MainForm : Form
         if (e.RowIndex >= 0)
         {
             var data = ((SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource)[e.RowIndex];
-            InstallData(data);
+            InstallData(data, true);
         }
     }
 
@@ -737,23 +739,25 @@ public partial class MainForm : Form
         var settings = settings_json[typ];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
 
-        if (!notChange)
-            if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
-            {
-                binding.Status = settings.exec_status;
-            }
-            else
-            {
-                binding.Status = null;
-            }
-
-        if (settings.user_task != null)
+        if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
         {
-            binding.User_task = settings.user_task;
+            binding.Status = settings.exec_status;
         }
-        if (settings.document_name != null)
+        else
         {
-            binding.Document_name = settings.document_name;
+            binding.Status = null;
+        }
+
+        if (!notChange)
+        {
+            if (settings.user_task != null)
+            {
+                binding.User_task = settings.user_task;
+            }
+            if (settings.document_name != null)
+            {
+                binding.Document_name = settings.document_name;
+            }
         }
         dataModelBinding.DataSource = binding;
 
@@ -765,7 +769,7 @@ public partial class MainForm : Form
         if (e.RowIndex >= 0)
         {
             var data = ((SortableBindingList<LawExecResult>)lawExecResultBindingSource.DataSource)[e.RowIndex];
-            InstallData(data);
+            InstallData(data, true);
         }
     }
 
