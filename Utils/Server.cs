@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.AxHost;
 
 namespace DocumentAdder.Utils;
 
@@ -9,18 +10,21 @@ public class Server
     HttpListener listener;
     public delegate void CallGetToken(string token);
     public event CallGetToken OnGetToken;
+    private bool started;
     public Server()
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         listener = new HttpListener();
         listener.Prefixes.Add("http://localhost:11711/");
     }
-    public void Start()
+    public async void Start()
     {
+        started = true;
         listener.Start();
-        handlerAsync();
+        while (started)
+            await handlerAsync();
     }
-    public async void handlerAsync()
+    public async Task handlerAsync()
     {
         var context = await listener.GetContextAsync();
         var request = context.Request;
@@ -39,6 +43,7 @@ public class Server
                 // You must close the output stream.
                 output.Close();
                 listener.Stop();
+                started = false;
                 OnGetToken(token);
             }
         }
