@@ -414,23 +414,24 @@ public partial class MainForm : Form
         var binding = createData();
         dataModelBinding.DataSource = binding;
     }
-    private void InstallData(LawActResult data)
+    private void InstallData(LawActResult data, bool notChange = false)
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
         var settings = settings_json[typ];
-        if (!(settings.without_act_status.ContainsKey(dict)
+        if (!notChange)
+            if (!(settings.without_act_status.ContainsKey(dict)
             && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
             && settings.act_status.ContainsKey(data.typ.Value))
-        {
-            binding.Status = settings.act_status[data.typ.Value];
-        }
-        else
-        {
-            binding.Status = null;
-        }
+            {
+                binding.Status = settings.act_status[data.typ.Value];
+            }
+            else
+            {
+                binding.Status = null;
+            }
 
         if (settings.user_task != null)
         {
@@ -729,20 +730,22 @@ public partial class MainForm : Form
         };
 
     }
-    private void InstallData(LawExecResult data)
+    private void InstallData(LawExecResult data, bool notChange = false)
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
         var settings = settings_json[typ];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
-        if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
-        {
-            binding.Status = settings.exec_status;
-        }
-        else
-        {
-            binding.Status = null;
-        }
+
+        if (!notChange)
+            if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
+            {
+                binding.Status = settings.exec_status;
+            }
+            else
+            {
+                binding.Status = null;
+            }
 
         if (settings.user_task != null)
         {

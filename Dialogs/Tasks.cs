@@ -38,6 +38,8 @@ public partial class Tasks : Form
             if (response != null)
                 if (response.Count > 0)
                     comboBox1.DataSource = response;
+            comboBox1.SelectAll();
+            comboBox1.Focus();
         }
         catch (Exception ee)
         {
