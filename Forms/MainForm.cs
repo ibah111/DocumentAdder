@@ -601,9 +601,7 @@ public partial class MainForm : Form
     public object getRequest(string typ, List<ClientDoc> docs = null, MailModel mail = null)
     {
         docs = docs ?? new List<ClientDoc>();
-        string desc = $"{textBox11.Text}";
-        if (correctPeriodDateBox.Enabled == true)
-            desc += $" {correctPeriodDateBox.Text}";
+        var settings = (SettingsModel)currentEnableds.DataSource;
         var result = new
         {
             date_post = current.Date_post.ToString("o").Replace("+03:00", ""),
@@ -628,7 +626,7 @@ public partial class MainForm : Form
             user_id = current.User_task,
             template_id = current.Task_id,
             name = $"{current.Data.Person.fio} {current.Data.Debt?.contract} {current.Data.Debt?.portfolio}",
-            desc = current.Dsc + (current.Mode == 1 ? "\n" + current.Post_name + "\n" + current.Post_address : ""),
+            desc = current.Dsc + (current.Mode == 1 ? "\n" + current.Post_name + "\n" + current.Post_address : "") + (settings.Correct_period_date ? ("\n" + current.Correct_period_date?.ToShortDateString()) : ""),
             mode = current.Mode,
 
             ist = mail?.Debtor,
