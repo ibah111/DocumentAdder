@@ -42,32 +42,35 @@ public class Searcher
         var data2 = db.LawExec.AsQueryable();
         data1 = data1.Where(x => (x.typ == 1 && x.status != 10) || (x.typ > 1 && x.act_status != 15));
         data2 = data2.Where(x => x.state != 5);
-        if (!string.IsNullOrEmpty(fio.f))
+        if (fio != null)
         {
-            data1 = data1.Where(
-                x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
-                );
-            data2 = data2.Where(
-                x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
-                );
-        }
-        if (!string.IsNullOrEmpty(fio.i))
-        {
-            data1 = data1.Where(
-                x => EF.Functions.Like(x.Person.i, $"{fio.i}%")
-                );
-            data2 = data2.Where(
-                x => EF.Functions.Like(x.Person.i, $"{fio.i}%")
-                );
-        }
-        if (!string.IsNullOrEmpty(fio.o))
-        {
-            data1 = data1.Where(
-                x => EF.Functions.Like(x.Person.o, $"{fio.o}%")
-                );
-            data2 = data2.Where(
-                x => EF.Functions.Like(x.Person.o, $"{fio.o}%")
-                );
+            if (!string.IsNullOrEmpty(fio.f))
+            {
+                data1 = data1.Where(
+                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
+                    );
+                data2 = data2.Where(
+                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
+                    );
+            }
+            if (!string.IsNullOrEmpty(fio.i))
+            {
+                data1 = data1.Where(
+                    x => EF.Functions.Like(x.Person.i, $"{fio.i}%")
+                    );
+                data2 = data2.Where(
+                    x => EF.Functions.Like(x.Person.i, $"{fio.i}%")
+                    );
+            }
+            if (!string.IsNullOrEmpty(fio.o))
+            {
+                data1 = data1.Where(
+                    x => EF.Functions.Like(x.Person.o, $"{fio.o}%")
+                    );
+                data2 = data2.Where(
+                    x => EF.Functions.Like(x.Person.o, $"{fio.o}%")
+                    );
+            }
         }
         if (!string.IsNullOrEmpty(contract))
         {
