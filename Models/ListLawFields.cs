@@ -353,7 +353,16 @@ public class ListLawFields
     public List<ListValue<LawExec>> LawExec = new()
     {
         new() { database_order = "exec_number", instance = "Exec_number" },
-        new() { database_order = "state", instance = "Status" },
+        new()
+        {
+            database_order = "state",
+            instance = "Status",
+            checking = false,
+            condition = (_, value, _) =>
+            {
+                return value.Status > -1;
+            }
+        },
         new() { database_order = "fssp_doc_num", instance = "Fssp_doc_num" },
         new() { database_order = "court_doc_num", instance = "Court_doc_num" },
         new()
@@ -362,7 +371,7 @@ public class ListLawFields
             checking = false,
             change = (data, value, _) =>
             {
-                data.dsc += "\n" +DateTime.Now.ToShortDateString() + " " + value.Dsc;
+                data.dsc += "\n" + DateTime.Now.ToShortDateString() + " " + value.Dsc;
             }
         },
         new() { database_order = "court_date", instance = "Court_order_date" },
