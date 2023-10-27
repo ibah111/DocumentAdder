@@ -237,6 +237,8 @@ public partial class MainForm : Form
     {
         if (!runed)
         {
+
+            runed = true;
             this.Text = await FromStart.DownloadInfo();
             List<CBMember> cBMembers = new List<CBMember>();
             dictTyp.DataSource = Settings.dicts[405].Values.ToList();
@@ -291,8 +293,6 @@ public partial class MainForm : Form
             gridFiles.DragEnter += GridFiles_DragEnter;
             gridFiles.KeyDown += GridFiles_KeyDown;
             //LoadPeople();
-
-            runed = true;
         }
     }
 
