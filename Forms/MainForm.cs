@@ -704,7 +704,7 @@ public partial class MainForm : Form
                 r_user_id = Settings.user_id,
                 dt = DateTime.Now,
                 FILE_SERVER_NAME = new_file,
-                REL_SERVER_PATH = index,
+                REL_SERVER_PATH = "\\" + index + "\\",
                 CHANGE_DT = DateTime.Now,
                 SAVE_MODE = 2,
                 attach_typ = typ,
