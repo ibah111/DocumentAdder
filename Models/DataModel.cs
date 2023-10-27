@@ -33,9 +33,9 @@ public partial class DataModel : ObservableObject
             Data = data;
             Id = data.id;
             Typ = data.typ;
-            Exec_number = data.LawAct.exec_number;
-            Court_order_date = data.LawAct.court_order_date;
-            Court_exec_date = data.LawAct.court_exec_date;
+            Exec_number = data.LawAct?.exec_number;
+            Court_order_date = data.LawAct?.court_order_date;
+            Court_exec_date = data.LawAct?.court_exec_date;
             //Надо создавать новую дату
             //if (data.LawAct.typ > 1)
             //{
@@ -44,8 +44,8 @@ public partial class DataModel : ObservableObject
             //else
             //    Receipt_date = data.LawAct.receipt_date;
             //receipt_date = data.LawAct.receipt_act_dt;
-            Correct_period_date = data.LawAct.correct_period_date;
-            DscRead = data.LawAct.dsc;
+            Correct_period_date = data.LawAct?.correct_period_date;
+            DscRead = data.LawAct?.dsc;
             if (data.typ == LawTyp.LawExec)
             {
                 Fssp_doc_num = data.LawExec.fssp_doc_num;
