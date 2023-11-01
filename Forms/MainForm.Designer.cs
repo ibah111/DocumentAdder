@@ -1881,6 +1881,7 @@ namespace DocumentAdder.Forms
             // 
             gridFiles.AllowDrop = true;
             gridFiles.AllowUserToAddRows = false;
+            gridFiles.AllowUserToDeleteRows = false;
             gridFiles.AutoGenerateColumns = false;
             gridFiles.BackgroundColor = System.Drawing.Color.White;
             gridFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -1889,6 +1890,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.SetColumnSpan(gridFiles, 2);
             gridFiles.DataSource = documentsBindingSource;
             gridFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridFiles.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             gridFiles.Location = new System.Drawing.Point(367, 668);
             gridFiles.Name = "gridFiles";
             gridFiles.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -1907,9 +1909,11 @@ namespace DocumentAdder.Forms
             // 
             // typDataGridViewTextBoxColumn
             // 
+            typDataGridViewTextBoxColumn.AutoComplete = false;
             typDataGridViewTextBoxColumn.DataPropertyName = "Typ";
             typDataGridViewTextBoxColumn.DataSource = typDocumentsBindingSource;
             typDataGridViewTextBoxColumn.DisplayMember = "name";
+            typDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             typDataGridViewTextBoxColumn.HeaderText = "Тип документа";
             typDataGridViewTextBoxColumn.Name = "typDataGridViewTextBoxColumn";
             typDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;

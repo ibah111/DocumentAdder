@@ -292,8 +292,20 @@ public partial class MainForm : Form
             gridFiles.DragDrop += GridFiles_DragDrop;
             gridFiles.DragEnter += GridFiles_DragEnter;
             gridFiles.KeyDown += GridFiles_KeyDown;
+            gridFiles.CellBeginEdit += GridFiles_CellBeginEdit;
+            gridFiles.CellEndEdit += GridFiles_CellEndEdit;
             //LoadPeople();
         }
+    }
+
+    private void GridFiles_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+    {
+        checkCurrent();
+    }
+
+    private void GridFiles_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+    {
+        button2.Enabled = false;
     }
 
     private void GridFiles_KeyDown(object sender, KeyEventArgs e)
