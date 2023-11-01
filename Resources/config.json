@@ -831,7 +831,7 @@
     "exec_number": true,
     "fssp_doc_num": true,
     "court_doc_num": true,
-    "court_order_date": false,
+    "court_order_date": true,
     "court_exec_date": false,
     "start_date": false,
     "finish_date": true,
