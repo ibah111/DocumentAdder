@@ -739,6 +739,7 @@ public partial class MainForm : Form
             Task = current.Task,
             Check = current.Check,
             Typ_doc = current.Typ_doc,
+            Article_and_paragraph = current.Article_and_paragraph,
         };
 
     }
