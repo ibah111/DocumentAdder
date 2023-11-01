@@ -189,10 +189,10 @@ namespace DocumentAdder.Forms
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
-            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
             documentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -1900,6 +1900,14 @@ namespace DocumentAdder.Forms
             gridFiles.Size = new System.Drawing.Size(358, 99);
             gridFiles.TabIndex = 128;
             // 
+            // typDocumentsBindingSource
+            // 
+            typDocumentsBindingSource.DataSource = typeof(DictModel);
+            // 
+            // documentsBindingSource
+            // 
+            documentsBindingSource.DataSource = typeof(FileData);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1913,20 +1921,12 @@ namespace DocumentAdder.Forms
             typDataGridViewTextBoxColumn.DataPropertyName = "Typ";
             typDataGridViewTextBoxColumn.DataSource = typDocumentsBindingSource;
             typDataGridViewTextBoxColumn.DisplayMember = "name";
-            typDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            typDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             typDataGridViewTextBoxColumn.HeaderText = "Тип документа";
             typDataGridViewTextBoxColumn.Name = "typDataGridViewTextBoxColumn";
             typDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             typDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             typDataGridViewTextBoxColumn.ValueMember = "code";
-            // 
-            // typDocumentsBindingSource
-            // 
-            typDocumentsBindingSource.DataSource = typeof(DictModel);
-            // 
-            // documentsBindingSource
-            // 
-            documentsBindingSource.DataSource = typeof(FileData);
             // 
             // MainForm
             // 
