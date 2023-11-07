@@ -173,7 +173,7 @@ public partial class DataModel : ObservableObject
 
 
     [ObservableProperty]
-    private int typ_doc = 0;
+    private int? typ_doc = null;
 
     public ObservableCollection<FileData> Files = new();
 }

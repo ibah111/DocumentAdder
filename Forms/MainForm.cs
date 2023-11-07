@@ -288,7 +288,7 @@ public partial class MainForm : Form
             var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
             typDocBinding.DataSource = settings_json.Values.ToList();
-            typDocBox.SelectedIndex = -1;
+            typDocBox.SelectedItem = null;
             gridFiles.DragDrop += GridFiles_DragDrop;
             gridFiles.DragEnter += GridFiles_DragEnter;
             gridFiles.KeyDown += GridFiles_KeyDown;
@@ -340,33 +340,36 @@ public partial class MainForm : Form
         }
     }
 
-    private void typDocChanged(int value)
+    private void typDocChanged(int? value)
     {
-        var settings = settings_json[value];
-
-        if (settings != null)
+        if (value != null)
         {
-            currentEnableds.DataSource = settings;
-            if (settings.user_task != null)
+            var settings = settings_json[value.Value];
+
+            if (settings != null)
             {
-                current.User_task = settings.user_task;
-            }
-            if (settings.document_name != null)
-            {
-                current.Document_name = settings.document_name;
-            }
-            Settings.barcode = settings.Barcode;
-            if (Settings.barcode == true)
-            {
-                if (Utils.Printer.CheckCom())
+                currentEnableds.DataSource = settings;
+                if (settings.user_task != null)
                 {
-                    selectDocBarcode.Enabled = true;
+                    current.User_task = settings.user_task;
                 }
-                else { selectDocBarcode.Enabled = false; }
-            }
-            else
-            {
-                selectDocBarcode.Enabled = false;
+                if (settings.document_name != null)
+                {
+                    current.Document_name = settings.document_name;
+                }
+                Settings.barcode = settings.Barcode;
+                if (Settings.barcode == true)
+                {
+                    if (Utils.Printer.CheckCom())
+                    {
+                        selectDocBarcode.Enabled = true;
+                    }
+                    else { selectDocBarcode.Enabled = false; }
+                }
+                else
+                {
+                    selectDocBarcode.Enabled = false;
+                }
             }
         }
     }
@@ -432,7 +435,7 @@ public partial class MainForm : Form
         var binding = createData(data.data);
         var dict = getIntDict(binding.Data.LawAct.typ);
         dictStatus.DataSource = Settings.dicts[dict].Values.ToList();
-        var settings = settings_json[typ];
+        var settings = settings_json[typ.Value];
         if (!(settings.without_act_status.ContainsKey(dict)
         && settings.without_act_status[dict].Contains(getIntStatus(data).Value))
         && settings.act_status.ContainsKey(data.typ.Value))
@@ -747,7 +750,7 @@ public partial class MainForm : Form
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
-        var settings = settings_json[typ];
+        var settings = settings_json[typ.Value];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
 
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
