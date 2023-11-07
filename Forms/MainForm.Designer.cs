@@ -750,7 +750,7 @@ namespace DocumentAdder.Forms
             receiptDateBox.Size = new System.Drawing.Size(174, 23);
             receiptDateBox.TabIndex = 15;
             receiptDateBox.ValidatingType = typeof(System.DateTime);
-            receiptDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            receiptDateBox.EnabledChanged += textBox_EnabledChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
             // 
             // currentEnableds
@@ -769,7 +769,7 @@ namespace DocumentAdder.Forms
             returnDateBox.Size = new System.Drawing.Size(174, 23);
             returnDateBox.TabIndex = 16;
             returnDateBox.ValidatingType = typeof(System.DateTime);
-            returnDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            returnDateBox.EnabledChanged += textBox_EnabledChanged;
             returnDateBox.KeyDown += textBox1_KeyDown;
             // 
             // restrictionToLeaveDtBox
@@ -784,7 +784,7 @@ namespace DocumentAdder.Forms
             restrictionToLeaveDtBox.Size = new System.Drawing.Size(174, 23);
             restrictionToLeaveDtBox.TabIndex = 17;
             restrictionToLeaveDtBox.ValidatingType = typeof(System.DateTime);
-            restrictionToLeaveDtBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            restrictionToLeaveDtBox.EnabledChanged += textBox_EnabledChanged;
             restrictionToLeaveDtBox.KeyDown += textBox1_KeyDown;
             // 
             // label23
@@ -821,7 +821,7 @@ namespace DocumentAdder.Forms
             cancelDateBox.Size = new System.Drawing.Size(174, 23);
             cancelDateBox.TabIndex = 19;
             cancelDateBox.ValidatingType = typeof(System.DateTime);
-            cancelDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            cancelDateBox.EnabledChanged += textBox_EnabledChanged;
             cancelDateBox.KeyDown += textBox1_KeyDown;
             // 
             // correctPeriodDateBox
@@ -836,7 +836,7 @@ namespace DocumentAdder.Forms
             correctPeriodDateBox.Size = new System.Drawing.Size(174, 23);
             correctPeriodDateBox.TabIndex = 20;
             correctPeriodDateBox.ValidatingType = typeof(System.DateTime);
-            correctPeriodDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            correctPeriodDateBox.EnabledChanged += textBox_EnabledChanged;
             correctPeriodDateBox.KeyDown += textBox1_KeyDown;
             // 
             // dataGridView2
@@ -1145,7 +1145,7 @@ namespace DocumentAdder.Forms
             execNumberBox.Name = "execNumberBox";
             execNumberBox.Size = new System.Drawing.Size(174, 22);
             execNumberBox.TabIndex = 7;
-            execNumberBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            execNumberBox.EnabledChanged += textBox_EnabledChanged;
             execNumberBox.KeyDown += textBox1_KeyDown;
             // 
             // button1
@@ -1437,7 +1437,7 @@ namespace DocumentAdder.Forms
             CourtExecDateBox.Size = new System.Drawing.Size(174, 23);
             CourtExecDateBox.TabIndex = 8;
             CourtExecDateBox.ValidatingType = typeof(System.DateTime);
-            CourtExecDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            CourtExecDateBox.EnabledChanged += textBox_EnabledChanged;
             CourtExecDateBox.KeyDown += textBox1_KeyDown;
             // 
             // courtDocNumBox
@@ -1450,7 +1450,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
             courtDocNumBox.TabIndex = 10;
-            courtDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            courtDocNumBox.EnabledChanged += textBox_EnabledChanged;
             courtDocNumBox.KeyDown += textBox1_KeyDown;
             // 
             // label10
@@ -1487,7 +1487,7 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.Size = new System.Drawing.Size(174, 23);
             courtOrderDateBox.TabIndex = 9;
             courtOrderDateBox.ValidatingType = typeof(System.DateTime);
-            courtOrderDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            courtOrderDateBox.EnabledChanged += textBox_EnabledChanged;
             courtOrderDateBox.KeyDown += textBox1_KeyDown;
             // 
             // fsspDocNumBox
@@ -1501,7 +1501,7 @@ namespace DocumentAdder.Forms
             fsspDocNumBox.Name = "fsspDocNumBox";
             fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
             fsspDocNumBox.TabIndex = 11;
-            fsspDocNumBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            fsspDocNumBox.EnabledChanged += textBox_EnabledChanged;
             fsspDocNumBox.KeyDown += textBox1_KeyDown;
             // 
             // label9
@@ -1538,7 +1538,7 @@ namespace DocumentAdder.Forms
             startDateBox.Size = new System.Drawing.Size(174, 23);
             startDateBox.TabIndex = 12;
             startDateBox.ValidatingType = typeof(System.DateTime);
-            startDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            startDateBox.EnabledChanged += textBox_EnabledChanged;
             startDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label17
@@ -1564,7 +1564,7 @@ namespace DocumentAdder.Forms
             finishDateBox.Size = new System.Drawing.Size(174, 23);
             finishDateBox.TabIndex = 13;
             finishDateBox.ValidatingType = typeof(System.DateTime);
-            finishDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            finishDateBox.EnabledChanged += textBox_EnabledChanged;
             finishDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label22
@@ -1590,7 +1590,7 @@ namespace DocumentAdder.Forms
             rejectDateBox.Size = new System.Drawing.Size(174, 23);
             rejectDateBox.TabIndex = 14;
             rejectDateBox.ValidatingType = typeof(System.DateTime);
-            rejectDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            rejectDateBox.EnabledChanged += textBox_EnabledChanged;
             rejectDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label25
@@ -1616,7 +1616,7 @@ namespace DocumentAdder.Forms
             sessionDateBox.Size = new System.Drawing.Size(174, 23);
             sessionDateBox.TabIndex = 18;
             sessionDateBox.ValidatingType = typeof(System.DateTime);
-            sessionDateBox.EnabledChanged += maskedTextBox8_EnabledChanged;
+            sessionDateBox.EnabledChanged += textBox_EnabledChanged;
             sessionDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label45

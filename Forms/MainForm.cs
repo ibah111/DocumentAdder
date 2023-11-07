@@ -371,7 +371,7 @@ public partial class MainForm : Form
         }
     }
 
-    private void maskedTextBox8_EnabledChanged(object sender, EventArgs e)
+    private void textBox_EnabledChanged(object sender, EventArgs e)
     {
         if (sender is TextBox)
         {
