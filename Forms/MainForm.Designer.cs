@@ -1,4 +1,5 @@
 using DocumentAdder.Models;
+using DocumentAdder.Utils;
 
 namespace DocumentAdder.Forms
 {
@@ -703,7 +704,7 @@ namespace DocumentAdder.Forms
             // 
             // lawActResultBindingSource
             // 
-            lawActResultBindingSource.DataSource = typeof(Utils.LawActResult);
+            lawActResultBindingSource.DataSource = typeof(LawActResult);
             // 
             // label19
             // 
@@ -740,7 +741,7 @@ namespace DocumentAdder.Forms
             // 
             // receiptDateBox
             // 
-            receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Receipt_date", true));
+            receiptDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Receipt_date", true));
             receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Receipt_date", true));
             receiptDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             receiptDateBox.Location = new System.Drawing.Point(4, 283);
@@ -750,7 +751,7 @@ namespace DocumentAdder.Forms
             receiptDateBox.Size = new System.Drawing.Size(174, 23);
             receiptDateBox.TabIndex = 15;
             receiptDateBox.ValidatingType = typeof(System.DateTime);
-            receiptDateBox.EnabledChanged += textBox_EnabledChanged;
+            receiptDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
             // 
             // currentEnableds
@@ -759,7 +760,7 @@ namespace DocumentAdder.Forms
             // 
             // returnDateBox
             // 
-            returnDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Return_date", true));
+            returnDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Return_date", true));
             returnDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Return_date", true));
             returnDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             returnDateBox.Location = new System.Drawing.Point(186, 283);
@@ -769,12 +770,12 @@ namespace DocumentAdder.Forms
             returnDateBox.Size = new System.Drawing.Size(174, 23);
             returnDateBox.TabIndex = 16;
             returnDateBox.ValidatingType = typeof(System.DateTime);
-            returnDateBox.EnabledChanged += textBox_EnabledChanged;
+            returnDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             returnDateBox.KeyDown += textBox1_KeyDown;
             // 
             // restrictionToLeaveDtBox
             // 
-            restrictionToLeaveDtBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Restriction_to_leave_dt", true));
+            restrictionToLeaveDtBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Restriction_to_leave_dt", true));
             restrictionToLeaveDtBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Restriction_to_leave_dt", true));
             restrictionToLeaveDtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             restrictionToLeaveDtBox.Location = new System.Drawing.Point(368, 283);
@@ -784,7 +785,7 @@ namespace DocumentAdder.Forms
             restrictionToLeaveDtBox.Size = new System.Drawing.Size(174, 23);
             restrictionToLeaveDtBox.TabIndex = 17;
             restrictionToLeaveDtBox.ValidatingType = typeof(System.DateTime);
-            restrictionToLeaveDtBox.EnabledChanged += textBox_EnabledChanged;
+            restrictionToLeaveDtBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             restrictionToLeaveDtBox.KeyDown += textBox1_KeyDown;
             // 
             // label23
@@ -812,7 +813,7 @@ namespace DocumentAdder.Forms
             // cancelDateBox
             // 
             cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Cancel_date", true));
-            cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Cancel_date", true));
+            cancelDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Cancel_date", true));
             cancelDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             cancelDateBox.Location = new System.Drawing.Point(4, 353);
             cancelDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -821,12 +822,12 @@ namespace DocumentAdder.Forms
             cancelDateBox.Size = new System.Drawing.Size(174, 23);
             cancelDateBox.TabIndex = 19;
             cancelDateBox.ValidatingType = typeof(System.DateTime);
-            cancelDateBox.EnabledChanged += textBox_EnabledChanged;
+            cancelDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             cancelDateBox.KeyDown += textBox1_KeyDown;
             // 
             // correctPeriodDateBox
             // 
-            correctPeriodDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Correct_period_date", true));
+            correctPeriodDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Correct_period_date", true));
             correctPeriodDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Correct_period_date", true));
             correctPeriodDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             correctPeriodDateBox.Location = new System.Drawing.Point(186, 353);
@@ -836,7 +837,7 @@ namespace DocumentAdder.Forms
             correctPeriodDateBox.Size = new System.Drawing.Size(174, 23);
             correctPeriodDateBox.TabIndex = 20;
             correctPeriodDateBox.ValidatingType = typeof(System.DateTime);
-            correctPeriodDateBox.EnabledChanged += textBox_EnabledChanged;
+            correctPeriodDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             correctPeriodDateBox.KeyDown += textBox1_KeyDown;
             // 
             // dataGridView2
@@ -1061,7 +1062,7 @@ namespace DocumentAdder.Forms
             // 
             // lawExecResultBindingSource
             // 
-            lawExecResultBindingSource.DataSource = typeof(Utils.LawExecResult);
+            lawExecResultBindingSource.DataSource = typeof(LawExecResult);
             // 
             // textBox11
             // 
@@ -1136,7 +1137,7 @@ namespace DocumentAdder.Forms
             // 
             // execNumberBox
             // 
-            execNumberBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Exec_number", true));
+            execNumberBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Exec_number", true));
             execNumberBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Exec_number", true));
             execNumberBox.Dock = System.Windows.Forms.DockStyle.Fill;
             execNumberBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1145,7 +1146,7 @@ namespace DocumentAdder.Forms
             execNumberBox.Name = "execNumberBox";
             execNumberBox.Size = new System.Drawing.Size(174, 22);
             execNumberBox.TabIndex = 7;
-            execNumberBox.EnabledChanged += textBox_EnabledChanged;
+            execNumberBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             execNumberBox.KeyDown += textBox1_KeyDown;
             // 
             // button1
@@ -1427,7 +1428,7 @@ namespace DocumentAdder.Forms
             // 
             // CourtExecDateBox
             // 
-            CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Court_exec_date", true));
+            CourtExecDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_exec_date", true));
             CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_exec_date", true));
             CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             CourtExecDateBox.Location = new System.Drawing.Point(186, 143);
@@ -1437,12 +1438,12 @@ namespace DocumentAdder.Forms
             CourtExecDateBox.Size = new System.Drawing.Size(174, 23);
             CourtExecDateBox.TabIndex = 8;
             CourtExecDateBox.ValidatingType = typeof(System.DateTime);
-            CourtExecDateBox.EnabledChanged += textBox_EnabledChanged;
+            CourtExecDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             CourtExecDateBox.KeyDown += textBox1_KeyDown;
             // 
             // courtDocNumBox
             // 
-            courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Court_doc_num", true));
+            courtDocNumBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_doc_num", true));
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtDocNumBox.Location = new System.Drawing.Point(368, 143);
@@ -1450,7 +1451,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
             courtDocNumBox.TabIndex = 10;
-            courtDocNumBox.EnabledChanged += textBox_EnabledChanged;
+            courtDocNumBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             courtDocNumBox.KeyDown += textBox1_KeyDown;
             // 
             // label10
@@ -1477,7 +1478,7 @@ namespace DocumentAdder.Forms
             // 
             // courtOrderDateBox
             // 
-            courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Court_order_date", true));
+            courtOrderDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_order_date", true));
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
@@ -1487,13 +1488,13 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.Size = new System.Drawing.Size(174, 23);
             courtOrderDateBox.TabIndex = 9;
             courtOrderDateBox.ValidatingType = typeof(System.DateTime);
-            courtOrderDateBox.EnabledChanged += textBox_EnabledChanged;
+            courtOrderDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             courtOrderDateBox.KeyDown += textBox1_KeyDown;
             // 
             // fsspDocNumBox
             // 
             fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
-            fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Fssp_doc_num", true));
+            fsspDocNumBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Fssp_doc_num", true));
             fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Fssp_doc_num", true));
             fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             fsspDocNumBox.Location = new System.Drawing.Point(4, 213);
@@ -1501,7 +1502,7 @@ namespace DocumentAdder.Forms
             fsspDocNumBox.Name = "fsspDocNumBox";
             fsspDocNumBox.Size = new System.Drawing.Size(174, 23);
             fsspDocNumBox.TabIndex = 11;
-            fsspDocNumBox.EnabledChanged += textBox_EnabledChanged;
+            fsspDocNumBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             fsspDocNumBox.KeyDown += textBox1_KeyDown;
             // 
             // label9
@@ -1528,7 +1529,7 @@ namespace DocumentAdder.Forms
             // 
             // startDateBox
             // 
-            startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Start_date", true));
+            startDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Start_date", true));
             startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Start_date", true));
             startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             startDateBox.Location = new System.Drawing.Point(186, 213);
@@ -1538,7 +1539,7 @@ namespace DocumentAdder.Forms
             startDateBox.Size = new System.Drawing.Size(174, 23);
             startDateBox.TabIndex = 12;
             startDateBox.ValidatingType = typeof(System.DateTime);
-            startDateBox.EnabledChanged += textBox_EnabledChanged;
+            startDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             startDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label17
@@ -1554,7 +1555,7 @@ namespace DocumentAdder.Forms
             // 
             // finishDateBox
             // 
-            finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Finish_date", true));
+            finishDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Finish_date", true));
             finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Finish_date", true));
             finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             finishDateBox.Location = new System.Drawing.Point(368, 213);
@@ -1564,7 +1565,7 @@ namespace DocumentAdder.Forms
             finishDateBox.Size = new System.Drawing.Size(174, 23);
             finishDateBox.TabIndex = 13;
             finishDateBox.ValidatingType = typeof(System.DateTime);
-            finishDateBox.EnabledChanged += textBox_EnabledChanged;
+            finishDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             finishDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label22
@@ -1580,7 +1581,7 @@ namespace DocumentAdder.Forms
             // 
             // rejectDateBox
             // 
-            rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Reject_date", true));
+            rejectDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Reject_date", true));
             rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Reject_date", true));
             rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             rejectDateBox.Location = new System.Drawing.Point(550, 213);
@@ -1590,7 +1591,7 @@ namespace DocumentAdder.Forms
             rejectDateBox.Size = new System.Drawing.Size(174, 23);
             rejectDateBox.TabIndex = 14;
             rejectDateBox.ValidatingType = typeof(System.DateTime);
-            rejectDateBox.EnabledChanged += textBox_EnabledChanged;
+            rejectDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             rejectDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label25
@@ -1606,7 +1607,7 @@ namespace DocumentAdder.Forms
             // 
             // sessionDateBox
             // 
-            sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", currentEnableds, "Session_date", true));
+            sessionDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Session_date", true));
             sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Session_date", true));
             sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             sessionDateBox.Location = new System.Drawing.Point(550, 283);
@@ -1616,7 +1617,7 @@ namespace DocumentAdder.Forms
             sessionDateBox.Size = new System.Drawing.Size(174, 23);
             sessionDateBox.TabIndex = 18;
             sessionDateBox.ValidatingType = typeof(System.DateTime);
-            sessionDateBox.EnabledChanged += textBox_EnabledChanged;
+            sessionDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             sessionDateBox.KeyDown += textBox1_KeyDown;
             // 
             // label45

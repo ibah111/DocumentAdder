@@ -371,18 +371,18 @@ public partial class MainForm : Form
         }
     }
 
-    private void textBox_EnabledChanged(object sender, EventArgs e)
+    private void textBox_ReadOnlyChanged(object sender, EventArgs e)
     {
         if (sender is TextBox)
         {
-            if (((TextBox)sender).Enabled == true)
+            if (((TextBox)sender).ReadOnly == false)
                 ((TextBox)sender).BackColor = Color.White;
             else
                 ((TextBox)sender).BackColor = Color.Red;
         }
         else
         {
-            if (((MaskedTextBox)sender).Enabled == true)
+            if (((MaskedTextBox)sender).ReadOnly == false)
                 ((MaskedTextBox)sender).BackColor = Color.White;
             else
                 ((MaskedTextBox)sender).BackColor = Color.Red;
