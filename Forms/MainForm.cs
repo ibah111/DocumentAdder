@@ -376,19 +376,31 @@ public partial class MainForm : Form
 
     private void textBox_ReadOnlyChanged(object sender, EventArgs e)
     {
-        if (sender is TextBox)
+        if (sender is TextBox controlText)
         {
-            if (((TextBox)sender).ReadOnly == false)
-                ((TextBox)sender).BackColor = Color.White;
+            if (controlText.ReadOnly == false)
+            {
+                controlText.BackColor = Color.White;
+                controlText.TabStop = true;
+            }
             else
-                ((TextBox)sender).BackColor = Color.Red;
+            {
+                controlText.TabStop = false;
+                controlText.BackColor = Color.Red;
+            }
         }
-        else
+        else if (sender is MaskedTextBox controlMasked)
         {
-            if (((MaskedTextBox)sender).ReadOnly == false)
-                ((MaskedTextBox)sender).BackColor = Color.White;
+            if (controlMasked.ReadOnly == false)
+            {
+                controlMasked.TabStop = true;
+                controlMasked.BackColor = Color.White;
+            }
             else
-                ((MaskedTextBox)sender).BackColor = Color.Red;
+            {
+                controlMasked.TabStop = false;
+                controlMasked.BackColor = Color.Red;
+            }
         }
 
     }
