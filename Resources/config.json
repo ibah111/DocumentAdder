@@ -835,7 +835,7 @@
     "court_exec_date": false,
     "start_date": false,
     "finish_date": true,
-    "receipt_date": false,
+    "receipt_date": true,
     "return_date": false,
     "restriction_to_leave_dt": false,
     "reject_date": false,
