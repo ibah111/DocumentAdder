@@ -84,7 +84,7 @@ public class ListLawFields
     {
         new List<string>() { "court_order_date", "Дата вынесения решения" },
         new List<string>() { "court_exec_date", "Дата вступления в силу" },
-        new List<string>() { "receipt_dt", "receipt_date", "Дата получения агенством" },
+        new List<string>() { "receipt_dt", "receipt_date", "receipt_act_dt", "Дата получения агенством" },
         new List<string>() { "correct_period_date", "Дата исполнения недостатков" },
         new List<string>() { "start_date", "Дата возбуждения" },
         new List<string>() { "exec_number", "Номер дела" },
