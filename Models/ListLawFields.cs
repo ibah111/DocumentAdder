@@ -380,7 +380,7 @@ public class ListLawFields
         new() { database_order = "finish_date", instance = "Finish_date" },
         new() { database_order = "restriction_to_leave_dt", instance = "Restriction_to_leave_dt" },
         new() { database_order = "reject_date", instance = "Reject_date" },
-        new() { database_order = "receipt_act_dt", checking = false, value = DateTime.Now }
+        new() { database_order = "receipt_act_dt", instance = "Receipt_date" }
     };
 
     public void writeChanges(i_collectContext db)
