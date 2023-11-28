@@ -190,7 +190,7 @@
   {
     "id": 7,
     "name": "Определение о замене/о замене на стороне должника/и об отказе в выдаче дубл",
-    "color": 4,
+    "color": 12,
     "exec_number": true,
     "fssp_doc_num": false,
     "court_doc_num": false,
