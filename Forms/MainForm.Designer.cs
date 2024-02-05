@@ -88,7 +88,6 @@ namespace DocumentAdder.Forms
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
             receiptDateBox = new System.Windows.Forms.MaskedTextBox();
-            currentEnableds = new System.Windows.Forms.BindingSource(components);
             returnDateBox = new System.Windows.Forms.MaskedTextBox();
             restrictionToLeaveDtBox = new System.Windows.Forms.MaskedTextBox();
             label23 = new System.Windows.Forms.Label();
@@ -171,6 +170,7 @@ namespace DocumentAdder.Forms
             ModeCB = new System.Windows.Forms.ComboBox();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
             selectDocBarcode = new System.Windows.Forms.ComboBox();
+            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
             documentNameBox = new System.Windows.Forms.ComboBox();
@@ -190,10 +190,11 @@ namespace DocumentAdder.Forms
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
-            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
-            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            NeedBarcode = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            currentEnableds = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -201,19 +202,19 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictState).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dictStatus).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -741,7 +742,6 @@ namespace DocumentAdder.Forms
             // 
             // receiptDateBox
             // 
-            receiptDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Receipt_date", true));
             receiptDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Receipt_date", true));
             receiptDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             receiptDateBox.Location = new System.Drawing.Point(4, 283);
@@ -754,13 +754,8 @@ namespace DocumentAdder.Forms
             receiptDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // currentEnableds
-            // 
-            currentEnableds.DataSource = typeof(SettingsModel);
-            // 
             // returnDateBox
             // 
-            returnDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Return_date", true));
             returnDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Return_date", true));
             returnDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             returnDateBox.Location = new System.Drawing.Point(186, 283);
@@ -775,7 +770,6 @@ namespace DocumentAdder.Forms
             // 
             // restrictionToLeaveDtBox
             // 
-            restrictionToLeaveDtBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Restriction_to_leave_dt", true));
             restrictionToLeaveDtBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Restriction_to_leave_dt", true));
             restrictionToLeaveDtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             restrictionToLeaveDtBox.Location = new System.Drawing.Point(368, 283);
@@ -813,7 +807,6 @@ namespace DocumentAdder.Forms
             // cancelDateBox
             // 
             cancelDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Cancel_date", true));
-            cancelDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Cancel_date", true));
             cancelDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             cancelDateBox.Location = new System.Drawing.Point(4, 353);
             cancelDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -827,7 +820,6 @@ namespace DocumentAdder.Forms
             // 
             // correctPeriodDateBox
             // 
-            correctPeriodDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Correct_period_date", true));
             correctPeriodDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Correct_period_date", true));
             correctPeriodDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             correctPeriodDateBox.Location = new System.Drawing.Point(186, 353);
@@ -1137,7 +1129,6 @@ namespace DocumentAdder.Forms
             // 
             // execNumberBox
             // 
-            execNumberBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Exec_number", true));
             execNumberBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Exec_number", true));
             execNumberBox.Dock = System.Windows.Forms.DockStyle.Fill;
             execNumberBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1428,7 +1419,6 @@ namespace DocumentAdder.Forms
             // 
             // CourtExecDateBox
             // 
-            CourtExecDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_exec_date", true));
             CourtExecDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_exec_date", true));
             CourtExecDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             CourtExecDateBox.Location = new System.Drawing.Point(186, 143);
@@ -1443,7 +1433,6 @@ namespace DocumentAdder.Forms
             // 
             // courtDocNumBox
             // 
-            courtDocNumBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_doc_num", true));
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtDocNumBox.Location = new System.Drawing.Point(368, 143);
@@ -1478,7 +1467,6 @@ namespace DocumentAdder.Forms
             // 
             // courtOrderDateBox
             // 
-            courtOrderDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_order_date", true));
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
@@ -1494,7 +1482,6 @@ namespace DocumentAdder.Forms
             // fsspDocNumBox
             // 
             fsspDocNumBox.BackColor = System.Drawing.SystemColors.Window;
-            fsspDocNumBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Fssp_doc_num", true));
             fsspDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Fssp_doc_num", true));
             fsspDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
             fsspDocNumBox.Location = new System.Drawing.Point(4, 213);
@@ -1529,7 +1516,6 @@ namespace DocumentAdder.Forms
             // 
             // startDateBox
             // 
-            startDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Start_date", true));
             startDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Start_date", true));
             startDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             startDateBox.Location = new System.Drawing.Point(186, 213);
@@ -1555,7 +1541,6 @@ namespace DocumentAdder.Forms
             // 
             // finishDateBox
             // 
-            finishDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Finish_date", true));
             finishDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Finish_date", true));
             finishDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             finishDateBox.Location = new System.Drawing.Point(368, 213);
@@ -1581,7 +1566,6 @@ namespace DocumentAdder.Forms
             // 
             // rejectDateBox
             // 
-            rejectDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Reject_date", true));
             rejectDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Reject_date", true));
             rejectDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             rejectDateBox.Location = new System.Drawing.Point(550, 213);
@@ -1607,7 +1591,6 @@ namespace DocumentAdder.Forms
             // 
             // sessionDateBox
             // 
-            sessionDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Session_date", true));
             sessionDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Session_date", true));
             sessionDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
             sessionDateBox.Location = new System.Drawing.Point(550, 283);
@@ -1653,6 +1636,8 @@ namespace DocumentAdder.Forms
             // selectDocBarcode
             // 
             selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
+            selectDocBarcode.DataSource = documentsBindingSource;
+            selectDocBarcode.DisplayMember = "Name";
             selectDocBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             selectDocBarcode.FormattingEnabled = true;
             selectDocBarcode.Location = new System.Drawing.Point(186, 598);
@@ -1660,6 +1645,11 @@ namespace DocumentAdder.Forms
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
             selectDocBarcode.TabIndex = 31;
+            selectDocBarcode.Visible = false;
+            // 
+            // documentsBindingSource
+            // 
+            documentsBindingSource.DataSource = typeof(FileData);
             // 
             // labelSelectDocBarcode
             // 
@@ -1671,6 +1661,7 @@ namespace DocumentAdder.Forms
             labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
             labelSelectDocBarcode.TabIndex = 123;
             labelSelectDocBarcode.Text = "Документ штрих-код";
+            labelSelectDocBarcode.Visible = false;
             // 
             // label32
             // 
@@ -1887,7 +1878,7 @@ namespace DocumentAdder.Forms
             gridFiles.BackgroundColor = System.Drawing.Color.White;
             gridFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             gridFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { nameDataGridViewTextBoxColumn, typDataGridViewTextBoxColumn });
+            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { NeedBarcode, nameDataGridViewTextBoxColumn, typDataGridViewTextBoxColumn });
             tableLayoutPanel1.SetColumnSpan(gridFiles, 2);
             gridFiles.DataSource = documentsBindingSource;
             gridFiles.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1901,13 +1892,14 @@ namespace DocumentAdder.Forms
             gridFiles.Size = new System.Drawing.Size(358, 99);
             gridFiles.TabIndex = 128;
             // 
-            // typDocumentsBindingSource
+            // NeedBarcode
             // 
-            typDocumentsBindingSource.DataSource = typeof(DictModel);
-            // 
-            // documentsBindingSource
-            // 
-            documentsBindingSource.DataSource = typeof(FileData);
+            NeedBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            NeedBarcode.DataPropertyName = "NeedBarcode";
+            NeedBarcode.HeaderText = "Штрих";
+            NeedBarcode.Name = "NeedBarcode";
+            NeedBarcode.ToolTipText = "Печатать штрих код?";
+            NeedBarcode.Width = 49;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -1928,6 +1920,14 @@ namespace DocumentAdder.Forms
             typDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             typDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             typDataGridViewTextBoxColumn.ValueMember = "code";
+            // 
+            // typDocumentsBindingSource
+            // 
+            typDocumentsBindingSource.DataSource = typeof(DictModel);
+            // 
+            // currentEnableds
+            // 
+            currentEnableds.DataSource = typeof(SettingsModel);
             // 
             // MainForm
             // 
@@ -1950,12 +1950,12 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictState).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
@@ -1963,7 +1963,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ResumeLayout(false);
         }
 
@@ -2131,6 +2131,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.BindingSource documentsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource typDocumentsBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn NeedBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
     }

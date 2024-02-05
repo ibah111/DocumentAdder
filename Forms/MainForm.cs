@@ -357,19 +357,22 @@ public partial class MainForm : Form
                 {
                     current.Document_name = settings.document_name;
                 }
-                Settings.barcode = settings.Barcode;
-                if (Settings.barcode == true)
-                {
-                    if (Utils.Printer.CheckCom())
-                    {
-                        selectDocBarcode.Enabled = true;
-                    }
-                    else { selectDocBarcode.Enabled = false; }
-                }
-                else
-                {
-                    selectDocBarcode.Enabled = false;
-                }
+
+                //Settings.barcode = settings.Barcode;
+                //if (Settings.barcode == true)
+                //{
+                //    if (Utils.Printer.CheckCom())
+                //    {
+                //        selectDocBarcode.Enabled = true;
+                //    }
+                //    else { selectDocBarcode.Enabled = false; }
+                //}
+                //else
+                //{
+                //    selectDocBarcode.Enabled = false;
+                //}
+
+                //selectDocBarcode.Enabled = true;
             }
         }
     }
@@ -517,6 +520,20 @@ public partial class MainForm : Form
 
         button2.Enabled = false;
 
+        if (current.Files is null || current.Files.Count == 0)
+        {
+            MessageBox.Show("Не добавлены файлы");
+            button2.Enabled = true;
+            return;
+        }
+
+        if (current.Files.Any(x => x.NeedBarcode) && !Utils.Printer.CheckCom())
+        {
+            MessageBox.Show("Не подключен принтер");
+            button2.Enabled = true;
+            return;
+        }
+
         using var db = await Program.factory_db.CreateDbContextAsync();
         using var transaction = await db.Database.BeginTransactionAsync();
         await Data.Update(db, current, (SettingsModel)currentEnableds.DataSource);
@@ -536,23 +553,25 @@ public partial class MainForm : Form
             int result = await GetSqlFile(db, new_file, free_dir.Split('\\').Last(), file, value.Typ);
             if (result > 0)
             {
-                if (value == current.Doc_barcode)
+                var doc = new ClientDoc()
                 {
-                    var doc = new ClientDoc() { doc = result, barcode = true, title = current.Exec_number, date = current.Data?.LawExec?.court_date?.ToShortDateString() };
-                    if (current.Typ == LawTyp.LawExec)
-                    {
-                        doc.type = 2;
-                    }
-                    else
-                    {
-                        doc.type = 1;
-                    }
-                    docs.Add(doc);
+                    doc = result,
+                    title = current.Exec_number,
+                    date = current.Data?.LawExec?.court_date?.ToShortDateString()
+                };
+
+                if (current.Typ == LawTyp.LawExec)
+                {
+                    doc.type = 2;
                 }
                 else
                 {
-                    docs.Add(new ClientDoc() { doc = result, barcode = false });
+                    doc.type = 1;
                 }
+
+                doc.barcode = value.NeedBarcode;
+
+                docs.Add(doc);
             }
         }
 
