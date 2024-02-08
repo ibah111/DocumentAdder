@@ -25,7 +25,7 @@ static public class Printer
         }
     }
     
-    static public void PrintBarсodeWithTitle (string barcode, string title)
+    static public void PrintBarсodeWithTitle(string barcode, string title)
     {
         if (CheckCom())
         {

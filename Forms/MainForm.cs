@@ -558,7 +558,7 @@ public partial class MainForm : Form
                 var doc = new ClientDoc()
                 {
                     doc = result,
-                    title = current.Exec_number + " " + value.Name,
+                    title = value.Name,
                     date = current.Data?.LawExec?.court_date?.ToShortDateString()
                 };
                 list.Add((result ,value.Name));
@@ -616,10 +616,7 @@ public partial class MainForm : Form
                     if (response.Barcodes != null)
                         foreach (var barcode in response.Barcodes) {
                             var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
-                            // Utils.Printer.PrintBarCode(barcode.barcode /* , str */);
-
                             Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
-                            
                         }
 
                             
