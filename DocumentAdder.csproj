@@ -89,6 +89,9 @@
 		<None Update="Resources\barcode.lbx">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Resources\test-barcode.lbx">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 	<Import Project="./Tasks/CreateJsonStandelone.targets" />
 	<Target Name="ZipOutputPath" AfterTargets="Build" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

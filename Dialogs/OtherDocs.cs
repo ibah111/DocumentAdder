@@ -72,7 +72,6 @@ public partial class OtherDocs : Form
         {
             var vm = new
             {
-
                 action = "without_task",
                 date_post = current.data.Date_post.ToString("o").Replace("+03:00", ""),
                 Convert = current.data.Check,
@@ -92,9 +91,15 @@ public partial class OtherDocs : Form
             };
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = Program.client.Post<ServerResults>(request);
-            if (response.Barcodes != null)
+            if (response.Barcodes != null) {
                 foreach (var barcode in response.Barcodes)
-                    Utils.Printer.PrintBarCode(barcode.barcode);
+                {
+
+                    var str = $"Документ: \n" + vm.doc_name + ' ' + vm.gd + ' ' + vm.fio_dol + '.';
+                    Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+
+                }            
+            }
             MessageBox.Show("Данные в таблицу занесены");
         }
         catch (Exception ee)

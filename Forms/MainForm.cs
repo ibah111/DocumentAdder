@@ -540,6 +540,8 @@ public partial class MainForm : Form
         await db.SaveChangesAsync();
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
+        List<(int, string)> list = new List<(int, string)>();
+        
         foreach (var value in current.Files)
         {
 
@@ -556,9 +558,10 @@ public partial class MainForm : Form
                 var doc = new ClientDoc()
                 {
                     doc = result,
-                    title = current.Exec_number,
+                    title = value.Name,
                     date = current.Data?.LawExec?.court_date?.ToShortDateString()
                 };
+                list.Add((result ,value.Name));
 
                 if (current.Typ == LawTyp.LawExec)
                 {
@@ -611,8 +614,12 @@ public partial class MainForm : Form
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = await Program.client.PostAsync<ServerResults>(request);
                     if (response.Barcodes != null)
-                        foreach (var barcode in response.Barcodes)
-                            Utils.Printer.PrintBarCode(barcode.barcode);
+                        foreach (var barcode in response.Barcodes) {
+                            var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
+                            Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+                        }
+
+                            
                 }
                 catch (Exception ee)
                 {

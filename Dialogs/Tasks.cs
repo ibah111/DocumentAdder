@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DocumentAdder.Dialogs;
@@ -86,12 +88,25 @@ public partial class Tasks : Form
         try
         {
             Forms.current.Task_id = (int)comboBox1.SelectedValue;
+            
+            List<(int, string)> list = new List<(int, string)>();
+            
+            foreach (var item in this.docs) 
+            {
+                list.Add((item.doc, item.title));
+            }
             var vm = Forms.getRequest("with_task", this.docs);
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = await Program.client.PostAsync<ServerResults>(request);
+
             if (response.Barcodes != null)
+            {
                 foreach (var barcode in response.Barcodes)
-                    Utils.Printer.PrintBarCode(barcode.barcode);
+                {
+                    var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
+                    Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+                }
+            }
         }
         catch (Exception ee)
         {
