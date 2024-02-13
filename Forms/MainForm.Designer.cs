@@ -171,6 +171,7 @@ namespace DocumentAdder.Forms
             ModeCB = new System.Windows.Forms.ComboBox();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
             selectDocBarcode = new System.Windows.Forms.ComboBox();
+            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
             labelSelectDocBarcode = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
             documentNameBox = new System.Windows.Forms.ComboBox();
@@ -190,10 +191,11 @@ namespace DocumentAdder.Forms
             checkBox1 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
-            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
-            documentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            NeedBarcode = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
+            currentEnableds = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -201,7 +203,6 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)currentEnableds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictState).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).BeginInit();
@@ -1653,6 +1654,8 @@ namespace DocumentAdder.Forms
             // selectDocBarcode
             // 
             selectDocBarcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Doc_barcode", true));
+            selectDocBarcode.DataSource = documentsBindingSource;
+            selectDocBarcode.DisplayMember = "Name";
             selectDocBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             selectDocBarcode.FormattingEnabled = true;
             selectDocBarcode.Location = new System.Drawing.Point(186, 598);
@@ -1660,6 +1663,11 @@ namespace DocumentAdder.Forms
             selectDocBarcode.Name = "selectDocBarcode";
             selectDocBarcode.Size = new System.Drawing.Size(174, 23);
             selectDocBarcode.TabIndex = 31;
+            selectDocBarcode.Visible = false;
+            // 
+            // documentsBindingSource
+            // 
+            documentsBindingSource.DataSource = typeof(FileData);
             // 
             // labelSelectDocBarcode
             // 
@@ -1671,6 +1679,7 @@ namespace DocumentAdder.Forms
             labelSelectDocBarcode.Size = new System.Drawing.Size(124, 15);
             labelSelectDocBarcode.TabIndex = 123;
             labelSelectDocBarcode.Text = "Документ штрих-код";
+            labelSelectDocBarcode.Visible = false;
             // 
             // label32
             // 
@@ -1887,7 +1896,7 @@ namespace DocumentAdder.Forms
             gridFiles.BackgroundColor = System.Drawing.Color.White;
             gridFiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             gridFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { nameDataGridViewTextBoxColumn, typDataGridViewTextBoxColumn });
+            gridFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { NeedBarcode, nameDataGridViewTextBoxColumn, typDataGridViewTextBoxColumn });
             tableLayoutPanel1.SetColumnSpan(gridFiles, 2);
             gridFiles.DataSource = documentsBindingSource;
             gridFiles.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1901,13 +1910,14 @@ namespace DocumentAdder.Forms
             gridFiles.Size = new System.Drawing.Size(358, 99);
             gridFiles.TabIndex = 128;
             // 
-            // typDocumentsBindingSource
+            // NeedBarcode
             // 
-            typDocumentsBindingSource.DataSource = typeof(DictModel);
-            // 
-            // documentsBindingSource
-            // 
-            documentsBindingSource.DataSource = typeof(FileData);
+            NeedBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            NeedBarcode.DataPropertyName = "NeedBarcode";
+            NeedBarcode.HeaderText = "Штрих";
+            NeedBarcode.Name = "NeedBarcode";
+            NeedBarcode.ToolTipText = "Печатать штрих код?";
+            NeedBarcode.Width = 49;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -1928,6 +1938,14 @@ namespace DocumentAdder.Forms
             typDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             typDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             typDataGridViewTextBoxColumn.ValueMember = "code";
+            // 
+            // typDocumentsBindingSource
+            // 
+            typDocumentsBindingSource.DataSource = typeof(DictModel);
+            // 
+            // currentEnableds
+            // 
+            currentEnableds.DataSource = typeof(SettingsModel);
             // 
             // MainForm
             // 
@@ -1950,12 +1968,12 @@ namespace DocumentAdder.Forms
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictTyp).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawActResultBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictState).EndInit();
             ((System.ComponentModel.ISupportInitialize)dictDebtStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)lawExecResultBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dictStatus).EndInit();
@@ -1963,7 +1981,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gridFiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)typDocumentsBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)documentsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)currentEnableds).EndInit();
             ResumeLayout(false);
         }
 
@@ -2131,6 +2149,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.BindingSource documentsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource typDocumentsBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn NeedBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
     }

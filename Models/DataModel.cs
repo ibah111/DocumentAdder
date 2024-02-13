@@ -6,21 +6,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using DocumentAdder.Forms;
 
 namespace DocumentAdder.Models;
-public partial class FileData : ObservableObject
-{
-    public FileData(byte[] data, string? name = null, int? typ = null)
-    {
-        this.Data = data;
-        this.Name = name;
-        this.Typ = typ;
-    }
-    [ObservableProperty]
-    private byte[] data;
-    [ObservableProperty]
-    private string? name;
-    [ObservableProperty]
-    private int? typ;
-}
 
 public partial class DataModel : ObservableObject
 {
