@@ -7,8 +7,8 @@ class Settings
 {
 #if DEBUG
     public static string dbs = "i_collect3";
-    public static string server = "https://apps.usb.ru:3001";
-    public static string server_ws = "https://apps.usb.ru:3001";
+    public static string server = "http://balezin.usb.ru:3001";
+    public static string server_ws = "http://balezin.usb.ru:3001";
     public static string server_login = "https://chat.nbkfinance.ru/apps/mail";
 #else
     public static string dbs = "i_collect";
