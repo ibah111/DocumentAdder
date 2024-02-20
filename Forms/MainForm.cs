@@ -520,18 +520,27 @@ public partial class MainForm : Form
 
         button2.Enabled = false;
 
-        if (current.Files is null || current.Files.Count == 0)
-        {
-            MessageBox.Show("Не добавлены файлы");
-            button2.Enabled = true;
-            return;
-        }
+        int[] req_values = { 0, 1, 2, 3, 4, 29, 39 };
+        int cur_typ = (int)current.Typ_doc;
+        
+        bool type_exist = req_values.Contains(cur_typ);
 
-        if (current.Files.Any(x => x.NeedBarcode) && !Utils.Printer.CheckCom())
+        
+        if (type_exist)
         {
-            MessageBox.Show("Не подключен принтер");
-            button2.Enabled = true;
-            return;
+            if (current.Files is null || current.Files.Count == 0)
+            {
+                MessageBox.Show("Не добавлены файлы");
+                button2.Enabled = true;
+                return;
+            }
+
+            if (current.Files.Any(x => x.NeedBarcode) && !Utils.Printer.CheckCom())
+            {
+                MessageBox.Show("Не подключен принтер");
+                button2.Enabled = true;
+                return;
+            }
         }
 
         using var db = await Program.factory_db.CreateDbContextAsync();
