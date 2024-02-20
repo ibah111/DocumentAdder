@@ -520,7 +520,9 @@ public partial class MainForm : Form
 
         button2.Enabled = false;
 
-        int[] req_values = { 0, 1, 2, 3, 4, 29, 39 };
+        // int[] req_values = { 0, 1, 2, 3, 4, 29, 39 };
+        // non exist value
+        int[] req_values = { 500 };
         int cur_typ = (int)current.Typ_doc;
         
         bool type_exist = req_values.Contains(cur_typ);
