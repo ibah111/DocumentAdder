@@ -40,6 +40,7 @@ public partial class MainForm : Form
     private bool runed = false;
     private Dictionary<int, SettingsModel> settings_json = new();
     public DataModel current;
+    public int doc_type;
     private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
     {
         SerialPort sp = (SerialPort)sender;
@@ -493,6 +494,7 @@ public partial class MainForm : Form
     {
         if (e.RowIndex >= 0)
         {
+            doc_type = 1;
             var data = ((SortableBindingList<LawActResult>)lawActResultBindingSource.DataSource)[e.RowIndex];
             InstallData(data, true);
         }
@@ -554,7 +556,7 @@ public partial class MainForm : Form
         List<(int, string)> list = new List<(int, string)>();
         
         foreach (var value in current.Files)
-        {
+        { 
 
             string file = value.Name; //Название файла.pdf
             string type = file.Split('.').Last(); //расширение файла
@@ -692,13 +694,13 @@ public partial class MainForm : Form
             name = $"{current.Data.Person.fio} {current.Data.Debt?.contract} {current.Data.Debt?.portfolio}",
             desc = current.Dsc + (current.Mode == 1 ? "\n" + current.Post_name + "\n" + current.Post_address : "") + (settings.Correct_period_date ? ("\n" + current.Correct_period_date?.ToShortDateString()) : ""),
             mode = current.Mode,
-
             ist = mail?.Debtor,
             dateDoc = mail?.Court_date,
             ecp = mail?.Cert,
             adres = mail?.From_mail,
             mail = mail?.From_mail,
-            docs
+            docs,
+            doc_type
         };
         //result.dateDoc = Settings.dateDoc;
         return result;
@@ -799,7 +801,7 @@ public partial class MainForm : Form
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
-        var settings = settings_json[typ.Value];
+        var settings = settings_json[typ.Value]; 
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
 
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
@@ -831,6 +833,7 @@ public partial class MainForm : Form
         ClearTextBox();
         if (e.RowIndex >= 0)
         {
+            doc_type = 2;
             var data = ((SortableBindingList<LawExecResult>)lawExecResultBindingSource.DataSource)[e.RowIndex];
             InstallData(data, true);
         }
