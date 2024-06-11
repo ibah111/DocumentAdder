@@ -59,7 +59,7 @@ namespace DocumentAdder.Forms
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
-            label18 = new System.Windows.Forms.Label();
+            LawActDataGridLabel = new System.Windows.Forms.Label();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             LawActId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             LawActTyp = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -239,7 +239,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
             tableLayoutPanel1.Controls.Add(button2, 3, 24);
-            tableLayoutPanel1.Controls.Add(label18, 4, 5);
+            tableLayoutPanel1.Controls.Add(LawActDataGridLabel, 4, 5);
             tableLayoutPanel1.Controls.Add(dataGridView1, 4, 6);
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
             tableLayoutPanel1.Controls.Add(label20, 1, 7);
@@ -475,17 +475,17 @@ namespace DocumentAdder.Forms
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // label18
+            // LawActDataGridLabel
             // 
-            label18.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            label18.AutoSize = true;
-            tableLayoutPanel1.SetColumnSpan(label18, 2);
-            label18.Location = new System.Drawing.Point(732, 195);
-            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(245, 15);
-            label18.TabIndex = 28;
-            label18.Text = "Приказ, иск, правопреемство, банкротство";
+            LawActDataGridLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            LawActDataGridLabel.AutoSize = true;
+            tableLayoutPanel1.SetColumnSpan(LawActDataGridLabel, 2);
+            LawActDataGridLabel.Location = new System.Drawing.Point(732, 195);
+            LawActDataGridLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LawActDataGridLabel.Name = "LawActDataGridLabel";
+            LawActDataGridLabel.Size = new System.Drawing.Size(100, 15);
+            LawActDataGridLabel.TabIndex = 28;
+            LawActDataGridLabel.Text = "Судебная работа";
             // 
             // dataGridView1
             // 
@@ -2009,7 +2009,7 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label LawActDataGridLabel;
         private System.Windows.Forms.MaskedTextBox CourtExecDateBox;
         private System.Windows.Forms.MaskedTextBox startDateBox;
         private System.Windows.Forms.MaskedTextBox finishDateBox;
