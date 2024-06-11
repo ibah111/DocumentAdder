@@ -194,7 +194,8 @@ namespace DocumentAdder.Forms
             nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
-            currentEnableds = new System.Windows.Forms.BindingSource(components);
+            haveKD = new System.Windows.Forms.CheckBox();
+            ScanCopyKD = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -313,6 +314,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 9);
             tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
             tableLayoutPanel1.Controls.Add(gridFiles, 2, 19);
+            tableLayoutPanel1.Controls.Add(haveKD, 3, 14);
+            tableLayoutPanel1.Controls.Add(ScanCopyKD, 3, 15);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1943,9 +1946,25 @@ namespace DocumentAdder.Forms
             // 
             typDocumentsBindingSource.DataSource = typeof(DictModel);
             // 
-            // currentEnableds
+            // haveKD
             // 
-            currentEnableds.DataSource = typeof(SettingsModel);
+            haveKD.AutoSize = true;
+            haveKD.Location = new System.Drawing.Point(549, 493);
+            haveKD.Name = "haveKD";
+            haveKD.Size = new System.Drawing.Size(101, 19);
+            haveKD.TabIndex = 129;
+            haveKD.Text = "КД в наличии";
+            haveKD.UseVisualStyleBackColor = true;
+            // 
+            // ScanCopyKD
+            // 
+            ScanCopyKD.AutoSize = true;
+            ScanCopyKD.Location = new System.Drawing.Point(549, 528);
+            ScanCopyKD.Name = "ScanCopyKD";
+            ScanCopyKD.Size = new System.Drawing.Size(107, 19);
+            ScanCopyKD.TabIndex = 130;
+            ScanCopyKD.Text = "Скан копия КД";
+            ScanCopyKD.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -2152,6 +2171,8 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewCheckBoxColumn NeedBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox haveKD;
+        private System.Windows.Forms.CheckBox ScanCopyKD;
     }
 }
 
