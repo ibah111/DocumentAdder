@@ -196,6 +196,7 @@ namespace DocumentAdder.Forms
             typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
             haveKD = new System.Windows.Forms.CheckBox();
             ScanCopyKD = new System.Windows.Forms.CheckBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -240,8 +241,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
             tableLayoutPanel1.Controls.Add(button2, 3, 24);
-            tableLayoutPanel1.Controls.Add(LawActDataGridLabel, 4, 5);
-            tableLayoutPanel1.Controls.Add(dataGridView1, 4, 6);
+            tableLayoutPanel1.Controls.Add(LawActDataGridLabel, 4, 7);
+            tableLayoutPanel1.Controls.Add(dataGridView1, 4, 8);
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
             tableLayoutPanel1.Controls.Add(label20, 1, 7);
             tableLayoutPanel1.Controls.Add(label21, 2, 7);
@@ -316,6 +317,7 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(gridFiles, 2, 19);
             tableLayoutPanel1.Controls.Add(haveKD, 3, 14);
             tableLayoutPanel1.Controls.Add(ScanCopyKD, 3, 15);
+            tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -483,7 +485,7 @@ namespace DocumentAdder.Forms
             LawActDataGridLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             LawActDataGridLabel.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(LawActDataGridLabel, 2);
-            LawActDataGridLabel.Location = new System.Drawing.Point(732, 195);
+            LawActDataGridLabel.Location = new System.Drawing.Point(732, 265);
             LawActDataGridLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             LawActDataGridLabel.Name = "LawActDataGridLabel";
             LawActDataGridLabel.Size = new System.Drawing.Size(100, 15);
@@ -520,7 +522,7 @@ namespace DocumentAdder.Forms
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Gray;
-            dataGridView1.Location = new System.Drawing.Point(732, 213);
+            dataGridView1.Location = new System.Drawing.Point(732, 283);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -534,8 +536,8 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.RowHeadersVisible = false;
-            tableLayoutPanel1.SetRowSpan(dataGridView1, 12);
-            dataGridView1.Size = new System.Drawing.Size(724, 414);
+            tableLayoutPanel1.SetRowSpan(dataGridView1, 10);
+            dataGridView1.Size = new System.Drawing.Size(724, 344);
             dataGridView1.TabIndex = 100;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
@@ -1450,7 +1452,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_doc_num", true));
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtDocNumBox.Location = new System.Drawing.Point(368, 143);
+            courtDocNumBox.Location = new System.Drawing.Point(550, 143);
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
@@ -1462,7 +1464,7 @@ namespace DocumentAdder.Forms
             // 
             label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(368, 125);
+            label10.Location = new System.Drawing.Point(550, 125);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(123, 15);
@@ -1473,7 +1475,7 @@ namespace DocumentAdder.Forms
             // 
             label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(550, 125);
+            label14.Location = new System.Drawing.Point(368, 125);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(170, 15);
@@ -1485,7 +1487,7 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_order_date", true));
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
+            courtOrderDateBox.Location = new System.Drawing.Point(368, 143);
             courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtOrderDateBox.Mask = "00/00/0000";
             courtOrderDateBox.Name = "courtOrderDateBox";
@@ -1965,6 +1967,18 @@ namespace DocumentAdder.Forms
             ScanCopyKD.TabIndex = 130;
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
+            checkBox2.Location = new System.Drawing.Point(550, 353);
+            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(62, 19);
+            checkBox2.TabIndex = 100;
+            checkBox2.Text = "Сканы";
+            checkBox2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
