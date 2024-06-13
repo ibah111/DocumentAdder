@@ -197,6 +197,10 @@ namespace DocumentAdder.Forms
             haveKD = new System.Windows.Forms.CheckBox();
             ScanCopyKD = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
+            textBox1 = new System.Windows.Forms.TextBox();
+            textBox2 = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -318,6 +322,10 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(haveKD, 3, 14);
             tableLayoutPanel1.Controls.Add(ScanCopyKD, 3, 15);
             tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
+            tableLayoutPanel1.Controls.Add(textBox1, 4, 6);
+            tableLayoutPanel1.Controls.Add(textBox2, 5, 6);
+            tableLayoutPanel1.Controls.Add(label7, 4, 5);
+            tableLayoutPanel1.Controls.Add(label18, 5, 5);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1980,6 +1988,38 @@ namespace DocumentAdder.Forms
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new System.Drawing.Point(731, 213);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(175, 23);
+            textBox1.TabIndex = 132;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new System.Drawing.Point(913, 213);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(176, 23);
+            textBox2.TabIndex = 133;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(731, 175);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(38, 15);
+            label7.TabIndex = 134;
+            label7.Text = "label7";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new System.Drawing.Point(913, 175);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(44, 15);
+            label18.TabIndex = 135;
+            label18.Text = "label18";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2187,6 +2227,10 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox haveKD;
         private System.Windows.Forms.CheckBox ScanCopyKD;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label18;
     }
 }
 
