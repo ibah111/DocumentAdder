@@ -325,7 +325,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(Search_ID_textBox, 4, 6);
             tableLayoutPanel1.Controls.Add(Search_IP_textBox, 5, 6);
             tableLayoutPanel1.Controls.Add(Seach_Ip_Label, 5, 5);
-            tableLayoutPanel1.Controls.Add(label18, 5, 5);
             tableLayoutPanel1.Controls.Add(Search_Id_Label, 4, 5);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
