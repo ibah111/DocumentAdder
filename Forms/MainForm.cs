@@ -526,10 +526,10 @@ public partial class MainForm : Form
         // non exist value
         int[] req_values = { 500 };
         int cur_typ = (int)current.Typ_doc;
-        
+
         bool type_exist = req_values.Contains(cur_typ);
 
-        
+
         if (type_exist)
         {
             if (current.Files is null || current.Files.Count == 0)
@@ -554,9 +554,9 @@ public partial class MainForm : Form
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
         List<(int, string)> list = new List<(int, string)>();
-        
+
         foreach (var value in current.Files)
-        { 
+        {
 
             string file = value.Name; //Название файла.pdf
             string type = file.Split('.').Last(); //расширение файла
@@ -574,7 +574,7 @@ public partial class MainForm : Form
                     title = value.Name,
                     date = current.Data?.LawExec?.court_date?.ToShortDateString()
                 };
-                list.Add((result ,value.Name));
+                list.Add((result, value.Name));
 
                 if (current.Typ == LawTyp.LawExec)
                 {
@@ -627,12 +627,13 @@ public partial class MainForm : Form
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = await Program.client.PostAsync<ServerResults>(request);
                     if (response.Barcodes != null)
-                        foreach (var barcode in response.Barcodes) {
+                        foreach (var barcode in response.Barcodes)
+                        {
                             var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
                             Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
                         }
 
-                            
+
                 }
                 catch (Exception ee)
                 {
@@ -801,7 +802,7 @@ public partial class MainForm : Form
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
-        var settings = settings_json[typ.Value]; 
+        var settings = settings_json[typ.Value];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
 
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)
