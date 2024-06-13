@@ -197,10 +197,10 @@ namespace DocumentAdder.Forms
             haveKD = new System.Windows.Forms.CheckBox();
             ScanCopyKD = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
-            textBox1 = new System.Windows.Forms.TextBox();
-            textBox2 = new System.Windows.Forms.TextBox();
-            label7 = new System.Windows.Forms.Label();
-            label18 = new System.Windows.Forms.Label();
+            Search_ID_textBox = new System.Windows.Forms.TextBox();
+            Search_IP_textBox = new System.Windows.Forms.TextBox();
+            Search_Id_Label = new System.Windows.Forms.Label();
+            Seach_Ip_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -322,10 +322,11 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(haveKD, 3, 14);
             tableLayoutPanel1.Controls.Add(ScanCopyKD, 3, 15);
             tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
-            tableLayoutPanel1.Controls.Add(textBox1, 4, 6);
-            tableLayoutPanel1.Controls.Add(textBox2, 5, 6);
-            tableLayoutPanel1.Controls.Add(label7, 4, 5);
+            tableLayoutPanel1.Controls.Add(Search_ID_textBox, 4, 6);
+            tableLayoutPanel1.Controls.Add(Search_IP_textBox, 5, 6);
+            tableLayoutPanel1.Controls.Add(Seach_Ip_Label, 5, 5);
             tableLayoutPanel1.Controls.Add(label18, 5, 5);
+            tableLayoutPanel1.Controls.Add(Search_Id_Label, 4, 5);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1460,7 +1461,7 @@ namespace DocumentAdder.Forms
             courtDocNumBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_doc_num", true));
             courtDocNumBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_doc_num", true));
             courtDocNumBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtDocNumBox.Location = new System.Drawing.Point(550, 143);
+            courtDocNumBox.Location = new System.Drawing.Point(368, 143);
             courtDocNumBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtDocNumBox.Name = "courtDocNumBox";
             courtDocNumBox.Size = new System.Drawing.Size(174, 23);
@@ -1472,7 +1473,7 @@ namespace DocumentAdder.Forms
             // 
             label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(550, 125);
+            label10.Location = new System.Drawing.Point(368, 125);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(123, 15);
@@ -1483,7 +1484,7 @@ namespace DocumentAdder.Forms
             // 
             label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(368, 125);
+            label14.Location = new System.Drawing.Point(550, 125);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(170, 15);
@@ -1495,7 +1496,7 @@ namespace DocumentAdder.Forms
             courtOrderDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Court_order_date", true));
             courtOrderDateBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataModelBinding, "Court_order_date", true));
             courtOrderDateBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            courtOrderDateBox.Location = new System.Drawing.Point(368, 143);
+            courtOrderDateBox.Location = new System.Drawing.Point(550, 143);
             courtOrderDateBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             courtOrderDateBox.Mask = "00/00/0000";
             courtOrderDateBox.Name = "courtOrderDateBox";
@@ -1988,37 +1989,39 @@ namespace DocumentAdder.Forms
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // Search_ID_textBox
             // 
-            textBox1.Location = new System.Drawing.Point(731, 213);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(175, 23);
-            textBox1.TabIndex = 132;
+            Search_ID_textBox.Location = new System.Drawing.Point(731, 213);
+            Search_ID_textBox.Name = "Search_ID_textBox";
+            Search_ID_textBox.Size = new System.Drawing.Size(175, 23);
+            Search_ID_textBox.TabIndex = 132;
             // 
-            // textBox2
+            // Search_IP_textBox
             // 
-            textBox2.Location = new System.Drawing.Point(913, 213);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(176, 23);
-            textBox2.TabIndex = 133;
+            Search_IP_textBox.Location = new System.Drawing.Point(913, 213);
+            Search_IP_textBox.Name = "Search_IP_textBox";
+            Search_IP_textBox.Size = new System.Drawing.Size(176, 23);
+            Search_IP_textBox.TabIndex = 133;
             // 
-            // label7
+            // Search_Id_Label
             // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(731, 175);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(38, 15);
-            label7.TabIndex = 134;
-            label7.Text = "label7";
+            Search_Id_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Search_Id_Label.AutoSize = true;
+            Search_Id_Label.Location = new System.Drawing.Point(731, 195);
+            Search_Id_Label.Name = "Search_Id_Label";
+            Search_Id_Label.Size = new System.Drawing.Size(79, 15);
+            Search_Id_Label.TabIndex = 134;
+            Search_Id_Label.Text = "Поиск по ИД";
             // 
-            // label18
+            // Seach_Ip_Label
             // 
-            label18.AutoSize = true;
-            label18.Location = new System.Drawing.Point(913, 175);
-            label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(44, 15);
-            label18.TabIndex = 135;
-            label18.Text = "label18";
+            Seach_Ip_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Seach_Ip_Label.AutoSize = true;
+            Seach_Ip_Label.Location = new System.Drawing.Point(913, 195);
+            Seach_Ip_Label.Name = "Seach_Ip_Label";
+            Seach_Ip_Label.Size = new System.Drawing.Size(80, 15);
+            Seach_Ip_Label.TabIndex = 135;
+            Seach_Ip_Label.Text = "Поиск по ИП";
             // 
             // MainForm
             // 
@@ -2227,10 +2230,10 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox haveKD;
         private System.Windows.Forms.CheckBox ScanCopyKD;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox Search_ID_textBox;
+        private System.Windows.Forms.TextBox Search_IP_textBox;
+        private System.Windows.Forms.Label Search_Id_Label;
+        private System.Windows.Forms.Label Seach_Ip_Label;
     }
 }
 
