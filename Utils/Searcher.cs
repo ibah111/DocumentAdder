@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
@@ -92,6 +92,16 @@ public class Searcher
         {
             data1 = data1.Where(x => EF.Functions.Like(x.exec_number, exec_number + "%"));
             data2 = data2.Where(x => EF.Functions.Like(x.LawAct.exec_number, exec_number + "%"));
+        }
+        //поиск по номеру ИП court_doc_num
+        if (!string.IsNullOrEmpty(Search_IP))
+        {
+            data2 = data2.Where(x => EF.Functions.Like(x.court_doc_num, $"{Search_IP}%"));
+        }
+        //поиск по номеру ИД fssp_doc_num
+        if(!string.IsNullOrEmpty(Search_ID))
+        {
+            data2 = data2.Where(x => EF.Functions.Like(x.fssp_doc_num, $"{Search_ID}%"));
         }
         var subquery1 = data1.GroupJoin(db.LawExec,
             (x) => x.id,
