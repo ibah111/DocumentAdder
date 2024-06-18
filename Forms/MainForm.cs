@@ -412,7 +412,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.Enter)
         {
-            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, idBox.Text, contractBox.Text, execNumberSearchBox.Text);
+            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, idBox.Text, contractBox.Text, execNumberSearchBox.Text, Search_IP_textBox.Text, Search_ID_textBox.Text);
             await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
         }
         if (e.Control && e.KeyCode == Keys.D)
