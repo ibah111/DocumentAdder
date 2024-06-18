@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,13 +26,17 @@ public class Searcher
     private string law_id; //ID Дела
     private string contract; //№ КД
     private string exec_number; //№ Дела
+    private string Search_IP; //Поиск по ИП
+    private string Search_ID; //Поиск по ИД
 
-    public Searcher(NamePerson fio, string law_id, string contract, string exec_number)
+    public Searcher(NamePerson fio, string law_id, string contract, string exec_number, string search_IP, string search_ID)
     {
         this.fio = fio;
         this.law_id = law_id;
         this.contract = contract;
         this.exec_number = exec_number;
+        this.Search_IP = search_IP;
+        this.Search_ID = search_ID;
     }
     public async Task GetTables(BindingSource LawActSource, BindingSource LawExecSource)
     {
@@ -42,6 +47,7 @@ public class Searcher
         var data2 = db.LawExec.AsQueryable();
         data1 = data1.Where(x => (x.typ == 1 && x.status != 10) || (x.typ > 1 && x.act_status != 15));
         data2 = data2.Where(x => x.state != 5);
+              
         if (fio != null)
         {
             if (!string.IsNullOrEmpty(fio.f))
