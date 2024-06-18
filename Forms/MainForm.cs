@@ -51,7 +51,7 @@ public partial class MainForm : Form
             string given = indata;
             idBox.Text = given.Replace("\r", string.Empty);
             //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
-            Searcher searcher = new Searcher(null, idBox.Text, "", "");
+            Searcher searcher = new Searcher(null, idBox.Text, "", "", Search_IP_textBox.Text, Search_ID_textBox.Text);
             await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
             {
