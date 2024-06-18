@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 using DocumentAdder.Forms;
 using DocumentAdder.Main;
 using DocumentAdder.Models;
@@ -53,10 +53,10 @@ public class Searcher
             if (!string.IsNullOrEmpty(fio.f))
             {
                 data1 = data1.Where(
-                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
+                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%") || EF.Functions.Like(x.Debt.DebtGuarantor.fio, $"{fio}")
                     );
                 data2 = data2.Where(
-                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
+                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%" ) || EF.Functions.Like(x.Debt.DebtGuarantor.fio, $"{fio}")
                     );
             }
             if (!string.IsNullOrEmpty(fio.i))
