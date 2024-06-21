@@ -200,6 +200,7 @@ namespace DocumentAdder.Forms
             Search_IP_textBox = new System.Windows.Forms.TextBox();
             Seach_Ip_Label = new System.Windows.Forms.Label();
             Search_Id_Label = new System.Windows.Forms.Label();
+            currentEnableds = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -1977,8 +1978,9 @@ namespace DocumentAdder.Forms
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            //  fake checkBox2
             // 
+            /*
             checkBox2.AutoSize = true;
             checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
             checkBox2.Location = new System.Drawing.Point(550, 353);
@@ -1988,6 +1990,7 @@ namespace DocumentAdder.Forms
             checkBox2.TabIndex = 100;
             checkBox2.Text = "Сканы";
             checkBox2.UseVisualStyleBackColor = true;
+            */
             // 
             // Search_ID_textBox
             // 
