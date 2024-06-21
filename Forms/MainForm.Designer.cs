@@ -1965,6 +1965,7 @@ namespace DocumentAdder.Forms
             haveKD.TabIndex = 129;
             haveKD.Text = "КД в наличии";
             haveKD.UseVisualStyleBackColor = true;
+            haveKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Have_kd", true))
             // 
             // ScanCopyKD
             // 
@@ -1975,6 +1976,7 @@ namespace DocumentAdder.Forms
             ScanCopyKD.TabIndex = 130;
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
+            ScanCopyKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan_copy_kd", true))
             // 
             // checkBox2
             // 
