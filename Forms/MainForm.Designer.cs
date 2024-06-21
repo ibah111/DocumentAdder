@@ -1994,7 +1994,8 @@ namespace DocumentAdder.Forms
             Search_ID_textBox.Location = new System.Drawing.Point(731, 213);
             Search_ID_textBox.Name = "Search_ID_textBox";
             Search_ID_textBox.Size = new System.Drawing.Size(175, 23);
-            Search_ID_textBox.TabIndex = 132;
+            Search_ID_textBox.TabIndex = 132; 
+            Search_ID_textBox.KeyDown += textBox1_KeyDown;
             // 
             // Search_IP_textBox
             // 
@@ -2002,6 +2003,7 @@ namespace DocumentAdder.Forms
             Search_IP_textBox.Name = "Search_IP_textBox";
             Search_IP_textBox.Size = new System.Drawing.Size(176, 23);
             Search_IP_textBox.TabIndex = 133;
+            Search_IP_textBox.KeyDown += textBox1_KeyDown;
             // 
             // Seach_Ip_Label
             // 
