@@ -199,8 +199,8 @@ namespace DocumentAdder.Forms
             checkBox2 = new System.Windows.Forms.CheckBox();
             Search_ID_textBox = new System.Windows.Forms.TextBox();
             Search_IP_textBox = new System.Windows.Forms.TextBox();
-            Search_Id_Label = new System.Windows.Forms.Label();
             Seach_Ip_Label = new System.Windows.Forms.Label();
+            Search_Id_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -1959,24 +1959,24 @@ namespace DocumentAdder.Forms
             // haveKD
             // 
             haveKD.AutoSize = true;
+            haveKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Have_kd", true));
             haveKD.Location = new System.Drawing.Point(549, 493);
             haveKD.Name = "haveKD";
             haveKD.Size = new System.Drawing.Size(101, 19);
             haveKD.TabIndex = 129;
             haveKD.Text = "КД в наличии";
             haveKD.UseVisualStyleBackColor = true;
-            haveKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Have_kd", true))
             // 
             // ScanCopyKD
             // 
             ScanCopyKD.AutoSize = true;
+            ScanCopyKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan_copy_kd", true));
             ScanCopyKD.Location = new System.Drawing.Point(549, 528);
             ScanCopyKD.Name = "ScanCopyKD";
             ScanCopyKD.Size = new System.Drawing.Size(107, 19);
             ScanCopyKD.TabIndex = 130;
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
-            ScanCopyKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan_copy_kd", true))
             // 
             // checkBox2
             // 
@@ -2004,16 +2004,6 @@ namespace DocumentAdder.Forms
             Search_IP_textBox.Size = new System.Drawing.Size(176, 23);
             Search_IP_textBox.TabIndex = 133;
             // 
-            // Search_Id_Label
-            // 
-            Search_Id_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            Search_Id_Label.AutoSize = true;
-            Search_Id_Label.Location = new System.Drawing.Point(731, 195);
-            Search_Id_Label.Name = "Search_Id_Label";
-            Search_Id_Label.Size = new System.Drawing.Size(79, 15);
-            Search_Id_Label.TabIndex = 134;
-            Search_Id_Label.Text = "Поиск по ИД";
-            // 
             // Seach_Ip_Label
             // 
             Seach_Ip_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
@@ -2023,6 +2013,16 @@ namespace DocumentAdder.Forms
             Seach_Ip_Label.Size = new System.Drawing.Size(80, 15);
             Seach_Ip_Label.TabIndex = 135;
             Seach_Ip_Label.Text = "Поиск по ИП";
+            // 
+            // Search_Id_Label
+            // 
+            Search_Id_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Search_Id_Label.AutoSize = true;
+            Search_Id_Label.Location = new System.Drawing.Point(731, 195);
+            Search_Id_Label.Name = "Search_Id_Label";
+            Search_Id_Label.Size = new System.Drawing.Size(79, 15);
+            Search_Id_Label.TabIndex = 134;
+            Search_Id_Label.Text = "Поиск по ИД";
             // 
             // MainForm
             // 
