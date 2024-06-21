@@ -196,7 +196,6 @@ namespace DocumentAdder.Forms
             typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
             haveKD = new System.Windows.Forms.CheckBox();
             ScanCopyKD = new System.Windows.Forms.CheckBox();
-            checkBox2 = new System.Windows.Forms.CheckBox();
             Search_ID_textBox = new System.Windows.Forms.TextBox();
             Search_IP_textBox = new System.Windows.Forms.TextBox();
             Seach_Ip_Label = new System.Windows.Forms.Label();
