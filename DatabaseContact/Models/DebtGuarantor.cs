@@ -21,6 +21,8 @@ public partial class DebtGuarantor
     /// ссылка на debt
     /// </summary>
     public int? parent_id { get; set; }
+    [ForeignKey(nameof(parent_id))]
+    public virtual Debt Debt { get; set; }
 
     /// <summary>
     /// залоговая стоимость
