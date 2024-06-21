@@ -797,6 +797,8 @@ public partial class MainForm : Form
             Check = current.Check,
             Typ_doc = current.Typ_doc,
             Article_and_paragraph = current.Article_and_paragraph,
+            Have_kd = current.Have_kd,
+            Scan_copy_kd = current.Scan_copy_kd
         };
 
     }
