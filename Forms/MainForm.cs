@@ -701,7 +701,9 @@ public partial class MainForm : Form
             adres = mail?.From_mail,
             mail = mail?.From_mail,
             docs,
-            doc_type
+            doc_type,
+            have_kd = current.Have_kd,
+            scan_copy_kd = current.Scan_copy_kd,
         };
         //result.dateDoc = Settings.dateDoc;
         return result;
