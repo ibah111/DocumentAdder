@@ -94,6 +94,7 @@ public partial class i_collectContext : DbContext
         modelBuilder.ApplyConfiguration(new Configurations.WorkTaskConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawSessionConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawActSolicitationConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.DebtGuarantorConfiguration());
 
         OnModelCreatingPartial(modelBuilder);
     }
