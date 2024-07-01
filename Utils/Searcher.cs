@@ -47,7 +47,24 @@ public class Searcher
         var data2 = db.LawExec.AsQueryable();
         data1 = data1.Where(x => (x.typ == 1 && x.status != 10) || (x.typ > 1 && x.act_status != 15));
         data2 = data2.Where(x => x.state != 5);
-              
+
+        //поиск по ИД
+        if (Search_ID != null)
+        { 
+            if(!string.IsNullOrEmpty(Search_ID)) 
+            {
+                data2 = data2.Where(x => EF.Functions.Like(x.LawAct., $"{Search_ID}"));
+            }
+        }
+        //поиск по ИП
+        if(Search_IP != null)
+        {
+            if(string.IsNullOrEmpty(Search_IP))
+            {
+                data2 = data2.Where(x => EF.Functions.Like(x.LawAct., $"{Search_IP}"));
+            }
+        }
+        //поиск по фио
         if (fio != null)
         {
             if (!string.IsNullOrEmpty(fio.f))
