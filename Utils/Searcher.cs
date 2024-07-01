@@ -53,32 +53,11 @@ public class Searcher
             if (!string.IsNullOrEmpty(fio.f))
             {
                 data1 = data1.Where(
-                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%")
+                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%") || EF.Functions.Like(x.Debt.DebtGuarantor.fio, $"{fio.f}%")
                     );
                 data2 = data2.Where(
-                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%" )
+                    x => EF.Functions.Like(x.Person.f, $"{fio.f}%" ) || EF.Functions.Like(x.Debt.DebtGuarantor.fio, $"{fio.f}%")
                     );
-
-                if(data1.Count() == 0)
-                {
-                    /*
-                     */
-                    data1 = data1
-                        .Where(
-                            x => EF.Functions.Like(x.Debt.DebtGuarantor.fio, $"{fio.f}%")
-                        );
-                }
-                if(data1.Count() == 0)
-                {
-                    /*
-                     */
-                    data2 = data2
-                        .Where(
-                            x => EF.Functions.Like(x.Debt.DebtGuarantor.fio, $"${fio.f}%")
-                        );
-                }
-
-
             }
             if (!string.IsNullOrEmpty(fio.i))
             {
