@@ -1131,11 +1131,30 @@
       "3": 17
     },
     "without_act_status": {
-      "18": [9, 10, 11],
-      "25": [13, 14, 15]
+      "18": [ 9, 10, 11 ],
+      "25": [ 13, 14, 15 ]
     },
-    "without_exec_status": [5, 6],
+    "without_exec_status": [ 5, 6 ],
     "user_task": 3738,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОСТАВЛЕНИИ БЕЗ ДВИЖЕНИЯ ЗАЯВЛЕНИЯ ОБ ИНДЕКСАЦИИ ДС"
+  },
+  {
+    "id": 41,
+    "name": "Кредитное досье",
+    "color": 4,
+    "exec_number": false,
+    "fssp_doc_num": false,
+    "court_doc_num": false,
+    "court_order_date": false,
+    "court_exec_date": false,
+    "start_date": false,
+    "finish_date": false,
+    "receipt_date": false,
+    "return_date": false,
+    "restriction_to_leave_dt": false,
+    "reject_date": false,
+    "cancel_date": false,
+    "correct_period_date": false,
+    "session_date": false
   }
 ]
