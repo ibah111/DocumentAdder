@@ -1978,26 +1978,12 @@ namespace DocumentAdder.Forms
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
             // 
-            //  fake checkBox2
-            // 
-            /*
-            checkBox2.AutoSize = true;
-            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
-            checkBox2.Location = new System.Drawing.Point(550, 353);
-            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(62, 19);
-            checkBox2.TabIndex = 100;
-            checkBox2.Text = "Сканы";
-            checkBox2.UseVisualStyleBackColor = true;
-            */
-            // 
             // Search_ID_textBox
             // 
             Search_ID_textBox.Location = new System.Drawing.Point(731, 213);
             Search_ID_textBox.Name = "Search_ID_textBox";
             Search_ID_textBox.Size = new System.Drawing.Size(175, 23);
-            Search_ID_textBox.TabIndex = 132; 
+            Search_ID_textBox.TabIndex = 132;
             Search_ID_textBox.KeyDown += textBox1_KeyDown;
             // 
             // Search_IP_textBox
