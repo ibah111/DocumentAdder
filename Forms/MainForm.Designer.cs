@@ -2000,9 +2000,9 @@ namespace DocumentAdder.Forms
             Seach_Ip_Label.AutoSize = true;
             Seach_Ip_Label.Location = new System.Drawing.Point(913, 195);
             Seach_Ip_Label.Name = "Seach_Ip_Label";
-            Seach_Ip_Label.Size = new System.Drawing.Size(80, 15);
+            Seach_Ip_Label.Size = new System.Drawing.Size(96, 15);
             Seach_Ip_Label.TabIndex = 135;
-            Seach_Ip_Label.Text = "Поиск по ИП";
+            Seach_Ip_Label.Text = "№ Испол. пр-ва";
             // 
             // Search_Id_Label
             // 
@@ -2010,9 +2010,9 @@ namespace DocumentAdder.Forms
             Search_Id_Label.AutoSize = true;
             Search_Id_Label.Location = new System.Drawing.Point(731, 195);
             Search_Id_Label.Name = "Search_Id_Label";
-            Search_Id_Label.Size = new System.Drawing.Size(79, 15);
+            Search_Id_Label.Size = new System.Drawing.Size(95, 15);
             Search_Id_Label.TabIndex = 134;
-            Search_Id_Label.Text = "Поиск по ИД";
+            Search_Id_Label.Text = "№ Испол. док-а";
             // 
             // MainForm
             // 
