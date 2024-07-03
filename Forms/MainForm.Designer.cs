@@ -1115,9 +1115,9 @@ namespace DocumentAdder.Forms
             label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label31.Name = "label31";
             tableLayoutPanel1.SetRowSpan(label31, 5);
-            label31.Size = new System.Drawing.Size(178, 135);
+            label31.Size = new System.Drawing.Size(178, 165);
             label31.TabIndex = 62;
-            label31.Text = "Горячие клавиши:\r\n\r\nEnter -> Поиск\r\nCtrl + D -> Очистить панель\r\nCtrl + Q -> Удалить файлы\r\nCtrl + Shift + D -> Очистить все\r\nPageDown -> Перенести в конец строки\r\n**Примечание:\r\nПоиск проводите либо:\r\n1) По ФИО или данным дела\r\n2) По номеру ИП/ИД";
+            label31.Text = resources.GetString("label31.Text");
             // 
             // execNumberSearchBox
             // 
