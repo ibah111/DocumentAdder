@@ -87,7 +87,9 @@ public partial class OtherDocs : Form
                 nal_skan = current.data.Scan,
                 mode = current.data.Mode,
                 adres = current.From_mail,
-                mail = current.To_mail
+                mail = current.To_mail,
+                have_kd = current.data.Have_kd,
+                scan_copy_kd = current.data.Scan_copy_kd
             };
             var request = new RestRequest("/123").AddJsonBody(vm);
             var response = Program.client.Post<ServerResults>(request);

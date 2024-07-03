@@ -188,7 +188,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             checkBox4 = new System.Windows.Forms.CheckBox();
             checkBox1 = new System.Windows.Forms.CheckBox();
-            checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
             NeedBarcode = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -196,6 +195,12 @@ namespace DocumentAdder.Forms
             typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
             haveKD = new System.Windows.Forms.CheckBox();
             ScanCopyKD = new System.Windows.Forms.CheckBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
+            Search_ID_textBox = new System.Windows.Forms.TextBox();
+            Search_IP_textBox = new System.Windows.Forms.TextBox();
+            Seach_Ip_Label = new System.Windows.Forms.Label();
+            Search_Id_Label = new System.Windows.Forms.Label();
+            currentEnableds = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataModelBinding).BeginInit();
@@ -240,8 +245,8 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(label12, 5, 3);
             tableLayoutPanel1.Controls.Add(label13, 6, 3);
             tableLayoutPanel1.Controls.Add(button2, 3, 24);
-            tableLayoutPanel1.Controls.Add(LawActDataGridLabel, 4, 5);
-            tableLayoutPanel1.Controls.Add(dataGridView1, 4, 6);
+            tableLayoutPanel1.Controls.Add(LawActDataGridLabel, 4, 7);
+            tableLayoutPanel1.Controls.Add(dataGridView1, 4, 8);
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
             tableLayoutPanel1.Controls.Add(label20, 1, 7);
             tableLayoutPanel1.Controls.Add(label21, 2, 7);
@@ -312,10 +317,14 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 2, 10);
             tableLayoutPanel1.Controls.Add(label27, 2, 9);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 9);
-            tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
             tableLayoutPanel1.Controls.Add(gridFiles, 2, 19);
             tableLayoutPanel1.Controls.Add(haveKD, 3, 14);
             tableLayoutPanel1.Controls.Add(ScanCopyKD, 3, 15);
+            tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
+            tableLayoutPanel1.Controls.Add(Search_ID_textBox, 4, 6);
+            tableLayoutPanel1.Controls.Add(Search_IP_textBox, 5, 6);
+            tableLayoutPanel1.Controls.Add(Seach_Ip_Label, 5, 5);
+            tableLayoutPanel1.Controls.Add(Search_Id_Label, 4, 5);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -483,7 +492,7 @@ namespace DocumentAdder.Forms
             LawActDataGridLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             LawActDataGridLabel.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(LawActDataGridLabel, 2);
-            LawActDataGridLabel.Location = new System.Drawing.Point(732, 195);
+            LawActDataGridLabel.Location = new System.Drawing.Point(732, 265);
             LawActDataGridLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             LawActDataGridLabel.Name = "LawActDataGridLabel";
             LawActDataGridLabel.Size = new System.Drawing.Size(100, 15);
@@ -520,7 +529,7 @@ namespace DocumentAdder.Forms
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridView1.GridColor = System.Drawing.Color.Gray;
-            dataGridView1.Location = new System.Drawing.Point(732, 213);
+            dataGridView1.Location = new System.Drawing.Point(732, 283);
             dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -534,8 +543,8 @@ namespace DocumentAdder.Forms
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.RowHeadersVisible = false;
-            tableLayoutPanel1.SetRowSpan(dataGridView1, 12);
-            dataGridView1.Size = new System.Drawing.Size(724, 414);
+            tableLayoutPanel1.SetRowSpan(dataGridView1, 10);
+            dataGridView1.Size = new System.Drawing.Size(724, 344);
             dataGridView1.TabIndex = 100;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
@@ -757,10 +766,6 @@ namespace DocumentAdder.Forms
             receiptDateBox.ValidatingType = typeof(System.DateTime);
             receiptDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
-            // 
-            // currentEnableds
-            // 
-            currentEnableds.DataSource = typeof(SettingsModel);
             // 
             // returnDateBox
             // 
@@ -1105,9 +1110,9 @@ namespace DocumentAdder.Forms
             label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label31.Name = "label31";
             tableLayoutPanel1.SetRowSpan(label31, 5);
-            label31.Size = new System.Drawing.Size(178, 120);
+            label31.Size = new System.Drawing.Size(178, 165);
             label31.TabIndex = 62;
-            label31.Text = "Горячие клавиши:\r\n\r\nEnter -> Поиск\r\nCtrl + D -> Очистить панель\r\nCtrl + Q -> Удалить файлы\r\nCtrl + Shift + D -> Очистить все\r\nPageDown -> Перенести в конец строки";
+            label31.Text = resources.GetString("label31.Text");
             // 
             // execNumberSearchBox
             // 
@@ -1878,18 +1883,6 @@ namespace DocumentAdder.Forms
             checkBox1.Text = "Учёт конвертов\r\n";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
-            checkBox2.Location = new System.Drawing.Point(550, 353);
-            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(62, 19);
-            checkBox2.TabIndex = 100;
-            checkBox2.Text = "Сканы";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
             // gridFiles
             // 
             gridFiles.AllowDrop = true;
@@ -1949,6 +1942,7 @@ namespace DocumentAdder.Forms
             // haveKD
             // 
             haveKD.AutoSize = true;
+            haveKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Have_kd", true));
             haveKD.Location = new System.Drawing.Point(549, 493);
             haveKD.Name = "haveKD";
             haveKD.Size = new System.Drawing.Size(101, 19);
@@ -1959,12 +1953,65 @@ namespace DocumentAdder.Forms
             // ScanCopyKD
             // 
             ScanCopyKD.AutoSize = true;
+            ScanCopyKD.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan_copy_kd", true));
             ScanCopyKD.Location = new System.Drawing.Point(549, 528);
             ScanCopyKD.Name = "ScanCopyKD";
             ScanCopyKD.Size = new System.Drawing.Size(107, 19);
             ScanCopyKD.TabIndex = 130;
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
+            checkBox2.Location = new System.Drawing.Point(550, 353);
+            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(62, 19);
+            checkBox2.TabIndex = 100;
+            checkBox2.Text = "Сканы";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // Search_ID_textBox
+            // 
+            Search_ID_textBox.Location = new System.Drawing.Point(731, 213);
+            Search_ID_textBox.Name = "Search_ID_textBox";
+            Search_ID_textBox.Size = new System.Drawing.Size(175, 23);
+            Search_ID_textBox.TabIndex = 132;
+            Search_ID_textBox.KeyDown += textBox1_KeyDown;
+            // 
+            // Search_IP_textBox
+            // 
+            Search_IP_textBox.Location = new System.Drawing.Point(913, 213);
+            Search_IP_textBox.Name = "Search_IP_textBox";
+            Search_IP_textBox.Size = new System.Drawing.Size(176, 23);
+            Search_IP_textBox.TabIndex = 133;
+            Search_IP_textBox.KeyDown += textBox1_KeyDown;
+            // 
+            // Seach_Ip_Label
+            // 
+            Seach_Ip_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Seach_Ip_Label.AutoSize = true;
+            Seach_Ip_Label.Location = new System.Drawing.Point(913, 195);
+            Seach_Ip_Label.Name = "Seach_Ip_Label";
+            Seach_Ip_Label.Size = new System.Drawing.Size(96, 15);
+            Seach_Ip_Label.TabIndex = 135;
+            Seach_Ip_Label.Text = "№ Испол. пр-ва";
+            // 
+            // Search_Id_Label
+            // 
+            Search_Id_Label.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Search_Id_Label.AutoSize = true;
+            Search_Id_Label.Location = new System.Drawing.Point(731, 195);
+            Search_Id_Label.Name = "Search_Id_Label";
+            Search_Id_Label.Size = new System.Drawing.Size(95, 15);
+            Search_Id_Label.TabIndex = 134;
+            Search_Id_Label.Text = "№ Испол. док-а";
+            // 
+            // currentEnableds
+            // 
+            currentEnableds.DataSource = typeof(SettingsModel);
             // 
             // MainForm
             // 
@@ -2173,6 +2220,10 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.DataGridViewComboBoxColumn typDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox haveKD;
         private System.Windows.Forms.CheckBox ScanCopyKD;
+        private System.Windows.Forms.TextBox Search_ID_textBox;
+        private System.Windows.Forms.TextBox Search_IP_textBox;
+        private System.Windows.Forms.Label Search_Id_Label;
+        private System.Windows.Forms.Label Seach_Ip_Label;
     }
 }
 

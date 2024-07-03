@@ -461,4 +461,7 @@ public partial class Debt
     [InverseProperty(nameof(DebtCalc.Debt))]
     public virtual List<DebtCalc> DebtCalcs { get; set; } = new();
 
+    [InverseProperty(nameof(Models.DebtGuarantor.Debt))]
+    public virtual DebtGuarantor? DebtGuarantor { get; set; } = new();
+
 }

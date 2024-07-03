@@ -51,7 +51,7 @@ public partial class MainForm : Form
             string given = indata;
             idBox.Text = given.Replace("\r", string.Empty);
             //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
-            Searcher searcher = new Searcher(null, idBox.Text, "", "");
+            Searcher searcher = new Searcher(null, idBox.Text, "", "", "", "");
             await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
             {
@@ -95,10 +95,7 @@ public partial class MainForm : Form
             if (current.Data != null)
             {
                 var settings = (SettingsModel)currentEnableds.DataSource;
-                //if (settings.Exec_number && string.IsNullOrEmpty(current.Exec_number))
-                //{
-                //    return;
-                //}
+                               
                 if (settings.Fssp_doc_num && string.IsNullOrEmpty(current.Fssp_doc_num))
                 {
                     return;
@@ -412,7 +409,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.Enter)
         {
-            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, idBox.Text, contractBox.Text, execNumberSearchBox.Text);
+            Searcher searcher = new Searcher(new NamePerson() { f = textBoxF.Text, i = textBoxI.Text, o = textBoxO.Text }, idBox.Text, contractBox.Text, execNumberSearchBox.Text, Search_IP_textBox.Text, Search_ID_textBox.Text);
             await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
         }
         if (e.Control && e.KeyCode == Keys.D)
@@ -526,10 +523,10 @@ public partial class MainForm : Form
         // non exist value
         int[] req_values = { 500 };
         int cur_typ = (int)current.Typ_doc;
-        
+
         bool type_exist = req_values.Contains(cur_typ);
 
-        
+
         if (type_exist)
         {
             if (current.Files is null || current.Files.Count == 0)
@@ -554,9 +551,9 @@ public partial class MainForm : Form
         int errors = 0;
         List<ClientDoc> docs = new List<ClientDoc>();
         List<(int, string)> list = new List<(int, string)>();
-        
+
         foreach (var value in current.Files)
-        { 
+        {
 
             string file = value.Name; //Название файла.pdf
             string type = file.Split('.').Last(); //расширение файла
@@ -574,7 +571,7 @@ public partial class MainForm : Form
                     title = value.Name,
                     date = current.Data?.LawExec?.court_date?.ToShortDateString()
                 };
-                list.Add((result ,value.Name));
+                list.Add((result, value.Name));
 
                 if (current.Typ == LawTyp.LawExec)
                 {
@@ -609,30 +606,19 @@ public partial class MainForm : Form
             }
             else
             {
-
-                //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                //        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
-                //{
-                //    bool r = SberAdder();
-                //    if (!r)
-                //    {
-                //        errors += 1;
-                //    }
-                //}
                 try
                 {
                     var vm = getRequest("without_task", docs: docs);
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = await Program.client.PostAsync<ServerResults>(request);
                     if (response.Barcodes != null)
-                        foreach (var barcode in response.Barcodes) {
+                        foreach (var barcode in response.Barcodes)
+                        {
                             var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
                             Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
                         }
 
-                            
+
                 }
                 catch (Exception ee)
                 {
@@ -670,6 +656,10 @@ public partial class MainForm : Form
         var settings = (SettingsModel)currentEnableds.DataSource;
         var result = new
         {
+            //Тип документа
+            type_of_document_id = settings.Id,
+            //Наименование типа документа
+            type_of_document_name = settings.name,
             date_post = current.Date_post.ToString("o").Replace("+03:00", ""),
             Convert = current.Check,
             pristavi = current.Fssp,
@@ -700,9 +690,10 @@ public partial class MainForm : Form
             adres = mail?.From_mail,
             mail = mail?.From_mail,
             docs,
-            doc_type
+            doc_type,
+            have_kd = current.Have_kd,
+            scan_copy_kd = current.Scan_copy_kd,
         };
-        //result.dateDoc = Settings.dateDoc;
         return result;
     }
 
@@ -794,6 +785,8 @@ public partial class MainForm : Form
             Check = current.Check,
             Typ_doc = current.Typ_doc,
             Article_and_paragraph = current.Article_and_paragraph,
+            Have_kd = current.Have_kd,
+            Scan_copy_kd = current.Scan_copy_kd
         };
 
     }
@@ -801,7 +794,7 @@ public partial class MainForm : Form
     {
         var typ = current.Typ_doc;
         var binding = createData(data.data);
-        var settings = settings_json[typ.Value]; 
+        var settings = settings_json[typ.Value];
         dictStatus.DataSource = Settings.dicts[77].Values.ToList();
 
         if (!settings.without_exec_status.Contains(data.Status.Value) && settings.exec_status != null)

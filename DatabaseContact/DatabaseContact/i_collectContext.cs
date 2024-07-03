@@ -65,6 +65,8 @@ public partial class i_collectContext : DbContext
 
     public virtual DbSet<LawActSolicitation> LawActSolicitation { get; set; }
 
+    public virtual DbSet<DebtGuarantor> DebtGuarantor { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new Configurations.LawActPersonLinkConfiguration());
@@ -92,6 +94,7 @@ public partial class i_collectContext : DbContext
         modelBuilder.ApplyConfiguration(new Configurations.WorkTaskConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawSessionConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.LawActSolicitationConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.DebtGuarantorConfiguration());
 
         OnModelCreatingPartial(modelBuilder);
     }
