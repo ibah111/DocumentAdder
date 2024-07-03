@@ -95,10 +95,7 @@ public partial class MainForm : Form
             if (current.Data != null)
             {
                 var settings = (SettingsModel)currentEnableds.DataSource;
-                //if (settings.Exec_number && string.IsNullOrEmpty(current.Exec_number))
-                //{
-                //    return;
-                //}
+                               
                 if (settings.Fssp_doc_num && string.IsNullOrEmpty(current.Fssp_doc_num))
                 {
                     return;
@@ -609,18 +606,6 @@ public partial class MainForm : Form
             }
             else
             {
-
-                //if (comboBox1.Text.Contains("Дубликат судебного приказа (СП) в НАШУ пользу")
-                //        || comboBox1.Text.Contains("Судебный приказ (СП) в НАШУ пользу")
-                //        || comboBox1.Text.Contains("ИЛ в НАШУ пользу")
-                //        || comboBox1.Text.Contains("Дубликат ИЛ в НАШУ пользу"))
-                //{
-                //    bool r = SberAdder();
-                //    if (!r)
-                //    {
-                //        errors += 1;
-                //    }
-                //}
                 try
                 {
                     var vm = getRequest("without_task", docs: docs);
@@ -671,6 +656,10 @@ public partial class MainForm : Form
         var settings = (SettingsModel)currentEnableds.DataSource;
         var result = new
         {
+            //Тип документа
+            type_of_document_id = settings.Id,
+            //Наименование типа документа
+            type_of_document_name = settings.name,
             date_post = current.Date_post.ToString("o").Replace("+03:00", ""),
             Convert = current.Check,
             pristavi = current.Fssp,
@@ -705,7 +694,6 @@ public partial class MainForm : Form
             have_kd = current.Have_kd,
             scan_copy_kd = current.Scan_copy_kd,
         };
-        //result.dateDoc = Settings.dateDoc;
         return result;
     }
 
