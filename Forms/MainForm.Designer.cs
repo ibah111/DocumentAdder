@@ -188,7 +188,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             checkBox4 = new System.Windows.Forms.CheckBox();
             checkBox1 = new System.Windows.Forms.CheckBox();
-            checkBox2 = new System.Windows.Forms.CheckBox();
             gridFiles = new System.Windows.Forms.DataGridView();
             NeedBarcode = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -196,6 +195,7 @@ namespace DocumentAdder.Forms
             typDocumentsBindingSource = new System.Windows.Forms.BindingSource(components);
             haveKD = new System.Windows.Forms.CheckBox();
             ScanCopyKD = new System.Windows.Forms.CheckBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
             Search_ID_textBox = new System.Windows.Forms.TextBox();
             Search_IP_textBox = new System.Windows.Forms.TextBox();
             Seach_Ip_Label = new System.Windows.Forms.Label();
@@ -317,7 +317,6 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 2, 10);
             tableLayoutPanel1.Controls.Add(label27, 2, 9);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 3, 9);
-            tableLayoutPanel1.Controls.Add(checkBox2, 3, 10);
             tableLayoutPanel1.Controls.Add(gridFiles, 2, 19);
             tableLayoutPanel1.Controls.Add(haveKD, 3, 14);
             tableLayoutPanel1.Controls.Add(ScanCopyKD, 3, 15);
@@ -1888,18 +1887,6 @@ namespace DocumentAdder.Forms
             checkBox1.Text = "Учёт конвертов\r\n";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
-            checkBox2.Location = new System.Drawing.Point(550, 353);
-            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(62, 19);
-            checkBox2.TabIndex = 100;
-            checkBox2.Text = "Сканы";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
             // gridFiles
             // 
             gridFiles.AllowDrop = true;
@@ -1977,6 +1964,18 @@ namespace DocumentAdder.Forms
             ScanCopyKD.TabIndex = 130;
             ScanCopyKD.Text = "Скан копия КД";
             ScanCopyKD.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", dataModelBinding, "Scan", true));
+            checkBox2.Location = new System.Drawing.Point(550, 353);
+            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(62, 19);
+            checkBox2.TabIndex = 100;
+            checkBox2.Text = "Сканы";
+            checkBox2.UseVisualStyleBackColor = true;
             // 
             // Search_ID_textBox
             // 
