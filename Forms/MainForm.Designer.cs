@@ -767,10 +767,6 @@ namespace DocumentAdder.Forms
             receiptDateBox.ReadOnlyChanged += textBox_ReadOnlyChanged;
             receiptDateBox.KeyDown += textBox1_KeyDown;
             // 
-            // currentEnableds
-            // 
-            currentEnableds.DataSource = typeof(SettingsModel);
-            // 
             // returnDateBox
             // 
             returnDateBox.DataBindings.Add(new NegateBinding("ReadOnly", currentEnableds, "Return_date", true));
@@ -2012,6 +2008,10 @@ namespace DocumentAdder.Forms
             Search_Id_Label.Size = new System.Drawing.Size(95, 15);
             Search_Id_Label.TabIndex = 134;
             Search_Id_Label.Text = "№ Испол. док-а";
+            // 
+            // currentEnableds
+            // 
+            currentEnableds.DataSource = typeof(SettingsModel);
             // 
             // MainForm
             // 
