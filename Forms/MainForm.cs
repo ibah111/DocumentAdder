@@ -50,7 +50,6 @@ public partial class MainForm : Form
             ClearTextBox();
             string given = indata;
             idBox.Text = given.Replace("\r", string.Empty);
-            //Searcher searcher = new Searcher(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text)
             Searcher searcher = new Searcher(null, idBox.Text, "", "", "", "");
             await searcher.GetTables(lawActResultBindingSource, lawExecResultBindingSource);
             if (dataGridView1.RowCount == 1)
@@ -248,6 +247,7 @@ public partial class MainForm : Form
             cBMembers.Add(new CBMember() { name = "Мейл(Суд)", value = 3 });
             cBMembers.Add(new CBMember() { name = "Мейл(ФССП)", value = 4 });
             cBMembers.Add(new CBMember() { name = "Мейл(ИНТЕРНЕТ-ПРИЕМНАЯ)", value = 5 });
+            cBMembers.Add(new CBMember() { name = "Обработка кд", value = 6 });
             bindingSource1.DataSource = cBMembers;
             //ModeCB.DataSource = bindingSource1;
 
@@ -355,22 +355,6 @@ public partial class MainForm : Form
                 {
                     current.Document_name = settings.document_name;
                 }
-
-                //Settings.barcode = settings.Barcode;
-                //if (Settings.barcode == true)
-                //{
-                //    if (Utils.Printer.CheckCom())
-                //    {
-                //        selectDocBarcode.Enabled = true;
-                //    }
-                //    else { selectDocBarcode.Enabled = false; }
-                //}
-                //else
-                //{
-                //    selectDocBarcode.Enabled = false;
-                //}
-
-                //selectDocBarcode.Enabled = true;
             }
         }
     }
@@ -477,7 +461,7 @@ public partial class MainForm : Form
     private int getIntDict(int? typ = 0)
     {
         if (typ == 1) return 18;
-        else if (typ > 1) return 25;
+        else if (typ > 1) return 25; 
         return 0;
     }
     private int? getIntStatus(LawActResult data)
@@ -611,6 +595,47 @@ public partial class MainForm : Form
                     var vm = getRequest("without_task", docs: docs);
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = await Program.client.PostAsync<ServerResults>(request);
+                    if(current.Have_kd == true || current.Scan_copy_kd == true)
+                    {
+                        //айди типа "КД в наличии"
+                        var kd_dict = db.Dict.Where(x => x.id == 4475).FirstOrDefault();
+                        
+                        var id_dela = current.Id;
+
+                        Debt previous_value;
+                        //использую айди для поиска долга по БД судебных дел
+                        if(doc_type == 1)
+                        {
+                            int? law_act_id = id_dela;
+                            var law_act = db.LawAct.Where(x => x.id == law_act_id).FirstOrDefault();
+                            var debt = law_act.Debt;
+                            previous_value = debt;
+                            var prev_typ = previous_value.typ;
+                            var prev_type_name = db.Dict.Where(x => x.id == prev_typ).FirstOrDefault().name;
+                            MessageBox.Show($"Текущий тип продукта в долге {debt.id}: {prev_type_name}, будет изменен на {kd_dict.name}");
+                            
+                            debt.typ = kd_dict.id;
+                            var saving = db.SaveChanges();
+                            
+                        }
+
+                        //использую айди для поиска долга по БД исполнительных производств
+                        if(doc_type == 2)
+                        {
+                            int? law_exec_id = id_dela;
+                            var law_exec = db.LawExec.Where(x => x.id == law_exec_id).FirstOrDefault();
+                            var debt = law_exec.Debt;
+                            previous_value = debt;
+                            var prev_typ = previous_value.typ;
+                            var prev_type_name = db.Dict.Where(x => x.id == prev_typ).FirstOrDefault().name;
+                            MessageBox.Show($"Текущий тип продукта в долге {debt.id}: {prev_type_name}, будет изменен на {kd_dict.name}");
+                            debt.typ = kd_dict.id;
+                            db.SaveChanges();
+                        }
+                    }
+
+                    //
+
                     if (response.Barcodes != null)
                         foreach (var barcode in response.Barcodes)
                         {
