@@ -595,7 +595,9 @@ public partial class MainForm : Form
                     var vm = getRequest("without_task", docs: docs);
                     var request = new RestRequest("/123").AddJsonBody(vm);
                     var response = await Program.client.PostAsync<ServerResults>(request);
-                    if(current.Have_kd == true || current.Scan_copy_kd == true)
+
+                    var settings = (SettingsModel)currentEnableds.DataSource;
+                    if (settings.Id == 41)
                     {
                         //айди типа "КД в наличии"
                         var kd_dict = db.Dict.Where(x => x.id == 4475).FirstOrDefault();
