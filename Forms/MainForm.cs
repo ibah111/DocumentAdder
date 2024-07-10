@@ -616,7 +616,7 @@ public partial class MainForm : Form
                             var prev_type_name = db.Dict.Where(x => x.id == prev_typ).FirstOrDefault().name;
                             MessageBox.Show($"Текущий тип продукта в долге {debt.id}: {prev_type_name}, будет изменен на {kd_dict.name}");
                             
-                            debt.typ = kd_dict.id;
+                            debt.typ = kd_dict.code;
                             var saving = db.SaveChanges();
                             
                         }
