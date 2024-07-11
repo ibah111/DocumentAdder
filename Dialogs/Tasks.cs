@@ -103,7 +103,7 @@ public partial class Tasks : Form
             {
                 foreach (var barcode in response.Barcodes)
                 {
-                    var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
+                    var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + Forms.current.Data.Debt.portfolio;
                     Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
                 }
             }

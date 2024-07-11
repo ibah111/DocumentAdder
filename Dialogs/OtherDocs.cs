@@ -97,7 +97,7 @@ public partial class OtherDocs : Form
                 foreach (var barcode in response.Barcodes)
                 {
 
-                    var str = $"Документ: \n" + vm.doc_name + ' ' + vm.gd + ' ' + vm.fio_dol + '.';
+                    var str = $"Док: " + vm.doc_name + '\n' + vm.reestr;
                     Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
 
                 }            
