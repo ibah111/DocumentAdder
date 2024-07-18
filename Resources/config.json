@@ -1141,7 +1141,7 @@
   {
     "id": 41,
     "name": "Кредитное досье",
-    "color": 4,
+    "color": 0,
     "exec_number": false,
     "fssp_doc_num": false,
     "court_doc_num": false,
