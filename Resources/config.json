@@ -327,7 +327,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3975,
     "document_name": "ОПРЕДЕЛЕНИЕ О ВОЗВРАТЕ ЗАЯВЛЕНИЯ О ЗАМЕНЕ",
     "with_court": true
   },
@@ -417,7 +417,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3975,
     "document_name": "ОПРЕДЕЛЕНИЕ О ВОЗВРАТЕ ЗАЯВЛЕНИЯ О ВЫНЕСЕНИИ СП",
     "with_court": true
   },
@@ -447,7 +447,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3975,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОТКАЗЕ В ПРИНЯТИИ ЗАЯВЛЕНИЯ О ВЫНЕСЕНИИ СП",
     "with_court": true
   },
@@ -477,7 +477,7 @@
       "25": [14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3975,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОТМЕНЕ СП"
   },
   {
@@ -649,7 +649,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3975,
     "document_name": "ОПРЕДЕЛЕНИЕ О ВОЗВРАТЕ ИСКОВОГО ЗАЯВЛЕНИЯ",
     "with_court": true
   },
@@ -679,7 +679,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3975,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОТКАЗЕ В ПРИНЯТИИ ИСКОВОГО ЗАЯВЛЕНИЯ",
     "with_court": true
   },
@@ -709,7 +709,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 496,
+    "user_task": 3738,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОСТАВЛЕНИИ БЕЗ РАССМОТРЕНИЯ ИСКОВОГО ЗАЯВЛЕНИЯ",
     "with_court": true
   },
