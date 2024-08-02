@@ -25,7 +25,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 944,
+    "user_task": 59,
     "document_name": "СП",
     "barcode": true
   },
@@ -271,7 +271,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 3738,
+    "user_task": 4123,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОСТАВЛЕНИИ БЕЗ ДВИЖЕНИЯ ЗАЯВЛЕНИЯ О ЗАМЕНЕ"
   },
   {
@@ -593,7 +593,7 @@
       "25": [14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 3738,
+    "user_task": 4123,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОСТАВЛЕНИИ БЕЗ ДВИЖЕНИЯ ИСКОВОГО ЗАЯВЛЕНИЯ"
   },
   {
@@ -847,7 +847,8 @@
       "18": [9, 10, 11],
       "25": [13, 14, 15]
     },
-    "without_exec_status": [5, 6],
+    "without_exec_status": [ 5, 6 ],
+    "user_task":  59,
     "barcode": true
   },
   {
@@ -922,7 +923,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 404,
+    "user_task": 5028,
     "document_name": "ПОСТАНОВЛЕНИЕ О ВРЕМЕННОМ ОГРАНИЧЕНИИ НА ВЫЕЗД ДОЛЖНИКА ИЗ РФ"
   },
   {
@@ -950,7 +951,7 @@
     },
     "without_exec_status": [5, 6],
     "barcode": true,
-    "user_task": 944,
+    "user_task": 59,
     "document_name": "ПОСТАНОВЛЕНИЕ ОБ ОТКАЗЕ В ВОЗБУЖДЕНИИ ИП"
   },
   {
@@ -1051,7 +1052,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 3738,
+    "user_task": 4382,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОТКАЗЕ В ВЫДАЧЕ ДУБЛИКАТА ИД"
   },
   {
@@ -1135,7 +1136,7 @@
       "25": [ 13, 14, 15 ]
     },
     "without_exec_status": [ 5, 6 ],
-    "user_task": 3738,
+    "user_task": 4123,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОСТАВЛЕНИИ БЕЗ ДВИЖЕНИЯ ЗАЯВЛЕНИЯ ОБ ИНДЕКСАЦИИ ДС"
   },
   {
