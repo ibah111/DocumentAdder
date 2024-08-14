@@ -1156,6 +1156,7 @@
     "reject_date": false,
     "cancel_date": false,
     "correct_period_date": false,
-    "session_date": false
+    "session_date": false,
+    "document_name": "КД.Досье"
   }
 ]
