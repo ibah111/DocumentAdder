@@ -1157,6 +1157,7 @@
     "cancel_date": false,
     "correct_period_date": false,
     "session_date": false,
-    "document_name": "КД.Досье"
+    "document_name": "КД.Досье",
+    "user_task": 0
   }
 ]
