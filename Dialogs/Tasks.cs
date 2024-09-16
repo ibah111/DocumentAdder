@@ -106,8 +106,10 @@ public partial class Tasks : Form
                     var portfolio = Forms.current.Data.Debt.portfolio;
                     if(portfolio.Length > 0)
                     {
-                    var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + portfolio;
-                    Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+                        var item = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
+                        var p = portfolio.Length > 0 ? $"{portfolio}" : "";
+                        var str = $"{item}\n{p}";
+                        Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
                     }
                     else
                     {
