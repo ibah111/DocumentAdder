@@ -103,8 +103,17 @@ public partial class Tasks : Form
             {
                 foreach (var barcode in response.Barcodes)
                 {
-                    var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + Forms.current.Data.Debt.portfolio;
+                    var portfolio = Forms.current.Data.Debt.portfolio;
+                    if(portfolio.Length > 0)
+                    {
+                    var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + portfolio;
                     Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+                    }
+                    else
+                    {
+                        var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2;
+                        Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+                    }
                 }
             }
         }
