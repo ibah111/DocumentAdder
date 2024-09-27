@@ -36,6 +36,7 @@ public partial class MainForm : Form
     private static string path_to_list = Environment.CurrentDirectory + "\\Список_Для_Документов.txt";
     private static string path_to_list_adr = Environment.CurrentDirectory + "\\Список_Для_Адреса.txt";
     private static string path_to_list_otprav = Environment.CurrentDirectory + "\\Список_Для_Отправителя.txt";
+    private static string path_to_list_return_reason = Environment.CurrentDirectory + "\\Список_Причин_Возврата.txt";
     private static SerialPort currentPort = new SerialPort();
     private bool runed = false;
     private Dictionary<int, SettingsModel> settings_json = new();
@@ -720,6 +721,7 @@ public partial class MainForm : Form
             doc_type,
             have_kd = current.Have_kd,
             scan_copy_kd = current.Scan_copy_kd,
+            return_reason = current.Return_reason,
         };
         return result;
     }
@@ -813,7 +815,8 @@ public partial class MainForm : Form
             Typ_doc = current.Typ_doc,
             Article_and_paragraph = current.Article_and_paragraph,
             Have_kd = current.Have_kd,
-            Scan_copy_kd = current.Scan_copy_kd
+            Scan_copy_kd = current.Scan_copy_kd,
+            Return_reason = current.Return_reason
         };
 
     }
@@ -937,6 +940,18 @@ public partial class MainForm : Form
             File.AppendAllText(path_to_list_otprav, postAddressBox.Text + "\n");
             List<string> spis2 = (await File.ReadAllLinesAsync(path_to_list_otprav)).ToList();
             postAddressBox.DataSource = spis2;
+        }
+    }
+
+    private async void AddReturnReasonButton_Click(object sender, EventArgs e)
+    {
+        if ((returnResonComboBox.Text == " ") || (returnResonComboBox.Text == ""))
+            MessageBox.Show("При добавлении возникли ошибки, скорее всего, поле не заполнено");
+        else
+        {
+            File.AppendAllText(path_to_list_return_reason, returnResonComboBox.Text + "\n");
+            List<string> return_reason_list = (await File.ReadAllLinesAsync(path_to_list_return_reason)).ToList();
+            returnResonComboBox.DataSource = return_reason_list;
         }
     }
 

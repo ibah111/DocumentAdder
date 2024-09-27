@@ -163,6 +163,9 @@ public partial class DataModel : ObservableObject
     private bool scan_copy_kd = false;
 
     [ObservableProperty]
+    private string? return_reason = "";
+
+    [ObservableProperty]
     private int? typ_doc = null;
 
     public ObservableCollection<FileData> Files = new();

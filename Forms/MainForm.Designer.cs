@@ -200,6 +200,9 @@ namespace DocumentAdder.Forms
             Search_IP_textBox = new System.Windows.Forms.TextBox();
             Seach_Ip_Label = new System.Windows.Forms.Label();
             Search_Id_Label = new System.Windows.Forms.Label();
+            returnReasonLabel = new System.Windows.Forms.Label();
+            returnResonComboBox = new System.Windows.Forms.ComboBox();
+            AddReturnReasonButton = new System.Windows.Forms.Button();
             currentEnableds = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Users).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -325,6 +328,9 @@ namespace DocumentAdder.Forms
             tableLayoutPanel1.Controls.Add(Search_IP_textBox, 5, 6);
             tableLayoutPanel1.Controls.Add(Seach_Ip_Label, 5, 5);
             tableLayoutPanel1.Controls.Add(Search_Id_Label, 4, 5);
+            tableLayoutPanel1.Controls.Add(returnReasonLabel, 2, 14);
+            tableLayoutPanel1.Controls.Add(returnResonComboBox, 2, 15);
+            tableLayoutPanel1.Controls.Add(AddReturnReasonButton, 2, 16);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2009,6 +2015,37 @@ namespace DocumentAdder.Forms
             Search_Id_Label.TabIndex = 134;
             Search_Id_Label.Text = "№ Испол. док-а";
             // 
+            // returnReasonLabel
+            // 
+            returnReasonLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            returnReasonLabel.AutoSize = true;
+            returnReasonLabel.Location = new System.Drawing.Point(367, 510);
+            returnReasonLabel.Name = "returnReasonLabel";
+            returnReasonLabel.Size = new System.Drawing.Size(108, 15);
+            returnReasonLabel.TabIndex = 136;
+            returnReasonLabel.Text = "Причина возврата";
+            // 
+            // returnResonComboBox
+            // 
+            returnResonComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            returnResonComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Return_reason", true));
+            returnResonComboBox.FormattingEnabled = true;
+            returnResonComboBox.Location = new System.Drawing.Point(367, 528);
+            returnResonComboBox.Name = "returnResonComboBox";
+            returnResonComboBox.Size = new System.Drawing.Size(176, 23);
+            returnResonComboBox.TabIndex = 137;
+            // 
+            // AddReturnReasonButton
+            // 
+            AddReturnReasonButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            AddReturnReasonButton.Location = new System.Drawing.Point(367, 563);
+            AddReturnReasonButton.Name = "AddReturnReasonButton";
+            AddReturnReasonButton.Size = new System.Drawing.Size(176, 29);
+            AddReturnReasonButton.TabIndex = 138;
+            AddReturnReasonButton.Text = "Добавить причину возврата";
+            AddReturnReasonButton.UseVisualStyleBackColor = true;
+            AddReturnReasonButton.Click += AddReturnReasonButton_Click;
+            // 
             // currentEnableds
             // 
             currentEnableds.DataSource = typeof(SettingsModel);
@@ -2224,6 +2261,9 @@ namespace DocumentAdder.Forms
         private System.Windows.Forms.TextBox Search_IP_textBox;
         private System.Windows.Forms.Label Search_Id_Label;
         private System.Windows.Forms.Label Seach_Ip_Label;
+        private System.Windows.Forms.Label returnReasonLabel;
+        private System.Windows.Forms.ComboBox returnResonComboBox;
+        private System.Windows.Forms.Button AddReturnReasonButton;
     }
 }
 
