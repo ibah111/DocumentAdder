@@ -2028,6 +2028,8 @@ namespace DocumentAdder.Forms
             // returnResonComboBox
             // 
             returnResonComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            returnResonComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            returnResonComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             returnResonComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", dataModelBinding, "Return_reason", true));
             returnResonComboBox.FormattingEnabled = true;
             returnResonComboBox.Location = new System.Drawing.Point(367, 528);
