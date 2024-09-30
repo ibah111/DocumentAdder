@@ -283,6 +283,15 @@ public partial class MainForm : Form
             {
                 File.CreateText(path_to_list_otprav);
             }
+            if(File.Exists(path_to_list_return_reason))
+            {
+                List<string> return_reason_spis = (await File.ReadAllLinesAsync(path_to_list_return_reason)).ToList();
+                returnResonComboBox.DataSource = return_reason_spis;
+            }
+            else
+            {
+                File.CreateText(path_to_list_return_reason);
+            }
             Settings.json = Resources.config;
             var o = JsonConvert.DeserializeObject<List<SettingsModel>>(Settings.json).ToDictionary(x => x.Id);
             settings_json = o;
