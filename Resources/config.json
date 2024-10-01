@@ -357,7 +357,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 2805,
+    "user_task": 5187,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОСТАВЛЕНИИ БЕЗ РАССМОТРЕНИЯ ЗАЯВЛЕНИЯ О ЗАМЕНЕ",
     "with_court": true
   },
@@ -387,7 +387,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 2805,
+    "user_task": 5187,
     "document_name": "ОПРЕДЕЛЕНИЕ ОБ ОТКАЗЕ В ПРИНЯТИИ ЗАЯВЛЕНИЯ О ЗАМЕНЕ",
     "with_court": true
   },
@@ -506,7 +506,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 2805,
+    "user_task": 5187,
     "document_name": "РЕШЕНИЕ"
   },
   {
@@ -535,7 +535,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 2805,
+    "user_task": 5187,
     "document_name": "РЕШЕНИЕ О ЧАСТИЧНОМ УДОВЛЕТВОРЕНИИ ИСКОВЫХ ТРЕБОВАНИЙ"
   },
   {
@@ -739,7 +739,7 @@
       "25": [13, 14, 15]
     },
     "without_exec_status": [5, 6],
-    "user_task": 2805,
+    "user_task": 5187,
     "document_name": "ОПРЕДЕЛЕНИЕ О ПРЕКРАЩЕНИИ ПРОИЗВОДСТВА ПО ИСКОВОМУ ЗАЯВЛЕНИЮ"
   },
   {
