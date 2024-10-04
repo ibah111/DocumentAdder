@@ -651,7 +651,8 @@ public partial class MainForm : Form
                     if (response.Barcodes != null)
                         foreach (var barcode in response.Barcodes)
                         {
-                            var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + current.Data.Debt.portfolio;
+                            var cond = current.Data.Debt?.portfolio != null ? current.Data.Debt.portfolio : "";
+                            var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + cond;
                             Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
                         }
 
