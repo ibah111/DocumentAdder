@@ -651,9 +651,17 @@ public partial class MainForm : Form
                     if (response.Barcodes != null)
                         foreach (var barcode in response.Barcodes)
                         {
-                            var cond = current.Data.Debt?.portfolio != null ? current.Data.Debt.portfolio : "";
-                            var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + '\n' + cond;
+                            string portfolio = "";
+                            if (current.Data.Debt != null) 
+                            {
+                                if(current.Data.Debt.portfolio != null)
+                                {
+                                    portfolio = $"\n{current.Data.Debt.portfolio}";
+                                } 
+                            }
+                            var str = list.FirstOrDefault(x => x.Item1 == barcode.doc).Item2 + $"{portfolio}";
                             Utils.Printer.PrintBarсodeWithTitle(barcode.barcode, str);
+                            MessageBox.Show($"Строка:\n{barcode.barcode}\n{str}, Распечатано");
                         }
 
 
