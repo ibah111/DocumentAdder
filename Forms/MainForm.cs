@@ -623,11 +623,11 @@ public partial class MainForm : Form
                             var debt = law_act.Debt;
                             previous_value = debt;
                             var prev_typ = previous_value.typ;
-                            var prev_type_name = db.Dict.Where(x => x.id == prev_typ).FirstOrDefault().name;
-                            MessageBox.Show($"Текущий тип продукта в долге {debt.id}: {prev_type_name}, будет изменен на {kd_dict.name}");
+                            var prev_type_name = previous_value.typ != null ? db.Dict.Where(x => x.id == prev_typ).FirstOrDefault().name :  "(Имени продукта нет)";
                             
                             debt.typ = kd_dict.code;
                             var saving = db.SaveChanges();
+                            MessageBox.Show($"Текущий тип продукта в долге {debt.id}: {prev_type_name}, будет изменен на {kd_dict.name}");
                             
                         }
 
