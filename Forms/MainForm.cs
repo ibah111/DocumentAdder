@@ -436,6 +436,10 @@ public partial class MainForm : Form
         var binding = createData();
         dataModelBinding.DataSource = binding;
     }
+    /*
+        Верхняя таблица, судебной работы 
+        LawAct table
+     */
     private void InstallData(LawActResult data, bool notChange = false)
     {
         var typ = current.Typ_doc;
@@ -464,6 +468,11 @@ public partial class MainForm : Form
             {
                 binding.Document_name = settings.document_name;
             }
+        }
+        if (typ == 42)
+        {
+            binding.Post_address = "Г. НИЖНИЙ НОВГОРОД НИЖЕГОРОДСКАЯ ОБЛ.";
+            binding.Post_name = "ПАО СБЕРБАРНК";
         }
         dataModelBinding.DataSource = binding;
 
@@ -838,6 +847,10 @@ public partial class MainForm : Form
         };
 
     }
+    /*
+     *  Таблица испол. пр-ва
+        LawExec
+     */
     private void InstallData(LawExecResult data, bool notChange = false)
     {
         var typ = current.Typ_doc;
@@ -865,8 +878,12 @@ public partial class MainForm : Form
                 binding.Document_name = settings.document_name;
             }
         }
+        if (typ == 42)
+        {
+            binding.Post_address = "Г. НИЖНИЙ НОВГОРОД НИЖЕГОРОДСКАЯ ОБЛ.";
+            binding.Post_name = "ПАО СБЕРБАНК";
+        }
         dataModelBinding.DataSource = binding;
-
     }
 
     private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -1141,7 +1141,7 @@
   },
   {
     "id": 41,
-    "color":  -1,    
+    "color": -1,
     "name": "Кредитное досье",
     "exec_number": false,
     "fssp_doc_num": false,
@@ -1159,5 +1159,28 @@
     "session_date": false,
     "document_name": "КД.Досье",
     "user_task": 0
+  },
+  {
+    "id": 42,
+    "name": "Возврат ИД от сбербанка",
+    "color": -1,
+    "exec_number": true,
+    "fssp_doc_num": false,
+    "court_doc_num": false,
+    "court_order_date": false,
+    "court_exec_date": false,
+    "start_date": false,
+    "finish_date": false,
+    "receipt_date": false,
+    "return_date": false,
+    "restriction_to_leave_dt": false,
+    "reject_date": false,
+    "cancel_date": false,
+    "correct_period_date": false,
+    "session_date": false,
+    "exec_status": 8,
+    "barcode": true,
+    "user_task": 59,
+    "document_name": "ВОЗВРАТ КОНВЕРТА"
   }
 ]
